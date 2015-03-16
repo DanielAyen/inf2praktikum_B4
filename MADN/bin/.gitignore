@@ -1,4 +1,4 @@
-/Spielbrett.class
-/Spielfeld.class
-/Spielfigur.class
-/TestKlasse.class
+/Farb.class
+/Würfel.class
+/TestWürfel.class
+/Spieler.class
