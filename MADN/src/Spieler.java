@@ -1,4 +1,3 @@
-
 /**
  * Die Klasse Spieler (Mensch vor dem PC)
  * 
@@ -8,45 +7,51 @@
  *            ID des Spielers
  **/
 
-public class Spieler {
+public abstract class Spieler {
 
-	private Spieler s;
+	// private Spieler s;
 	private String n; // name
 	private int ID; // SpielerID
-	private Spielfeld sf;
+	// private Spielfeld sf;
 	private FarbEnum f;
 	private Würfel w;
+	private Spielfigur fig;
 
-	// private Figur1 fig1;
-	// private Figur2 fig2;
-	// private Figur3 fig3;
-	// private Figur4 fig4;
 	/** Konstruktor des Spielers **/
-	public Spieler(Spielfeld sf, Spieler s) {
-		// this.sf=sf;
-		this.s = s;
+	public Spieler() {
+		w = new Würfel();
 
 	}
+/**
+ * @return gibt gewürfelte Zahl zurück 
+ **/
+	public int werfen() {
+		return (w.werfen());
+	}
 
-	/** @return gibt die SpielerID zurück **/
+	/** @return ID gibt die SpielerID zurück **/
 	public int getSpielerID() {
 		return ID;
 	}
 
+	/** @return n gibt den Namen des Spielers zurück **/
 	public String getName() {
 		return n;
 	}
 
+	/** @return f gibt die Farbe des Spielers zurück **/
 	public FarbEnum getFarbe() {
 		return f;
 	}
 
+	/** @return gibt Name, ID und Farbe des Spielers zurück */
 	@Override
 	public String toString() {
 		return "Spieler" + getName() + "mit der ID" + getSpielerID()
 				+ " und der Farbe " + getFarbe();
 	}
 
+	/** @return Vergleicht (über ID), ob Spieler wirklich DER Spieler ist */
 	@Override
 	public boolean equals(Object o) {
 		if (!(o instanceof Spieler))
