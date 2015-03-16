@@ -1,6 +1,6 @@
 
 /**
- * Die Klasse Spieler
+ * Die Klasse Spieler (Mensch vor dem PC)
  * 
  * @param n
  *            Name des Spielers
@@ -14,7 +14,7 @@ public class Spieler {
 	private String n; // name
 	private int ID; // SpielerID
 	private Spielfeld sf;
-	private Farb f;
+	private FarbEnum f;
 	private Würfel w;
 
 	// private Figur1 fig1;
@@ -37,7 +37,7 @@ public class Spieler {
 		return n;
 	}
 
-	public Farb getFarbe() {
+	public FarbEnum getFarbe() {
 		return f;
 	}
 
