@@ -10,11 +10,16 @@ public class JUnitTests {
 		Spielfeld feld = new Spielfeld();
 	}
 
-	
 	@Test
-	public void werfen(){
+	public void werfen() {
 		Würfel w = new Würfel();
 		w.werfen();
+	}
+
+	@Test
+	public void SpielerErzeugen() {
+		Spieler s = new Spieler("Hans", 123, FarbEnum.ROT);
+		Spieler s2 = new Spieler ("Oli", 567, FarbEnum.ROT);
 	}
 
 }
