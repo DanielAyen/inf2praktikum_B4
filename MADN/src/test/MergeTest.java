@@ -8,6 +8,7 @@ public class MergeTest {
 		System.out.println("Hallo ich bin Sandra");
 		System.out.println("Hier schreibt Verena..");
 		System.out.println("Abgabe");
+		System.out.println("Hier nochmal Daniel");
 
 	}
 
