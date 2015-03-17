@@ -1,3 +1,5 @@
+import javax.lang.model.element.Name;
+
 /**
  * Die Klasse Spieler (Mensch vor dem PC)
  * 
@@ -7,36 +9,57 @@
  *            ID des Spielers
  **/
 
-public abstract class Spieler {
+public class Spieler {
 
-	// private Spieler s;
-	private String n; // name
+	private String name;
 	private int ID; // SpielerID
 	// private Spielfeld sf;
 	private FarbEnum f;
 	private Würfel w;
 	private Spielfigur fig;
+	//private KI ki = new KI;
 
 	/** Konstruktor des Spielers **/
-	public Spieler() {
+	public Spieler(String name, int ID) {
+		setName(name);
 		w = new Würfel();
-
+		this.ID = ID;
+		//ki.add(new KI(this));
 	}
-/**
- * @return gibt gewürfelte Zahl zurück 
- **/
+
+	/**
+	 * @return gibt gewürfelte Zahl zurück
+	 */
 	public int werfen() {
 		return (w.werfen());
 	}
 
-	/** @return ID gibt die SpielerID zurück **/
+	/** 
+	 * @return ID gibt die SpielerID zurück 
+	 */
 	public int getSpielerID() {
 		return ID;
 	}
 
+	/**
+	 * @param name
+	 *            Name des Spielers
+	 * @exception RuntimeException
+	 *                wenn kein Name oder ein zu kurzer Name eingegeben wurde
+	 */
+	public void setName(String name) {
+		if (name == null || name.length() < 2) {
+			throw new RuntimeException(
+					"Der Name ist zu kur! Bitte mehr als zwei Zeichen eingeben.");
+		} else {
+			this.name = name;
+		}
+
+	}
+
 	/** @return n gibt den Namen des Spielers zurück **/
 	public String getName() {
-		return n;
+		return name;
 	}
 
 	/** @return f gibt die Farbe des Spielers zurück **/
@@ -59,5 +82,6 @@ public abstract class Spieler {
 		Spieler s = (Spieler) o;
 		return (s.getSpielerID() == this.getSpielerID());
 	}
+
 
 }
