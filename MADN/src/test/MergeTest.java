@@ -10,6 +10,7 @@ public class MergeTest {
 		System.out.println("Abgabe");
 		System.out.println("Hier nochmal Daniel");
 		System.out.println("schon wieder die Verena");
+		System.out.println("Pizza");
 
 	}
 
