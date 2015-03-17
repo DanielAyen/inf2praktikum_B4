@@ -1,7 +1,7 @@
 import javax.lang.model.element.Name;
 
 /**
- * Die Klasse Spieler (Mensch vor dem PC)
+ * Die Klasse Spieler
  * 
  * @param n
  *            Name des Spielers
@@ -14,7 +14,7 @@ public class Spieler {
 	private String name;
 	private FarbEnum f;
 	private Spielfigur fig;
-	private Würfel w;
+	private Wuerfel w;
 	private int ID; // SpielerID
 	// private Spielfeld sf;
 	//private KI ki = new KI;
@@ -22,21 +22,21 @@ public class Spieler {
 	/** Konstruktor des Spielers **/
 	public Spieler(String name, int ID, FarbEnum f) {
 		setName(name);
-		w = new Würfel();
+		w = new Wuerfel();
 		this.f=f;
 		this.ID = ID;
 		//ki.add(new KI(this));
 	}
 
 	/**
-	 * @return gibt gewürfelte Zahl zurück
+	 * @return gibt gewuerfelte Zahl zurueck
 	 */
 	public int werfen() {
 		return (w.werfen());
 	}
 
 	/** 
-	 * @return ID gibt die SpielerID zurück 
+	 * @return ID gibt die SpielerID zurueck 
 	 */
 	public int getSpielerID() {
 		return ID;
@@ -45,7 +45,7 @@ public class Spieler {
 	/**
 	 * @param name
 	 *            Name des Spielers
-	 * @exception RuntimeException
+	 * @throws RuntimeException
 	 *                wenn kein Name oder ein zu kurzer Name eingegeben wurde
 	 */
 	public void setName(String name) {
@@ -58,7 +58,7 @@ public class Spieler {
 
 	}
 
-	/** @return n gibt den Namen des Spielers zurück **/
+	/** @return n gibt den Namen des Spielers zurueck **/
 	public String getName() {
 		return name;
 	}
@@ -71,19 +71,19 @@ public class Spieler {
 		this.f=f;
 	}
 	
-	/** @return f gibt die Farbe des Spielers zurück **/
+	/** @return f gibt die Farbe des Spielers zurueck **/
 	public FarbEnum getFarbe() {
 		return f;
 	}
 
-	/** @return gibt Name, ID und Farbe des Spielers zurück */
+	/** @return gibt Name, ID und Farbe des Spielers zurueck */
 	@Override
 	public String toString() {
 		return "Spieler" + getName() + "mit der ID" + getSpielerID()
 				+ " und der Farbe " + getFarbe();
 	}
 
-	/** @return Vergleicht (über ID), ob Spieler wirklich DER Spieler ist */
+	/** @return Vergleicht (ueber ID), ob Spieler wirklich DER Spieler ist */
 	@Override
 	public boolean equals(Object o) {
 		if (!(o instanceof Spieler))

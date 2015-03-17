@@ -4,7 +4,7 @@ import java.util.ArrayList;
  * Die Klasse Spielfeld
  * 
  * @param SF
- *            ArrayList für alle Felder
+ *            ArrayList fuer alle Felder
  **/
 
 public class Spielfeld {
@@ -12,11 +12,11 @@ public class Spielfeld {
 	ArrayList<Object> SF = new ArrayList<Object>();
 
 	/**
-	 * Hier wird jedem Feld eine ID (ein Name+Nummer) zugewiesen. Fügt
+	 * Hier wird jedem Feld eine ID (ein Name+Nummer) zugewiesen. Fuegt
 	 * Startfelder, normale Felder und EndFelder hinzu.
 	 * 
 	 * @param i
-	 *            Zählt die Felder hoch.
+	 *            Zaehlt die Felder hoch.
 	 */
 
 	public void erstelleFeld() {

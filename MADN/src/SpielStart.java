@@ -1,5 +1,5 @@
 /**
- * Das Spiel "Mensch ärgere dich nicht"
+ * Das Spiel "Mensch aergere dich nicht"
  * 
  * @author Gruppe B4 - Daniel, Sandra, Eleni, Verena
  * 

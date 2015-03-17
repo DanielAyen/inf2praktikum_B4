@@ -12,7 +12,7 @@ public class JUnitTests {
 
 	@Test
 	public void werfen() {
-		Würfel w = new Würfel();
+		Wuerfel w = new Wuerfel();
 		w.werfen();
 	}
 
