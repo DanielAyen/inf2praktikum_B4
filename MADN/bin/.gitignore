@@ -1,5 +1,14 @@
+/FarbEnum.class
 /JUnitTests.class
-/SpielStart.class
-/Spiel.class
-/iBediener.class
 /KI.class
+/Spiel.class
+/SpielStart.class
+/Spielbrett.class
+/Spieler.class
+/Spielfeld.class
+/Spielfigur.class
+/TestKlasse.class
+/TestWürfel.class
+/Würfel.class
+/iBediener.class
+/test/
