@@ -10,12 +10,11 @@ public class JUnitTests {
 		Spielfeld feld = new Spielfeld();
 	}
 
-//	@Test
-//	public void werfen() {
-//		int w = 5;
-//		if (w > 1 && w < 6)
-//			assertTrue(werfen);
-//
-//	}
+	
+	@Test
+	public void werfen(){
+		Würfel w = new Würfel();
+		w.werfen();
+	}
 
 }
