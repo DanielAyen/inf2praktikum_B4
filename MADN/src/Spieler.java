@@ -12,17 +12,18 @@ import javax.lang.model.element.Name;
 public class Spieler {
 
 	private String name;
+	private FarbEnum f;
+	private Spielfigur fig;
+	private Würfel w;
 	private int ID; // SpielerID
 	// private Spielfeld sf;
-	private FarbEnum f;
-	private Würfel w;
-	private Spielfigur fig;
 	//private KI ki = new KI;
 
 	/** Konstruktor des Spielers **/
-	public Spieler(String name, int ID) {
+	public Spieler(String name, int ID, FarbEnum f) {
 		setName(name);
 		w = new Würfel();
+		this.f=f;
 		this.ID = ID;
 		//ki.add(new KI(this));
 	}
@@ -62,6 +63,14 @@ public class Spieler {
 		return name;
 	}
 
+	
+	/**
+	 * @param f Farbe des Spielers 
+	 */
+	public void setFarbe(FarbEnum f){
+		this.f=f;
+	}
+	
 	/** @return f gibt die Farbe des Spielers zurück **/
 	public FarbEnum getFarbe() {
 		return f;

@@ -15,6 +15,7 @@ public class Würfel {
 		int w;
 		w = (int) ((Math.random() * 6) + 1); // Erg. wird zu int gecasted
 		System.out.println("Es wurde die Zahl " + w + " gewürfelt.");
+
 		return w;
 	}
 }
