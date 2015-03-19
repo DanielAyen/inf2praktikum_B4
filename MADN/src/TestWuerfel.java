@@ -1,5 +1,6 @@
 /**
- * Die Klasse TestWürfel ein Würfel wird geworfen
+ * Die Klasse TestWuerfel 
+ * ein Wuerfel wird geworfen
  **/
 public class TestWuerfel {
 	public static void main(String[] args) {

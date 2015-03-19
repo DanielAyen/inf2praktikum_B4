@@ -2,7 +2,7 @@
  * Die Klasse KI
  */
 class KI {
-	private Spieler s;
+	private Spieler spieler;
 
 	/**
 	 * Konstruktor der KI
@@ -10,10 +10,10 @@ class KI {
 	 * @exception RuntimeException
 	 *                wenn kein Spieler vorhanden ist
 	 */
-	public KI(Spieler s) {
-		if (s == null)
+	public KI(Spieler spieler) {
+		if (spieler == null)
 			throw new RuntimeException("Es ist kein Spieler vorhanden!");
-		this.s =s;
+		this.spieler =spieler;
 	}
 
 }
