@@ -3,29 +3,38 @@ import javax.lang.model.element.Name;
 /**
  * Die Klasse Spieler
  * 
- * @param n
+ * @param name
  *            Name des Spielers
- * @param ID
- *            ID des Spielers
+ * @param farbe
+ *            Das FarbEnum
+ * @param fig
+ *            Die Spielfigur
+ * @param w
+ *            Der Wuerfel
  **/
 
 public class Spieler {
 
 	private String name;
-	private FarbEnum f;
+	private FarbEnum farbe;
 	private Spielfigur fig;
 	private Wuerfel w;
-	private int ID; // SpielerID
-	// private Spielfeld sf;
-	//private KI ki = new KI;
 
-	/** Konstruktor des Spielers **/
-	public Spieler(String name, int ID, FarbEnum f) {
+	// private KI ki = new KI;
+
+	/**
+	 * Konstruktor des Spielers
+	 * 
+	 * @param name
+	 *            Name Des Spielers
+	 * @param farbe
+	 *            Das FarbEnum
+	 **/
+	public Spieler(String name, FarbEnum farbe) {
 		setName(name);
 		w = new Wuerfel();
-		this.f=f;
-		this.ID = ID;
-		//ki.add(new KI(this));
+		this.farbe = farbe;
+		// ki.add(new KI(this));
 	}
 
 	/**
@@ -35,23 +44,16 @@ public class Spieler {
 		return (w.werfen());
 	}
 
-	/** 
-	 * @return ID gibt die SpielerID zurueck 
-	 */
-	public int getSpielerID() {
-		return ID;
-	}
-
 	/**
 	 * @param name
 	 *            Name des Spielers
 	 * @throws RuntimeException
-	 *                wenn kein Name oder ein zu kurzer Name eingegeben wurde
+	 *             wenn kein Name oder ein zu kurzer Name eingegeben wurde
 	 */
 	public void setName(String name) {
 		if (name == null || name.length() < 2) {
 			throw new RuntimeException(
-					"Der Name ist zu kur! Bitte mehr als zwei Zeichen eingeben.");
+					"Der Name ist zu kurz! Bitte mehr als zwei Zeichen eingeben.");
 		} else {
 			this.name = name;
 		}
@@ -63,34 +65,35 @@ public class Spieler {
 		return name;
 	}
 
-	
 	/**
-	 * @param f Farbe des Spielers 
+	 * @param f
+	 *            Farbe des Spielers
 	 */
-	public void setFarbe(FarbEnum f){
-		this.f=f;
+	public void setFarbe(FarbEnum farbe) {
+		this.farbe = farbe;
 	}
-	
+
 	/** @return f gibt die Farbe des Spielers zurueck **/
 	public FarbEnum getFarbe() {
-		return f;
+		return farbe;
 	}
 
 	/** @return gibt Name, ID und Farbe des Spielers zurueck */
 	@Override
 	public String toString() {
-		return "Spieler" + getName() + "mit der ID" + getSpielerID()
-				+ " und der Farbe " + getFarbe();
+		return "Spieler" + getName() + " und der Farbe " + getFarbe();
 	}
 
-	/** @return Vergleicht (ueber ID), ob Spieler wirklich DER Spieler ist */
+	/**
+	 * @return Vergleicht (ueber eindeutigen Namen), ob Spieler wirklich DER
+	 *         Spieler ist
+	 */
 	@Override
 	public boolean equals(Object o) {
 		if (!(o instanceof Spieler))
 			return false;
 		Spieler s = (Spieler) o;
-		return (s.getSpielerID() == this.getSpielerID());
+		return (s.getName() == this.getName());
 	}
-
 
 }
