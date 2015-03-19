@@ -18,8 +18,8 @@ public class JUnitTests {
 
 	@Test
 	public void SpielerErzeugen() {
-		Spieler s = new Spieler("Hans", 123, FarbEnum.ROT);
-		Spieler s2 = new Spieler ("Oli", 567, FarbEnum.ROT);
+		Spieler spieler = new Spieler("Hans", FarbEnum.ROT);
+		Spieler spieler2 = new Spieler ("Oli", FarbEnum.ROT);
 	}
 
 }
