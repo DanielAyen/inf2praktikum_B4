@@ -23,12 +23,7 @@ public class Spielfeld {
 
 	public Spielfeld() {
 
-		if (brett == null){
-			throw new RuntimeException("Ohne Brett kein Feld");
-			}
-		else{
-		this.brett = brett;
-		}
+		
 		
 		erstelleFeld(spielFeldArray);
 		
