@@ -1,7 +1,3 @@
-/TestWuerfel.class
-/Wuerfel.class
-/iBediener.class
-/test/
 /FarbEnum.class
 /JUnitTests.class
 /KI.class
@@ -12,3 +8,7 @@
 /Spielfeld.class
 /Spielfigur.class
 /TestKlasse.class
+/TestWuerfel.class
+/Wuerfel.class
+/iBediener.class
+/test/

@@ -8,7 +8,7 @@ public class JUnitTests {
 
 	@Before
 	public void davor() {
-		Spielfeld feld = new Spielfeld();
+		Spielfeld feld = new Spielfeld(null);
 	}
 
 	@Test
