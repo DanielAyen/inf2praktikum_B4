@@ -13,15 +13,15 @@ public class Spielfeld {
 	private Spielbrett brett;
 	private Spielfigur fig;
 
-	private int[] spielfeldArray
-	private String[][] startFeldArray
-	private String[][] endFeldArray
+	private int[] spielFeldArray;
+	private String[][] startFeldArray;
+	private String[][] endFeldArray;
 
 	/**
 	 * Konstruktor für das Spielfeld
 	 */
 
-	public Spielfeld(Spielbrett brett) {
+	public Spielfeld() {
 
 		if (brett == null){
 			throw new RuntimeException("Ohne Brett kein Feld");
@@ -30,7 +30,7 @@ public class Spielfeld {
 		this.brett = brett;
 		}
 		
-		erstelleFeld(spielfeldArray);
+		erstelleFeld(spielFeldArray);
 		
 		erstelleStartFeld(startFeldArray);
 		
@@ -53,10 +53,10 @@ public class Spielfeld {
 	 
 	 */
 
-	public void erstelleFeld(int[] spielfeldArray) {
+	public void erstelleFeld(int[] spielFeldArray) {
 
 		for (int i = 1; i != 40; i++) {
-			spielfeldArray[i] = i;
+			spielFeldArray[i] = i;
 		}
 
 	}
