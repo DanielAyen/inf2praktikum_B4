@@ -1,37 +1,44 @@
-import java.util.ArrayList;
-
 /**
  * Die Klasse Spielfeld
  * 
- * @param SF
- *            ArrayList fuer alle Felder
+ * @param brett
+ *            Das Spielbrett
+ * @param fig
+ *            Die Spielfigur
+ *
  **/
 
 public class Spielfeld {
 
 	private Spielbrett brett;
 	private Spielfigur fig;
-	/**
-	 * FeldID ArrayList fuer alle Spielfelder
-	 */
-	private ArrayList<Object> FeldID = new ArrayList<Object>();
+
+	private int[] spielfeldArray
+	private String[][] startFeldArray
+	private String[][] endFeldArray
 
 	/**
 	 * Konstruktor für das Spielfeld
-	 * 
 	 */
 
 	public Spielfeld(Spielbrett brett) {
 
-		if (brett == null)
+		if (brett == null){
 			throw new RuntimeException("Ohne Brett kein Feld");
-
+			}
+		else{
 		this.brett = brett;
-		erstelleFeld();
+		}
+		
+		erstelleFeld(spielfeldArray);
+		
+		erstelleStartFeld(startFeldArray);
+		
+		erstelleEndFeld(endFeldArray);
 	}
+	
 
 	/**
-	 * 
 	 * @return Gibt Brett zurück.
 	 */
 	public Spielbrett getBrett() {
@@ -40,76 +47,95 @@ public class Spielfeld {
 
 	}
 
-	
-
 	/**
-	 * Hier wird jedem Feld eine ID (ein Name+Nummer) zugewiesen. Fuegt
+	 * Hier wird jedem Feld eine ID (ein Name+ eine Nummer) zugewiesen. Fuegt
 	 * Startfelder, normale Felder und EndFelder hinzu.
-	 * 
-	 * @param i
-	 *            Zaehlt die Felder hoch.
-	 * 
-	 * @param SR
-	 *            Startfelder fuer Rot
-	 * @param SB
-	 *            Startfelder fuer Blau
-	 * @param SY
-	 *            Startfelder fuer Gelb
-	 * @param SG
-	 *            Startfelder fuer Gruen
-	 * 
-	 * @param x
-	 *            Normales Feld
-	 * 
-	 * @param ER
-	 *            Endfeld fuer Rot
-	 * @param EB
-	 *            Endfeld fuer Blau
-	 * @param EY
-	 *            Endfeld fuer Gelb
-	 * @param EG
-	 *            Endfeld fuer Gruen
+	 
 	 */
 
-	public void erstelleFeld() {
+	public void erstelleFeld(int[] spielfeldArray) {
 
-		// Startfelder
-		// Felder RED
-		for (int i = 1; i <= 4; i++) {
-			FeldID.add("SR" + i);
-		}
-		// Felder BLUE
-		for (int i = 1; i <= 4; i++) {
-			FeldID.add("SB1" + i);
-		}
-		// Felder YELLOW
-		for (int i = 1; i <= 4; i++) {
-			FeldID.add("SY1" + i);
-		}
-		// Felder GREEN
-		for (int i = 1; i <= 4; i++) {
-			FeldID.add("SG1" + i);
+		for (int i = 1; i != 40; i++) {
+			spielfeldArray[i] = i;
 		}
 
-		// Felder Normal
-		for (int x = 1; x <= 40; x++) {
+	}
 
-			FeldID.add(x); //
-		}
+	public void erstelleStartFeld(String[][] startFeldArray) {
 
-		// Felder Ziel
-		for (int i = 1; i <= 4; i++) { // Zielfelder Rot1-4
-			FeldID.add("ER" + i);
+		for (int i = 1; i != 4; i++) {
+
+			switch (i) {
+
+			case 1:
+				for (int j = 1; j != 4; j++) {
+
+					startFeldArray[i][j] = "SRi";
+
+				}
+
+			case 2:
+				for (int j = 1; j != 4; j++) {
+
+					startFeldArray[i][j] = "SBi";
+
+				}
+
+			case 3:
+				for (int j = 1; j != 4; j++) {
+
+					startFeldArray[i][j] = "SYi";
+
+				}
+
+			case 4:
+				for (int j = 1; j != 4; j++) {
+
+					startFeldArray[i][j] = "SGi";
+
+				}
+
+			}
 
 		}
-		for (int i = 1; i <= 4; i++) { // Zielfelder Blue1-4
-			FeldID.add("EB1" + i);
-		}
-		for (int i = 1; i <= 4; i++) { // Zielfelder Yellow1-4
-			FeldID.add("EY1" + i);
-		}
-		for (int i = 1; i <= 4; i++) { // Zielfelder Green1-4
-			FeldID.add("EG1" + i);
+	}
+
+	public void erstelleEndFeld(String[][] endFeldArray) {
+
+		for (int i = 1; i != 4; i++) {
+
+			switch (i) {
+
+			case 1:
+				for (int j = 1; j != 4; j++) {
+
+					endFeldArray[i][j] = "ERi";
+
+				}
+
+			case 2:
+				for (int j = 1; j != 4; j++) {
+
+					endFeldArray[i][j] = "EBi";
+
+				}
+
+			case 3:
+				for (int j = 1; j != 4; j++) {
+
+					endFeldArray[i][j] = "EYi";
+
+				}
+
+			case 4:
+				for (int j = 1; j != 4; j++) {
+
+					endFeldArray[i][j] = "EGi";
+
+				}
+
+			}
+
 		}
 
 	}
