@@ -8,33 +8,39 @@ import java.util.ArrayList;
  **/
 
 public class Spielfeld {
-	
+
 	private Spielbrett brett;
-	
-	public Spielfeld(Spielbrett brett){
-		
-		if(brett==null)
-			throw new RuntimeException("Ohne Brett kein Feld");
-			
-			this.brett=brett;
-		}
-		
-
-		
-	
-	public Spielbrett getBrett(){
-		
-		return this.brett;
-			
-	
-	}
-
-
+	private Spielfigur fig;
 	/**
 	 * FeldID ArrayList fuer alle Spielfelder
 	 */
-
 	private ArrayList<Object> FeldID = new ArrayList<Object>();
+
+	/**
+	 * Konstruktor für das Spielfeld
+	 * 
+	 */
+
+	public Spielfeld(Spielbrett brett) {
+
+		if (brett == null)
+			throw new RuntimeException("Ohne Brett kein Feld");
+
+		this.brett = brett;
+		erstelleFeld();
+	}
+
+	/**
+	 * 
+	 * @return Gibt Brett zurück.
+	 */
+	public Spielbrett getBrett() {
+
+		return this.brett;
+
+	}
+
+	
 
 	/**
 	 * Hier wird jedem Feld eine ID (ein Name+Nummer) zugewiesen. Fuegt
@@ -107,18 +113,4 @@ public class Spielfeld {
 		}
 
 	}
-	/**
-		 * 
-		 */
-	/*
-	 * public void KenntFigur(ArrayList<Object> SF, Spielfigur){ int x; int
-	 * temp; FeldID.get(x); x=temp; FeldID.add(x,Spielfigur);
-	 * 
-	 * }
-	 * 
-	 * public Object GetFeld(ArrayList<Object> SF,x){
-	 * 
-	 * return FeldID.get(x); }
-	 */
-
 }
