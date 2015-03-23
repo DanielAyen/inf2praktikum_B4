@@ -8,9 +8,30 @@ import java.util.ArrayList;
  **/
 
 public class Spielfeld {
+	
+	private Spielbrett brett;
+	
+	public Spielfeld(Spielbrett brett){
+		
+		if(brett==null)
+			throw new RuntimeException("Ohne Brett kein Feld");
+			
+			this.brett=brett;
+		}
+		
+
+		
+	
+	public Spielbrett getBrett(){
+		
+		return this.brett;
+			
+	
+	}
+
 
 	/**
-	 * FeldID ArrayList für alle Spielfelder
+	 * FeldID ArrayList fuer alle Spielfelder
 	 */
 
 	private ArrayList<Object> FeldID = new ArrayList<Object>();
