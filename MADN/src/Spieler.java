@@ -1,4 +1,9 @@
+import java.util.ArrayList;
+
 import javax.lang.model.element.Name;
+
+
+
 
 /**
  * Die Klasse Spieler
@@ -16,11 +21,12 @@ import javax.lang.model.element.Name;
 public class Spieler {
 
 	private String name;
-	private FarbEnum farbe;
+	private static FarbEnum farbe;
 	private Spielfigur fig;
 	private Wuerfel w;
 
-	// private KI ki = new KI;
+	//private KI ki;
+	//private ArrayList<KI> ki = new ArrayList<KI>(); // fuer Komposition
 
 	/**
 	 * Konstruktor des Spielers
@@ -34,7 +40,8 @@ public class Spieler {
 		setName(name);
 		w = new Wuerfel();
 		this.farbe = farbe;
-		// ki.add(new KI(this));
+		//ki.getSpieler();
+		//ki.add(new KI(this)); // fuer Komposition
 	}
 
 	/**
@@ -65,16 +72,18 @@ public class Spieler {
 		return name;
 	}
 
+
 	/**
 	 * @param f
 	 *            Farbe des Spielers
 	 */
 	public void setFarbe(FarbEnum farbe) {
-		this.farbe = farbe;
+			this.farbe = farbe;
 	}
 
 	/** @return f gibt die Farbe des Spielers zurueck **/
-	public FarbEnum getFarbe() {
+	public static FarbEnum getFarbe() {
+		System.out.println("Du hast die Farbe " +farbe+ " gewählt.");
 		return farbe;
 	}
 

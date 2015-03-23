@@ -1,7 +1,7 @@
 /**
  * Die Klasse KI
  */
-class KI {
+public abstract class KI {
 	private Spieler spieler;
 
 	/**
@@ -15,5 +15,10 @@ class KI {
 			throw new RuntimeException("Es ist kein Spieler vorhanden!");
 		this.spieler =spieler;
 	}
+	
+	public Spieler getSpieler(){
+		return this.spieler;
+	}
+
 
 }
