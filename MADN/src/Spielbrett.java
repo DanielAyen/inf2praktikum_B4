@@ -1,36 +1,36 @@
 
+/**
+ * Die Klasse Spielbrett
+ * 
+ * 
+ **/
 public class Spielbrett {
-
+	
 	private Spielfeld feld;
 	
-	private Spielfigur []   spielbrettArray = new Spielfigur [40];
-	private Spielfigur [][] startFeldArray = new Spielfigur [4][4];
-	private Spielfigur [][] zielFeldArray = new Spielfigur [4][4];
+	private Spielfeld   [] spielbrettArray = new Spielfeld [40];
+	private Spielfeld [][] startFeldArray = new Spielfeld [4][4];
+	private Spielfeld [][] zielFeldArray = new Spielfeld [4][4];
 	
-	public Spielbrett(Spielfeld feld, Spielfigur[] spielbrettArray,Spielfigur[][] startFeldArray, Spielfigur[][] zielFeldArray) {
-
+	
+	
+	public Spielbrett (Spielfeld feld, Spielfeld[] spielbrettArray,Spielfeld[][] startFeldArray, Spielfeld[][] zielFeldArray) {
+		
 		this.feld = feld;
 		this.spielbrettArray = spielbrettArray;
 		this.startFeldArray = startFeldArray;
 		this.zielFeldArray = zielFeldArray;
 	}
 
-
-	public Spielfigur[] getSpielbrettArray() {
+	public Spielfeld[] getSpielbrettArray() {
 		return spielbrettArray;
 	}
 
-
-	public Spielfigur[][] getStartFeldArray() {
+	public Spielfeld [][] getStartFeldArray() {
 		return startFeldArray;
 	}
 
-
-	public Spielfigur[][] getZielFeldArray() {
+	public Spielfeld[][] getZielFeldArray() {
 		return zielFeldArray;
 	}
-
-	
-	
-
 }
