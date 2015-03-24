@@ -1,6 +1,8 @@
 /**
  * Die Klasse Spielbrett
  * 
+ * @param feld
+ * 			Das Spielfeld
  * 
  **/
 public class Spielbrett {
