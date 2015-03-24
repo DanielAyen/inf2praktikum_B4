@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 /**
  * Die Klasse Spielbrett
  * 
@@ -45,7 +43,7 @@ public class Spielbrett {
 
 		endFeldArray = new Spielfeld[4][4];
 		for (int i = 0; i <= 3; i++) {
-			endFeldArray = new Spielfeld();
+			endFeldArray [i][i]= new Spielfeld();
 		}
 		this.endFeldArray = endFeldArray;
 
