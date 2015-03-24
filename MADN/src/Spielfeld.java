@@ -5,7 +5,14 @@
  *            Das Spielbrett
  * @param fig
  *            Die Spielfigur
+ * @param spielFeldArray
+ *            Array für alle normalen Felder 40Felder
  *
+ * @param startFeldArray
+ *            Array für alle Startfelder 16Felder
+ *
+ * @param endFeldArray
+ *            Array für alle Endfelder 16Felder
  **/
 
 public class Spielfeld {
@@ -19,19 +26,19 @@ public class Spielfeld {
 
 	/**
 	 * Konstruktor für das Spielfeld
+	 * 
+	 * ruft erstelleFeld, erstelleStartFeld, erstelleEndFeld auf.
+	 * 
 	 */
 
 	public Spielfeld() {
 
-		
-		
 		erstelleFeld(spielFeldArray);
-		
+
 		erstelleStartFeld(startFeldArray);
-		
+
 		erstelleEndFeld(endFeldArray);
 	}
-	
 
 	/**
 	 * @return Gibt Brett zurück.
@@ -45,10 +52,9 @@ public class Spielfeld {
 	/**
 	 * Hier wird jedem Feld eine ID (ein Name+ eine Nummer) zugewiesen. Fuegt
 	 * Startfelder, normale Felder und EndFelder hinzu.
-	 
 	 */
 
-	public void erstelleFeld(int[] spielFeldArray) {
+	public void erstelleFeld(int[] spielFeldArray) { //Normale Felder
 
 		for (int i = 1; i != 40; i++) {
 			spielFeldArray[i] = i;
@@ -56,7 +62,7 @@ public class Spielfeld {
 
 	}
 
-	public void erstelleStartFeld(String[][] startFeldArray) {
+	public void erstelleStartFeld(String[][] startFeldArray) { //Start Felder
 
 		for (int i = 1; i != 4; i++) {
 
@@ -95,7 +101,7 @@ public class Spielfeld {
 		}
 	}
 
-	public void erstelleEndFeld(String[][] endFeldArray) {
+	public void erstelleEndFeld(String[][] endFeldArray) { //End Felder
 
 		for (int i = 1; i != 4; i++) {
 
