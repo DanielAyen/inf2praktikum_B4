@@ -17,7 +17,6 @@
 
 public class Spielfeld {
 
-	private Spielbrett brett;
 	private Spielfigur fig;
 
 	private int[] spielFeldArray;
@@ -38,15 +37,6 @@ public class Spielfeld {
 		erstelleStartFeld(startFeldArray);
 
 		erstelleEndFeld(endFeldArray);
-	}
-
-	/**
-	 * @return Gibt Brett zurück.
-	 */
-	public Spielbrett getBrett() {
-
-		return this.brett;
-
 	}
 
 	/**
