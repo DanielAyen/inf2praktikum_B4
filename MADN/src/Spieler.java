@@ -34,7 +34,7 @@ public class Spieler {
 	public Spieler(String name, FarbEnum farbe) {
 		setName(name);
 		w = new Wuerfel();
-		this.farbe = farbe;
+		setFarbe(farbe);
 		//ki.getSpieler();
 		//ki.add(new KI(this)); // fuer Komposition
 	}
@@ -85,7 +85,7 @@ public class Spieler {
 	/** @return gibt Name, ID und Farbe des Spielers zurueck */
 	@Override
 	public String toString() {
-		return "Spieler" + getName() + " und der Farbe " + getFarbe();
+		return "Spieler" + getName() + " mit der Farbe " + getFarbe();
 	}
 
 	/**
