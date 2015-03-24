@@ -16,6 +16,8 @@
  **/
 
 public class Spielfeld {
+	
+	
 
 	private Spielfigur fig;
 
@@ -31,6 +33,7 @@ public class Spielfeld {
 	 */
 
 	public Spielfeld() {
+		System.out.println("bla");
 
 		erstelleFeld(spielFeldArray);
 
