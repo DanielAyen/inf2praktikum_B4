@@ -28,9 +28,9 @@ public class JUnitTests {
 	@Test
 	public void SpielerErzeugen() {
 		Spieler spieler = new Spieler("Hans", FarbEnum.ROT);
-		//Spieler spieler2 = new Spieler ("Oli", FarbEnum.GRUEN);
+		Spieler spieler2 = new Spieler ("Oli", FarbEnum.GRUEN);
 		System.out.println(spieler.toString());
-		//System.out.println(spieler2.toString());
+		System.out.println(spieler2.toString());
 	}
 	
 	@Test (expected = RuntimeException.class) //Exception erwartet, da Name zu kurz

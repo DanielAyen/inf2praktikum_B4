@@ -16,7 +16,7 @@
 public class Spieler {
 
 	private String name;
-	private static FarbEnum farbe;
+	private FarbEnum farbe;
 	private Spielfigur fig;
 	private Wuerfel w;
 
@@ -77,15 +77,15 @@ public class Spieler {
 	}
 
 	/** @return f gibt die Farbe des Spielers zurueck **/
-	public static FarbEnum getFarbe() {
-		System.out.println("Du hast die Farbe " +farbe+ " gewählt.");
+	public FarbEnum getFarbe() {
+		System.out.println("Du hast die Farbe " + farbe+ " gewählt.");
 		return farbe;
 	}
 
 	/** @return gibt Name, ID und Farbe des Spielers zurueck */
 	@Override
 	public String toString() {
-		return "Spieler" + getName() + " mit der Farbe " + getFarbe();
+		return "Spieler " + getName() + " mit der Farbe " + getFarbe();
 	}
 
 	/**
