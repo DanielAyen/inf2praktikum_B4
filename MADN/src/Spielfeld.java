@@ -1,9 +1,11 @@
 /**
  * Die Klasse Spielfeld
  * 
+ */
+/**
  * @param fig
  *            Die Spielfigur
- *            
+ * 
  * @param spielFeldArray
  *            Array für alle normalen Felder 40Felder
  *
@@ -15,7 +17,7 @@
  **/
 
 public class Spielfeld {
-	
+
 	@SuppressWarnings("unused")
 	private Spielfigur fig;
 
@@ -23,15 +25,12 @@ public class Spielfeld {
 	private String[][] startFeldArray;
 	private String[][] endFeldArray;
 
-	
-	
 	/**
 	 * Konstruktor für das Spielfeld
 	 * 
 	 * ruft erstelleFeld, erstelleStartFeld, erstelleEndFeld auf.
 	 * 
 	 */
-
 	public Spielfeld() {
 
 		erstelleFeld(spielFeldArray);
@@ -42,11 +41,12 @@ public class Spielfeld {
 	}
 
 	/**
-	 * Hier wird jedem Feld eine ID (ein Name+ eine Nummer) zugewiesen. Fuegt
-	 * Startfelder, normale Felder und EndFelder hinzu.
+	 * Erstellt alle normalen Felder (40)
+	 * 
+	 * @param spielFeldArray
+	 *            Array für alle normalen Felder 40Felder
 	 */
-
-	public void erstelleFeld(int[] spielFeldArray) { //Normale Felder
+	public void erstelleFeld(int[] spielFeldArray) { // Normale Felder
 
 		for (int i = 1; i != 40; i++) {
 			spielFeldArray[i] = i;
@@ -54,7 +54,13 @@ public class Spielfeld {
 
 	}
 
-	public void erstelleStartFeld(String[][] startFeldArray) { //Start Felder
+	/**
+	 * Erstellt alle Start Felder (16)
+	 * 
+	 * @param startFeldArray
+	 *            Array für alle Startfelder 16Felder
+	 */
+	public void erstelleStartFeld(String[][] startFeldArray) { // Start Felder
 
 		for (int i = 1; i != 4; i++) {
 
@@ -93,7 +99,13 @@ public class Spielfeld {
 		}
 	}
 
-	public void erstelleEndFeld(String[][] endFeldArray) { //End Felder
+	/**
+	 * Erstellt alle End Felder (16)
+	 * 
+	 * @param endFeldArray
+	 *            Array für alle Endfelder 16Felder
+	 */
+	public void erstelleEndFeld(String[][] endFeldArray) { // End Felder
 
 		for (int i = 1; i != 4; i++) {
 
@@ -132,4 +144,5 @@ public class Spielfeld {
 		}
 
 	}
+
 }
