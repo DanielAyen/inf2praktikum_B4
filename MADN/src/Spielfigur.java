@@ -1,57 +1,81 @@
 import java.util.ArrayList;
 
-
 /**
  * Die Klasse Spielfigur
  * 
  * @param farbe
  *            Farbe der Figur
  * @param FeldID
- *            ID des Spielfeldes 
- * @param anzahlFig
- * 			  Anzahl der Spielfiguren, die jede Farbe hat
+ *            ID des Spielfeldes
+ * @param anzFarbe
+ *            Anzahl der Spielfigurenfarbe, die jede Figur hat
+ * @param spielFeldArray
+ *            Felder des Spielfeldes
+ * @param startFeldArray
+ *            Felder der Startfelder
+ * @param endFeldArray
+ *            Felder der Endfelder
  * @param w
- * 			  Parameter fuer den Wuerfel
+ *            Parameter fuer den Wuerfel
  **/
 
 public class Spielfigur {
-	
+
 	private FarbEnum farbe;
-	private ArrayList<Object> FeldID = new ArrayList<Object>();
-	private static final int anzahlFig=4;
+	private static final int anzFarbe = 4;
+	private Spielfeld feld;
+	private int[] spielFeldArray;
+	private String[][] startFeldArray;
+	private String[][] endFeldArray;
 	private Wuerfel w;
-	
-	/** Konstruktor der Spielfigur**/
-	public Spielfigur(FarbEnum farbe){
+
+	/** Konstruktor der Spielfigur **/
+	public Spielfigur(FarbEnum farbe) {
+		this.setFarbe(farbe);
 		w = new Wuerfel();
-		FeldID= new ArrayList<Object>();
-		this.farbe=farbe;
-		
+
 	}
-	
+
 	/**
-	 * @param f Farbe der Spielfigur 
+	 * @param f
+	 *            Farbe der Spielfigur
 	 */
-	public void setFarbe(FarbEnum farbe){
-		this.farbe=farbe;
+	public void setFarbe(FarbEnum farbe) {
+		this.farbe = farbe;
 	}
-	
+
 	/** @return f gibt die Farbe der Spielfigur zurueck **/
 	public FarbEnum getFarbe() {
 		return farbe;
 	}
-	
-	
-	public void vor(){
-		w.werfen();
-		
-		
-		}
-	
-	public void aufStartfeldSetzen(){
-		
-		}
+
+	/** @return endFeldArray gibt diePosition der Spielfigur zurueck **/
+	public String[][] getPosi() {
+		return endFeldArray;
+
 	}
-	
-	
-	
+
+	/** @return spielFeldArray gibt diePosition der Spielfigur zurueck **/
+	public int[] getPos() {
+		return spielFeldArray;
+	}
+
+	public void vor() {
+		getPos(); // Position der Figur und dann das Würfelergebnis
+					// draufaddieren
+
+	}
+
+	//
+	// public void gegnerSchlagen(){
+	//
+	// }
+	//
+	// public void feldBetreten(){
+	// }
+
+	//
+	// public void aufStartfeldSetzen(){
+	//
+	// }
+}
