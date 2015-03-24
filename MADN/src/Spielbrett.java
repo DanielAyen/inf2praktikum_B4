@@ -1,53 +1,26 @@
 /**
  * Die Klasse Spielbrett
  * 
- * @param spielFeldArray
- *            Array fuer alle normalen Spielfelder
- * 
- * @param startFeldArray
- *            Array fuer Startfelder der Spieler
- * 
- * @param endFeldArray
- *            Array fuer Endfelder der Spieler
  * 
  **/
 public class Spielbrett {
 
-	private Spielfeld[] spielFeldArray;
-	private Spielfeld[][] startFeldArray;
-	private Spielfeld[][] endFeldArray;
+	
+	private Spielfeld feld;
 
 	/**
 	 * Konstruktor des Spielbretts
-	 * 
+	 * 		ruft den Konstruktor der Klasse Spielfeld auf
 	 * 
 	 **/
 
-	public Spielbrett(Spielfeld[][] startFeldArray,
-			Spielfeld[][] zielFeldArray, Spielfeld[] spielFeldArray,
-			Spielfeld[][] endFeldArray) {
+	public Spielbrett() {
 
-		spielFeldArray = new Spielfeld[40];
-		for (int i = 0; i <= 39; i++) {
-			spielFeldArray[i] = new Spielfeld();
-		}
-
-		this.spielFeldArray = spielFeldArray;
-
-		startFeldArray = new Spielfeld[4][4];
-
-		for (int i = 0; i <= 3; i++) {
-			startFeldArray[i][i] = new Spielfeld();
-		}
-		this.startFeldArray = startFeldArray;
-
-		endFeldArray = new Spielfeld[4][4];
-		for (int i = 0; i <= 3; i++) {
-			endFeldArray [i][i]= new Spielfeld();
-		}
-		this.endFeldArray = endFeldArray;
+		Spielfeld feld = new Spielfeld();
 
 	}
+
+	
 
 }
 

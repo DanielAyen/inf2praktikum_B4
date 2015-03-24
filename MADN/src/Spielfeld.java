@@ -1,10 +1,9 @@
 /**
  * Die Klasse Spielfeld
  * 
- * @param brett
- *            Das Spielbrett
  * @param fig
  *            Die Spielfigur
+ *            
  * @param spielFeldArray
  *            Array für alle normalen Felder 40Felder
  *
@@ -17,14 +16,15 @@
 
 public class Spielfeld {
 	
-	
-
+	@SuppressWarnings("unused")
 	private Spielfigur fig;
 
 	private int[] spielFeldArray;
 	private String[][] startFeldArray;
 	private String[][] endFeldArray;
 
+	
+	
 	/**
 	 * Konstruktor für das Spielfeld
 	 * 
@@ -33,7 +33,6 @@ public class Spielfeld {
 	 */
 
 	public Spielfeld() {
-		System.out.println("bla");
 
 		erstelleFeld(spielFeldArray);
 
