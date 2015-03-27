@@ -21,9 +21,9 @@ public class Spielfeld {
 	@SuppressWarnings("unused")
 	private Spielfigur fig;
 
-	private int[] spielFeldArray;
-	private String[][] startFeldArray;
-	private String[][] endFeldArray;
+	private int[] spielFeldArray=new int[40];
+	private String[][] startFeldArray=new String[4][4];
+	private String[][] endFeldArray=new String[4][4];
 
 	/**
 	 * Konstruktor für das Spielfeld
@@ -48,8 +48,8 @@ public class Spielfeld {
 	 */
 	public void erstelleFeld(int[] spielFeldArray) { // Normale Felder
 
-		for (int i = 1; i != 40; i++) {
-			spielFeldArray[i] = i;
+		for (int i = 1; i <= 40; i++) {
+			spielFeldArray[i-1] = i;
 		}
 
 	}
@@ -62,36 +62,36 @@ public class Spielfeld {
 	 */
 	public void erstelleStartFeld(String[][] startFeldArray) { // Start Felder
 
-		for (int i = 1; i != 4; i++) {
+		for (int i = 1; i <= 4; i++) {
 
-			switch (i) {
-
-			case 1:
-				for (int j = 1; j != 4; j++) {
-
-					startFeldArray[i][j] = "SRi";
-
+			if (i == 1) {
+				for (int j = 1; j <= 4; j++) {
+					
+					startFeldArray[i-1][j-1] = "SR" + j;
 				}
 
-			case 2:
-				for (int j = 1; j != 4; j++) {
+			}
 
-					startFeldArray[i][j] = "SBi";
-
+			else if (i == 2) {
+				for (int j = 1; j <= 4; j++) {
+					
+					startFeldArray[i-1][j-1] = "SB" + j;
 				}
 
-			case 3:
-				for (int j = 1; j != 4; j++) {
+			}
 
-					startFeldArray[i][j] = "SYi";
-
+			else if (i == 3) {
+				for (int j = 1; j <= 4; j++) {
+				
+					startFeldArray[i-1][j-1] = "SY" + j;
 				}
 
-			case 4:
-				for (int j = 1; j != 4; j++) {
+			}
 
-					startFeldArray[i][j] = "SGi";
-
+			else if (i == 4) {
+				for (int j = 1; j <= 4; j++) {
+				
+					startFeldArray[i-1][j-1] = "SG" + j;
 				}
 
 			}
@@ -107,36 +107,36 @@ public class Spielfeld {
 	 */
 	public void erstelleEndFeld(String[][] endFeldArray) { // End Felder
 
-		for (int i = 1; i != 4; i++) {
+		for (int i = 1; i <= 4; i++) {
 
-			switch (i) {
-
-			case 1:
-				for (int j = 1; j != 4; j++) {
-
-					endFeldArray[i][j] = "ERi";
-
+			if (i == 1) {
+				for (int j = 1; j <= 4; j++) {
+				
+					endFeldArray[i-1][j-1] = "ER" + j;
 				}
 
-			case 2:
-				for (int j = 1; j != 4; j++) {
+			}
 
-					endFeldArray[i][j] = "EBi";
-
+			else if (i == 2) {
+				for (int j = 1; j <= 4; j++) {
+					
+					endFeldArray[i-1][j-1] = "EB" + j;
 				}
 
-			case 3:
-				for (int j = 1; j != 4; j++) {
+			}
 
-					endFeldArray[i][j] = "EYi";
-
+			else if (i == 3) {
+				for (int j = 1; j <= 4; j++) {
+					
+					endFeldArray[i-1][j-1] = "EY" + j;
 				}
 
-			case 4:
-				for (int j = 1; j != 4; j++) {
+			}
 
-					endFeldArray[i][j] = "EGi";
-
+			else if (i == 4) {
+				for (int j = 1; j <= 4; j++) {
+					
+					endFeldArray[i-1][j-1] = "EG" + j;
 				}
 
 			}
