@@ -7,13 +7,13 @@
  *            Die Spielfigur
  * 
  * @param spielFeldArray
- *            Array für alle normalen Felder 40Felder
+ *            Array fuer alle normalen Felder 40Felder
  *
  * @param startFeldArray
- *            Array für alle Startfelder 16Felder
+ *            Array fuer alle Startfelder 16Felder
  *
  * @param endFeldArray
- *            Array für alle Endfelder 16Felder
+ *            Array fuer alle Endfelder 16Felder
  **/
 
 public class Spielfeld {
@@ -28,7 +28,7 @@ public class Spielfeld {
 	private String[][] endFeldArray = new String[4][4];
 
 	/**
-	 * Konstruktor für das Spielfeld
+	 * Konstruktor fuer das Spielfeld
 	 * 
 	 * ruft erstelleFeld, erstelleStartFeld, erstelleEndFeld auf.
 	 * 
@@ -46,7 +46,7 @@ public class Spielfeld {
 	 * Erstellt alle normalen Felder (40)
 	 * 
 	 * @param spielFeldArray
-	 *            Array für alle normalen Felder 40Felder
+	 *            Array fuer alle normalen Felder 40Felder
 	 */
 	public void erstelleFeld(int[] spielFeldArray) { // Normale Felder
 
@@ -60,7 +60,7 @@ public class Spielfeld {
 	 * Erstellt alle Start Felder (16)
 	 * 
 	 * @param startFeldArray
-	 *            Array für alle Startfelder 16Felder
+	 *            Array fuer alle Startfelder 16Felder
 	 */
 	public void erstelleStartFeld(String[][] startFeldArray) { // Start Felder
 
@@ -105,7 +105,7 @@ public class Spielfeld {
 	 * Erstellt alle End Felder (16)
 	 * 
 	 * @param endFeldArray
-	 *            Array für alle Endfelder 16Felder
+	 *            Array fuer alle Endfelder 16Felder
 	 */
 	public void erstelleEndFeld(String[][] endFeldArray) { // End Felder
 
@@ -148,9 +148,9 @@ public class Spielfeld {
 	}
 
 	/**
-	 * Gibt ID zurück
+	 * Gibt Feld zurueck
 	 * 
-	 * @return ID gibt die ID zurück
+	 * @return spielFeldArray[x] gibt Feld an der Stelle x zurueck
 	 */
 	public int getSpielfeld(int x) {
 
@@ -158,11 +158,21 @@ public class Spielfeld {
 
 	}
 
+	/**
+	 * Gibt Feld zurueck
+	 * 
+	 * @return startFeldArray[x][y] gibt Feld an der Stelle x,y zurueck
+	 */
 	public String getStartfeld(int x, int y) {
 
 		return startFeldArray[x][y];
 	}
 
+	/**
+	 * Gibt Feld zurueck
+	 * 
+	 * @return endFeldArray[x][y] gibt Feld an der Stelle x,y zurueck
+	 */
 	public String getEndfeld(int x, int y) {
 
 		return endFeldArray[x][y];
