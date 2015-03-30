@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Die Klasse Spielfeld
  * 
@@ -17,6 +19,8 @@
  **/
 
 public class Spielfeld {
+
+	private String ID;
 
 	@SuppressWarnings("unused")
 	private Spielfigur fig;
@@ -142,7 +146,17 @@ public class Spielfeld {
 			}
 
 		}
+		
+		
 
 	}
+
+	
+
+	public String getID() {
+		return ID;
+	}
+
+
 
 }

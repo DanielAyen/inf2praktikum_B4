@@ -12,6 +12,13 @@ public class Spiel implements iBediener {
 	private int[] spielFeldArray;
 	private int anzFigFarbeAufFeld;
 	private ArrayList<Spieler> spieler = null;
+	private Spielfeld ID;
+
+	/**
+	 * @param spielerAnz
+	 *            setzt die maximale Spieleranzahl fest
+	 * 
+	 * */
 
 	public void zaehlerSpielerMax(int spielerAnz) {
 
@@ -22,9 +29,19 @@ public class Spiel implements iBediener {
 
 	}
 
+	/**
+	 * @return spieler gibt den aktuellen Spieler zurueck
+	 * 
+	 */
+
 	public ArrayList<Spieler> getSpieler() {
 		return spieler;
 	}
+
+	/**
+	 *
+	 * @return spieler
+	 */
 
 	public Spieler aktiverSpieler() {
 		return spieler.get(("aktiverSpieler"));
@@ -34,6 +51,11 @@ public class Spiel implements iBediener {
 		 */
 
 	}
+
+	/**
+	 * 
+	 * @return spieler gibt den Spieler aus, der an der Reihe ist
+	 */
 
 	public Spieler reihenfolgeSpieler() {
 		if(){
@@ -62,9 +84,22 @@ public class Spiel implements iBediener {
 
 	}
 
+	/**
+	 * 
+	 * @param w
+	 *            Parameter fuer den Wuerfel
+	 */
+
 	public void nochmalWuerfeln() {
 		w.werfen();
 	}
+
+	/**
+	 * 
+	 * @param anzFigFarbeAufFeld
+	 *            Anzahl der Figuren auf dem Startfeld eines Spielers
+	 * 
+	 */
 
 	public void entscheidungBeiSechs() {
 		if (anzFigFarbeAufFeld < 4) {
@@ -102,6 +137,13 @@ public class Spiel implements iBediener {
 		}
 	}
 
+	/**
+	 * 
+	 * @param istFeldBelegt
+	 *            prüft ob ein Feld belegt ist
+	 * @return
+	 */
+
 	public void gegnerSchlagen() {
 		if (istFeldBelegt() == true) {
 			figur.getFarbe();
@@ -118,6 +160,10 @@ public class Spiel implements iBediener {
 
 	}
 
+	/**
+	 * @return true/false gibt aus ob ein Spielfeld belegt ist oder nicht
+	 */
+
 	public boolean istFeldBelegt() {
 		if (figur.getPos() == this.figur.getPos()) {
 			return true;
@@ -126,16 +172,36 @@ public class Spiel implements iBediener {
 		}
 	}
 
+	/**
+	 * 
+	 * @param prüft
+	 *            wie viele Spielfiguren vorhanden sind
+	 * 
+	 */
+
 	public void welcheSpielfigurNutzen() {
+
 		// wie viele im Feld?
 
 	}
 
+	/**
+	 * 
+	 * @param istZielfeldEndFeld
+	 *            prüft ob ein Spielfeld ein Endfeld eines Spieler ist
+	 */
 	public boolean istZielfeldEndfeld() {
-		// id includes E
-		return true;
+		if(feld.getID().contains("E")){
+		 return true;
+		}
+		return false;
+			
+		}
 
-	}
+	/**
+	 * @return anzFigFarbeAufFeld gibt die Anzahl der Spielfiguren aus, die
+	 *         nicht auf Startfeld sind
+	 */
 
 	public int figurenEinerFarbeAufFeld() {
 		// 4 - anzFigAufStartfeld = anzFigFarbeAufFeld;
