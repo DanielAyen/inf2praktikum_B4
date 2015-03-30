@@ -15,34 +15,15 @@ public class Spiel implements iBediener {
 	private Spielfeld ID;
 
 	/**
-	 * @param spielerAnz
-	 *            setzt die maximale Spieleranzahl fest
-	 * 
-	 * */
-
-	public void zaehlerSpielerMax(int spielerAnz) {
-
-		// if (spielerAnz == 4) {
-		// return false;
-		// throw new RuntimeException("Es sind schon 4 Spieler erstellt.");
-		// }
-
-	}
-
-	/**
 	 * @return spieler gibt den aktuellen Spieler zurueck
 	 * 
 	 */
-
+	@Override
 	public ArrayList<Spieler> getSpieler() {
 		return spieler;
 	}
 
-	/**
-	 *
-	 * @return spieler
-	 */
-
+	@Override
 	public Spieler aktiverSpieler() {
 		return spieler.get(("aktiverSpieler"));
 		/*
@@ -53,10 +34,23 @@ public class Spiel implements iBediener {
 	}
 
 	/**
+	 * @param spielerAnz
+	 *            setzt die maximale Spieleranzahl fest
+	 * 
+	 * */
+	@Override
+	public void zaehlerSpielerMax(int spielerAnz) {
+		// if (spielerAnz == 4) {
+		// return false;
+		// throw new RuntimeException("Es sind schon 4 Spieler erstellt.");
+		// }
+	}
+
+	/**
 	 * 
 	 * @return spieler gibt den Spieler aus, der an der Reihe ist
 	 */
-
+	@Override
 	public Spieler reihenfolgeSpieler() {
 		if(){
 			
@@ -89,9 +83,10 @@ public class Spiel implements iBediener {
 	 * @param w
 	 *            Parameter fuer den Wuerfel
 	 */
-
+	@Override
 	public void nochmalWuerfeln() {
 		w.werfen();
+
 	}
 
 	/**
@@ -100,7 +95,7 @@ public class Spiel implements iBediener {
 	 *            Anzahl der Figuren auf dem Startfeld eines Spielers
 	 * 
 	 */
-
+	@Override
 	public void entscheidungBeiSechs() {
 		if (anzFigFarbeAufFeld < 4) {
 			System.out
@@ -110,6 +105,7 @@ public class Spiel implements iBediener {
 			figur.vor();
 		}
 		nochmalWuerfeln();
+
 	}
 
 	/**
@@ -120,6 +116,7 @@ public class Spiel implements iBediener {
 	 * @return spielFeldArray[21] Start-Spielfeld der Frabe Gruen
 	 * @return spielFeldArray[31] Start-Spielfeld der Frabe Gelb
 	 */
+	@Override
 	public int aufStartSpielfeld() {
 		figur.getFarbe();
 		switch (farbe) {
@@ -143,7 +140,7 @@ public class Spiel implements iBediener {
 	 *            prüft ob ein Feld belegt ist
 	 * @return
 	 */
-
+	@Override
 	public void gegnerSchlagen() {
 		if (istFeldBelegt() == true) {
 			figur.getFarbe();
@@ -163,7 +160,7 @@ public class Spiel implements iBediener {
 	/**
 	 * @return true/false gibt aus ob ein Spielfeld belegt ist oder nicht
 	 */
-
+	@Override
 	public boolean istFeldBelegt() {
 		if (figur.getPos() == this.figur.getPos()) {
 			return true;
@@ -178,11 +175,9 @@ public class Spiel implements iBediener {
 	 *            wie viele Spielfiguren vorhanden sind
 	 * 
 	 */
-
+	@Override
 	public void welcheSpielfigurNutzen() {
-
 		// wie viele im Feld?
-
 	}
 
 	/**
@@ -190,19 +185,20 @@ public class Spiel implements iBediener {
 	 * @param istZielfeldEndFeld
 	 *            prüft ob ein Spielfeld ein Endfeld eines Spieler ist
 	 */
+	@Override
 	public boolean istZielfeldEndfeld() {
-		if(feld.getID().contains("E")){
-		 return true;
+		if (feld.getID().contains("E")) {
+			return true;
 		}
 		return false;
-			
-		}
+
+	}
 
 	/**
 	 * @return anzFigFarbeAufFeld gibt die Anzahl der Spielfiguren aus, die
 	 *         nicht auf Startfeld sind
 	 */
-
+	@Override
 	public int figurenEinerFarbeAufFeld() {
 		// 4 - anzFigAufStartfeld = anzFigFarbeAufFeld;
 		return anzFigFarbeAufFeld;
