@@ -19,6 +19,7 @@ public class Spieler {
 	private FarbEnum farbe;
 	private Spielfigur fig;
 	private Wuerfel w;
+	private Spieler spieler1;
 
 	//private KI ki;
 	//private ArrayList<KI> ki = new ArrayList<KI>(); // fuer Komposition
@@ -43,7 +44,7 @@ public class Spieler {
 	 * @return gibt gewuerfelte Zahl zurueck
 	 */
 	public int werfen() {
-		return (w.werfen());
+		return (spieler1.werfen());
 	}
 
 	/**
