@@ -1,8 +1,11 @@
 /FarbEnum.class
 /JUnitTests.class
 /KI.class
+/KI_Aggressiv.class
+/KI_Defensiv.class
 /Spiel.class
 /SpielStart.class
+/SpielTest.class
 /Spielbrett.class
 /Spieler.class
 /Spielfeld.class
