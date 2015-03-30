@@ -13,6 +13,8 @@ public class Spiel implements iBediener {
 	private int anzFigFarbeAufFeld;
 	private ArrayList<Spieler> spieler = null;
 	private Spielfeld ID;
+	private Spieler spieler1;
+
 
 	/**
 	 * @return spieler gibt den aktuellen Spieler zurueck
@@ -85,7 +87,7 @@ public class Spiel implements iBediener {
 	 */
 	@Override
 	public void nochmalWuerfeln() {
-		w.werfen();
+		spieler1.werfen();
 
 	}
 
