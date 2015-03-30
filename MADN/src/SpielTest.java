@@ -14,9 +14,10 @@ public class SpielTest {
 		System.out.println(spieler1);
 		System.out.println(spieler2);
 
-		//spieler1.nochmalWuerfeln();
+		spieler1.wuerfeln();
+		spieler2.nochmalWuerfeln();
 
-		// getSpieler();
+//		 getSpieler();
 		//figurenEinerFarbeAufFeld();
 	}
 }

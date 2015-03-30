@@ -1,5 +1,4 @@
 
-
 /**
  * Die Klasse Spieler
  * 
@@ -18,6 +17,7 @@ public class Spieler {
 	private String name;
 	private FarbEnum farbe;
 	private Spielfigur fig;
+	private Wuerfel z;
 	private Wuerfel w;
 	private Spieler spieler1;
 
@@ -43,8 +43,9 @@ public class Spieler {
 	/**
 	 * @return gibt gewuerfelte Zahl zurueck
 	 */
-	public int werfen() {
-		return (spieler1.werfen());
+	
+	public void wuerfeln() {
+		w.werfen();
 	}
 
 	/**
@@ -100,5 +101,12 @@ public class Spieler {
 		Spieler s = (Spieler) o;
 		return (s.getName() == this.getName());
 	}
+
+	public void nochmalWuerfeln() {
+		w.werfen();
+	}
+
+	
+
 
 }

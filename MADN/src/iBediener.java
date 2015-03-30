@@ -30,4 +30,6 @@ public interface iBediener {
 
 	int figurenEinerFarbeAufFeld();
 
+	void werfen();
+
 }

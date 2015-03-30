@@ -14,9 +14,10 @@ public class Wuerfel {
 	
 	private int w;
 	
-	public Wuerfel (){
-		werfen();
-	}
+
+
+	
+
 
 	public int werfen() {
 		

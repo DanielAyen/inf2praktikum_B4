@@ -85,9 +85,8 @@ public class Spiel implements iBediener {
 	 *            Parameter fuer den Wuerfel
 	 */
 	@Override
-	public void nochmalWuerfeln() {
-		spieler1.werfen();
-
+	public void werfen() {
+		w.werfen();
 	}
 
 	/**
