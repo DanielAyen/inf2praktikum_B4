@@ -60,10 +60,39 @@ public class Spielfigur {
 		return spielFeldArray;
 	}
 
-	public void vor() {
-		getPos(); // Position der Figur und dann das Würfelergebnis
-					// draufaddieren
-
+	public void vor(Spielfigur fig, int pos) {
+		int erg=0;
+		erg= pos + w.werfen();
+		for ( int i = pos; i < erg -1; i++){
+			//if(Spielfeld.getSpielfeld(i)!= 0){
+				
+			}
+		}
+//		public void bewegen(Spielfigur figur, int pos) {
+//			int erg=0;
+//			erg= pos + Wuerfel.werfen();
+//			for(int i=pos;i<erg-1;i++){
+//				if(Spielfeld.getNextElem()!=null){
+//					Spielfeld.getNextElem().getFigur();
+//					if(Spielfigur.getFarbe()==Spielfigur.getFarbe()){
+//						throw new RuntimeException("Diese Figur kann nicht geschlagen werden");
+//					}else{
+//						Spielfeld.getNextElem().getFigur();
+//						if(Spielfigur.getFarbe()!=Spielfigur.getFarbe()){
+//							Spielfeld.getNextElem().setId(null);
+//							Spieler.zurueckAufStart(figur);
+//							Spieler.removeSpielfigur();
+//							
+//							}
+//						}
+//					}
+//					if(Spielfeld.getNextElem()==null){
+//					return;
+//				}
+//			}
+//			pos= erg;
+//	 
+//		}
 	}
 
 	//
@@ -78,4 +107,4 @@ public class Spielfigur {
 	// public void aufStartfeldSetzen(){
 	//
 	// }
-}
+
