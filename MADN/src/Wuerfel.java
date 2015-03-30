@@ -11,11 +11,21 @@ public class Wuerfel {
 	 *            Parameter fuer den Wuerfel
 	 * @return w gibt die Anzahl der gewuerfelten Augen aus
 	 **/
+	
+	private int w;
+	
+	public Wuerfel (){
+		werfen();
+	}
+
 	public int werfen() {
-		int w;
+		
 		w = (int) ((Math.random() * 6) + 1); // Erg. wird zu int gecasted
 		System.out.println("Es wurde die Zahl " + w + " gewuerfelt.");
 
 		return w;
 	}
+	
+	
 }
+
