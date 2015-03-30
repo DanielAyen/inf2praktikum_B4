@@ -15,7 +15,6 @@ public class Spiel implements iBediener {
 	private Spielfeld ID;
 	private Spieler spieler1;
 
-
 	/**
 	 * @return spieler gibt den aktuellen Spieler zurueck
 	 * 
@@ -204,6 +203,45 @@ public class Spiel implements iBediener {
 	public int figurenEinerFarbeAufFeld() {
 		// 4 - anzFigAufStartfeld = anzFigFarbeAufFeld;
 		return anzFigFarbeAufFeld;
+	}
+
+	/** @return f gibt die Farbe des Spielers zurueck **/
+	public FarbEnum getFarbe() {
+		return farbe;
+	}
+
+	/**
+	 * @param f
+	 *            Farbe des Spielers
+	 */
+	public void setFarbe(FarbEnum farbe) {
+		this.farbe = farbe;
+	}
+
+	/** @return brett gibt das Spielbrett zurueck **/
+	public Spielbrett getBrett() {
+		return brett;
+	}
+
+	/**
+	 * @param brett
+	 *            Spielbrett
+	 */
+	public void setBrett(Spielbrett brett) {
+		this.brett = brett;
+	}
+
+	/** @return spieler1 gibt den Spieler zurueck **/
+	public Spieler getSpieler1() {
+		return spieler1;
+	}
+
+	/**
+	 * @param spieler1
+	 *            Spieler
+	 */
+	public void setSpieler1(Spieler spieler1) {
+		this.spieler1 = spieler1;
 	}
 
 }
