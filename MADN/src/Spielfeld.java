@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 /**
  * Die Klasse Spielfeld
  * 
@@ -25,9 +23,9 @@ public class Spielfeld {
 	@SuppressWarnings("unused")
 	private Spielfigur fig;
 
-	private int[] spielFeldArray=new int[40];
-	private String[][] startFeldArray=new String[4][4];
-	private String[][] endFeldArray=new String[4][4];
+	private int[] spielFeldArray = new int[40];
+	private String[][] startFeldArray = new String[4][4];
+	private String[][] endFeldArray = new String[4][4];
 
 	/**
 	 * Konstruktor für das Spielfeld
@@ -53,7 +51,7 @@ public class Spielfeld {
 	public void erstelleFeld(int[] spielFeldArray) { // Normale Felder
 
 		for (int i = 1; i <= 40; i++) {
-			spielFeldArray[i-1] = i;
+			spielFeldArray[i - 1] = i;
 		}
 
 	}
@@ -70,32 +68,32 @@ public class Spielfeld {
 
 			if (i == 1) {
 				for (int j = 1; j <= 4; j++) {
-					
-					startFeldArray[i-1][j-1] = "SR" + j;
+
+					startFeldArray[i - 1][j - 1] = "SR" + j;
 				}
 
 			}
 
 			else if (i == 2) {
 				for (int j = 1; j <= 4; j++) {
-					
-					startFeldArray[i-1][j-1] = "SB" + j;
+
+					startFeldArray[i - 1][j - 1] = "SB" + j;
 				}
 
 			}
 
 			else if (i == 3) {
 				for (int j = 1; j <= 4; j++) {
-				
-					startFeldArray[i-1][j-1] = "SY" + j;
+
+					startFeldArray[i - 1][j - 1] = "SY" + j;
 				}
 
 			}
 
 			else if (i == 4) {
 				for (int j = 1; j <= 4; j++) {
-				
-					startFeldArray[i-1][j-1] = "SG" + j;
+
+					startFeldArray[i - 1][j - 1] = "SG" + j;
 				}
 
 			}
@@ -115,48 +113,58 @@ public class Spielfeld {
 
 			if (i == 1) {
 				for (int j = 1; j <= 4; j++) {
-				
-					endFeldArray[i-1][j-1] = "ER" + j;
+
+					endFeldArray[i - 1][j - 1] = "ER" + j;
 				}
 
 			}
 
 			else if (i == 2) {
 				for (int j = 1; j <= 4; j++) {
-					
-					endFeldArray[i-1][j-1] = "EB" + j;
+
+					endFeldArray[i - 1][j - 1] = "EB" + j;
 				}
 
 			}
 
 			else if (i == 3) {
 				for (int j = 1; j <= 4; j++) {
-					
-					endFeldArray[i-1][j-1] = "EY" + j;
+
+					endFeldArray[i - 1][j - 1] = "EY" + j;
 				}
 
 			}
 
 			else if (i == 4) {
 				for (int j = 1; j <= 4; j++) {
-					
-					endFeldArray[i-1][j-1] = "EG" + j;
+
+					endFeldArray[i - 1][j - 1] = "EG" + j;
 				}
 
 			}
 
 		}
-		
-		
 
 	}
 
-	
+	/**
+	 * Gibt ID zurück
+	 * 
+	 * @return ID gibt die ID zurück
+	 */
+	public int getSpielfeld(int x) {
 
-	public String getID() {
-		return ID;
+		return spielFeldArray[x];
+
 	}
 
+	public String getStartfeld(int x, int y) {
 
+		return startFeldArray[x][y];
+	}
 
+	public String getEndfeld(int x, int y) {
+
+		return endFeldArray[x][y];
+	}
 }
