@@ -3,7 +3,7 @@ import java.util.ArrayList;
 /**
  * Die Klasse Spiel
  * */
-public class Spiel implements iBediener {
+public abstract class Spiel implements iBediener {
 	private Spielfeld feld;
 	private Wuerfel w;
 	private Spielfigur figur;
