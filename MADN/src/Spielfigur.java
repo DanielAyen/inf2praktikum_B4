@@ -32,7 +32,7 @@ public class Spielfigur {
 	/** Konstruktor der Spielfigur **/
 	public Spielfigur(FarbEnum farbe) {
 		this.setFarbe(farbe);
-		w = new Wuerfel();
+	
 
 	}
 

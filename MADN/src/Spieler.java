@@ -1,4 +1,3 @@
-
 /**
  * Die Klasse Spieler
  * 
@@ -19,10 +18,11 @@ public class Spieler {
 	private Spielfigur fig;
 	private Wuerfel z;
 	private Wuerfel w;
-	private Spieler spieler1;
+	private Spieler s;
+	private int anzSpieler;
 
-	//private KI ki;
-	//private ArrayList<KI> ki = new ArrayList<KI>(); // fuer Komposition
+	// private KI ki;
+	// private ArrayList<KI> ki = new ArrayList<KI>(); // fuer Komposition
 
 	/**
 	 * Konstruktor des Spielers
@@ -32,18 +32,24 @@ public class Spieler {
 	 * @param farbe
 	 *            Das FarbEnum
 	 **/
-	public Spieler(String name, FarbEnum farbe) {
+	public Spieler(String name, FarbEnum farbe, int anzSpieler) {
+		if (anzSpieler > 4) {
+			throw new RuntimeException("Zu viele Spieler!");
+		}
+		this.anzSpieler = anzSpieler;
 		setName(name);
+		this.name = name;
 		w = new Wuerfel();
 		setFarbe(farbe);
-		//ki.getSpieler();
-		//ki.add(new KI(this)); // fuer Komposition
+		this.farbe = farbe;
+		// ki.getSpieler();
+		// ki.add(new KI(this)); // fuer Komposition
 	}
 
 	/**
 	 * @return gibt gewuerfelte Zahl zurueck
 	 */
-	
+
 	public void wuerfeln() {
 		w.werfen();
 	}
@@ -69,18 +75,17 @@ public class Spieler {
 		return name;
 	}
 
-
 	/**
 	 * @param f
 	 *            Farbe des Spielers
 	 */
 	public void setFarbe(FarbEnum farbe) {
-			this.farbe = farbe;
+		this.farbe = farbe;
 	}
 
 	/** @return f gibt die Farbe des Spielers zurueck **/
 	public FarbEnum getFarbe() {
-		System.out.println("Du hast die Farbe " + farbe+ " gewählt.");
+		System.out.println("Du hast die Farbe " + farbe + " gewählt.");
 		return farbe;
 	}
 
@@ -102,11 +107,30 @@ public class Spieler {
 		return (s.getName() == this.getName());
 	}
 
+	/**
+	 * 
+	 * 
+	 */
 	public void nochmalWuerfeln() {
 		w.werfen();
 	}
 
-	
+	// public void spielerHinzufuegen(Spieler s){
+	// if (anzSpieler>4){
+	// throw new RuntimeException("Zu viele Spieler!");
+	// }
+	// for (int i=0; i<4;i++){
+	// this.setS(s);
+	// }
+	// }
 
+	public void setS(Spieler s) {
+		this.s = s;
+	}
+
+	public Spieler getSpieler() {
+		return s;
+
+	}
 
 }

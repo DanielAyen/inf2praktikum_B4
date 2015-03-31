@@ -8,18 +8,25 @@ public class SpielTest {
 	public static void main(String[] args) {
 
 		Spielbrett brett = new Spielbrett();
+
+		Spieler spieler1 = new Spieler("Billy", FarbEnum.BLAU,1);
+		Spieler spieler2 = new Spieler("Fred", FarbEnum.GELB,2);
+//		Spieler spieler3 = new Spieler("Mike", FarbEnum.GRUEN,3);
+//		Spieler spieler4 = new Spieler("Holly", FarbEnum.ROT,4);
 		
-		Spieler spieler1 = new Spieler("Billy", FarbEnum.BLAU);
-		Spieler spieler2 = new Spieler("Fred", FarbEnum.GELB);
-		System.out.println(spieler1);
-		System.out.println(spieler2);
+//		Spieler spieler5 = new Spieler("Bad", FarbEnum.ROT,5);
+
+	
 
 		spieler1.wuerfeln();
-		spieler2.wuerfeln();
-		
-		//spielStarten();
-
-        
-		
+//		spieler2.wuerfeln();
+	
+	
+		System.out.println(spieler1);
+		System.out.println(spieler2);
+//		System.out.println(spieler3);
+//		System.out.println(spieler4);
+//		System.out.println(spieler5);
 	}
+
 }
