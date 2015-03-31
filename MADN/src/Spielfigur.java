@@ -49,15 +49,16 @@ public class Spielfigur {
 		return farbe;
 	}
 
-	/** @return endFeldArray gibt diePosition der Spielfigur zurueck **/
-	public String[][] getPosi() {
-		return endFeldArray;
-
-	}
+//	/** @return endFeldArray gibt diePosition der Spielfigur zurueck **/                                   SPÄTER
+//	public String[][] getPosi() {
+//		return endFeldArray;
+//
+//	}
 
 	/** @return spielFeldArray gibt diePosition der Spielfigur zurueck **/
-	public int[] getPos() {
-		return spielFeldArray;
+	public int getPos(int x) {
+		
+		return spielFeldArray[x];			 // spielFeldArray[x] ist FeldID
 	}
 
 	public void vor(Spielfigur fig, int pos) {

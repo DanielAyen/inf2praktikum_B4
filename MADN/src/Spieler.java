@@ -85,7 +85,7 @@ public class Spieler {
 
 	/** @return f gibt die Farbe des Spielers zurueck **/
 	public FarbEnum getFarbe() {
-		System.out.println("Du hast die Farbe " + farbe + " gewählt.");
+		System.out.println("Du hast die Farbe " + farbe + " gewaehlt.");
 		return farbe;
 	}
 

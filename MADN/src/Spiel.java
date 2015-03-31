@@ -132,13 +132,13 @@ public abstract class Spiel implements iBediener {
 		figur.getFarbe();
 		switch (farbe) {
 		case ROT:
-			return spielFeldArray[1];
+			return spielFeldArray[0]; //index 0 = FeldID 1 ff.
 		case BLAU:
-			return spielFeldArray[11];
+			return spielFeldArray[10];
 		case GRUEN:
-			return spielFeldArray[21];
+			return spielFeldArray[20];
 		case GELB:
-			return spielFeldArray[31];
+			return spielFeldArray[30];
 
 		default:
 			return (Integer) null;
