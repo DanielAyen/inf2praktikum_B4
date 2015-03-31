@@ -18,8 +18,6 @@
 
 public class Spielfeld {
 
-	private String ID;
-
 	@SuppressWarnings("unused")
 	private Spielfigur fig;
 
@@ -148,7 +146,7 @@ public class Spielfeld {
 	}
 
 	/**
-	 * Gibt Feld zurueck
+	 * Gibt normales zurueck
 	 * 
 	 * @return spielFeldArray[x] gibt Feld an der Stelle x zurueck
 	 */
@@ -159,7 +157,7 @@ public class Spielfeld {
 	}
 
 	/**
-	 * Gibt Feld zurueck
+	 * Gibt Starfeld zurueck
 	 * 
 	 * @return startFeldArray[x][y] gibt Feld an der Stelle x,y zurueck
 	 */
@@ -169,7 +167,7 @@ public class Spielfeld {
 	}
 
 	/**
-	 * Gibt Feld zurueck
+	 * Gibt Endfeld zurueck
 	 * 
 	 * @return endFeldArray[x][y] gibt Feld an der Stelle x,y zurueck
 	 */
