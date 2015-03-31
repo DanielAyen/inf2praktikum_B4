@@ -215,50 +215,50 @@ public class Spiel implements iBediener {
 		return anzFigFarbeAufFeld;
 	}
 
-	/** @return f gibt die Farbe des Spielers zurueck **/
-	public FarbEnum getFarbe() {
-		return farbe;
-	}
-
-	/**
-	 * @param f
-	 *            Farbe des Spielers
-	 */
-	public void setFarbe(FarbEnum farbe) {
-		this.farbe = farbe;
-	}
-
-	/** @return brett gibt das Spielbrett zurueck **/
-	public Spielbrett getBrett() {
-		return brett;
-	}
-
-	/**
-	 * @param brett
-	 *            Spielbrett
-	 */
-	public void setBrett(Spielbrett brett) {
-		this.brett = brett;
-	}
-
-	/** @return spieler1 gibt den Spieler zurueck **/
-	public Spieler getSpielerS() {
-		return s;
-	}
-
-	/**
-	 * @param s
-	 *            Spieler
-	 */
-	public void setSpielerS(Spieler s) {
-		this.s = s;
-	}
-
-	@Override
-	public void spielStarten() {
-		// TODO Auto-generated method stub
-		
-	}
+//	/** @return f gibt die Farbe des Spielers zurueck **/
+//	public FarbEnum getFarbe() {
+//		return farbe;
+//	}
+//
+//	/**
+//	 * @param f
+//	 *            Farbe des Spielers
+//	 */
+//	public void setFarbe(FarbEnum farbe) {
+//		this.farbe = farbe;
+//	}
+//
+//	/** @return brett gibt das Spielbrett zurueck **/
+//	public Spielbrett getBrett() {
+//		return brett;
+//	}
+//
+//	/**
+//	 * @param brett
+//	 *            Spielbrett
+//	 */
+//	public void setBrett(Spielbrett brett) {
+//		this.brett = brett;
+//	}
+//
+//	/** @return spieler1 gibt den Spieler zurueck **/
+//	public Spieler getSpielerS() {
+//		return s;
+//	}
+//
+//	/**
+//	 * @param s
+//	 *            Spieler
+//	 */
+//	public void setSpielerS(Spieler s) {
+//		this.s = s;
+//	}
+//
+//	@Override
+//	public void spielStarten() {
+//		// TODO Auto-generated method stub
+//		
+//	}
 
 }
 

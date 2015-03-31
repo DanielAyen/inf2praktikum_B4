@@ -8,5 +8,8 @@ public interface iBediener {
 
 	void werfen();
 	void spielStarten();
-
+	void entscheidungBeiSechs();
+	void welcheSpielfigurNutzen();
+	
+	
 }
