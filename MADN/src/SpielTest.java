@@ -18,7 +18,7 @@ public class SpielTest {
  */
 		
 		
-		//erstelleSpieler( "anna",  FarbEnum.ROT);
+		//erstelleSpieler( "Anna",  FarbEnum.ROT);
 		
 		
 //___________________________________________________________________________________________________________________________________________		

@@ -35,8 +35,49 @@ public class Spieler {
 		setName(name);
 		w = new Wuerfel();
 		setFarbe(farbe);
+		
+		figurenErstellenundFarbe(farbe);
+		
 		// ki.getSpieler();
 		// ki.add(new KI(this)); // fuer Komposition
+	}
+/**
+ *4Figuren pro Farbe werden erstellt 
+ *
+ * @param farbe Farbe aus dem FarbEnum
+ */
+	public void figurenErstellenundFarbe(FarbEnum farbe) {
+		
+		if (farbe == FarbEnum.ROT) {
+			Spielfigur FRot1= new Spielfigur(FarbEnum.ROT); 
+			Spielfigur FRot2= new Spielfigur(FarbEnum.ROT);
+			Spielfigur FRot3= new Spielfigur(FarbEnum.ROT);
+			Spielfigur FRot4= new Spielfigur(FarbEnum.ROT);
+
+		} else if (farbe == FarbEnum.BLAU) {
+			Spielfigur FBlau1= new Spielfigur(FarbEnum.BLAU);
+			Spielfigur FBlau2= new Spielfigur(FarbEnum.BLAU);
+			Spielfigur FBlau3= new Spielfigur(FarbEnum.BLAU);
+			Spielfigur FBlau4= new Spielfigur(FarbEnum.BLAU);
+
+		} else if (farbe == FarbEnum.GELB) {
+			Spielfigur FGelb1= new Spielfigur(FarbEnum.GELB);
+			Spielfigur FGelb2= new Spielfigur(FarbEnum.GELB);
+			Spielfigur FGelb3= new Spielfigur(FarbEnum.GELB);
+			Spielfigur FGelb4= new Spielfigur(FarbEnum.GELB);
+
+		} else if (farbe == FarbEnum.GRUEN) {
+			Spielfigur FGruen1= new Spielfigur(FarbEnum.GRUEN); 
+			Spielfigur FGruen2= new Spielfigur(FarbEnum.GRUEN);
+			Spielfigur FGruen3= new Spielfigur(FarbEnum.GRUEN);
+			Spielfigur FGruen4= new Spielfigur(FarbEnum.GRUEN);
+
+	}
+	}
+	
+	public void figurenAufStartfeldSetzen(String startFeldArray[][],Spielfigur x){
+		
+		
 	}
 
 	/**

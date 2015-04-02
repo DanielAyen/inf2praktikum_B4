@@ -24,34 +24,63 @@ public class Spielfigur {
 	private FarbEnum farbe;
 	private static final int anzFarbe = 4;
 	private Spielfeld feld;
-	private int[] spielFeldArray;
+	private String[] spielFeldArray;
 	private String[][] startFeldArray;
 	private String[][] endFeldArray;
+	private Spieler Spieler;
+	private Object[][][] farbeNamePosition = new Object[4][16][16];
+	
+	public void farbeNamePosZuordnung(){
+	farbeNamePosition[0][0][0]=FarbEnum.ROT;
+	farbeNamePosition[1][0][0]=FarbEnum.BLAU;
+	farbeNamePosition[2][0][0]=FarbEnum.GELB;
+	farbeNamePosition[3][0][0]=FarbEnum.GRUEN;
+	
+	farbeNamePosition[0][0][0]=  "FRot1";
+	farbeNamePosition[0][1][0]=  "FRot2";
+	farbeNamePosition[0][2][0]=  "FRot3";
+	farbeNamePosition[0][3][0]=  "FRot4";
+	
+	farbeNamePosition[1][0][0]=  "FBlau1";
+	farbeNamePosition[1][1][0]=  "FBlau2";
+	farbeNamePosition[1][2][0]=  "FBlau3";
+	farbeNamePosition[1][3][0]=  "FBlau4";
+	
+	farbeNamePosition[2][0][0]=  "FGelb1";
+	farbeNamePosition[2][1][0]=  "FGelb2";
+	farbeNamePosition[2][2][0]=  "FGelb3";
+	farbeNamePosition[2][3][0]=  "FGelb4";
+	
+	farbeNamePosition[3][0][0]=  "FGruen1";
+	farbeNamePosition[3][1][0]=  "FGruen2";
+	farbeNamePosition[3][2][0]=  "FGruen3";
+	farbeNamePosition[3][3][0]=  "FGruen4";
+	
+	farbeNamePosition[0][0][0]=  "SR1";
+	farbeNamePosition[0][1][1]=  "SR2";
+	farbeNamePosition[0][2][2]=  "SR3";
+	farbeNamePosition[0][3][3]=  "SR4";
+
+	farbeNamePosition[1][0][0]=  "SB1";
+	farbeNamePosition[1][1][1]=  "SB2";
+	farbeNamePosition[1][2][2]=  "SB3";
+	farbeNamePosition[1][3][3]=  "SB4";
+	
+	farbeNamePosition[2][0][0]=  "SY1";
+	farbeNamePosition[2][1][1]=  "SY2";
+	farbeNamePosition[2][2][2]=  "SY3";
+	farbeNamePosition[2][3][3]=  "SY4";
+	
+	farbeNamePosition[3][0][0]=  "SG1";
+	farbeNamePosition[3][1][1]=  "SG2";
+	farbeNamePosition[3][2][2]=  "SG3";
+	farbeNamePosition[3][3][3]=  "SG4";
+	}
+	
 	private Wuerfel w;
 
 	/** Konstruktor der Spielfigur **/
 	public Spielfigur(FarbEnum farbe) {
-
-		if (farbe == FarbEnum.ROT) {
-			for (int i = 1; i <= 4; i++) {
-				Spielfigur Roti;
-			}
-		} else if (farbe == FarbEnum.BLAU) {
-			for (int i = 1; i <= 4; i++) {
-				Spielfigur Blaui;
-			}
-
-		} else if (farbe == FarbEnum.GELB) {
-			for (int i = 1; i <= 4; i++) {
-				Spielfigur Gelbi;
-			}
-
-		} else if (farbe == FarbEnum.GRUEN) {
-			for (int i = 1; i <= 4; i++) {
-				Spielfigur Grueni;
-			}
-
-		}
 
 		this.setFarbe(farbe);
 
@@ -63,24 +92,24 @@ public class Spielfigur {
 	 */
 	public void setFarbe(FarbEnum farbe) {
 		this.farbe = farbe;
+		
 	}
 
-	/** @return f gibt die Farbe der Spielfigur zurueck **/
-	public FarbEnum getFarbe() {
-		return farbe;
+
+	/**  */
+	public String getPosSpielFelder(int x,Spielfigur fig) {
+
+		return spielFeldArray[x];
+		
 	}
-
-	// /** @return endFeldArray gibt diePosition der Spielfigur zurueck **/
-	// SPÄTER
-	// public String[][] getPosi() {
-	// return endFeldArray;
-	//
-	// }
-
-	/** @return spielFeldArray gibt diePosition der Spielfigur zurueck **/
-	public int getPos(int x) {
-
-		return spielFeldArray[x]; // spielFeldArray[x] ist FeldID
+	public String getPosEndFelder(int x, int y,Spielfigur fig){
+		
+		return endFeldArray[x][y];
+	}
+	
+	public void setPosImArray(String [] spielFeldArray,Object[][][] farbeNamePosition){
+		
+		
 	}
 
 	public void vor(Spielfigur fig, int pos) {
@@ -90,29 +119,10 @@ public class Spielfigur {
 			// if(Spielfeld.getSpielfeld(i)!= 0){
 
 		}
+
 	}
 
-	// sobald spielfiguren ueber ihren Konstruktor erstellt werden müssen sie
-	// wissen dass ihre pos S+Farbe+zahl ist!
-	public Object posFigurenRot() {
 
-		return pos;
-	}
-
-	public Object posFigurenBlau() {
-
-		return pos;
-	}
-
-	public Object posFigurenGelb() {
-
-		return pos;
-	}
-
-	public Object posFigurenGruen() {
-
-		return pos;
-	}
 	// public void bewegen(Spielfigur figur, int pos) {
 	// int erg=0;
 	// erg= pos + Wuerfel.werfen();

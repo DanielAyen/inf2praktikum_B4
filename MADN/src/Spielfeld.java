@@ -21,7 +21,7 @@ public class Spielfeld {
 	@SuppressWarnings("unused")
 	private Spielfigur fig;
 
-	private int[] spielFeldArray = new int[40];
+	private String[] spielFeldArray = new String[40];
 	private String[][] startFeldArray = new String[4][4];
 	private String[][] endFeldArray = new String[4][4];
 
@@ -46,10 +46,10 @@ public class Spielfeld {
 	 * @param spielFeldArray
 	 *            Array fuer alle normalen Felder 40Felder
 	 */
-	public void erstelleFeld(int[] spielFeldArray) { // Normale Felder
+	public void erstelleFeld(String[] spielFeldArray) { // Normale Felder
 
 		for (int i = 1; i <= 40; i++) {
-			spielFeldArray[i - 1] = i;
+			spielFeldArray[i - 1] = ""+i;
 		}
 
 	}
@@ -150,7 +150,7 @@ public class Spielfeld {
 	 * 
 	 * @return spielFeldArray[x] gibt Feld an der Stelle x zurueck
 	 */
-	public int getSpielfeld(int x) {
+	public String getSpielfeld(int x) {
 
 		return spielFeldArray[x];
 
