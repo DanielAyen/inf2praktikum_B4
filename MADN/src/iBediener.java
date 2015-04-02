@@ -13,7 +13,8 @@ public interface iBediener {
 	void erstelleSpieler(String name, FarbEnum farbe);
 	void erstelleBrett();
 	void wuerfeln();
-//	int aufStartSpielfeld();
+	int aufStartSpielfeld();
+	
 	
 	
 }

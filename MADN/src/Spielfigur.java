@@ -34,6 +34,7 @@ public class Spielfigur {
 	private Object[][][] farbeNamePosition = new Object[4][16][16];
 	private Wuerfel w;
 	
+
 	public void farbeNamePosZuordnung() {
 		farbeNamePosition[0][0][0] = FarbEnum.ROT;
 		farbeNamePosition[1][0][0] = FarbEnum.BLAU;
@@ -145,7 +146,30 @@ public class Spielfigur {
 		// }
 
 	}
+	
 
+	public FarbEnum getFarbe() {
+//		if (FigurFarbe == FarbEnum.ROT) {
+//			return FarbEnum.ROT;
+//		}
+//
+//		else if (FigurFarbe == FarbEnum.BLAU) {
+//			return FarbEnum.BLAU;
+//		}
+//
+//		else if (FigurFarbe == FarbEnum.GELB) {
+//			return FarbEnum.GELB;
+//		}
+//
+//		else if (FigurFarbe == FarbEnum.GRUEN) {
+//			return FarbEnum.GRUEN;
+//		}
+//		 
+	return null;
+	}
+
+	
+	
 	// public void bewegen(Spielfigur figur, int pos) {
 	// int erg=0;
 	// erg= pos + Wuerfel.werfen();

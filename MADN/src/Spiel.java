@@ -12,13 +12,28 @@ public class Spiel implements iBediener {
 	 * 
 	 * @param w
 	 *            Wuerfel
-	 * @param spielFeldArray Array der Spielfelder1-40
+	 * @param spielFeldArray
+	 *            Array der Spielfelder1-40
 	 * 
 	 */
 	private int spielerZaehler = 0;
 	private int brettZaehler = 0;
 	private Wuerfel w;
-//	private int[] spielFeldArray;
+	private int[] spielFeldArray;
+
+	
+	/**
+	 * @param fig 
+	 * 			Spielfigur
+	 *
+	 * @param farbe 
+	 * 				FarbEnum Farbe
+	 */
+	private Spielfigur fig;
+	private FarbEnum farbe;
+
+	
+	
 	/**
 	 * erstellt die einzelnen Spieler
 	 * 
@@ -80,8 +95,17 @@ public class Spiel implements iBediener {
 	public void wuerfeln() {
 		w.werfen();
 	}
+	
+	
+	
+	
+	
+
+
 
 	/**
+	 * Schaut welche Farbe die aufs Feld zustellende Figur hat um sie auf das richtige Feld zu setzen
+	 * 
 	 * @param farbe
 	 *            Farbe der Spieler
 	 * @return spielFeldArray[1] Start-Spielfeld der Frabe Rot
@@ -89,23 +113,26 @@ public class Spiel implements iBediener {
 	 * @return spielFeldArray[21] Start-Spielfeld der Frabe Gruen
 	 * @return spielFeldArray[31] Start-Spielfeld der Frabe Gelb
 	 */
-//	 @Override
-//	 public int aufStartSpielfeld() {      		//müssen anders an die Farbe kommen da getFarbe nicht mehr da//
-//	 figur.getFarbe();
-//	 switch (farbe) {
-//	 case ROT:
-//	 return spielFeldArray[0]; //index 0 = FeldID 1 ff.
-//	 case BLAU:
-//	 return spielFeldArray[10];
-//	 case GRUEN:
-//	 return spielFeldArray[20];
-//	 case GELB:
-//	 return spielFeldArray[30];
-//	
-//	 default:
-//	 return (Integer) null;
-//	 }
-//	 }
+	@Override
+	public int aufStartSpielfeld() { 
+										// hoffe dass ich nicht allzuviel müll geschrieben hab//
+	fig.getFarbe();
+		switch (farbe) {
+		case ROT:
+			return spielFeldArray[0]; // index 0 = FeldID 1 ff.
+		case BLAU:
+			return spielFeldArray[10];
+		case GRUEN:
+			return spielFeldArray[20];
+		case GELB:
+			return spielFeldArray[30];
+
+		default:
+			return (Integer) null;
+		}
+	}
+	
+	
 
 	@Override
 	public void entscheidungBeiSechs() {
@@ -137,14 +164,13 @@ public class Spiel implements iBediener {
 	//
 	// return (Integer) null;
 	// }
-	
+
 	/**
-	 *Greift auf die vor in Spielfigur zu um sie zu bewegen
+	 * Greift auf die vor in Spielfigur zu um sie zu bewegen
 	 */
-	//@Override
-	public void figurBewegen(){
-		
-		
+	// @Override
+	public void figurBewegen() {
+
 	}
 
 }
