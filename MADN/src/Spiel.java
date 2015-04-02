@@ -1,5 +1,3 @@
-//import java.util.ArrayList;
-
 /**
  * Die Klasse Spiel
  * */
@@ -14,12 +12,13 @@ public class Spiel implements iBediener {
 	 * 
 	 * @param w
 	 *            Wuerfel
+	 * @param spielFeldArray Array der Spielfelder1-40
 	 * 
 	 */
 	private int spielerZaehler = 0;
 	private int brettZaehler = 0;
 	private Wuerfel w;
-
+//	private int[] spielFeldArray;
 	/**
 	 * erstellt die einzelnen Spieler
 	 * 
@@ -54,17 +53,9 @@ public class Spiel implements iBediener {
 	public void erstelleBrett() {
 		if (brettZaehler == 0) {
 			new Spielbrett();
+			brettZaehler++;
 		} else
 			throw new RuntimeException("Es gibt schon ein Spielbrett!");
-	}
-
-	/**
-	 * Gibt dem Spieler die Möglichkeit zu wuerfeln
-	 * 
-	 */
-	@Override
-	public void wuerfeln() {
-		w.werfen();
 	}
 
 	/**
@@ -80,6 +71,41 @@ public class Spiel implements iBediener {
 		}
 
 	}
+
+	/**
+	 * Gibt dem Spieler die Möglichkeit zu wuerfeln
+	 * 
+	 */
+	@Override
+	public void wuerfeln() {
+		w.werfen();
+	}
+
+	/**
+	 * @param farbe
+	 *            Farbe der Spieler
+	 * @return spielFeldArray[1] Start-Spielfeld der Frabe Rot
+	 * @return spielFeldArray[11] Start-Spielfeld der Frabe Blau
+	 * @return spielFeldArray[21] Start-Spielfeld der Frabe Gruen
+	 * @return spielFeldArray[31] Start-Spielfeld der Frabe Gelb
+	 */
+//	 @Override
+//	 public int aufStartSpielfeld() {      		//müssen anders an die Farbe kommen da getFarbe nicht mehr da//
+//	 figur.getFarbe();
+//	 switch (farbe) {
+//	 case ROT:
+//	 return spielFeldArray[0]; //index 0 = FeldID 1 ff.
+//	 case BLAU:
+//	 return spielFeldArray[10];
+//	 case GRUEN:
+//	 return spielFeldArray[20];
+//	 case GELB:
+//	 return spielFeldArray[30];
+//	
+//	 default:
+//	 return (Integer) null;
+//	 }
+//	 }
 
 	@Override
 	public void entscheidungBeiSechs() {
@@ -102,8 +128,23 @@ public class Spiel implements iBediener {
 	}
 
 	// public int anzahlFigurenAufStartFeldern(FarbEnum farbe, ){
-	// if(array[x] ==Sr1||==sr2.... dann Starfeld zaehler ++
+	// if(array[x] ==Sr1||==sr2.... dann Startfeld zaehler ++
 	// return ;
 	// }
+
+	// @Override
+	// public int aufStartSpielfeld() {
+	//
+	// return (Integer) null;
+	// }
+	
+	/**
+	 *Greift auf die vor in Spielfigur zu um sie zu bewegen
+	 */
+	//@Override
+	public void figurBewegen(){
+		
+		
+	}
 
 }

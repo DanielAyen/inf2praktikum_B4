@@ -17,6 +17,10 @@ import java.util.ArrayList;
  *            Felder der Endfelder
  * @param w
  *            Parameter fuer den Wuerfel
+ * 
+ * @param farbeNamePosition
+ *            Array fuer die einzelnen Spielfiguren, mit Farbe Spielfigur und
+ *            ihrer Position
  **/
 
 public class Spielfigur {
@@ -28,7 +32,8 @@ public class Spielfigur {
 	private String[][] startFeldArray;
 	private String[][] endFeldArray;
 	private Object[][][] farbeNamePosition = new Object[4][16][16];
-
+	private Wuerfel w;
+	
 	public void farbeNamePosZuordnung() {
 		farbeNamePosition[0][0][0] = FarbEnum.ROT;
 		farbeNamePosition[1][0][0] = FarbEnum.BLAU;
@@ -76,8 +81,6 @@ public class Spielfigur {
 		farbeNamePosition[3][3][3] = "SG4";
 	}
 
-	private Wuerfel w;
-
 	/** Konstruktor der Spielfigur **/
 	public Spielfigur(FarbEnum farbe) {
 
@@ -94,7 +97,14 @@ public class Spielfigur {
 
 	}
 
-	/** unfinishrd */
+	/**
+	 * //Unfinished//
+	 * 
+	 * @param x
+	 * @param farbe
+	 * @param figur
+	 * @return
+	 */
 	public String getPosSpielFelder(int x, int farbe, int figur) {
 
 		return spielFeldArray[x];
@@ -106,21 +116,33 @@ public class Spielfigur {
 		return endFeldArray[x][y];
 	}
 
-	public void setPosImArray(String neuePos,int x,Object[][][] farbeNamePosition,int farbe, int figur){
-		
-		getPosSpielFelder(x,farbe, figur);
-		farbeNamePosition[farbe][figur][figur]=neuePos;
-		
-		
+	/**
+	 * //Unfinished//
+	 * 
+	 * @param neuePos
+	 * @param x
+	 * @param farbeNamePosition
+	 * @param farbe
+	 * @param figur
+	 */
+	public void setPosImArray(String neuePos, int x,
+			Object[][][] farbeNamePosition, int farbe, int figur) {
+
+		getPosSpielFelder(x, farbe, figur);
+		farbeNamePosition[farbe][figur][figur] = neuePos;
+
 	}
 
-	public void vor(Spielfigur fig, int pos) {
+	public void vor(Object farbeNamePosition[][][], int farbe, int figur,
+			String pos, int w) {
 		int erg = 0;
-		erg = pos + w.werfen();
-		for (int i = pos; i < erg - 1; i++) {
-			// if(Spielfeld.getSpielfeld(i)!= 0){
+		farbeNamePosition[farbe][figur][figur] = pos + erg;
 
-		}
+		// erg = pos + w.werfen();
+		// for (int i = pos; i < erg - 1; i++) {
+		// // if(Spielfeld.getSpielfeld(i)!= 0){
+		//
+		// }
 
 	}
 
