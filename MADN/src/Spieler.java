@@ -16,10 +16,9 @@ public class Spieler {
 	private String name;
 	private FarbEnum farbe;
 	private Spielfigur fig;
-	private Wuerfel z;
 	private Wuerfel w;
 	private Spieler s;
-	private int anzSpieler;
+	
 
 	// private KI ki;
 	// private ArrayList<KI> ki = new ArrayList<KI>(); // fuer Komposition
@@ -32,16 +31,10 @@ public class Spieler {
 	 * @param farbe
 	 *            Das FarbEnum
 	 **/
-	public Spieler(String name, FarbEnum farbe, int anzSpieler) {
-		if (anzSpieler > 4) {
-			throw new RuntimeException("Zu viele Spieler!");
-		}
-		this.anzSpieler = anzSpieler;
+	public Spieler(String name, FarbEnum farbe) {
 		setName(name);
-		this.name = name;
 		w = new Wuerfel();
 		setFarbe(farbe);
-		this.farbe = farbe;
 		// ki.getSpieler();
 		// ki.add(new KI(this)); // fuer Komposition
 	}
@@ -107,13 +100,6 @@ public class Spieler {
 		return (s.getName() == this.getName());
 	}
 
-	/**
-	 * 
-	 * 
-	 */
-	public void nochmalWuerfeln() {
-		w.werfen();
-	}
 
 	// public void spielerHinzufuegen(Spieler s){
 	// if (anzSpieler>4){
@@ -132,5 +118,6 @@ public class Spieler {
 		return s;
 
 	}
+
 
 }

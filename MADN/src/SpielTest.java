@@ -16,10 +16,16 @@ public class SpielTest {
  *  
  * 
  */
+		
+		
+		//erstelleSpieler( "anna",  FarbEnum.ROT);
+		
+		
+//___________________________________________________________________________________________________________________________________________		
 		Spielbrett brett = new Spielbrett();
 
-		Spieler spieler1 = new Spieler("Billy", FarbEnum.BLAU,1);
-		Spieler spieler2 = new Spieler("Fred", FarbEnum.GELB,2);
+		Spieler spieler1 = new Spieler("Billy", FarbEnum.BLAU);
+		Spieler spieler2 = new Spieler("Fred", FarbEnum.GELB);
 //		Spieler spieler3 = new Spieler("Mike", FarbEnum.GRUEN,3);
 //		Spieler spieler4 = new Spieler("Holly", FarbEnum.ROT,4);
 		

@@ -176,10 +176,5 @@ public class Spielfeld {
 		return endFeldArray[x][y];
 	}
 
-//	public int getSpielfeldID() {
-//		
-//		
-//
-//	}
 
 }

@@ -1,266 +1,109 @@
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 /**
  * Die Klasse Spiel
  * */
-public abstract class Spiel implements iBediener {
-	private Spielfeld feld;
-	private Wuerfel w;
-	private Spielfigur figur;
-	private FarbEnum farbe;
-	private Spielbrett brett;
-	private int[] spielFeldArray;
-	private int anzFigFarbeAufFeld;
-	private ArrayList<Spieler> spieler = null;
-	private Spielfeld ID;
-	private Spieler s;
-	private Spiel spiel;
+public class Spiel implements iBediener {
 
 	/**
+	 * @param spielerZaehler
+	 *            zaehlt Anzahl der Spieler
 	 * 
-	 * @param spiel
-	 *            Startet das Spiel
-	 * 
-	 */
-
-	@Override
-//	public void spielStarten() {
-//		if (s == null) {
-//			throw new RuntimeException("Fehler: Es ist kein Spieler vorhanden!");
-//		} else
-//			s.spielerHinzufuegen(s);
-//
-//	}
-
-	/**
-	 * @return spieler gibt den aktuellen Spieler zurueck
-	 * 
-	 */
-	// @Override
-	public ArrayList<Spieler> getSpieler() {
-		return spieler;
-	}
-
-	// @Override
-	public Spieler aktiverSpieler() {
-		return spieler.get(("aktiverSpieler"));
-		/*
-		 * public Spieler getSpielerAmZug(){ return
-		 * spieler.get(d.toInt(dSp.get("spielerAmZug"))-1); }
-		 */
-
-	}
-
-	/**
-	 * @param spielerAnz
-	 *            setzt die maximale Spieleranzahl fest
-	 * 
-	 * */
-	// @Override
-	public void zaehlerSpielerMax(int spielerAnz) {
-		if (spielerAnz == 4) {
-			throw new RuntimeException("Es sind schon 4 Spieler erstellt.");
-		}
-	}
-
-	/**
-	 * 
-	 * @return spieler gibt den Spieler aus, der an der Reihe ist
-	 */
-	// @Override
-	public Spieler reihenfolgeSpieler() {
-		// if(){
-		//
-		// }
-		return s;
-		// spieler1
-		// spieler2
-		// spieler3
-		// spieler4
-
-		/*
-		 * 
-		 * 
-		 * public Spieler naechsterSpieler(){ if
-		 * (dSp.get("spielerAmZug").equals(dSp.get("anzahlSpieler"))){
-		 * dSp.set("spielerAmZug",""+1); dSp.inc("runde"); } else
-		 * dSp.inc("spielerAmZug"); Spieler sp=getSpielerAmZug();
-		 * sp.neueRunde(); return sp; }
-		 */
-
-	}
-
-	/**
+	 * @param brettZaehler
+	 *            zaehlt Anzahl der Spielbretter
 	 * 
 	 * @param w
-	 *            Parameter fuer den Wuerfel
+	 *            Wuerfel
+	 * 
 	 */
-	// @Override
-	public void werfen() {
+	private int spielerZaehler = 0;
+	private int brettZaehler = 0;
+	private Wuerfel w;
+
+	/**
+	 * erstellt die einzelnen Spieler
+	 * 
+	 * @param name
+	 *            Der Spielername
+	 * 
+	 * @param farbe
+	 *            Die Farbe des Spielers
+	 * 
+	 * @throws wirft
+	 *             Exception wenn die Max Spielerzahl überschritten wird
+	 */
+	@Override
+	public void erstelleSpieler(String name, FarbEnum farbe) {
+		if (spielerZaehler <= 3) {
+			new Spieler(name, farbe);
+			spielerZaehler++;
+		} else
+			throw new RuntimeException("Max Spielerzahl erreicht!");
+
+	}
+
+	/**
+	 * erstellt das Spielbrett
+	 * 
+	 * 
+	 * @throws wirft
+	 *             Exception wenn die Max Anzahl an Spielbretter überschritten
+	 *             wird
+	 */
+	@Override
+	public void erstelleBrett() {
+		if (brettZaehler == 0) {
+			new Spielbrett();
+		} else
+			throw new RuntimeException("Es gibt schon ein Spielbrett!");
+	}
+
+	/**
+	 * Gibt dem Spieler die Möglichkeit zu wuerfeln
+	 * 
+	 */
+	@Override
+	public void wuerfeln() {
 		w.werfen();
 	}
 
 	/**
-	 * 
-	 * @param anzFigFarbeAufFeld
-	 *            Anzahl der Figuren auf dem Startfeld eines Spielers
+	 * Lässt das Spiel beginnen
 	 * 
 	 */
-	// @Override
+	@Override
+	public void spielStarten() {
+		if (spielerZaehler > 0 || brettZaehler == 1) {
+			System.out.println("Das Spiel beginnt.");
+			System.out.println("Spieler" + "" + "darf wuerfeln!");
+			// zwischen die + + muss der akt Spieler eingefügt werden
+		}
+
+	}
+
+	@Override
 	public void entscheidungBeiSechs() {
-		if (anzFigFarbeAufFeld < 4) {
-			System.out
-					.println("Möchtest du dein Spieler aus dem Startbereich holen oder mit einer Figur ziehen?");
-			// spieler rausholen oder mit welcher figur vor ()
-		} else {
-			figur.vor();
-		}
-		werfen();
+		// Figur raus oder ziehen
+		// und nochmal wuerfeln
 
 	}
 
-	/**
-	 * @param farbe
-	 *            Farbe der Spieler
-	 * @return spielFeldArray[1] Start-Spielfeld der Frabe Rot
-	 * @return spielFeldArray[11] Start-Spielfeld der Frabe Blau
-	 * @return spielFeldArray[21] Start-Spielfeld der Frabe Gruen
-	 * @return spielFeldArray[31] Start-Spielfeld der Frabe Gelb
-	 */
-	// @Override
-	public int aufStartSpielfeld() {
-		figur.getFarbe();
-		switch (farbe) {
-		case ROT:
-			return spielFeldArray[0]; //index 0 = FeldID 1 ff.
-		case BLAU:
-			return spielFeldArray[10];
-		case GRUEN:
-			return spielFeldArray[20];
-		case GELB:
-			return spielFeldArray[30];
-
-		default:
-			return (Integer) null;
-		}
-	}
-
-	/**
-	 * 
-	 * @param istFeldBelegt
-	 *            prüft ob ein Feld belegt ist
-	 * @return
-	 */
-	// @Override
-	public void gegnerSchlagen() {
-		if (istFeldBelegt() == true) {
-			figur.getFarbe();
-			if (this.farbe == farbe) {
-				System.out
-						.println("Du kannst ein Männchen deiner eigenen Farbe nicht Schlagen.");
-				System.out.println("Der nächste Spieler ist nun am Zug.");
-				return;
-			} else {
-				// Figur die geschlagen wurde auf StartFeld
-
-			}
-		}
-
-	}
-
-	/**
-	 * @return true/false gibt aus ob ein Spielfeld belegt ist oder nicht
-	 */
-	// @Override
-	public boolean istFeldBelegt() {
-		if (figur.getPos() == this.figur.getPos()) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	/**
-	 * 
-	 * @param prüft
-	 *            wie viele Spielfiguren vorhanden sind
-	 * 
-	 */
-	// @Override
+	@Override
 	public void welcheSpielfigurNutzen() {
-		// wie viele im Feld?
-	}
-
-	/**
-	 * 
-	 * @param istZielfeldEndFeld
-	 *            prüft ob ein Spielfeld ein Endfeld eines Spieler ist
-	 */
-	// @Override
-	public boolean istZielfeldEndfeld() {
-		if (feld.getID().contains("E")) {
-			return true;
-		}
-		return false;
+		// auswahl zwischen den verfügbaren figuren geben,
+		// (darauf achten ob im startfeld array oder nicht?)
 
 	}
 
-	/**
-	 * @return anzFigFarbeAufFeld gibt die Anzahl der Spielfiguren aus, die
-	 *         nicht auf Startfeld sind
-	 */
-	// @Override
-	public int figurenEinerFarbeAufFeld() {
-		// 4 - anzFigAufStartfeld = anzFigFarbeAufFeld;
-		return anzFigFarbeAufFeld;
+	public void GegnerSchlagen() {
+		// prüfen ob auch sicher Feindfigur
+		// feindfigur zurückstellen
+		//
 	}
 
-//	/** @return f gibt die Farbe des Spielers zurueck **/
-//	public FarbEnum getFarbe() {
-//		return farbe;
-//	}
-//
-//	/**
-//	 * @param f
-//	 *            Farbe des Spielers
-//	 */
-//	public void setFarbe(FarbEnum farbe) {
-//		this.farbe = farbe;
-//	}
-//
-//	/** @return brett gibt das Spielbrett zurueck **/
-//	public Spielbrett getBrett() {
-//		return brett;
-//	}
-//
-//	/**
-//	 * @param brett
-//	 *            Spielbrett
-//	 */
-//	public void setBrett(Spielbrett brett) {
-//		this.brett = brett;
-//	}
-//
-//	/** @return spieler1 gibt den Spieler zurueck **/
-//	public Spieler getSpielerS() {
-//		return s;
-//	}
-//
-//	/**
-//	 * @param s
-//	 *            Spieler
-//	 */
-//	public void setSpielerS(Spieler s) {
-//		this.s = s;
-//	}
-//
-//	@Override
-//	public void spielStarten() {
-//		// TODO Auto-generated method stub
-//		
-//	}
+	// public int anzahlFigurenAufStartFeldern(FarbEnum farbe, ){
+	// if(array[x] ==Sr1||==sr2.... dann Starfeld zaehler ++
+	// return ;
+	// }
 
 }
-
-// Wenn schon 4 Spieler, kein neuer mehr
-// wenn s1 rot, kann s2 nicht auch rot
