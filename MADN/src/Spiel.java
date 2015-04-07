@@ -113,6 +113,9 @@ public class Spiel implements iBediener {
 	 * @return spielFeldArray[21] Start-Spielfeld der Frabe Gruen
 	 * @return spielFeldArray[31] Start-Spielfeld der Frabe Gelb
 	 */
+	
+	
+	@SuppressWarnings("null") //muss noch raus...//
 	@Override
 	public int aufStartSpielfeld() { 
 										// hoffe dass ich nicht allzuviel müll geschrieben hab//
@@ -136,6 +139,19 @@ public class Spiel implements iBediener {
 
 	@Override
 	public void entscheidungBeiSechs() {
+		
+//		if (Figs auf Feld(0bis4) < 4) {
+//			System.out.println("Möchtest du dein Spieler aus dem Startbereich holen oder mit einer Figur ziehen?");
+//			Figur auf Startfeld();
+//			
+//		} 
+//		else {	figur.vor();
+//		}
+//		so oder so nochmal:
+//			
+//		werfen();
+		
+		
 		// Figur raus oder ziehen
 		// und nochmal wuerfeln
 
