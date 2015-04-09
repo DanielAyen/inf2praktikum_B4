@@ -22,5 +22,7 @@ public abstract class KI {
 	public Spieler getSpieler() {
 		return this.spieler;
 	}
+	
+	
 
 }
