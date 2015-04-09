@@ -135,14 +135,15 @@ public class Spielfigur {
 	}
 
 	public void vor(Object farbeNamePosition[][][], int farbe, int figur,
-			String pos, int w) {
+			int pos, int w) {
+		int posi= 0; //getIndex??
 		int erg = 0;
 		farbeNamePosition[farbe][figur][figur] = pos + erg;
-
+		
 		// erg = pos + w.werfen();
 		// for (int i = pos; i < erg - 1; i++) {
 		// // if(Spielfeld.getSpielfeld(i)!= 0){
-		//
+	
 		// }
 
 	}

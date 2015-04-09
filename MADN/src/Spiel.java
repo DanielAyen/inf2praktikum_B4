@@ -115,14 +115,14 @@ public class Spiel implements iBediener {
 	 */
 	
 	
-	@SuppressWarnings("null") //muss noch raus...//
+	
 	@Override
 	public int aufStartSpielfeld() { 
-										// hoffe dass ich nicht allzuviel müll geschrieben hab//
+										
 	fig.getFarbe();
 		switch (farbe) {
 		case ROT:
-			return spielFeldArray[0]; // index 0 = FeldID 1 ff.
+			return spielFeldArray[0]; // index 0 = FeldID 1, index 1 = FeldID 2 ff.
 		case BLAU:
 			return spielFeldArray[10];
 		case GRUEN:
