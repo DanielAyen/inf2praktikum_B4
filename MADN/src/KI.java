@@ -23,6 +23,21 @@ public abstract class KI {
 		return this.spieler;
 	}
 	
-	
+	public static void gegnerSchlagen(){
+		Spiel.figurBewegen();
+		Spiel.GegnerSchlagen();
+		
+		
+	}
 
+
+	public void figurenAufsFeld(){
+		Spiel.aufStartSpielfeld();
+		
+	}
+	
+	public void figurenInsEndfeld(){
+		Spiel.figurBewegen();
+		
+	}
 }

@@ -164,7 +164,7 @@ public class Spiel implements iBediener {
 
 	}
 
-	public void GegnerSchlagen() {
+	public static void GegnerSchlagen() {
 		// prüfen ob auch sicher Feindfigur
 		// feindfigur zurückstellen
 		//
@@ -185,7 +185,7 @@ public class Spiel implements iBediener {
 	 * Greift auf die vor in Spielfigur zu um sie zu bewegen
 	 */
 	// @Override
-	public void figurBewegen() {
+	public static void figurBewegen() {
 
 	}
 
