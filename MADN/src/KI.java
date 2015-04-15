@@ -3,6 +3,7 @@
  */
 public abstract class KI {
 	private Spieler spieler;
+protected boolean KIyn;
 
 	/**
 	 * Konstruktor der KI
@@ -23,21 +24,21 @@ public abstract class KI {
 		return this.spieler;
 	}
 	
-	public static void gegnerSchlagen(){
+	public boolean gegnerSchlagen(){
 		Spiel.figurBewegen();
 		Spiel.GegnerSchlagen();
-		
+		return false;
 		
 	}
 
 
-	public void figurenAufsFeld(){
+	public boolean figurenAufsFeld(){
 		Spiel.aufStartSpielfeld();
-		
+		return false;
 	}
 	
-	public void figurenInsEndfeld(){
+	public boolean figurenInsEndfeld(){
 		Spiel.figurBewegen();
-		
+		return false;
 	}
 }

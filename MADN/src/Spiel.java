@@ -23,6 +23,7 @@ public class Spiel implements iBediener {
 	private int aktSpielerZaehler = 0;
 	private Wuerfel w;
 	private int[] spielFeldArray;
+	protected boolean KIyn = false;
 
 	private ArrayList<Spieler> spieler = new ArrayList<Spieler>();
 
@@ -167,17 +168,26 @@ public class Spiel implements iBediener {
 	@SuppressWarnings("null")
 	@Override
 	public int aufStartSpielfeld() {
-
+		
 		fig.getFarbe();
 		switch (farbe) {
+
 		case ROT:
+			KIyn = false;
+
 			return spielFeldArray[0]; // index 0 = FeldID 1, index 1 = FeldID 2
 										// ff.
 		case BLAU:
+			KIyn = false;
+
 			return spielFeldArray[10];
 		case GRUEN:
+			KIyn = false;
+
 			return spielFeldArray[20];
 		case GELB:
+			KIyn = false;
+
 			return spielFeldArray[30];
 
 		default:
@@ -219,10 +229,11 @@ public class Spiel implements iBediener {
 
 	}
 
-	public static void GegnerSchlagen() {
+	public static boolean GegnerSchlagen() {
 		// prüfen ob auch sicher Feindfigur
 		// feindfigur zurückstellen
 		//
+		return false;
 	}
 
 	// public int anzahlFigurenAufStartFeldern(FarbEnum farbe, ){
@@ -239,9 +250,11 @@ public class Spiel implements iBediener {
 	/**
 	 * Greift auf die vor in Spielfigur zu um sie zu bewegen
 	 */
-	
-	public static void figurBewegen() {
-//fig.vor();
+
+	public static boolean figurBewegen() {
+		// fig.vor();
+
+		return false;
 	}
 
 }

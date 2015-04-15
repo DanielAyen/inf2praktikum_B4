@@ -1,23 +1,21 @@
 public class KI_Defensiv extends KI {
+	private boolean zugBeendet = false;
 
 	public KI_Defensiv(Spieler spieler) {
 		super(spieler);
-		int i;
-		for(i=1; i<=3; i++){
-			if (i==1){
-				figurenInsEndfeld();
-			}
-			else{
-				if(i==2){
-					figurenAufsFeld();
-					
-				}
-				else{
-					gegnerSchlagen();
-				}
-			}
+		if (zugBeendet == false) {
+			figurenInsEndfeld();
 
-			
+			zugBeendet = KIyn;
+			if (zugBeendet == false) {
+				figurenAufsFeld();
+				zugBeendet = KIyn;
+			}
+			if (zugBeendet == false) {
+				gegnerSchlagen();
+
+				zugBeendet = KIyn;
+			}
 		}
 	}
 
