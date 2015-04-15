@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Die Klasse Spiel
  * */
@@ -18,22 +20,22 @@ public class Spiel implements iBediener {
 	 */
 	private int spielerZaehler = 0;
 	private int brettZaehler = 0;
+	private int aktSpielerZaehler = 0;
 	private Wuerfel w;
 	private int[] spielFeldArray;
 
-	
+	private ArrayList<Spieler> spieler = new ArrayList<Spieler>();
+
 	/**
-	 * @param fig 
-	 * 			Spielfigur
+	 * @param fig
+	 *            Spielfigur
 	 *
-	 * @param farbe 
-	 * 				FarbEnum Farbe
+	 * @param farbe
+	 *            FarbEnum Farbe
 	 */
 	private Spielfigur fig;
 	private FarbEnum farbe;
 
-	
-	
 	/**
 	 * erstellt die einzelnen Spieler
 	 * 
@@ -49,8 +51,37 @@ public class Spiel implements iBediener {
 	@Override
 	public void erstelleSpieler(String name, FarbEnum farbe) {
 		if (spielerZaehler <= 3) {
-			new Spieler(name, farbe);
-			spielerZaehler++;
+			if (spieler.size() == 0) {
+
+				Spieler SP1 = new Spieler(name, farbe);
+				spielerZaehler++;
+				spieler.add(SP1);
+			}
+
+			else if (spieler.size() == 1) {
+
+				Spieler SP2 = new Spieler(name, farbe);
+				spielerZaehler++;
+				spieler.add(SP2);
+
+			}
+
+			else if (spieler.size() == 2) {
+
+				Spieler SP3 = new Spieler(name, farbe);
+				spielerZaehler++;
+				spieler.add(SP3);
+
+			}
+
+			else if (spieler.size() == 3) {
+
+				Spieler SP4 = new Spieler(name, farbe);
+				spielerZaehler++;
+				spieler.add(SP4);
+
+			}
+
 		} else
 			throw new RuntimeException("Max Spielerzahl erreicht!");
 
@@ -81,8 +112,33 @@ public class Spiel implements iBediener {
 	public void spielStarten() {
 		if (spielerZaehler > 0 || brettZaehler == 1) {
 			System.out.println("Das Spiel beginnt.");
-			System.out.println("Spieler" + "" + "darf wuerfeln!");
-			// zwischen die + + muss der akt Spieler eingefügt werden
+			System.out.println("Spieler" + getAktSpieler() + "darf wuerfeln!");
+
+		}
+
+	}
+
+	/**
+	 * 
+	 * @return gibt den akt Spieler zurueck.
+	 */
+	private Spieler getAktSpieler() {
+		switch (aktSpielerZaehler) {
+
+		case 1:
+			return spieler.get(0);
+
+		case 2:
+			return spieler.get(1);
+
+		case 3:
+			return spieler.get(2);
+
+		case 4:
+			return spieler.get(3);
+
+		default:
+			return null;
 		}
 
 	}
@@ -95,16 +151,10 @@ public class Spiel implements iBediener {
 	public void wuerfeln() {
 		w.werfen();
 	}
-	
-	
-	
-	
-	
-
-
 
 	/**
-	 * Schaut welche Farbe die aufs Feld zustellende Figur hat um sie auf das richtige Feld zu setzen
+	 * Schaut welche Farbe die aufs Feld zustellende Figur hat um sie auf das
+	 * richtige Feld zu setzen
 	 * 
 	 * @param farbe
 	 *            Farbe der Spieler
@@ -113,16 +163,16 @@ public class Spiel implements iBediener {
 	 * @return spielFeldArray[21] Start-Spielfeld der Frabe Gruen
 	 * @return spielFeldArray[31] Start-Spielfeld der Frabe Gelb
 	 */
-	
-	
-	
+
+	@SuppressWarnings("null")
 	@Override
-	public int aufStartSpielfeld() { 
-										
-	fig.getFarbe();
+	public int aufStartSpielfeld() {
+
+		fig.getFarbe();
 		switch (farbe) {
 		case ROT:
-			return spielFeldArray[0]; // index 0 = FeldID 1, index 1 = FeldID 2 ff.
+			return spielFeldArray[0]; // index 0 = FeldID 1, index 1 = FeldID 2
+										// ff.
 		case BLAU:
 			return spielFeldArray[10];
 		case GRUEN:
@@ -134,26 +184,31 @@ public class Spiel implements iBediener {
 			return (Integer) null;
 		}
 	}
-	
-	
 
 	@Override
 	public void entscheidungBeiSechs() {
+
+		 if (Figs auf Feld(0bis4) ==0) {
+			 aufStartSpielfeld();
+			 System.out.println("Keine Figur auf den Feldern, eine Figur wir auf das Starfeld gesetzt.");
+		 
+		 }
+		 else if(figs auf feld !=4){
+			
+			 System.out.println("Moechtest du mit einer Figur ziehen oder eine neue auf das Startfeld setzen?");
+			 //entscheidung zwischen figur.vor();	und aufStartSpielfeld();								//KONSOLEN EINGABE IMPLEMETIEREN
+		 }
+			 else{
+				 
+				 figur.vor();
+			 }
+			 
+		 
 		
-//		if (Figs auf Feld(0bis4) < 4) {
-//			System.out.println("Möchtest du dein Spieler aus dem Startbereich holen oder mit einer Figur ziehen?");
-//			Figur auf Startfeld();
-//			
-//		} 
-//		else {	figur.vor();
-//		}
-//		so oder so nochmal:
-//			
-//		werfen();
-		
-		
-		// Figur raus oder ziehen
-		// und nochmal wuerfeln
+		 werfen();
+
+//		 Figur raus oder ziehen
+//		 und nochmal wuerfeln
 
 	}
 
@@ -184,9 +239,9 @@ public class Spiel implements iBediener {
 	/**
 	 * Greift auf die vor in Spielfigur zu um sie zu bewegen
 	 */
-	// @Override
+	
 	public static void figurBewegen() {
-
+//fig.vor();
 	}
 
 }
