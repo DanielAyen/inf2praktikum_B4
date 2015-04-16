@@ -1,10 +1,15 @@
+import java.io.Serializable;
+
 /**
  * Die Klasse Wuerfel
  * 
  * es wird eine Zahl zwischen 1 und 6 bestimmt
  **/
 
-public class Wuerfel {
+public class Wuerfel implements Serializable {// serializable weil Klasse Spieler einen Würfel erstellt 
+	 
+	private static final long serialVersionUID = 1L;
+
 
 	/**
 	 * @param w

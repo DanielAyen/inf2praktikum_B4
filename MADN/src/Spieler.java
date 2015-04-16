@@ -1,3 +1,5 @@
+import java.io.Serializable;
+
 /**
  * Die Klasse Spieler
  * 
@@ -11,8 +13,10 @@
  *            Der Wuerfel
  **/
 
-public class Spieler {
+public class Spieler implements Serializable{
 
+	
+	private static final long serialVersionUID = 1L;
 	private String name;
 	private FarbEnum farbe;
 	private Spielfigur fig;
@@ -41,6 +45,8 @@ public class Spieler {
 		// ki.getSpieler();
 		// ki.add(new KI(this)); // fuer Komposition
 	}
+	
+	
 /**
  *4Figuren pro Farbe werden erstellt 
  *
