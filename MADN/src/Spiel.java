@@ -196,29 +196,29 @@ public class Spiel implements iBediener {
 	}
 
 	@Override
-	public void entscheidungBeiSechs() {			//FIGANZAHLAUFFELD MUSS AUFGERUFENWERDEN
+	public void entscheidungBeiSechs() { // FIGANZAHLAUFFELD MUSS
+											// AUFGERUFENWERDEN
 
-		 if (figZaehler ==0) {
-			 aufStartSpielfeld();
-			 System.out.println("Keine Figur auf den Feldern, eine Figur wir auf das Starfeld gesetzt.");
-		 
-		 }
-		 else if(figZaehler!=4){
-			
-			 System.out.println("Moechtest du mit einer Figur ziehen oder eine neue auf das Startfeld setzen?");
-			 //entscheidung zwischen figur.vor();	und aufStartSpielfeld();								//KONSOLEN EINGABE IMPLEMETIEREN
-		 }
-			 else{
-				 
-				 fig.vor();    //PROBLEM BEI VOR!!!
-			 }
-			 
-		 
-		
-		 wuerfeln();
+		if (figZaehler == 0) {
+			aufStartSpielfeld();
+			System.out
+					.println("Keine Figur auf den Feldern, eine Figur wir auf das Starfeld gesetzt.");
 
-//		 Figur raus oder ziehen
-//		 und nochmal wuerfeln
+		} else if (figZaehler != 4) {
+
+			System.out
+					.println("Moechtest du mit einer Figur ziehen oder eine neue auf das Startfeld setzen?");
+			// entscheidung zwischen figur.vor(); und aufStartSpielfeld();
+			// //KONSOLEN EINGABE IMPLEMETIEREN
+		} else {
+
+			fig.vor(); // PROBLEM BEI VOR!!!
+		}
+
+		wuerfeln();
+
+		// Figur raus oder ziehen
+		// und nochmal wuerfeln
 
 	}
 
@@ -238,64 +238,48 @@ public class Spiel implements iBediener {
 
 	public int anzahlFigurenAufStartFeldern(FarbEnum farbe,
 			Object[][][] farbeNamePosition) {
-		figZaehler=0;
+		figZaehler = 0;
 		if (farbe == FarbEnum.ROT) {
-			for (int i = 0; i < farbeNamePosition.length; i++) {
-				for (int j = 0; j < farbeNamePosition.length; j++) {
-					for (int k = 0; k < farbeNamePosition.length; k++) {
-						if (farbeNamePosition[i][j][k].equals("SR1")
-								|| farbeNamePosition[i][j][k].equals("SR2")
-								|| farbeNamePosition[i][j][k].equals("SR3")
-								|| farbeNamePosition[i][j][k].equals("SR4")) {
-							figZaehler++;
-						}
-					}
-				}
+
+			if (farbeNamePosition[0][0][0].equals("SR1")
+					|| farbeNamePosition[0][1][1].equals("SR2")
+					|| farbeNamePosition[0][2][2].equals("SR3")
+					|| farbeNamePosition[0][3][3].equals("SR4")) {
+				figZaehler++;
 			}
+
 		}
 
 		if (farbe == FarbEnum.BLAU) {
-			for (int i = 0; i < farbeNamePosition.length; i++) {
-				for (int j = 0; j < farbeNamePosition.length; j++) {
-					for (int k = 0; k < farbeNamePosition.length; k++) {
-						if (farbeNamePosition[i][j][k].equals("SB1")
-								|| farbeNamePosition[i][j][k].equals("SB2")
-								|| farbeNamePosition[i][j][k].equals("SB3")
-								|| farbeNamePosition[i][j][k].equals("SB4")) {
-							figZaehler++;
-						}
-					}
-				}
+
+			if (farbeNamePosition[1][0][0].equals("SB1")
+					|| farbeNamePosition[1][1][1].equals("SB2")
+					|| farbeNamePosition[1][2][2].equals("SB3")
+					|| farbeNamePosition[1][3][3].equals("SB4")) {
+				figZaehler++;
 			}
+
 		}
 		if (farbe == FarbEnum.GELB) {
-			for (int i = 0; i < farbeNamePosition.length; i++) {
-				for (int j = 0; j < farbeNamePosition.length; j++) {
-					for (int k = 0; k < farbeNamePosition.length; k++) {
-						if (farbeNamePosition[i][j][k].equals("SY1")
-								|| farbeNamePosition[i][j][k].equals("SY2")
-								|| farbeNamePosition[i][j][k].equals("SY3")
-								|| farbeNamePosition[i][j][k].equals("SY4")) {
-							figZaehler++;
-						}
-					}
-				}
+
+			if (farbeNamePosition[2][0][0].equals("SY1")
+					|| farbeNamePosition[2][1][1].equals("SY2")
+					|| farbeNamePosition[2][2][2].equals("SY3")
+					|| farbeNamePosition[2][3][3].equals("SY4")) {
+				figZaehler++;
 			}
+
 		}
 
 		if (farbe == FarbEnum.GRUEN) {
-			for (int i = 0; i < farbeNamePosition.length; i++) {
-				for (int j = 0; j < farbeNamePosition.length; j++) {
-					for (int k = 0; k < farbeNamePosition.length; k++) {
-						if (farbeNamePosition[i][j][k].equals("SG1")
-								|| farbeNamePosition[i][j][k].equals("SG2")
-								|| farbeNamePosition[i][j][k].equals("SG3")
-								|| farbeNamePosition[i][j][k].equals("SG4")) {
-							figZaehler++;
-						}
-					}
-				}
+
+			if (farbeNamePosition[3][0][0].equals("SG1")
+					|| farbeNamePosition[3][1][1].equals("SG2")
+					|| farbeNamePosition[3][2][2].equals("SG3")
+					|| farbeNamePosition[3][3][3].equals("SG4")) {
+				figZaehler++;
 			}
+
 		}
 
 		return figZaehler;
