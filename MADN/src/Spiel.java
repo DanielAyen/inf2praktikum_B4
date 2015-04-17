@@ -26,7 +26,7 @@ public class Spiel implements iBediener {
 	protected boolean KIyn = false;
 	int figZaehler = 0;
 	private ArrayList<Spieler> spieler = new ArrayList<Spieler>();
-
+	Object[][][] farbeNamePosition;
 	/**
 	 * @param fig
 	 *            Spielfigur
@@ -196,9 +196,10 @@ public class Spiel implements iBediener {
 	}
 
 	@Override
-	public void entscheidungBeiSechs() { // FIGANZAHLAUFFELD MUSS
-											// AUFGERUFENWERDEN
+	public void entscheidungBeiSechs() { 
 
+		anzahlFigurenAufStartFeldern( farbe,farbeNamePosition);				//Farbe v. spieler muss ueberg. werden
+		
 		if (figZaehler == 0) {
 			aufStartSpielfeld();
 			System.out
@@ -212,7 +213,7 @@ public class Spiel implements iBediener {
 			// //KONSOLEN EINGABE IMPLEMETIEREN
 		} else {
 
-			fig.vor(); // PROBLEM BEI VOR!!!
+			fig.vor(); 										// PROBLEM BEI VOR!!!
 		}
 
 		wuerfeln();
