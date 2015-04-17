@@ -22,7 +22,7 @@ public class Spieler implements Serializable{
 	private Spielfigur fig;
 	private Wuerfel w;
 	private Spieler s;
-	
+	private Spiel spiel=new Spiel();
 
 	// private KI ki;
 	// private ArrayList<KI> ki = new ArrayList<KI>(); // fuer Komposition

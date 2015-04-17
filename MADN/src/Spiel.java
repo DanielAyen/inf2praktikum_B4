@@ -228,7 +228,7 @@ public class Spiel implements iBediener {
 
 	}
 
-	public static boolean GegnerSchlagen() {
+	public boolean GegnerSchlagen() {
 		// prüfen ob auch sicher Feindfigur
 		// feindfigur zurückstellen
 		//
@@ -288,7 +288,7 @@ public class Spiel implements iBediener {
 	 * Greift auf die vor in Spielfigur zu um sie zu bewegen
 	 */
 
-	public static boolean figurBewegen() {
+	public boolean figurBewegen() {
 		// fig.vor();
 
 		return false;

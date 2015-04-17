@@ -4,7 +4,7 @@
 public abstract class KI  {
 	private Spieler spieler;
 protected boolean KIyn;
-
+private Spiel spiel;
 	/**
 	 * Konstruktor der KI
 	 * 
@@ -25,20 +25,20 @@ protected boolean KIyn;
 	}
 	
 	public boolean gegnerSchlagen(){
-		Spiel.figurBewegen();
-		Spiel.GegnerSchlagen();
+		spiel.figurBewegen();
+		spiel.GegnerSchlagen();
 		return false;
 		
 	}
 
 
 	public boolean figurenAufsFeld(){
-		Spiel.aufStartSpielfeld();
+		spiel.aufStartSpielfeld();
 		return false;
 	}
 	
 	public boolean figurenInsEndfeld(){
-		Spiel.figurBewegen();
+		spiel.figurBewegen();
 		return false;
 	}
 }
