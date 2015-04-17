@@ -7,33 +7,43 @@ import java.io.ObjectOutputStream;
 
 //implements iDatenzugriff
 public class DatenzugriffSerialisiert {
+	private static ObjectOutputStream oos = null;
 
-	public static void serialize(String dateiname) {
+	public static void oeffnen(Object o) throws IOException {
+		try {
+			oos = new ObjectOutputStream(new FileOutputStream("madn.ser"));
+		} catch (FileNotFoundException e) {
+			System.err.println("Datei konnte nicht geoeffnet werden");
+		}
+	}
+
+	public static void schliessen(Object o) {
+		try {
+			oos.close();
+		} catch (Exception e) {
+			System.err.println("Datei konnte nicht geschlossen werden");
+		}
+	}
+
+	public static void schreiben(Object o) {
 
 		ObjectOutputStream oos = null;
 
 		try {
 
 			Spieler s1 = new Spieler("Billy", FarbEnum.BLAU);
-			oos = new ObjectOutputStream(new FileOutputStream("madn.ser"));
+			oeffnen(null);
 			oos.writeObject(s1);
 			System.out.println(s1);
-		} catch (FileNotFoundException e1) {
-			System.err.println("");
-		} catch (IOException e) {
-			System.err.println("" + e);
-		} finally {
-			try {
-				oos.close();
 
-			} catch (Exception e) {
-				System.err.println("");
-			}
+			schliessen(null);
+		} catch (Exception e) {
+			System.err.println("Datei konnte nicht geschrieben werden.");
 		}
 
 	}
 
-	public static void deSerialize(String dateiname) throws IOException {
+	public static void lesen(String dateiname) throws IOException {
 
 		ObjectInputStream ois = null;
 		try {

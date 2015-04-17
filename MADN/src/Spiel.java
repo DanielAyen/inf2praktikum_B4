@@ -218,8 +218,6 @@ public class Spiel implements iBediener {
 
 		wuerfeln();
 
-		// Figur raus oder ziehen
-		// und nochmal wuerfeln
 
 	}
 

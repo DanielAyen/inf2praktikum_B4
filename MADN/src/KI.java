@@ -1,7 +1,7 @@
 /**
  * Die Klasse KI
  */
-public abstract class KI {
+public abstract class KI  {
 	private Spieler spieler;
 protected boolean KIyn;
 
