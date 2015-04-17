@@ -1,10 +1,21 @@
+import java.io.IOException;
+
 
 public interface iDatenzugriff {
+
+	void oeffnen(Object o) throws IOException;
 	 //Vergesst diesen scheiﬂ Spieler serialize(Spieler s);
-	public Object oeffnen(Object o);
-	public Object schreiben(Object o);
-	public Object lesen(Object o);
-	public Object schliessen(Object o);
+
+	void schliessenSchreiben(Object o);
+
+	void schliessenLesen(Object o);
+
+	void schreiben(Object o);
+
+	void lesen(Object o) throws IOException;
+	
+	
+
 	
 	
 	//klasse+- .lesen(null)

@@ -2,7 +2,7 @@ public class SpielTestSpeichern {
 
 	public static void main(String[] args) {
 
-		DatenzugriffSerialisiert.serialize("madn.ser");
+//		DatenzugriffSerialisiert.serialize("madn.ser");
 		
 		// Spieler s1 = new Spieler("Billy", FarbEnum.BLAU);
 //		iDatenzugriff dateiname;

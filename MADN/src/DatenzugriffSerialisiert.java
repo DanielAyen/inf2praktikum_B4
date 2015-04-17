@@ -5,27 +5,42 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-//implements iDatenzugriff
-public class DatenzugriffSerialisiert {
+public class DatenzugriffSerialisiert implements iDatenzugriff {
 	private static ObjectOutputStream oos = null;
+	private static ObjectInputStream ois = null;
 
-	public static void oeffnen(Object o) throws IOException {
+	@Override
+	public void oeffnen(Object o) throws IOException {
 		try {
 			oos = new ObjectOutputStream(new FileOutputStream("madn.ser"));
+			ois = new ObjectInputStream(new FileInputStream("madn.ser"));
 		} catch (FileNotFoundException e) {
 			System.err.println("Datei konnte nicht geoeffnet werden");
 		}
 	}
 
-	public static void schliessen(Object o) {
+	@Override
+	public void schliessenSchreiben(Object o) {
 		try {
 			oos.close();
+
 		} catch (Exception e) {
 			System.err.println("Datei konnte nicht geschlossen werden");
 		}
 	}
 
-	public static void schreiben(Object o) {
+	@Override
+	public void schliessenLesen(Object o) {
+		try {
+			ois.close();
+
+		} catch (Exception e) {
+			System.err.println("Datei konnte nicht geschlossen werden");
+		}
+	}
+
+	@Override
+	public void schreiben(Object o) {
 
 		ObjectOutputStream oos = null;
 
@@ -36,18 +51,18 @@ public class DatenzugriffSerialisiert {
 			oos.writeObject(s1);
 			System.out.println(s1);
 
-			schliessen(null);
+			schliessenLesen(null);
 		} catch (Exception e) {
 			System.err.println("Datei konnte nicht geschrieben werden.");
 		}
 
 	}
 
-	public static void lesen(String dateiname) throws IOException {
+	@Override
+	public void lesen(Object o) throws IOException {
 
-		ObjectInputStream ois = null;
 		try {
-			ois = new ObjectInputStream(new FileInputStream("madn.ser"));
+			oeffnen(null);
 			Spieler s = (Spieler) ois.readObject();
 			System.out.println(s);
 		} catch (FileNotFoundException e) {
@@ -55,5 +70,6 @@ public class DatenzugriffSerialisiert {
 		} catch (ClassNotFoundException e) {
 			System.err.println("Konnte Klasse nicht finden");
 		}
+		schliessenLesen(null);
 	}
 }
