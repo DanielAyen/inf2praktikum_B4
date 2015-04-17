@@ -24,7 +24,7 @@ public class Spiel implements iBediener {
 	private Wuerfel w;
 	private int[] spielFeldArray;
 	protected boolean KIyn = false;
-
+	int figZaehler = 0;
 	private ArrayList<Spieler> spieler = new ArrayList<Spieler>();
 
 	/**
@@ -168,7 +168,7 @@ public class Spiel implements iBediener {
 	@SuppressWarnings("null")
 	@Override
 	public int aufStartSpielfeld() {
-		
+
 		fig.getFarbe();
 		switch (farbe) {
 
@@ -196,26 +196,26 @@ public class Spiel implements iBediener {
 	}
 
 	@Override
-	public void entscheidungBeiSechs() {
+	public void entscheidungBeiSechs() {			//FIGANZAHLAUFFELD MUSS AUFGERUFENWERDEN
 
-		 if (Figs auf Feld(0bis4) ==0) {
+		 if (figZaehler ==0) {
 			 aufStartSpielfeld();
 			 System.out.println("Keine Figur auf den Feldern, eine Figur wir auf das Starfeld gesetzt.");
 		 
 		 }
-		 else if(figs auf feld !=4){
+		 else if(figZaehler!=4){
 			
 			 System.out.println("Moechtest du mit einer Figur ziehen oder eine neue auf das Startfeld setzen?");
 			 //entscheidung zwischen figur.vor();	und aufStartSpielfeld();								//KONSOLEN EINGABE IMPLEMETIEREN
 		 }
 			 else{
 				 
-				 figur.vor();
+				 fig.vor();    //PROBLEM BEI VOR!!!
 			 }
 			 
 		 
 		
-		 werfen();
+		 wuerfeln();
 
 //		 Figur raus oder ziehen
 //		 und nochmal wuerfeln
@@ -236,16 +236,70 @@ public class Spiel implements iBediener {
 		return false;
 	}
 
-	// public int anzahlFigurenAufStartFeldern(FarbEnum farbe, ){
-	// if(array[x] ==Sr1||==sr2.... dann Startfeld zaehler ++
-	// return ;
-	// }
+	public int anzahlFigurenAufStartFeldern(FarbEnum farbe,
+			Object[][][] farbeNamePosition) {
+		figZaehler=0;
+		if (farbe == FarbEnum.ROT) {
+			for (int i = 0; i < farbeNamePosition.length; i++) {
+				for (int j = 0; j < farbeNamePosition.length; j++) {
+					for (int k = 0; k < farbeNamePosition.length; k++) {
+						if (farbeNamePosition[i][j][k].equals("SR1")
+								|| farbeNamePosition[i][j][k].equals("SR2")
+								|| farbeNamePosition[i][j][k].equals("SR3")
+								|| farbeNamePosition[i][j][k].equals("SR4")) {
+							figZaehler++;
+						}
+					}
+				}
+			}
+		}
 
-	// @Override
-	// public int aufStartSpielfeld() {
-	//
-	// return (Integer) null;
-	// }
+		if (farbe == FarbEnum.BLAU) {
+			for (int i = 0; i < farbeNamePosition.length; i++) {
+				for (int j = 0; j < farbeNamePosition.length; j++) {
+					for (int k = 0; k < farbeNamePosition.length; k++) {
+						if (farbeNamePosition[i][j][k].equals("SB1")
+								|| farbeNamePosition[i][j][k].equals("SB2")
+								|| farbeNamePosition[i][j][k].equals("SB3")
+								|| farbeNamePosition[i][j][k].equals("SB4")) {
+							figZaehler++;
+						}
+					}
+				}
+			}
+		}
+		if (farbe == FarbEnum.GELB) {
+			for (int i = 0; i < farbeNamePosition.length; i++) {
+				for (int j = 0; j < farbeNamePosition.length; j++) {
+					for (int k = 0; k < farbeNamePosition.length; k++) {
+						if (farbeNamePosition[i][j][k].equals("SY1")
+								|| farbeNamePosition[i][j][k].equals("SY2")
+								|| farbeNamePosition[i][j][k].equals("SY3")
+								|| farbeNamePosition[i][j][k].equals("SY4")) {
+							figZaehler++;
+						}
+					}
+				}
+			}
+		}
+
+		if (farbe == FarbEnum.GRUEN) {
+			for (int i = 0; i < farbeNamePosition.length; i++) {
+				for (int j = 0; j < farbeNamePosition.length; j++) {
+					for (int k = 0; k < farbeNamePosition.length; k++) {
+						if (farbeNamePosition[i][j][k].equals("SG1")
+								|| farbeNamePosition[i][j][k].equals("SG2")
+								|| farbeNamePosition[i][j][k].equals("SG3")
+								|| farbeNamePosition[i][j][k].equals("SG4")) {
+							figZaehler++;
+						}
+					}
+				}
+			}
+		}
+
+		return figZaehler;
+	}
 
 	/**
 	 * Greift auf die vor in Spielfigur zu um sie zu bewegen
