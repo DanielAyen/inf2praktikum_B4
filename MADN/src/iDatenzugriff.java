@@ -1,22 +1,24 @@
 import java.io.IOException;
+import java.util.Properties;
 
-
+/**
+ * Dieses Interface beinhaltet die Methoden zum öffnen, schreiben,
+ * lesen und schließen von Dateien.
+ */
 public interface iDatenzugriff {
-
-	void oeffnen(Object o) throws IOException;
-	 //Vergesst diesen schei� Spieler serialize(Spieler s);
-
-	void schliessenSchreiben(Object o);
-
-	void schliessenLesen(Object o);
-
-	void schreiben(Object o);
-
-	void lesen(Object o) throws IOException;
 	
 	
+	
+	public void oeffnen(Properties p) throws IOException;
+    
+	public void schreiben(Object object) throws IOException;
+
+	public Object lesen() throws IOException;
+    
+	public void schliessen(Object object)throws IOException;
 
 	
+
+
 	
-	//klasse+- .lesen(null)
 }

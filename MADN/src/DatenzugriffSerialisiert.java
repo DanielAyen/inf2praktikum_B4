@@ -1,75 +1,83 @@
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Properties;
 
+
+
+/**
+ * Diese Klassse bereitet das Serialisieren vor.
+ *
+ */
 public class DatenzugriffSerialisiert implements iDatenzugriff {
-	private static ObjectOutputStream oos = null;
-	private static ObjectInputStream ois = null;
 
+	private ObjectInputStream ois;
+	private ObjectOutputStream oos;
+	
+	/**
+	 * Diese Methode oeffnet die Serialisierungs  - Datei
+	 */
 	@Override
-	public void oeffnen(Object o) throws IOException {
-		try {
-			oos = new ObjectOutputStream(new FileOutputStream("madn.ser"));
-			ois = new ObjectInputStream(new FileInputStream("madn.ser"));
-		} catch (FileNotFoundException e) {
-			System.err.println("Datei konnte nicht geoeffnet werden");
+	public void oeffnen(Properties p) throws IOException {
+		String dateiName = p.getProperty("Dateiname");
+		
+		if(dateiName == null) {
+			throw new IOException("Dateiname wurde nicht definiert");
+		}
+		
+		if("s".equals(p.getProperty("Modus"))) {
+			oos = new ObjectOutputStream(new FileOutputStream(dateiName));
+		} else if("l".equals(p.getProperty("Modus"))) {
+			ois = new ObjectInputStream(new FileInputStream(dateiName));
+		} else {
+			throw new IOException("Modus wurde nicht oder falsch definiert");
 		}
 	}
 
+	/**
+	 * Diese Methode schreibt in die Datei.
+	 */
 	@Override
-	public void schliessenSchreiben(Object o) {
-		try {
-			oos.close();
-
-		} catch (Exception e) {
-			System.err.println("Datei konnte nicht geschlossen werden");
+	public void schreiben(Object object) throws IOException {
+		if(oos == null) {
+			throw new IOException("Stream ist nicht zum Schreiben geöffnet!");
+		} else {
+			oos.writeObject(object);
 		}
 	}
 
+	/**
+	 * Diese Methode liest aus der Datei
+	 */
 	@Override
-	public void schliessenLesen(Object o) {
+	public Object lesen() throws IOException {
+		if(ois == null) {
+			throw new IOException("Stream ist nicht zum lesen geöffnet!");
+		}
+		
 		try {
+			Object o = ois.readObject();
+			return o;
+		} catch(ClassNotFoundException fehler) {
+			throw new IOException("Konnte nicht desrialisieren!");
+		}
+	}
+
+	/**
+	 * Diese Methode schließt die Datei
+	 */
+	@Override
+	public void schliessen(Object object) throws IOException {
+		if(ois != null) {
 			ois.close();
-
-		} catch (Exception e) {
-			System.err.println("Datei konnte nicht geschlossen werden");
+			ois = null;
 		}
-	}
-
-	@Override
-	public void schreiben(Object o) {
-
-		ObjectOutputStream oos = null;
-
-		try {
-
-			Spieler s1 = new Spieler("Billy", FarbEnum.BLAU);
-			oeffnen(null);
-			oos.writeObject(s1);
-			System.out.println(s1);
-
-			schliessenLesen(null);
-		} catch (Exception e) {
-			System.err.println("Datei konnte nicht geschrieben werden.");
+		
+		if(oos != null) {
+			oos.close();
+			oos = null;
 		}
-
-	}
-
-	@Override
-	public void lesen(Object o) throws IOException {
-
-		try {
-			oeffnen(null);
-			Spieler s = (Spieler) ois.readObject();
-			System.out.println(s);
-		} catch (FileNotFoundException e) {
-			System.err.println("Konnte 'madn.ser' nicht holen");
-		} catch (ClassNotFoundException e) {
-			System.err.println("Konnte Klasse nicht finden");
-		}
-		schliessenLesen(null);
 	}
 }
