@@ -42,7 +42,7 @@ public class DatenzugriffSerialisiert implements iDatenzugriff {
 	@Override
 	public void schreiben(Object object) throws IOException {
 		if(oos == null) {
-			throw new IOException("Stream ist nicht zum Schreiben geöffnet!");
+			throw new IOException("Stream ist nicht zum Schreiben geoeffnet!");
 		} else {
 			oos.writeObject(object);
 		}
@@ -54,7 +54,7 @@ public class DatenzugriffSerialisiert implements iDatenzugriff {
 	@Override
 	public Object lesen() throws IOException {
 		if(ois == null) {
-			throw new IOException("Stream ist nicht zum lesen geöffnet!");
+			throw new IOException("Stream ist nicht zum lesen geoeffnet!");
 		}
 		
 		try {
@@ -66,7 +66,7 @@ public class DatenzugriffSerialisiert implements iDatenzugriff {
 	}
 
 	/**
-	 * Diese Methode schließt die Datei
+	 * Diese Methode schliesst die Datei
 	 */
 	@Override
 	public void schliessen(Object object) throws IOException {

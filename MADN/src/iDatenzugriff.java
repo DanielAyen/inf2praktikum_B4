@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 /**
- * Dieses Interface beinhaltet die Methoden zum öffnen, schreiben,
+ * Dieses Interface beinhaltet die Methoden zum oeffnen, schreiben,
  * lesen und schließen von Dateien.
  */
 public interface iDatenzugriff {
