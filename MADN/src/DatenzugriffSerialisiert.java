@@ -27,12 +27,12 @@ public class DatenzugriffSerialisiert implements iDatenzugriff {
 			throw new IOException("Dateiname wurde nicht definiert");
 		}
 		
-		if("s".equals(p.getProperty("Modus"))) {
+		if("schreiben".equals(p.getProperty("Auswahl"))) {
 			oos = new ObjectOutputStream(new FileOutputStream(dateiName));
-		} else if("l".equals(p.getProperty("Modus"))) {
+		} else if("lesen".equals(p.getProperty("Auswahl"))) {
 			ois = new ObjectInputStream(new FileInputStream(dateiName));
 		} else {
-			throw new IOException("Modus wurde nicht oder falsch definiert");
+			throw new IOException("Auswahl wurde nicht oder falsch definiert");
 		}
 	}
 
@@ -40,7 +40,7 @@ public class DatenzugriffSerialisiert implements iDatenzugriff {
 	 * Diese Methode schreibt in die Datei.
 	 */
 	@Override
-	public void schreiben(Object object) throws IOException {
+	public void schreiben(Object object) throws IOException { //speichern
 		if(oos == null) {
 			throw new IOException("Stream ist nicht zum Schreiben geoeffnet!");
 		} else {
@@ -52,9 +52,9 @@ public class DatenzugriffSerialisiert implements iDatenzugriff {
 	 * Diese Methode liest aus der Datei
 	 */
 	@Override
-	public Object lesen() throws IOException {
+	public Object lesen() throws IOException { //laden
 		if(ois == null) {
-			throw new IOException("Stream ist nicht zum lesen geoeffnet!");
+			throw new IOException("Stream ist leider nicht zum lesen geoeffnet!");
 		}
 		
 		try {

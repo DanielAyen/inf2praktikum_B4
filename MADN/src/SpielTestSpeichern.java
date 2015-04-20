@@ -17,6 +17,8 @@ public class SpielTestSpeichern {
 //		iDatenzugriff dz;
 //		dz = s;
 //		dz.serialize(s);
+		
+		
 
 	}
 

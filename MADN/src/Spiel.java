@@ -17,6 +17,11 @@ public class Spiel implements iBediener {
 	 * @param spielFeldArray
 	 *            Array der Spielfelder1-40
 	 * 
+	 *            * @param fig Spielfigur
+	 *
+	 * @param farbe
+	 *            FarbEnum Farbe
+	 * 
 	 */
 	private int spielerZaehler = 0;
 	private int brettZaehler = 0;
@@ -27,13 +32,6 @@ public class Spiel implements iBediener {
 	int figZaehler = 0;
 	private ArrayList<Spieler> spieler = new ArrayList<Spieler>();
 	Object[][][] farbeNamePosition;
-	/**
-	 * @param fig
-	 *            Spielfigur
-	 *
-	 * @param farbe
-	 *            FarbEnum Farbe
-	 */
 	private Spielfigur fig;
 	private FarbEnum farbe;
 
@@ -196,10 +194,13 @@ public class Spiel implements iBediener {
 	}
 
 	@Override
-	public void entscheidungBeiSechs() { 
+	public void entscheidungBeiSechs() {
 
-		anzahlFigurenAufStartFeldern( farbe,farbeNamePosition);				//Farbe v. spieler muss ueberg. werden
-		
+		anzahlFigurenAufStartFeldern(farbe, farbeNamePosition); // Farbe v.
+																// spieler muss
+																// ueberg.
+																// werden
+
 		if (figZaehler == 0) {
 			aufStartSpielfeld();
 			System.out
@@ -213,55 +214,57 @@ public class Spiel implements iBediener {
 			// //KONSOLEN EINGABE IMPLEMETIEREN
 		} else {
 
-			//fig.vor(); 										// PROBLEM BEI VOR!!!
+			// fig.vor(); // PROBLEM BEI VOR!!!
 		}
 
 		wuerfeln();
 
-
 	}
 
 	@Override
-	public void welcheSpielfigurNutzen(FarbEnum farbe,Object[][][] farbeNamePosition, int w) {//int w für gefürfelte Zahl? wenn !=6 dann nur die die nicht im SF sind angeben
-		
-		if(farbe==FarbEnum.ROT){
-			if(w!=6){
-				
-				for(int i=0;i<farbeNamePosition[0].length;i++){
-					
-					for(int j=0;j<farbeNamePosition[0][i].length;j++){
-						
-						if(farbeNamePosition[0][i][j]!="SR1"||farbeNamePosition[0][i][j]!="SR2"||farbeNamePosition[0][i][j]!="SR3"||farbeNamePosition[0][i][j]!="SR4"){
-							
-							 System.out.println("Mögliche Figur/-en:"+farbeNamePosition[0][i][j]);
-							 
-							 //iwie noch die figur nutzbar machen
-							
+	public void welcheSpielfigurNutzen(FarbEnum farbe,
+			Object[][][] farbeNamePosition, int w) {// int w für gefürfelte
+													// Zahl? wenn !=6 dann nur
+													// die die nicht im SF sind
+													// angeben
+
+		if (farbe == FarbEnum.ROT) {
+			if (w != 6) {
+
+				for (int i = 0; i < farbeNamePosition[0].length; i++) {
+
+					for (int j = 0; j < farbeNamePosition[0][i].length; j++) {
+
+						if (farbeNamePosition[0][i][j] != "SR1"
+								|| farbeNamePosition[0][i][j] != "SR2"
+								|| farbeNamePosition[0][i][j] != "SR3"
+								|| farbeNamePosition[0][i][j] != "SR4") {
+
+							System.out.println("Mögliche Figur/-en:"
+									+ farbeNamePosition[0][i][j]);
+
+							// iwie noch die figur nutzbar machen
+
 						}
 					}
-					
-					
+
 				}
 			}
-			
-			
+
 		}
-		
-		if(farbe==FarbEnum.BLAU){
-			
-			
+
+		if (farbe == FarbEnum.BLAU) {
+
 		}
-		
-		if(farbe==FarbEnum.GELB){
-			
-			
+
+		if (farbe == FarbEnum.GELB) {
+
 		}
-		
-		if(farbe==FarbEnum.GRUEN){
-			
-			
+
+		if (farbe == FarbEnum.GRUEN) {
+
 		}
-		
+
 		// auswahl zwischen den verfügbaren figuren geben,
 		// (darauf achten ob im startfeld array oder nicht?)
 
