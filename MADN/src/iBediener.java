@@ -18,6 +18,7 @@ public interface iBediener {
 			int w);
 	void spielSpeichern(Properties p);
 	void spielLaden(Properties p);
-	
+	void spielSpeichernCSV(Properties p);
+	void spielLadenCSV(Properties p);
 	
 }

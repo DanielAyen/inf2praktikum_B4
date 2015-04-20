@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -35,19 +36,77 @@ public class Spiel implements iBediener {
 	Object[][][] farbeNamePosition;
 	private Spielfigur fig;
 	private FarbEnum farbe;
-	Properties p = new Properties();	
-	iDatenzugriff dzCSV =new DatenzugriffCSV();
-	iDatenzugriff dz =new DatenzugriffSerialisiert();
+	Properties p = new Properties();
+	iDatenzugriff dzCSV = new DatenzugriffCSV();
+	iDatenzugriff dz = new DatenzugriffSerialisiert();
+
+	@Override
+	public void spielSpeichern(Properties p) {
+		p.setProperty("Auswahl", "schreiben");
+		try {
+			dz.oeffnen(p);
+			dz.schreiben(this);
+		} catch (IOException e) {
+			System.err.println(e.getMessage());
+		} finally {
+			try {
+				dz.schliessen(null);
+			} catch (IOException fail) {
+				System.out.println(fail.getMessage());
+			}
+		}
+	}
+
+	@Override
+	public void spielSpeichernCSV(Properties p) {
+		p.setProperty("Auswahl", "schreiben");
+		try {
+			dzCSV.oeffnen(p);
+			dzCSV.schreiben(this);
+		} catch (IOException e) {
+			System.err.println(e.getMessage());
+		} finally {
+			try {
+				dzCSV.schliessen(null);
+			} catch (IOException fail) {
+				System.out.println(fail.getMessage());
+			}
+		}
+	}
+
+	@Override
+	public void spielLaden(Properties p) {
+		p.setProperty("Auswahl", "lesen");
+		try {
+			dz.oeffnen(p);
+			dz.lesen();
+		} catch (IOException e) {
+			System.err.println(e.getMessage());
+		} finally {
+			try {
+				dz.schliessen(null);
+			} catch (IOException fail) {
+				System.out.println(fail.getMessage());
+			}
+		}
+	}
 	
 	@Override
-	public void spielSpeichern(Properties p){
-		p.setProperty("Auswahl","schreiben");
+	public void spielLadenCSV(Properties p) {
+		p.setProperty("Auswahl", "lesen");
+		try {
+			dz.oeffnen(p);
+			dz.lesen();
+		} catch (IOException e) {
+			System.err.println(e.getMessage());
+		} finally {
+			try {
+				dz.schliessen(null);
+			} catch (IOException fail) {
+				System.out.println(fail.getMessage());
+			}
+		}
 	}
-	@Override
-	public void spielLaden(Properties p){
-		p.setProperty("Auswahl","lesen");
-	}
-	
 
 	/**
 	 * erstellt die einzelnen Spieler

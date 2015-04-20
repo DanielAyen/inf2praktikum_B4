@@ -17,11 +17,7 @@ public class DatenzugriffCSV implements iDatenzugriff {
 
 	@Override
 	public void oeffnen(Properties p) throws IOException {
-		String dateiname = p.getProperty("Dateiname");
-
-		if (dateiname == null) {
-			throw new IOException("Dateiname wurde nicht definiert!");
-		}
+		String dateiname = "MADN";
 
 		if ("schreiben".equals(p.getProperty("Auswahl"))) {
 			bw = new BufferedWriter(new OutputStreamWriter(
@@ -43,7 +39,7 @@ public class DatenzugriffCSV implements iDatenzugriff {
 			spieler.get(h);
 
 			bw.write(spieler.get(h) + ";");
-			
+
 		}
 
 		for (int i = 0; i < farbeNamePosition.length; i++) {
@@ -72,22 +68,19 @@ public class DatenzugriffCSV implements iDatenzugriff {
 
 	@Override
 	public Object lesen() throws IOException {
-		
-		
-		String farbe="FarbEnum."+spieler;
-		
-		
+
+		String farbe = "FarbEnum." + spieler;
+
 		String line;
 		ArrayList<String> auslesen = new ArrayList<String>();
-		
-		
-		while((line = br.readLine()) != null) {
+
+		while ((line = br.readLine()) != null) {
 			auslesen.add(line);
 		}
-		
+
 		String[][] ausgabe = new String[auslesen.size()][];
-		
-		for(int i = 0; i < ausgabe.length; i++) {
+
+		for (int i = 0; i < ausgabe.length; i++) {
 			ausgabe[i] = auslesen.get(i).split(";");
 		}
 		return ausgabe;
