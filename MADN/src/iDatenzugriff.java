@@ -3,7 +3,7 @@ import java.util.Properties;
 
 /**
  * Dieses Interface beinhaltet die Methoden zum oeffnen, schreiben,
- * lesen und schließen von Dateien.
+ * lesen und schliessen von Dateien.
  */
 public interface iDatenzugriff {
 	

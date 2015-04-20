@@ -222,7 +222,44 @@ public class Spiel implements iBediener {
 	}
 
 	@Override
-	public void welcheSpielfigurNutzen() {
+	public void welcheSpielfigurNutzen(FarbEnum farbe,Object[][][] farbeNamePosition, int w) {//int w für gefürfelte Zahl? wenn !=6 dann nur die die nicht im SF sind angeben
+		
+		if(farbe==FarbEnum.ROT){
+			if(w!=6){
+				
+				for(int i=0;i<farbeNamePosition[0].length;i++){
+					
+					for(int j=0;j<farbeNamePosition[0][i].length;j++){
+						
+						if(farbeNamePosition[0][i][j]!="SR1"||farbeNamePosition[0][i][j]!="SR2"||farbeNamePosition[0][i][j]!="SR3"||farbeNamePosition[0][i][j]!="SR4"){
+							
+							 System.out.println("Mögliche Figur/-en:"+farbeNamePosition[0][i][j]);
+							
+						}
+					}
+					
+					
+				}
+			}
+			
+			
+		}
+		
+		if(farbe==FarbEnum.BLAU){
+			
+			
+		}
+		
+		if(farbe==FarbEnum.GELB){
+			
+			
+		}
+		
+		if(farbe==FarbEnum.GRUEN){
+			
+			
+		}
+		
 		// auswahl zwischen den verfügbaren figuren geben,
 		// (darauf achten ob im startfeld array oder nicht?)
 
