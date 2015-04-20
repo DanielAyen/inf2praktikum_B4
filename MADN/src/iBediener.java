@@ -1,3 +1,5 @@
+import java.util.Properties;
+
 
 
 /**
@@ -14,7 +16,8 @@ public interface iBediener {
 	int aufStartSpielfeld();
 	void welcheSpielfigurNutzen(FarbEnum farbe, Object[][][] farbeNamePosition,
 			int w);
-	
+	void spielSpeichern(Properties p);
+	void spielLaden(Properties p);
 	
 	
 }

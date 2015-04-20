@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Properties;
 
 /**
  * Die Klasse Spiel
@@ -34,6 +35,19 @@ public class Spiel implements iBediener {
 	Object[][][] farbeNamePosition;
 	private Spielfigur fig;
 	private FarbEnum farbe;
+	Properties p = new Properties();	
+	iDatenzugriff dzCSV =new DatenzugriffCSV();
+	iDatenzugriff dz =new DatenzugriffSerialisiert();
+	
+	@Override
+	public void spielSpeichern(Properties p){
+		p.setProperty("Auswahl","schreiben");
+	}
+	@Override
+	public void spielLaden(Properties p){
+		p.setProperty("Auswahl","lesen");
+	}
+	
 
 	/**
 	 * erstellt die einzelnen Spieler
