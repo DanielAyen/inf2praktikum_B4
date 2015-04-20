@@ -1,6 +1,15 @@
+/**
+ * Die Klasse KI_Defensiv
+ *
+ */
+
 public class KI_Defensiv extends KI {
 	private boolean zugBeendet = false;
 
+	/**
+	 * 
+	 * @param spieler Spieler
+	 */
 	public KI_Defensiv(Spieler spieler) {
 		super(spieler);
 		if (zugBeendet == false) {
@@ -20,9 +29,3 @@ public class KI_Defensiv extends KI {
 	}
 
 }
-
-/*
- * beenden raus schlagen
- * 
- * laufen
- */

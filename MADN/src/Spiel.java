@@ -40,6 +40,14 @@ public class Spiel implements iBediener {
 	iDatenzugriff dzCSV = new DatenzugriffCSV();
 	iDatenzugriff dz = new DatenzugriffSerialisiert();
 
+	/**
+	 * speichert ein Spiel
+	 * 
+	 * @param p
+	 *            Properties
+	 * @throws exception
+	 *             wirft eine Exception
+	 */
 	@Override
 	public void spielSpeichern(Properties p) {
 		p.setProperty("Auswahl", "schreiben");
@@ -57,6 +65,12 @@ public class Spiel implements iBediener {
 		}
 	}
 
+	/**
+	 * speichert das Spiel als CSV
+	 * 
+	 * @param p
+	 *            Properties
+	 */
 	@Override
 	public void spielSpeichernCSV(Properties p) {
 		p.setProperty("Auswahl", "schreiben");
@@ -74,6 +88,15 @@ public class Spiel implements iBediener {
 		}
 	}
 
+	/**
+	 * lädt das Spiel
+	 * 
+	 * @param p
+	 *            Properties
+	 * 
+	 * @throws exception
+	 *             wirft eiene Exception
+	 */
 	@Override
 	public void spielLaden(Properties p) {
 		p.setProperty("Auswahl", "lesen");
@@ -90,7 +113,16 @@ public class Spiel implements iBediener {
 			}
 		}
 	}
-	
+
+	/**
+	 * lädt das Spiel aus CSV
+	 * 
+	 * @param p
+	 *            Properties
+	 * 
+	 * @throws exception
+	 *             wirft eiene Exception
+	 */
 	@Override
 	public void spielLadenCSV(Properties p) {
 		p.setProperty("Auswahl", "lesen");

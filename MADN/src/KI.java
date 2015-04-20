@@ -1,12 +1,16 @@
 /**
  * Die Klasse KI
  */
-public abstract class KI  {
+public abstract class KI {
 	private Spieler spieler;
-protected boolean KIyn;
-private Spiel spiel;
+	protected boolean KIyn;
+	private Spiel spiel;
+
 	/**
 	 * Konstruktor der KI
+	 * 
+	 * @param spieler
+	 *            Spieler
 	 * 
 	 * @throws RuntimeException
 	 *             wenn kein Spieler vorhanden ist
@@ -18,26 +22,42 @@ private Spiel spiel;
 	}
 
 	/**
-	 * @return Spieler
+	 * gibt Spieler zurück
+	 * 
+	 * @return spieler Spieler
 	 */
 	public Spieler getSpieler() {
 		return this.spieler;
 	}
-	
-	public boolean gegnerSchlagen(){
+
+	/**
+	 * schlägt den Gegner
+	 * 
+	 * @return false
+	 */
+	public boolean gegnerSchlagen() {
 		spiel.figurBewegen();
 		spiel.GegnerSchlagen();
 		return false;
-		
+
 	}
 
-
-	public boolean figurenAufsFeld(){
+	/**
+	 * setzt Figuren auf das Spielfeld
+	 * 
+	 * @return false
+	 */
+	public boolean figurenAufsFeld() {
 		spiel.aufStartSpielfeld();
 		return false;
 	}
-	
-	public boolean figurenInsEndfeld(){
+
+	/**
+	 * setzt Figuren ins Spielfeld
+	 * 
+	 * @return false
+	 */
+	public boolean figurenInsEndfeld() {
 		spiel.figurBewegen();
 		return false;
 	}

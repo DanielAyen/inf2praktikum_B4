@@ -1,10 +1,14 @@
+/**
+ *Die Klasse KI_Aggressiv
+ *
+ */
 public class KI_Aggressiv extends KI {
-
-	private Spielfeld feld;
-	private Spieler spieler;
-	private Wuerfel w;
-	private Spiel spiel;
 	private boolean zugBeendet = false;
+	
+	/**
+	 * 
+	 * @param spieler Spieler
+	 */
 
 	public KI_Aggressiv(Spieler spieler) {
 		super(spieler);
@@ -27,6 +31,3 @@ public class KI_Aggressiv extends KI {
 	}
 
 }
-/*
- * schlagen raus beenden
- */

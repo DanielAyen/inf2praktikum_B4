@@ -1,6 +1,14 @@
 import java.util.Properties;
 
+/**
+ * Die Klasse SpielTestLaden
+ *
+ */
 public class SpielTestLaden {
+	/**
+	 * 
+	 * @param args
+	 */
 
 	public static void main(String[] args) {
 		Properties p = new Properties();

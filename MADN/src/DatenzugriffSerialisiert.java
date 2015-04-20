@@ -6,16 +6,27 @@ import java.io.ObjectOutputStream;
 import java.util.Properties;
 
 /**
- * Diese Klassse bereitet das Serialisieren vor.
- *
+ * Diese Klassse DatenzugriffSerialisiert
  */
 public class DatenzugriffSerialisiert implements iDatenzugriff {
+	/**
+	 * @param ois
+	 *            ObjectInputStream
+	 * @param oos
+	 *            ObjectOutputStream
+	 */
 
 	private ObjectInputStream ois;
 	private ObjectOutputStream oos;
 
 	/**
-	 * Diese Methode oeffnet die Serialisierungs - Datei
+	 * oeffnet die Date
+	 * 
+	 * @param p
+	 *            Properties
+	 * @throws excteption
+	 *             wirft eine Exception, wenn Auswahl nicht definiert wurde oder
+	 *             falsch ist
 	 */
 	@Override
 	public void oeffnen(Properties p) throws IOException {
@@ -30,7 +41,13 @@ public class DatenzugriffSerialisiert implements iDatenzugriff {
 	}
 
 	/**
-	 * Diese Methode schreibt in die Datei.
+	 * schreibt in die Datei
+	 * 
+	 * @param object
+	 *            Object
+	 * @throws excteption
+	 *             wirft eine Exception, wenn Stream nicht zum schreiben
+	 *             geoeffnet ist
 	 */
 	@Override
 	public void schreiben(Object object) throws IOException { // speichern
@@ -42,7 +59,12 @@ public class DatenzugriffSerialisiert implements iDatenzugriff {
 	}
 
 	/**
-	 * Diese Methode liest aus der Datei
+	 * liest aus der Datei
+	 * 
+	 * @throws excteption
+	 *             wirft eine Exception, wenn Stream nicht gelesen wurden konnte
+	 * @throws exception
+	 *             wenn Deserialisierung nicht funktioniert hat
 	 */
 	@Override
 	public Object lesen() throws IOException { // laden
@@ -60,7 +82,10 @@ public class DatenzugriffSerialisiert implements iDatenzugriff {
 	}
 
 	/**
-	 * Diese Methode schliesst die Datei
+	 * schliesst die Datei
+	 *  @param object Object
+	 * @throws excteption
+	 *             wirft eine Exception
 	 */
 	@Override
 	public void schliessen(Object object) throws IOException {

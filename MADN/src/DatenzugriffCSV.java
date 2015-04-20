@@ -8,13 +8,34 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Properties;
 
+/**
+ * Klasse DatenzugriffCSV implementiert das Interface iDatenzugriff
+ */
 public class DatenzugriffCSV implements iDatenzugriff {
+	/**
+	 * @param br
+	 *            der buffered reader
+	 * @param bw
+	 *            der buffered writer
+	 * @param farbeNamePosition
+	 *            das Array der Spielfiguren
+	 * @param spieler
+	 *            der Spieler
+	 */
 
 	private BufferedReader br;
 	private BufferedWriter bw;
 	private Object[][][] farbeNamePosition;
 	private ArrayList<Spieler> spieler;
 
+	/**
+	 * oeffnet die Datei
+	 * 
+	 * @param p
+	 *            Properties
+	 * @throws excteption
+	 *             wirft eine Exception, wenn neine Auswahl gewählt wurde
+	 */
 	@Override
 	public void oeffnen(Properties p) throws IOException {
 		String dateiname = "MADN";
@@ -31,6 +52,13 @@ public class DatenzugriffCSV implements iDatenzugriff {
 
 	}
 
+	
+	/**
+	 * schreibt in die Datei und speichert sie
+	 * @param object Object
+	 * @throws excteption
+	 *             wirft eine Exception
+	 */
 	@Override
 	public void schreiben(Object object) throws IOException {
 		boolean zweiterWert = true;
@@ -66,6 +94,12 @@ public class DatenzugriffCSV implements iDatenzugriff {
 		bw.write("\n");
 	}
 
+	
+	/**
+	 * liest die Datei aus
+	 * @throws excteption
+	 *             wirft eine Exception
+	 */
 	@Override
 	public Object lesen() throws IOException {
 
@@ -86,6 +120,13 @@ public class DatenzugriffCSV implements iDatenzugriff {
 		return ausgabe;
 	}
 
+	/**
+	 * schliesst die Datei und speichert sie
+	 * @param object Object
+	 * @throws excteption
+	 *             wirft eine Exception
+	 * 
+	 */
 	@Override
 	public void schliessen(Object object) throws IOException {
 		if (bw != null) {
