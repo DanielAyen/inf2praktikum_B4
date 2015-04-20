@@ -8,12 +8,12 @@ public interface iBediener {
 
 	void spielStarten();
 	void entscheidungBeiSechs();
-	void welcheSpielfigurNutzen();
-	
-	void erstelleSpieler(String name, FarbEnum farbe);
+		void erstelleSpieler(String name, FarbEnum farbe);
 	void erstelleBrett();
 	void wuerfeln();
 	int aufStartSpielfeld();
+	void welcheSpielfigurNutzen(FarbEnum farbe, Object[][][] farbeNamePosition,
+			int w);
 	
 	
 	

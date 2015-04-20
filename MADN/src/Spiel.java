@@ -213,7 +213,7 @@ public class Spiel implements iBediener {
 			// //KONSOLEN EINGABE IMPLEMETIEREN
 		} else {
 
-			fig.vor(); 										// PROBLEM BEI VOR!!!
+			//fig.vor(); 										// PROBLEM BEI VOR!!!
 		}
 
 		wuerfeln();
@@ -234,6 +234,8 @@ public class Spiel implements iBediener {
 						if(farbeNamePosition[0][i][j]!="SR1"||farbeNamePosition[0][i][j]!="SR2"||farbeNamePosition[0][i][j]!="SR3"||farbeNamePosition[0][i][j]!="SR4"){
 							
 							 System.out.println("Mögliche Figur/-en:"+farbeNamePosition[0][i][j]);
+							 
+							 //iwie noch die figur nutzbar machen
 							
 						}
 					}
