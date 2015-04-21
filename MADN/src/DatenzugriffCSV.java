@@ -98,10 +98,10 @@ public class DatenzugriffCSV implements iDatenzugriff {
 						bw.newLine();
 					
 
-						bw.write(farbeNamePosition[i][j][k].toString());
+//						bw.write(farbeNamePosition[i][j][k].toString());
 
-						pw = new PrintWriter(new BufferedWriter(new FileWriter("MADN.txt")));
-						pw.print(farbeNamePosition[i][j][k].toString());
+//						pw = new PrintWriter(new BufferedWriter(new FileWriter("MADN.txt")));
+//						pw.print(farbeNamePosition[i][j][k].toString());
 
 //						farbeNamePosition[i][j][k]
 //								.writeToStream(new PrintWriter(System.out));
