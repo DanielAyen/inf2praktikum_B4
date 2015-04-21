@@ -16,13 +16,16 @@ public class KI_Aggressiv extends KI {
 		if (zugBeendet == false) {
 			gegnerSchlagen();
 			zugBeendet = KIyn;
+			System.out.println("Gegner wurde geschlagen.");
 			if (zugBeendet == false) {
 				figurenAufsFeld();
+				System.out.println("Figur wurden aus dem Startfeld aufs Spielfeld gesetzt.");
 				zugBeendet = KIyn;
 			}
 			if (zugBeendet == false) {
 
 				figurenInsEndfeld();
+				System.out.println("Figur wurde ins Endfeld gesetzt.");
 
 				zugBeendet = KIyn;
 			}

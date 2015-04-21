@@ -40,7 +40,7 @@ public class DatenzugriffCSV implements iDatenzugriff {
 	 */
 	@Override
 	public void oeffnen(Properties p) throws IOException {
-		String dateiname = "MADN";
+		String dateiname = "MADN.txt";
 
 		if ("schreiben".equals(p.getProperty("Auswahl"))) {
 			bw = new BufferedWriter(new OutputStreamWriter(
