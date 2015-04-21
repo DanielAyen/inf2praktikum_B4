@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -441,4 +442,5 @@ public class Spiel implements iBediener {
 		return false;
 	}
 
-}
+	
+	}

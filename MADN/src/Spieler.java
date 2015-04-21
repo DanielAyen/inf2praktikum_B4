@@ -1,3 +1,4 @@
+import java.io.PrintWriter;
 import java.io.Serializable;
 
 /**
@@ -130,10 +131,10 @@ public class Spieler implements Serializable{
 	}
 
 	/** @return gibt Name, ID und Farbe des Spielers zurueck */
-	@Override
-	public String toString() {
-		return "Spieler " + getName() + " mit der Farbe " + getFarbe();
-	}
+//	@Override
+//	public String toString() {
+//		return "Spieler " + getName() + " mit der Farbe " + getFarbe();
+//	}
 
 	/**
 	 * @return Vergleicht (ueber eindeutigen Namen), ob Spieler wirklich DER
@@ -164,6 +165,16 @@ public class Spieler implements Serializable{
 	public Spieler getSpieler() {
 		return s;
 
+	}
+
+	public void writeToStream(PrintWriter pw){
+		pw.println(name+";"+farbe+";");
+		pw.flush();
+	}
+	
+	@Override
+	public String toString(){
+		return name+" "+farbe+" ";
 	}
 
 

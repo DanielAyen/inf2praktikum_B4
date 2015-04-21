@@ -2,9 +2,11 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -33,7 +35,7 @@ public class DatenzugriffCSV implements iDatenzugriff {
 	 * 
 	 * @param p
 	 *            Properties
-	 * @throws excteption
+	 * @throws exception
 	 *             wirft eine Exception, wenn neine Auswahl gewählt wurde
 	 */
 	@Override
@@ -52,18 +54,21 @@ public class DatenzugriffCSV implements iDatenzugriff {
 
 	}
 
-	
 	/**
 	 * schreibt in die Datei und speichert sie
-	 * @param object Object
-	 * @throws excteption
+	 * 
+	 * @param object
+	 *            Object
+	 * @throws exception
 	 *             wirft eine Exception
 	 */
 	@Override
 	public void schreiben(Object object) throws IOException {
-		boolean zweiterWert = true;
+				bw = new BufferedWriter(new FileWriter("MADN.txt"));
+		PrintWriter pw = null;
 
 		for (int h = 0; h < spieler.size(); h++) {
+
 			spieler.get(h);
 
 			bw.write(spieler.get(h) + ";");
@@ -76,15 +81,31 @@ public class DatenzugriffCSV implements iDatenzugriff {
 
 				for (int k = 0; k < farbeNamePosition[i][j].length; k++) {
 
-					if (zweiterWert) {
-						zweiterWert = false;
-					} else {
-						bw.write(";");
-					}
+					// if (zweiterWert) {
+					// zweiterWert = false;
+					// } else {
+					// bw.write(";");
+					// }
+					//Object f = farbeNamePosition[i][j][k];
 
-					if (farbeNamePosition != null) {
+//					if (f == null) {
+//						continue;
+						String s = "";
+						s += i + ";";
+						s += j + ";";
+						s += k + ";";
+						bw.write(s);
+						bw.newLine();
+					
+
 						bw.write(farbeNamePosition[i][j][k].toString());
-					}
+
+						pw = new PrintWriter(new BufferedWriter(new FileWriter("MADN.txt")));
+						pw.print(farbeNamePosition[i][j][k].toString());
+
+//						farbeNamePosition[i][j][k]
+//								.writeToStream(new PrintWriter(System.out));
+					
 
 				}
 
@@ -92,12 +113,14 @@ public class DatenzugriffCSV implements iDatenzugriff {
 		}
 
 		bw.write("\n");
+		bw.flush();
+		bw.close();
 	}
 
-	
 	/**
 	 * liest die Datei aus
-	 * @throws excteption
+	 * 
+	 * @throws exception
 	 *             wirft eine Exception
 	 */
 	@Override
@@ -122,8 +145,10 @@ public class DatenzugriffCSV implements iDatenzugriff {
 
 	/**
 	 * schliesst die Datei und speichert sie
-	 * @param object Object
-	 * @throws excteption
+	 * 
+	 * @param object
+	 *            Object
+	 * @throws exception
 	 *             wirft eine Exception
 	 * 
 	 */

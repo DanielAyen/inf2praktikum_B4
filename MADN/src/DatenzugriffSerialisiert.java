@@ -24,7 +24,7 @@ public class DatenzugriffSerialisiert implements iDatenzugriff {
 	 * 
 	 * @param p
 	 *            Properties
-	 * @throws excteption
+	 * @throws exception
 	 *             wirft eine Exception, wenn Auswahl nicht definiert wurde oder
 	 *             falsch ist
 	 */
@@ -45,7 +45,7 @@ public class DatenzugriffSerialisiert implements iDatenzugriff {
 	 * 
 	 * @param object
 	 *            Object
-	 * @throws excteption
+	 * @throws exception
 	 *             wirft eine Exception, wenn Stream nicht zum schreiben
 	 *             geoeffnet ist
 	 */
@@ -61,7 +61,7 @@ public class DatenzugriffSerialisiert implements iDatenzugriff {
 	/**
 	 * liest aus der Datei
 	 * 
-	 * @throws excteption
+	 * @throws exception
 	 *             wirft eine Exception, wenn Stream nicht gelesen wurden konnte
 	 * @throws exception
 	 *             wenn Deserialisierung nicht funktioniert hat
@@ -84,7 +84,7 @@ public class DatenzugriffSerialisiert implements iDatenzugriff {
 	/**
 	 * schliesst die Datei
 	 *  @param object Object
-	 * @throws excteption
+	 * @throws exception
 	 *             wirft eine Exception
 	 */
 	@Override
