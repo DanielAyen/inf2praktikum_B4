@@ -77,7 +77,7 @@ public class DatenzugriffSerialisiert implements iDatenzugriff {
 			Object o = ois.readObject();
 			return o;
 		} catch (ClassNotFoundException fehler) {
-			throw new IOException("Konnte nicht desrialisieren!");
+			throw new IOException("Konnte nicht deserialisieren!");
 		}
 	}
 
