@@ -23,23 +23,23 @@ public class KI_Aggresiv extends KI implements Serializable {
 	@Override
 	public void kiZug() {
 
-		if (KIVersucheSchmeissen() != null) {
+		if (KIGegnerSchlagen() != null) {
 //			System.out.println("nr1");
-			int id = KIVersucheSchmeissen().getID();
+			int id = KIGegnerSchlagen().getID();
 			super.getSpiel().zugDurchfuehren(id);
 
-		} else if (KIVersucheRauskommen() != null) {
+		} else if (KIaufStartSpielFeld() != null) {
 //			System.out.println("nr2");
-			int id = KIVersucheRauskommen().getID();
+			int id = KIaufStartSpielFeld().getID();
 			super.getSpiel().zugDurchfuehren(id);
 
-		} else if (KIVersucheInsEndfeld() != null) {
-			int id = KIVersucheInsEndfeld().getID();
+		} else if (KIinsEndfeld() != null) {
+			int id = KIinsEndfeld().getID();
 			super.getSpiel().zugDurchfuehren(id);
 
-		} else if (KIVersucheFigurZiehen() != null) {
+		} else if (KIvor() != null) {
 //			System.out.println("nr4");
-			int id = KIVersucheFigurZiehen().getID();
+			int id = KIvor().getID();
 			super.getSpiel().zugDurchfuehren(id);
 
 		} else

@@ -15,7 +15,7 @@ public class KI_Defensiv extends KI implements Serializable {
 	}
 
 	/**
-	 * gibt eine Spielfigur weiter in zugDurchführen der Klasse Spiel mit
+	 * gibt eine Spielfigur weiter in zugDurchfuehren der Klasse Spiel mit
 	 * folgender Priorität: 1.Versuchen raus zu kommen, wenn nicht dann 2.
 	 * Versuche ins Endfeld zu kommen, wenn nicht dann 3. Versuche Figur zu
 	 * ziehen, wenn nicht dann 4. schmeissen wenn nicht dann ist der nächste
@@ -26,20 +26,20 @@ public class KI_Defensiv extends KI implements Serializable {
 	@Override
 	public void kiZug() {
 
-		if (KIVersucheInsEndfeld() != null) {
-			int id = KIVersucheInsEndfeld().getID();
+		if (KIinsEndfeld() != null) {
+			int id = KIinsEndfeld().getID();
 			super.getSpiel().zugDurchfuehren(id);
 			
-		} else if (KIVersucheRauskommen() != null) {
-			int id = KIVersucheRauskommen().getID();
+		} else if (KIaufStartSpielFeld() != null) {
+			int id = KIaufStartSpielFeld().getID();
 			super.getSpiel().zugDurchfuehren(id);
 
-		} else if (KIVersucheSchmeissen() != null) {
-			int id = KIVersucheSchmeissen().getID();
+		} else if (KIGegnerSchlagen() != null) {
+			int id = KIGegnerSchlagen().getID();
 			super.getSpiel().zugDurchfuehren(id);
 
-		} else if (KIVersucheFigurZiehen() != null) {
-			int id = KIVersucheFigurZiehen().getID();
+		} else if (KIvor() != null) {
+			int id = KIvor().getID();
 			super.getSpiel().zugDurchfuehren(id);
 		}
 

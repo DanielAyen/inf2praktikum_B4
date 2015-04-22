@@ -79,10 +79,10 @@ public class Spiel implements iBediener, Serializable {
 	public void setAmZug(Spieler amZug) {
 		this.amZug = amZug;
 		System.out.println(getAmZug().toString() + " ist am Zug");
-		// getAmZug().getWuerfel().wuerfeln();
+		 getAmZug().getWuerfel().wuerfeln();
 		// getAmZug().getWuerfel().wurf6();
 		// Zum Testen wird nur 2 gewuerfelt:
-		getAmZug().getWuerfel().wuerfel2();
+		//getAmZug().getWuerfel().wuerfel2();
 
 		if (amZug.getKi() != null) {
 			amZug.getKi().kiZug();
@@ -582,6 +582,13 @@ public class Spiel implements iBediener, Serializable {
 
 	public String getDateiname() {
 		return dateiname;
+	}
+	
+	//____________________________________________________________________________________________________//
+	
+	public int getAnzahlSpieler(){
+		
+		return spieler.size();
 	}
 
 }

@@ -57,7 +57,7 @@ public class Regelwerk implements Serializable {
 				if (spieler.getFarbe().equals(spiel.getBrett().getSpielbrett()[0].getFelder()[0].getSpielfigur().getFarbe())) {
 					System.out.println("Feld von eigener Spielfigur besetzt!");
 				} else {
-					schmeissen(spiel.getBrett().getSpielbrett()[0].getFelder()[0].getSpielfigur());
+					schlagen(spiel.getBrett().getSpielbrett()[0].getFelder()[0].getSpielfigur());
 					spiel.getBrett().getSpielbrett()[0].getFelder()[spielfigur.getID()].setSpielfigur(null);
 					spielfigur.setSpielfeld(spiel.getBrett().getSpielbrett()[0].getFelder()[0]);
 					spielfigur.getSpielfeld().setSpielfigur(spielfigur);
@@ -75,7 +75,7 @@ public class Regelwerk implements Serializable {
 				if (spieler.getFarbe().equals(spiel.getBrett().getSpielbrett()[10].getFelder()[0].getSpielfigur().getFarbe())) {
 					System.out.println("Feld von eigener Spielfigur besetzt!");
 				} else {
-					schmeissen(spiel.getBrett().getSpielbrett()[10].getFelder()[0].getSpielfigur());
+					schlagen(spiel.getBrett().getSpielbrett()[10].getFelder()[0].getSpielfigur());
 					spiel.getBrett().getSpielbrett()[10].getFelder()[spielfigur.getID()].setSpielfigur(null);
 					spielfigur.setSpielfeld(spiel.getBrett().getSpielbrett()[10].getFelder()[0]);
 					spielfigur.getSpielfeld().setSpielfigur(spielfigur);
@@ -93,7 +93,7 @@ public class Regelwerk implements Serializable {
 				if (spieler.getFarbe().equals(spiel.getBrett().getSpielbrett()[20].getFelder()[0].getSpielfigur().getFarbe())) {
 					System.out.println("Feld von eigener Spielfigur besetzt!");
 				} else {
-					schmeissen(spiel.getBrett().getSpielbrett()[20].getFelder()[0].getSpielfigur());
+					schlagen(spiel.getBrett().getSpielbrett()[20].getFelder()[0].getSpielfigur());
 					spiel.getBrett().getSpielbrett()[20].getFelder()[spielfigur.getID()].setSpielfigur(null);
 					spielfigur.setSpielfeld(spiel.getBrett().getSpielbrett()[20].getFelder()[0]);
 					spielfigur.getSpielfeld().setSpielfigur(spielfigur);
@@ -111,7 +111,7 @@ public class Regelwerk implements Serializable {
 				if (spieler.getFarbe().equals(spiel.getBrett().getSpielbrett()[30].getFelder()[0].getSpielfigur().getFarbe())) {
 					System.out.println("Feld von eigener Spielfigur besetzt!");
 				} else {
-					schmeissen(spiel.getBrett().getSpielbrett()[30].getFelder()[0].getSpielfigur());
+					schlagen(spiel.getBrett().getSpielbrett()[30].getFelder()[0].getSpielfigur());
 					spiel.getBrett().getSpielbrett()[30].getFelder()[spielfigur.getID()].setSpielfigur(null);
 					spielfigur.setSpielfeld(spiel.getBrett().getSpielbrett()[30].getFelder()[0]);
 					spielfigur.getSpielfeld().setSpielfigur(spielfigur);
@@ -192,7 +192,7 @@ public class Regelwerk implements Serializable {
 				System.out.println("Feld von eigener Spielfigur besetzt!");
 				return;
 			} else {
-				schmeissen(spiel.getBrett().getSpielbrett()[newPos].getFelder()[0].getSpielfigur());
+				schlagen(spiel.getBrett().getSpielbrett()[newPos].getFelder()[0].getSpielfigur());
 				spielfigur.getSpielfeld().setSpielfigur(null);
 				spielfigur.setSpielfeld(spiel.getBrett().getSpielbrett()[newPos].getFelder()[0]);
 				spielfigur.getSpielfeld().setSpielfigur(spielfigur);
@@ -273,13 +273,13 @@ public class Regelwerk implements Serializable {
 	}
 
 	/**
-	 * Methode ueberprüft, ob das neue Spielfeld frei oder besetzt ist, ist es
+	 * Methode ueberprueft, ob das neue Spielfeld frei oder besetzt ist, ist es
 	 * besetzt von einer anderen Spielfigur, wird diese auf ihr Startfeld
 	 * gesetzt
 	 * 
 	 * @param spielfigur
 	 */
-	private void schmeissen(Spielfigur spielfigur) {
+	private void schlagen(Spielfigur spielfigur) {
 		spielfigur.getSpielfeld().setSpielfigur(null);
 		switch (spielfigur.getFarbe()) {
 		case RED:

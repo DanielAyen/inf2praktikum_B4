@@ -33,7 +33,7 @@ public abstract class KI implements Serializable {
 	 * @return Spielfigur
 	 */
 
-	public Spielfigur KIVersucheRauskommen() {
+	public Spielfigur KIaufStartSpielFeld() {
 //		System.out.println("raus");
 		for (int i = 0; i < spieler.getSpielfiguren().length; i++) {
 
@@ -42,26 +42,26 @@ public abstract class KI implements Serializable {
 				
 				if(spieler.getFarbe().equals(FarbEnum.RED) && spiel.getBrett().getSpielbrett()[0].getFelder()[0].getSpielfigur() != null){
 					if(spieler.getFarbe().equals(spiel.getBrett().getSpielbrett()[0].getFelder()[0].getSpielfigur().getFarbe())){
-						KIVersucheFigurZiehen();
+						KIvor();
 						return null;
 					}
 				}
 				if(spieler.getFarbe().equals(FarbEnum.BLUE) && spiel.getBrett().getSpielbrett()[10].getFelder()[0].getSpielfigur() != null){
 					System.out.println("hier");
 					if(spieler.getFarbe().equals(spiel.getBrett().getSpielbrett()[10].getFelder()[0].getSpielfigur().getFarbe())){
-						KIVersucheFigurZiehen();
+						KIvor();
 						return null;
 					}
 				}
 				if(spieler.getFarbe().equals(FarbEnum.GREEN) && spiel.getBrett().getSpielbrett()[20].getFelder()[0].getSpielfigur() != null){
 					if(spieler.getFarbe().equals(spiel.getBrett().getSpielbrett()[20].getFelder()[0].getSpielfigur().getFarbe())){
-						KIVersucheFigurZiehen();
+						KIvor();
 						return null;
 					}
 				}
 				if(spieler.getFarbe().equals(FarbEnum.YELLOW) && spiel.getBrett().getSpielbrett()[30].getFelder()[0].getSpielfigur() != null){
 					if(spieler.getFarbe().equals(spiel.getBrett().getSpielbrett()[30].getFelder()[0].getSpielfigur().getFarbe())){
-						KIVersucheFigurZiehen();
+						KIvor();
 						return null;
 					}
 				}
@@ -77,7 +77,7 @@ public abstract class KI implements Serializable {
 	 * 
 	 * @return Spielfigur
 	 */
-	public Spielfigur KIVersucheInsEndfeld() {
+	public Spielfigur KIinsEndfeld() {
 		for (int i = 0; i < spieler.getSpielfiguren().length; i++) {
 
 			Spielfigur s = spieler.getSpielfigur(i);
@@ -119,7 +119,7 @@ public abstract class KI implements Serializable {
 	 * 
 	 * @return Spielfigur
 	 */
-	public Spielfigur KIVersucheSchmeissen() {
+	public Spielfigur KIGegnerSchlagen() {
 //		System.out.println("schmeiss");
 		for (int i = 0; i < spieler.getSpielfiguren().length; i++) {
 
@@ -138,11 +138,11 @@ public abstract class KI implements Serializable {
 	}
 
 	/**
-	 * Ermittelt die Spielfigur, welche einen Zug ausführen kann
+	 * Ermittelt die Spielfigur, welche einen Zug ausfuehren kann
 	 * 
 	 * @return Spielfigur
 	 */
-	public Spielfigur KIVersucheFigurZiehen() {
+	public Spielfigur KIvor() {
 
 		for (int i = 0; i < spieler.getSpielfiguren().length; i++) {
 
@@ -152,7 +152,7 @@ public abstract class KI implements Serializable {
 				if (!(s.getSpielfeld().getID().contains("S")) && spiel.getBrett().getSpielbrett()[newPos].getFelder()[0].getSpielfigur() == null) {
 					return s;
 				} else{
-					KIVersucheRauskommen();
+					KIaufStartSpielFeld();
 				}
 			}
 		}
@@ -161,7 +161,7 @@ public abstract class KI implements Serializable {
 	}
 
 	/**
-	 * getter für den Spieler
+	 * getter fuer den Spieler
 	 * 
 	 * @return spieler
 	 */
@@ -171,7 +171,7 @@ public abstract class KI implements Serializable {
 	}
 
 	/**
-	 * getter für das Spiel
+	 * getter fuer das Spiel
 	 * 
 	 * @return spiel
 	 */

@@ -1,5 +1,7 @@
 package backend;
 
+import javax.swing.JFrame;
+
 import frontend.iBediener;
 
 /**
@@ -17,7 +19,7 @@ public class SpielTest {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
+
 		iBediener s = new Spiel ();
 		s.SpielerHinzufuegen("Ki", "red", "aggressiv");
 //		s.SpielerHinzufuegen("Ki2", "Blue", "defensiv");
@@ -39,7 +41,7 @@ public class SpielTest {
 		
 		
 		
-		s.initTestSpiel();
+	  //s.initTestSpiel();
 		
 //		s.initTestSpielZugDefensiv();
 //		s.initTestSpielZugAggressiv();
@@ -47,6 +49,14 @@ public class SpielTest {
 		//s.Speichern("csv");
 		
 		
+		
+		//___________________________________________________________________________________
+		
+		GUI g=new GUI();
+		g.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		g.setVisible(true);
+		
+	System.out.println(s.getSpieler());	
 	}
 
 }

@@ -27,6 +27,11 @@ public interface iBediener {
 
 	Object laden(String dateiname, String dateiende);
 	void Speichern(String dateiname, String dateiende) throws IOException;
+
+	
+	
+	//___________________________________________________________________________________________--
+	public Object getSpieler();
 	
 	
 	
