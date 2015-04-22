@@ -12,7 +12,8 @@ import javax.swing.SpinnerNumberModel;
 
 public class GUI extends JFrame {
 	// private Spiel spiel;
-	 private JFrame jf;
+	private JFrame jf;
+
 	// private JLabel jl = new JLabel("");
 	// private JSpinner spinner;
 
@@ -77,49 +78,78 @@ public class GUI extends JFrame {
 
 		}
 	}
-	
-	public void anzahlSpielerDieSpielenWollenAbfrage(){
-		Object[] options = { "1", "2", "3", "4" };
-		int x = JOptionPane.showOptionDialog(null,
-				"Wie viele Spieler sollen bei dem Spiel mitspielen? ",
-				"Spieler erstellen", JOptionPane.DEFAULT_OPTION,
-				JOptionPane.QUESTION_MESSAGE, null, options, options[2]);
-		
+
+	public void anzahlSpielerDieSpielenWollenAbfrage() {
+
+		/* alternative Loesung ueber JOptionPane */
+		// Object[] options = { "1", "2", "3", "4" };
+		// int x = JOptionPane.showOptionDialog(null,
+		// "Wie viele Spieler sollen bei dem Spiel mitspielen? ",
+		// "Spieler erstellen", JOptionPane.DEFAULT_OPTION,
+		// JOptionPane.QUESTION_MESSAGE, null, options, options[2]);
+		// switch (x) {
+		// case 0: System.out.println("1 geklickt"); //case 0 wegen Array (index
+		// 0)
+		//
+		// // speichern
+		// break;
+		// case 1:
+		// break;
+		// case 2:
+		// break;
+		// case 3:
+		// break;
+		// default: meldungWennKeineSpielerAnzGewaehlt();
+		// break;
+		// }
+		// nameFarbeArtAbfrage();
+
+		JFrame frame = new JFrame("Spieler erstellen");
+		//frame.setSize(100, 200);
+		JLabel label = new JLabel("Anzahl Spieler: ");
+		label.setSize(200,100);
+		JPanel panel = new JPanel(new BorderLayout());
+
+		SpinnerNumberModel anzahlSpielerAuswaehlen = new SpinnerNumberModel(2,
+				1, 4, 1); // value, min, max, step
+		JSpinner spinner = new JSpinner(anzahlSpielerAuswaehlen);
+
+		panel.add(label, BorderLayout.WEST);
+		panel.add(spinner, BorderLayout.CENTER);
+		frame.add(panel, BorderLayout.NORTH);
+		frame.setVisible(true);
+		frame.pack();
+
+	}
+
+	public void nameFarbeArtAbfrage() {
+
 	}
 
 	/* ___________Methoden____________ */
 	public void spielLaden() {
-		//J File Chooser
+		// J File Chooser
 	}
-	
 
 	public void spielerErstellen() {
-		
-		//name, farbe, art ---- JTextField, JRadioButton, JRadioButton
-		
-		JFrame jf = new JFrame("Spieler erstellen");
-		
-		
-		
-		
-		//anzahlSpielerDieSpielenWollenAbfrage();
+
+		anzahlSpielerDieSpielenWollenAbfrage();
+		// name, farbe, art ---- JTextField, JRadioButton, JRadioButton
 	}
 
-//		JFrame frame = new JFrame("Spieler erstellen");
-//		JLabel label = new JLabel("Anzahl Spieler: ");
-//		JPanel panel = new JPanel(new BorderLayout());
-//
-//		SpinnerNumberModel anzahlSpielerAuswaehlen = new SpinnerNumberModel(2,
-//				1, 4, 1); // value, min, max, step
-//		JSpinner spinner = new JSpinner(anzahlSpielerAuswaehlen);
-//
-//		panel.add(label, BorderLayout.WEST);
-//		panel.add(spinner, BorderLayout.CENTER);
-//		frame.add(panel, BorderLayout.SOUTH);
-		// pack();
-		// int x=JOptionPane.showConfirmDialog(null,
-		// "Mit wie viel Spielern soll das Spiel gespielt werden?",
-		// "Spieler erstellen")
-		// farbe auswählen, name eingeben, mensch/ki, spieler anzahl
-	
+	public void meldungWennKeineSpielerAnzGewaehlt() {
+		JOptionPane
+				.showMessageDialog(
+						null,
+						"Es wurde nicht gewaehlt, wie viel Spieler am Spiel teilnehmen.",
+						"Herzlich Willkommen bei MADN",
+						JOptionPane.PLAIN_MESSAGE);
+
+	}
+
+	// int x=JOptionPane.showConfirmDialog(null,
+	// "Mit wie viel Spielern soll das Spiel gespielt werden?",
+	// "Spieler erstellen")
+	// farbe auswählen, name eingeben, mensch/ki, spieler anzahl
+
 }

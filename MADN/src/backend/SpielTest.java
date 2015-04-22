@@ -35,8 +35,8 @@ public class SpielTest {
 //___________________________________________________________________________________
 		
 		GUI g=new GUI("MADN Spiel");		
-//		g.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//		g.setVisible(true);
+g.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	g.setVisible(true);
 //		
 //	System.out.println(s.getSpieler());	
 	}
