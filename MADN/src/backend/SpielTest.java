@@ -1,6 +1,12 @@
 package backend;
 
+import java.awt.BorderLayout;
+
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 
 import frontend.iBediener;
 
@@ -52,7 +58,7 @@ public class SpielTest {
 		
 		//___________________________________________________________________________________
 		
-		GUI g=new GUI();
+		GUI g=new GUI("MADN Spiel");		
 		g.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		g.setVisible(true);
 		
