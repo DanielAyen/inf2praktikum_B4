@@ -3,6 +3,7 @@ package backend;
 import java.awt.BorderLayout;
 import java.awt.Component;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -101,14 +102,17 @@ public class GUI extends JFrame {
 		// break;
 		// default: meldungWennKeineSpielerAnzGewaehlt();
 		// break;
+		
+		////geht auch ohne switch case. x +1 = anz spieler
+		
 		// }
 		// nameFarbeArtAbfrage();
 
 		JFrame frame = new JFrame("Spieler erstellen");
-		//frame.setSize(100, 200);
 		JLabel label = new JLabel("Anzahl Spieler: ");
 		label.setSize(200,100);
 		JPanel panel = new JPanel(new BorderLayout());
+		JButton button = new JButton ("OK");
 
 		SpinnerNumberModel anzahlSpielerAuswaehlen = new SpinnerNumberModel(2,
 				1, 4, 1); // value, min, max, step
