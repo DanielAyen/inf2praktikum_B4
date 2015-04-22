@@ -12,7 +12,7 @@ import frontend.iDatenzugriff;
 /**
  * Spiel Klasse dient zum "starten" des Spiels
  * 
- * @author Judith, Michi, Doerte, Tobi
+ * @author Judith, Michi, Doerte, Tobi,
  *
  */
 public class Spiel implements iBediener, Serializable {
@@ -37,40 +37,24 @@ public class Spiel implements iBediener, Serializable {
 		spieler = new ArrayList<Spieler>();
 	}
 
-	/**
-	 * gibt das Spielbrett zurueck
-	 * 
-	 * @return brett
-	 */
-	public Spielbrett getBrett() {
-		return brett;
-	}
-
-	/**
-	 * gibt das Array der Spieler zurueck
-	 * 
-	 * @return spieler
-	 */
-
-	public ArrayList<Spieler> getSpieler() {
-		return spieler;
-	}
-
 	public void addSpieler(Spieler s) {
 		spieler.add(s);
 
 	}
-
 	/**
-	 * gibt zurueck welcher Spieler am Zug ist
+	 * ruft im Regelwerk die Funktion AktionsWahl auf um damit den Spielzug zu
+	 * bestimmen
 	 * 
-	 * @return amZug
+	 * @param id
+	 *            der Spielfigur
 	 */
+	public void zugDurchfuehren(int ID) {
 
-	public Spieler getAmZug() {
-		return amZug;
-	}
-
+		regelwerk.aktionsWahl(getAmZug(), getAmZug().getSpielfigur(ID),
+				getAmZug().getWuerfel().getErgebnis());
+		System.out.println(brett.toString());
+	}	
+//______________________setter__________________________________________________________________________//
 	/**
 	 * setzt den Spieler, welcher an der Reihe ist und wuerfelt
 	 * 
@@ -108,8 +92,45 @@ public class Spiel implements iBediener, Serializable {
 				return;
 			}
 		}
+	} 
+//______________________getter_________________________________________________________________________//
+	/**
+	 * gibt das Regelwerk zurueck
+	 * 
+	 * @return regelwerk
+	 */
+	public Regelwerk getRegelwerk() {
+		return regelwerk;
+	}
+	/**
+	 * gibt das Spielbrett zurueck
+	 * 
+	 * @return brett
+	 */
+	public Spielbrett getBrett() {
+		return brett;
 	}
 
+	/**
+	 * gibt das Array der Spieler zurueck
+	 * 
+	 * @return spieler
+	 */
+
+	public ArrayList<Spieler> getSpieler() {
+		return spieler;
+	}
+	/**
+	 * gibt zurueck welcher Spieler am Zug ist
+	 * 
+	 * @return amZug
+	 */
+
+	public Spieler getAmZug() {
+		return amZug;
+	}
+
+//______________________Overrides_____________________________________________________________________//
 	@Override
 	public void SpielerHinzufuegen(String name, String farbe, String ki) {
 		KIEnum ai = null;
@@ -161,7 +182,6 @@ public class Spiel implements iBediener, Serializable {
 			spieler.add(new Spieler(name, f, ai, this));
 		}
 	}
-
 	@Override
 	public void initSpiel() {
 		for (Spieler s : spieler) {
@@ -204,196 +224,6 @@ public class Spiel implements iBediener, Serializable {
 
 		System.out.println(brett.toString());
 		setAmZug(spieler.get(0));
-	}
-
-	@Override
-	public void initTestSpiel() {
-		for (Spieler s : spieler) {
-			FarbEnum farbe = s.getFarbe();
-			switch (farbe) {
-			case RED:
-				s.getSpielfigurNeu(0).setSpielfeld(
-						brett.getSpielbrett()[0].getFelder()[1]);
-				brett.getSpielbrett()[0].getFelder()[1].setSpielfigur(s
-						.getSpielfigurNeu(0));
-
-				s.getSpielfigurNeu(1).setSpielfeld(
-						brett.getSpielbrett()[39].getFelder()[0]);
-				brett.getSpielbrett()[39].getFelder()[0].setSpielfigur(s
-						.getSpielfigurNeu(1));
-
-				s.getSpielfigurNeu(2).setSpielfeld(
-						brett.getSpielbrett()[3].getFelder()[0]);
-				brett.getSpielbrett()[3].getFelder()[0].setSpielfigur(s
-						.getSpielfigurNeu(2));
-
-				s.getSpielfigurNeu(3).setSpielfeld(
-						brett.getSpielbrett()[20].getFelder()[0]);
-				brett.getSpielbrett()[20].getFelder()[0].setSpielfigur(s
-						.getSpielfigurNeu(3));
-				break;
-			case GREEN:
-				for (int i = 1; i < s.getSpielfiguren().length; i++) {
-					s.getSpielfigur(i).setSpielfeld(
-							brett.getSpielbrett()[20].getFelder()[i + 1]);
-					brett.getSpielbrett()[20].getFelder()[i + 1]
-							.setSpielfigur(s.getSpielfigur(i + 1));
-				}
-				s.getSpielfigur(0).setSpielfeld(
-						brett.getSpielbrett()[5].getFelder()[0]);
-				brett.getSpielbrett()[5].getFelder()[0].setSpielfigur(s
-						.getSpielfigur(0));
-				break;
-			}
-		}
-		// System.out.println(brett.toString());
-		setAmZug(spieler.get(0));
-	}
-
-	@Override
-	public void initTestSpielZugAggressiv() {
-		for (Spieler s : spieler) {
-			FarbEnum farbe = s.getFarbe();
-			switch (farbe) {
-			case RED:
-				s.getSpielfigurNeu(0).setSpielfeld(
-						brett.getSpielbrett()[0].getFelder()[1]);
-				brett.getSpielbrett()[0].getFelder()[1].setSpielfigur(s
-						.getSpielfigurNeu(0));
-
-				s.getSpielfigurNeu(1).setSpielfeld(
-						brett.getSpielbrett()[39].getFelder()[0]);
-				brett.getSpielbrett()[39].getFelder()[0].setSpielfigur(s
-						.getSpielfigurNeu(1));
-
-				s.getSpielfigurNeu(2).setSpielfeld(
-						brett.getSpielbrett()[3].getFelder()[0]);
-				brett.getSpielbrett()[5].getFelder()[0].setSpielfigur(s
-						.getSpielfigurNeu(2));
-
-				s.getSpielfigurNeu(3).setSpielfeld(
-						brett.getSpielbrett()[20].getFelder()[0]);
-				brett.getSpielbrett()[20].getFelder()[0].setSpielfigur(s
-						.getSpielfigurNeu(3));
-				break;
-			case GREEN:
-				for (int i = 0; i < s.getSpielfiguren().length; i++) {
-					s.getSpielfigurNeu(i).setSpielfeld(
-							brett.getSpielbrett()[20].getFelder()[i + 1]);
-					brett.getSpielbrett()[20].getFelder()[i + 1]
-							.setSpielfigur(s.getSpielfigurNeu(i));
-				}
-			}
-		}
-		// System.out.println(brett);
-		setAmZug(spieler.get(0));
-	}
-
-	@Override
-	public void initTestSpielZugDefensiv() {
-		for (Spieler s : spieler) {
-			FarbEnum farbe = s.getFarbe();
-			switch (farbe) {
-			case RED:
-				s.getSpielfigurNeu(0).setSpielfeld(
-						brett.getSpielbrett()[0].getFelder()[1]);
-				brett.getSpielbrett()[0].getFelder()[1].setSpielfigur(s
-						.getSpielfigurNeu(0));
-
-				s.getSpielfigurNeu(1).setSpielfeld(
-						brett.getSpielbrett()[39].getFelder()[2]);
-				brett.getSpielbrett()[39].getFelder()[2].setSpielfigur(s
-						.getSpielfigurNeu(1));
-
-				s.getSpielfigurNeu(2).setSpielfeld(
-						brett.getSpielbrett()[3].getFelder()[0]);
-				brett.getSpielbrett()[3].getFelder()[0].setSpielfigur(s
-						.getSpielfigurNeu(2));
-
-				s.getSpielfigurNeu(3).setSpielfeld(
-						brett.getSpielbrett()[20].getFelder()[0]);
-				brett.getSpielbrett()[20].getFelder()[0].setSpielfigur(s
-						.getSpielfigurNeu(3));
-				break;
-			case GREEN:
-				for (int i = 1; i < s.getSpielfiguren().length; i++) {
-					s.getSpielfigurNeu(i).setSpielfeld(
-							brett.getSpielbrett()[20].getFelder()[i + 1]);
-					brett.getSpielbrett()[20].getFelder()[i + 1]
-							.setSpielfigur(s.getSpielfigurNeu(i));
-				}
-				s.getSpielfigur(0).setSpielfeld(
-						brett.getSpielbrett()[5].getFelder()[0]);
-				brett.getSpielbrett()[5].getFelder()[0].setSpielfigur(s
-						.getSpielfigur(0));
-				break;
-			}
-		}
-		// System.out.println(brett);
-		setAmZug(spieler.get(0));
-	}
-
-	/**
-	 * ruft im Regelwerk die Funktion AktionsWahl auf um damit den Spielzug zu
-	 * bestimmen
-	 * 
-	 * @param id
-	 *            der Spielfigur
-	 */
-	public void zugDurchfuehren(int ID) {
-
-		regelwerk.aktionsWahl(getAmZug(), getAmZug().getSpielfigur(ID),
-				getAmZug().getWuerfel().getErgebnis());
-		System.out.println(brett.toString());
-	}
-
-	/**
-	 * Ist eine Testklasse um zu testen, dass die Figuren geschmissen werden
-	 * können
-	 * 
-	 * @param id
-	 *            der Spielfigur
-	 */
-	public void zugDurchfuehrenSchmeissenTest(int ID) {
-		regelwerk.aktionsWahl(spieler.get(1), spieler.get(1).getSpielfigur(ID),
-				2);
-		regelwerk.aktionsWahl(spieler.get(0), spieler.get(0).getSpielfigur(ID),
-				2);
-		regelwerk.aktionsWahl(spieler.get(0), spieler.get(0).getSpielfigur(ID),
-				2);
-		regelwerk.aktionsWahl(spieler.get(0), spieler.get(0).getSpielfigur(ID),
-				2);
-		regelwerk.aktionsWahl(spieler.get(0), spieler.get(0).getSpielfigur(ID),
-				2);
-		regelwerk.aktionsWahl(spieler.get(0), spieler.get(0).getSpielfigur(ID),
-				2);
-		regelwerk.aktionsWahl(spieler.get(0), spieler.get(0).getSpielfigur(ID),
-				2);
-		System.out.println(brett.toString());
-	}
-
-	/**
-	 * Ist eine Testklasse um zu Testen, ob die Spielfiguren richtig ins Endfeld
-	 * laufen
-	 * 
-	 * @param id
-	 *            der Spielfigur
-	 */
-	public void zugDurchfuehrenEndfeldTest(int ID) {
-		for (int i = 1; i <= 21; i++) {
-			regelwerk.aktionsWahl(spieler.get(0),
-					spieler.get(0).getSpielfigur(ID), 2);
-		}
-		System.out.println(brett.toString());
-	}
-
-	/**
-	 * gibt das Regelwerk zurueck
-	 * 
-	 * @return regelwerk
-	 */
-	public Regelwerk getRegelwerk() {
-		return regelwerk;
 	}
 
 	@Override
@@ -591,4 +421,170 @@ public class Spiel implements iBediener, Serializable {
 		return spieler.size();
 	}
 
+//____________________testMethoden________________________________________________________________________//
+//@Override
+//public void initTestSpiel() {
+//	for (Spieler s : spieler) {
+//		FarbEnum farbe = s.getFarbe();
+//		switch (farbe) {
+//		case RED:
+//			s.getSpielfigurNeu(0).setSpielfeld(
+//					brett.getSpielbrett()[0].getFelder()[1]);
+//			brett.getSpielbrett()[0].getFelder()[1].setSpielfigur(s
+//					.getSpielfigurNeu(0));
+//
+//			s.getSpielfigurNeu(1).setSpielfeld(
+//					brett.getSpielbrett()[39].getFelder()[0]);
+//			brett.getSpielbrett()[39].getFelder()[0].setSpielfigur(s
+//					.getSpielfigurNeu(1));
+//
+//			s.getSpielfigurNeu(2).setSpielfeld(
+//					brett.getSpielbrett()[3].getFelder()[0]);
+//			brett.getSpielbrett()[3].getFelder()[0].setSpielfigur(s
+//					.getSpielfigurNeu(2));
+//
+//			s.getSpielfigurNeu(3).setSpielfeld(
+//					brett.getSpielbrett()[20].getFelder()[0]);
+//			brett.getSpielbrett()[20].getFelder()[0].setSpielfigur(s
+//					.getSpielfigurNeu(3));
+//			break;
+//		case GREEN:
+//			for (int i = 1; i < s.getSpielfiguren().length; i++) {
+//				s.getSpielfigur(i).setSpielfeld(
+//						brett.getSpielbrett()[20].getFelder()[i + 1]);
+//				brett.getSpielbrett()[20].getFelder()[i + 1]
+//						.setSpielfigur(s.getSpielfigur(i + 1));
+//			}
+//			s.getSpielfigur(0).setSpielfeld(
+//					brett.getSpielbrett()[5].getFelder()[0]);
+//			brett.getSpielbrett()[5].getFelder()[0].setSpielfigur(s
+//					.getSpielfigur(0));
+//			break;
+//		}
+//	}
+//	// System.out.println(brett.toString());
+//	setAmZug(spieler.get(0));
+//}
+//
+//@Override
+//public void initTestSpielZugAggressiv() {
+//	for (Spieler s : spieler) {
+//		FarbEnum farbe = s.getFarbe();
+//		switch (farbe) {
+//		case RED:
+//			s.getSpielfigurNeu(0).setSpielfeld(
+//					brett.getSpielbrett()[0].getFelder()[1]);
+//			brett.getSpielbrett()[0].getFelder()[1].setSpielfigur(s
+//					.getSpielfigurNeu(0));
+//
+//			s.getSpielfigurNeu(1).setSpielfeld(
+//					brett.getSpielbrett()[39].getFelder()[0]);
+//			brett.getSpielbrett()[39].getFelder()[0].setSpielfigur(s
+//					.getSpielfigurNeu(1));
+//
+//			s.getSpielfigurNeu(2).setSpielfeld(
+//					brett.getSpielbrett()[3].getFelder()[0]);
+//			brett.getSpielbrett()[5].getFelder()[0].setSpielfigur(s
+//					.getSpielfigurNeu(2));
+//
+//			s.getSpielfigurNeu(3).setSpielfeld(
+//					brett.getSpielbrett()[20].getFelder()[0]);
+//			brett.getSpielbrett()[20].getFelder()[0].setSpielfigur(s
+//					.getSpielfigurNeu(3));
+//			break;
+//		case GREEN:
+//			for (int i = 0; i < s.getSpielfiguren().length; i++) {
+//				s.getSpielfigurNeu(i).setSpielfeld(
+//						brett.getSpielbrett()[20].getFelder()[i + 1]);
+//				brett.getSpielbrett()[20].getFelder()[i + 1]
+//						.setSpielfigur(s.getSpielfigurNeu(i));
+//			}
+//		}
+//	}
+//	// System.out.println(brett);
+//	setAmZug(spieler.get(0));
+//}
+//
+//@Override
+//public void initTestSpielZugDefensiv() {
+//	for (Spieler s : spieler) {
+//		FarbEnum farbe = s.getFarbe();
+//		switch (farbe) {
+//		case RED:
+//			s.getSpielfigurNeu(0).setSpielfeld(
+//					brett.getSpielbrett()[0].getFelder()[1]);
+//			brett.getSpielbrett()[0].getFelder()[1].setSpielfigur(s
+//					.getSpielfigurNeu(0));
+//
+//			s.getSpielfigurNeu(1).setSpielfeld(
+//					brett.getSpielbrett()[39].getFelder()[2]);
+//			brett.getSpielbrett()[39].getFelder()[2].setSpielfigur(s
+//					.getSpielfigurNeu(1));
+//
+//			s.getSpielfigurNeu(2).setSpielfeld(
+//					brett.getSpielbrett()[3].getFelder()[0]);
+//			brett.getSpielbrett()[3].getFelder()[0].setSpielfigur(s
+//					.getSpielfigurNeu(2));
+//
+//			s.getSpielfigurNeu(3).setSpielfeld(
+//					brett.getSpielbrett()[20].getFelder()[0]);
+//			brett.getSpielbrett()[20].getFelder()[0].setSpielfigur(s
+//					.getSpielfigurNeu(3));
+//			break;
+//		case GREEN:
+//			for (int i = 1; i < s.getSpielfiguren().length; i++) {
+//				s.getSpielfigurNeu(i).setSpielfeld(
+//						brett.getSpielbrett()[20].getFelder()[i + 1]);
+//				brett.getSpielbrett()[20].getFelder()[i + 1]
+//						.setSpielfigur(s.getSpielfigurNeu(i));
+//			}
+//			s.getSpielfigur(0).setSpielfeld(
+//					brett.getSpielbrett()[5].getFelder()[0]);
+//			brett.getSpielbrett()[5].getFelder()[0].setSpielfigur(s
+//					.getSpielfigur(0));
+//			break;
+//		}
+//	}
+//	// System.out.println(brett);
+//	setAmZug(spieler.get(0));
+//}
+//	/**
+//	 * Ist eine Testklasse um zu testen, dass die Figuren geschmissen werden
+//	 * können
+//	 * 
+//	 * @param id
+//	 *            der Spielfigur
+//	 */
+//	public void zugDurchfuehrenSchmeissenTest(int ID) {
+//		regelwerk.aktionsWahl(spieler.get(1), spieler.get(1).getSpielfigur(ID),
+//				2);
+//		regelwerk.aktionsWahl(spieler.get(0), spieler.get(0).getSpielfigur(ID),
+//				2);
+//		regelwerk.aktionsWahl(spieler.get(0), spieler.get(0).getSpielfigur(ID),
+//				2);
+//		regelwerk.aktionsWahl(spieler.get(0), spieler.get(0).getSpielfigur(ID),
+//				2);
+//		regelwerk.aktionsWahl(spieler.get(0), spieler.get(0).getSpielfigur(ID),
+//				2);
+//		regelwerk.aktionsWahl(spieler.get(0), spieler.get(0).getSpielfigur(ID),
+//				2);
+//		regelwerk.aktionsWahl(spieler.get(0), spieler.get(0).getSpielfigur(ID),
+//				2);
+//		System.out.println(brett.toString());
+//	}
+//
+//	/**
+//	 * Ist eine Testklasse um zu Testen, ob die Spielfiguren richtig ins Endfeld
+//	 * laufen
+//	 * 
+//	 * @param id
+//	 *            der Spielfigur
+//	 */
+//	public void zugDurchfuehrenEndfeldTest(int ID) {
+//		for (int i = 1; i <= 21; i++) {
+//			regelwerk.aktionsWahl(spieler.get(0),
+//					spieler.get(0).getSpielfigur(ID), 2);
+//		}
+//		System.out.println(brett.toString());
+//	}
 }

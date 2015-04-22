@@ -17,20 +17,22 @@ public interface iBediener {
 	public void initSpiel();
 	
 	public void zugDurchfuehren(int ID);
-	public void zugDurchfuehrenSchmeissenTest(int ID);
-	public void zugDurchfuehrenEndfeldTest(int ID);
 
-	void initTestSpiel();
 
-	void initTestSpielZugAggressiv();
-	void initTestSpielZugDefensiv();
 
 	Object laden(String dateiname, String dateiende);
 	void Speichern(String dateiname, String dateiende) throws IOException;
 
 	
+//________________________TestSituationen___________________________________________________//
+//	void initTestSpiel();
+//	void initTestSpielZugAggressiv();
+//	void initTestSpielZugDefensiv();
+//	public void zugDurchfuehrenSchmeissenTest(int ID);
+//	public void zugDurchfuehrenEndfeldTest(int ID);
+
 	
-	//___________________________________________________________________________________________--
+//___________________________________________________________________________________________--
 	public Object getSpieler();
 	
 	

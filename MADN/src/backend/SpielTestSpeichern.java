@@ -22,11 +22,6 @@ public class SpielTestSpeichern {
 		s.zugDurchfuehren(1);
 		s.zugDurchfuehren(1);
 		s.Speichern("CSVFinal", "csv");
-//		DatenzugriffSerialisiert speichernSer= new DatenzugriffSerialisiert((Spiel) s);
-//		s.Speichern("supertest5", "ser");
-//		s.Speichern("Supertest2", "csv");
-//		s.Speichern("supertest4", "ser", s);
-
 		
 		
 		

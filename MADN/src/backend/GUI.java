@@ -19,6 +19,7 @@ public class GUI extends JFrame {
 	public GUI(String titel) {
 		super(titel); // Titel des Spiel-Frames
 		spielLadenAbfrage();
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// jf = new JFrame();
 		// JPanel jp = new JPanel();
 		// jp.add(jl);
@@ -41,6 +42,7 @@ public class GUI extends JFrame {
 		// getContentPane().add(labelDialog);
 		// getContentPane().add(test);
 		pack();
+		this.setVisible(true);
 	}
 
 	/* __________________Abfragen______________________________ */

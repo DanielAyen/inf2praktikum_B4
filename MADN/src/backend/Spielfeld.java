@@ -32,6 +32,61 @@ public class Spielfeld implements Serializable {
 						- Endfeld.getCounterEnde());
 	}
 
+	// ______________________getter__________________________________________________________//
+	/**
+	 * gibt die Spielfigur zurueck
+	 * 
+	 * @return spielfigur
+	 */
+	public Spielfigur getSpielfigur() {
+		return spielfigur;
+	}
+
+	/**
+	 * gibt die Position des Spielfeldes zurueck
+	 * 
+	 * @return position
+	 */
+	public int getPosition() {
+		if (id.contains("S") || id.contains("E")) {
+			return 0;
+		}
+		this.position = Integer.parseInt(id);
+		return position;
+	}
+
+	/**
+	 * gibt die ID des Spielfeldes zurueck
+	 * 
+	 * @return ID des Spielfeldes
+	 */
+	public String getID() {
+		return id;
+	}
+
+	/**
+	 * gibt die Farbe des Enums zurück
+	 * 
+	 * @return farbe
+	 */
+	public FarbEnum getFarbe() {
+		return farbe;
+	}
+
+	// ______________________setter_________________________________________________________//
+	/**
+	 * setzt die Spielfigur
+	 * 
+	 * @param spielfigur
+	 */
+	public void setSpielfigur(Spielfigur spielfigur) {
+		this.spielfigur = spielfigur;
+	}
+
+	public void setPosition(int position) {
+		this.position = position;
+	}
+
 	/**
 	 * 
 	 * @param prefix
@@ -50,65 +105,13 @@ public class Spielfeld implements Serializable {
 		this.farbe = farbe;
 	}
 
-	/**
-	 * gibt die Farbe des Enums zurück
-	 * 
-	 * @return farbe
-	 */
-	public FarbEnum getFarbe() {
-		return farbe;
-	}
-
-	/**
-	 * gibt die ID des Spielfeldes zurueck
-	 * 
-	 * @return ID des Spielfeldes
-	 */
-	public String getID() {
-		return id;
-	}
-
-	/**
-	 * gibt die Position des Spielfeldes zurueck
-	 * 
-	 * @return position
-	 */
-	public int getPosition() {
-		if(id.contains("S") || id.contains("E")){
-			return 0;
-		}
-		this.position = Integer.parseInt(id);
-		return position;
-	}
-
-	public void setPosition(int position){
-		this.position = position;
-	}
-	
-	/**
-	 * setzt die Spielfigur
-	 * 
-	 * @param spielfigur
-	 */
-	public void setSpielfigur(Spielfigur spielfigur) {
-		this.spielfigur = spielfigur;
-	}
-
-	/**
-	 * gibt die Spielfigur zurueck
-	 * 
-	 * @return spielfigur
-	 */
-	public Spielfigur getSpielfigur() {
-		return spielfigur;
-	}
-
+	// ______________________Overrides_____________________________________________________//
 	@Override
 	public String toString() {
 		if (spielfigur == null)
-			return this.getID() + "_" + this.getFarbe() + "_null" +"\n";
+			return this.getID() + "_" + this.getFarbe() + "_null" + "\n";
 		else
 			return this.getID() + "_" + this.getFarbe() + "_"
-					+ spielfigur.toString()+ "\n";
+					+ spielfigur.toString() + "\n";
 	}
 }

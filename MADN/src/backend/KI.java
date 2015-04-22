@@ -157,15 +157,14 @@ public abstract class KI implements Serializable {
 			}
 		}
 		return null;
-
 	}
-
+	public abstract void kiZug();
+//______________getter__________________________________________//
 	/**
 	 * getter fuer den Spieler
 	 * 
 	 * @return spieler
 	 */
-
 	public Spieler getSpieler() {
 		return spieler;
 	}
@@ -178,7 +177,5 @@ public abstract class KI implements Serializable {
 	public Spiel getSpiel() {
 		return spiel;
 	}
-
-	public abstract void kiZug();
 
 }
