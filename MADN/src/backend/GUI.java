@@ -197,6 +197,11 @@ public class GUI extends JFrame {
 //		String c = ivjJTextField3.getText();
 //
 //	}
+//
+//	public void jButton2_ActionEvents(){
+//		
+//		int a= ((Number)spinner.getValue()).intValue();
+//	}
 	
 
 }
