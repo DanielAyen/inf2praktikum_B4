@@ -2,6 +2,7 @@ package backend;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -21,7 +22,7 @@ public class GUI extends JFrame {
 	public GUI(String titel) {
 		super(titel); // Titel des Spiel-Frames
 		spielLadenAbfrage();
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// jf = new JFrame();
 		// JPanel jp = new JPanel();
 		// jp.add(jl);
@@ -43,8 +44,8 @@ public class GUI extends JFrame {
 		// "\n null steht fuer Mensch");
 		// getContentPane().add(labelDialog);
 		// getContentPane().add(test);
-		pack();
-		this.setVisible(true);
+		//pack();
+		//this.setVisible(true);
 	}
 
 	/* __________________Abfragen______________________________ */
@@ -102,28 +103,30 @@ public class GUI extends JFrame {
 		// break;
 		// default: meldungWennKeineSpielerAnzGewaehlt();
 		// break;
-		
-		////geht auch ohne switch case. x +1 = anz spieler
-		
+
+		// //geht auch ohne switch case. x +1 = anz spieler
+
 		// }
 		// nameFarbeArtAbfrage();
 
 		JFrame frame = new JFrame("Spieler erstellen");
-		JLabel label = new JLabel("Anzahl Spieler: ");
-		label.setSize(200,100);
+		JLabel label = new JLabel(
+				"Mit wie vielen Spielern soll das Spiel gespielt werden? ");
+		frame.setSize(370, 100);
 		JPanel panel = new JPanel(new BorderLayout());
-		JButton button = new JButton ("OK");
+		JButton button = new JButton("OK");
+
+		//button.addActionListener(this); //muss noch etwas in die ()
 
 		SpinnerNumberModel anzahlSpielerAuswaehlen = new SpinnerNumberModel(2,
 				1, 4, 1); // value, min, max, step
 		JSpinner spinner = new JSpinner(anzahlSpielerAuswaehlen);
 
 		panel.add(label, BorderLayout.WEST);
-		panel.add(spinner, BorderLayout.CENTER);
+		panel.add(spinner, BorderLayout.EAST);
 		frame.add(panel, BorderLayout.NORTH);
+		frame.add(button, BorderLayout.SOUTH);
 		frame.setVisible(true);
-		frame.pack();
-
 	}
 
 	public void nameFarbeArtAbfrage() {
