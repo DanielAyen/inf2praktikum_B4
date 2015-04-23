@@ -2,6 +2,7 @@ package backend;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
@@ -10,9 +11,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
+import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
-public class GUI extends JFrame {
+public class GUI extends JFrame implements ActionListener {
 	// private Spiel spiel;
 	private JFrame jf;
 
@@ -114,9 +116,7 @@ public class GUI extends JFrame {
 				"Mit wie vielen Spielern soll das Spiel gespielt werden? ");
 		frame.setSize(370, 100);
 		JPanel panel = new JPanel(new BorderLayout());
-		JButton button = new JButton("OK");
-
-		//button.addActionListener(this); //muss noch etwas in die ()
+		JButton button01 = new JButton("OK");
 
 		SpinnerNumberModel anzahlSpielerAuswaehlen = new SpinnerNumberModel(2,
 				1, 4, 1); // value, min, max, step
@@ -125,16 +125,37 @@ public class GUI extends JFrame {
 		panel.add(label, BorderLayout.WEST);
 		panel.add(spinner, BorderLayout.EAST);
 		frame.add(panel, BorderLayout.NORTH);
-		frame.add(button, BorderLayout.SOUTH);
+		frame.add(button01, BorderLayout.SOUTH);
 		frame.setVisible(true);
+		button01.addActionListener(this);
 		
+		int spAnzahl = ((Number)spinner.getValue()).intValue();
+		
+		nameFarbeArtAbfrage();
 		//++++++++++++++++++++++++++++++++++++Neues Fenter mit String name String farbe und String ki eingabe++++++++++++++++++
 		
 	}
 
-	public void nameFarbeArtAbfrage() {
+	
 
+	public void nameFarbeArtAbfrage() {
+		
+			JFrame frame02 = new JFrame("Spieler erstellen");
+			JLabel label20 = new JLabel(
+					"Gebe deinen Spielernamen und deine Farbe ein. ");
+			frame02.setSize(400, 200);
+			JPanel panel02 = new JPanel(new BorderLayout());
+			JButton button02 = new JButton("Bestätigen");
+			JTextField feld01=new JTextField("Spielername");
+			JTextField feld02=new JTextField("Spielerfarbe");
+			
+			   button02.addActionListener(this);
+			   
+		
+			
+		
 	}
+	
 
 	/* ___________Methoden____________ */
 	public void spielLaden() {
@@ -155,6 +176,12 @@ public class GUI extends JFrame {
 						"Herzlich Willkommen bei MADN",
 						JOptionPane.PLAIN_MESSAGE);
 
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	// int x=JOptionPane.showConfirmDialog(null,
@@ -191,10 +218,10 @@ public class GUI extends JFrame {
 	//Textfeld eingabe lesen
 	
 //	public void jButton1_ActionEvents()
+//	public void button02_ActionEvents()
 //	{
-//		String a = ivjJTextField1.getText();
-//		String b = ivjJTextField2.getText();
-//		String c = ivjJTextField3.getText();
+//		String a = feld01.getText();
+//		String b = feld02.getText();
 //
 //	}
 //
