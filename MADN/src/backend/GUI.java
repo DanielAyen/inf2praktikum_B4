@@ -132,12 +132,12 @@ public class GUI extends JFrame implements ActionListener {
 		frame.setResizable(false);
 		JPanel panel = new JPanel(new BorderLayout());
 		JButton button01 = new JButton("OK");
-		//button01.setLayout(new FlowLayout());
+		// button01.setLayout(new FlowLayout());
 
-		//button01.setPreferredSize(new Dimension(5,10));
-		//button01.setSize(500, 30);
-//		button01.setBounds(185, 75, 50, 20);
-		
+		// button01.setPreferredSize(new Dimension(5,10));
+		// button01.setSize(500, 30);
+		// button01.setBounds(185, 75, 50, 20);
+
 		SpinnerNumberModel anzahlSpielerAuswaehlen = new SpinnerNumberModel(2,
 				1, 4, 1); // value, min, max, step
 		JSpinner spinner = new JSpinner(anzahlSpielerAuswaehlen);
@@ -146,7 +146,7 @@ public class GUI extends JFrame implements ActionListener {
 		panel.add(spinner, BorderLayout.EAST);
 		frame.add(panel, BorderLayout.NORTH);
 		frame.add(button01, BorderLayout.SOUTH);
-		
+
 		button01.addActionListener(this);
 		nameFarbeArtAbfrage();
 		int spAnzahl = ((Number) spinner.getValue()).intValue();
@@ -163,79 +163,80 @@ public class GUI extends JFrame implements ActionListener {
 				"Gebe deinen Spielernamen und deine Farbe ein. ");
 		JPanel panel02 = new JPanel(new BorderLayout());
 		frame02.setSize(600, 400);
-		
+
 		JButton button02 = new JButton("Bestätigen");
 		JTextField feld01 = new JTextField("Spielername");
-		JTextField feld02 = new JTextField("Spielerfarbe"); //zu radiobutton
-		
+		JTextField feld02 = new JTextField("Spielerfarbe"); // zu radiobutton
+
 		panel02.add(label02, BorderLayout.WEST);
-//		panel02.add(feld01, BorderLayout.CENTER);
-//		panel02.add(feld02, BorderLayout.NORTH);
+		// panel02.add(feld01, BorderLayout.CENTER);
+		// panel02.add(feld02, BorderLayout.NORTH);
 		panel02.add(button02, BorderLayout.SOUTH);
-		frame02.add(panel02,BorderLayout.CENTER);
-		
+		frame02.add(panel02, BorderLayout.CENTER);
+
 		frame02.setVisible(true);
 		button02.addActionListener(this);
-//RADIO VERSUCH
-		
-		 frame02 = new JFrame("Java Swing Examples");
-	      frame02.setSize(400,400);
-	      frame02.setLayout(new GridLayout(3, 1));
-	      frame02.addWindowListener(new WindowAdapter() {
-	         public void windowClosing(WindowEvent windowEvent){
-	            System.exit(0);
-	         }        
-	      }); 
-	      JLabel headerLabel;
-	      JLabel statusLabel;
-			
-	      headerLabel = new JLabel("", JLabel.CENTER);        
-	      statusLabel = new JLabel("",JLabel.CENTER);    
+		// RADIO VERSUCH
 
-	      statusLabel.setSize(350,100);
+		frame02 = new JFrame("Java Swing Examples");
+		frame02.setSize(400, 400);
+		frame02.setLayout(new GridLayout(3, 1));
+		frame02.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent windowEvent) {
+				System.exit(0);
+			}
+		});
+		JLabel headerLabel;
+		JLabel statusLabel;
 
-	      panel02 = new JPanel();
-	      panel02.setLayout(new FlowLayout());
+		headerLabel = new JLabel("", JLabel.CENTER);
+		statusLabel = new JLabel("", JLabel.CENTER);
 
-	      frame02.add(headerLabel);
-	      frame02.add(panel02);
-	      frame02.add(statusLabel);
-	      frame02.setVisible(true);  
-		
-		
-		panel02.add(statusLabel,BorderLayout.CENTER);
-		
+		statusLabel.setSize(350, 100);
+
+		panel02 = new JPanel();
+		panel02.setLayout(new FlowLayout());
+
+		frame02.add(button02, BorderLayout.SOUTH);
+		frame02.add(label02);
+		frame02.add(headerLabel);
+		frame02.add(panel02);
+		frame02.add(statusLabel);
+		frame02.setVisible(true);
+
+		panel02.add(statusLabel, BorderLayout.CENTER);
+
 		final JRadioButton RBRED = new JRadioButton("RED", true);
 		final JRadioButton RBGREEN = new JRadioButton("GREEN");
 		final JRadioButton RBBLUE = new JRadioButton("BLUE");
 		final JRadioButton RBYELLOW = new JRadioButton("YELLOW");
-		
-		  RBRED.setMnemonic(KeyEvent.VK_R);
-	      RBGREEN.setMnemonic(KeyEvent.VK_G);
-	      RBBLUE.setMnemonic(KeyEvent.VK_B);
-	      RBYELLOW.setMnemonic(KeyEvent.VK_Y);
-	      
-	      RBRED.addItemListener(new ItemListener() {
-	          public void itemStateChanged(ItemEvent e) {         
-	             statusLabel.setText("Apple RadioButton: " 
-	             + (e.getStateChange()==1?"checked":"unchecked"));
-	          }           
-	       });
-	      
-	      ButtonGroup group = new ButtonGroup();
-	      group.add(RBRED);
-	      group.add(RBGREEN);
-	      group.add(RBBLUE);
-	      group.add(RBYELLOW);
 
-	      panel02.add(RBRED);
-	      panel02.add(RBGREEN);
-	      panel02.add(RBBLUE); 
-	      panel02.add(RBYELLOW); 
+		RBRED.setMnemonic(KeyEvent.VK_R);
+		RBGREEN.setMnemonic(KeyEvent.VK_G);
+		RBBLUE.setMnemonic(KeyEvent.VK_B);
+		RBYELLOW.setMnemonic(KeyEvent.VK_Y);
 
-	      frame02.setVisible(true);
-	      
-	      //)()()()()()()()()()()()()()()()()()()()
+		RBRED.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				statusLabel.setText("Apple RadioButton: "
+						+ (e.getStateChange() == 1 ? "checked" : "unchecked"));
+			}
+		});
+
+		ButtonGroup group = new ButtonGroup();
+		group.add(RBRED);
+		group.add(RBGREEN);
+		group.add(RBBLUE);
+		group.add(RBYELLOW);
+
+		panel02.add(RBRED);
+		panel02.add(RBGREEN);
+		panel02.add(RBBLUE);
+		panel02.add(RBYELLOW);
+
+		frame02.setVisible(true);
+
+		// )()()()()()()()()()()()()()()()()()()()
 	}
 
 	/* ___________Methoden____________ */
