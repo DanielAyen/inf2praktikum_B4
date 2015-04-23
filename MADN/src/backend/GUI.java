@@ -38,7 +38,7 @@ public class GUI extends JFrame implements ActionListener {
 	public GUI(String titel) {
 		super(titel); // Titel des Spiel-Frames
 		spielLadenAbfrage();
-		// this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// jf = new JFrame();
 		// JPanel jp = new JPanel();
 		// jp.add(jl);
