@@ -23,10 +23,7 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
-import java.awt.*;
 import java.awt.event.*;
-
-import javax.swing.*;
 
 public class GUI extends JFrame implements ActionListener {
 	// private Spiel spiel;
@@ -162,30 +159,21 @@ public class GUI extends JFrame implements ActionListener {
 		JLabel label02 = new JLabel(
 				"Gebe deinen Spielernamen und deine Farbe ein. ");
 		JPanel panel02 = new JPanel(new BorderLayout());
-		frame02.setSize(600, 400);
+		frame02.setSize(600, 600);
 
 		JButton button02 = new JButton("Bestätigen");
 		JTextField feld01 = new JTextField("Spielername");
 		JTextField feld02 = new JTextField("Spielerfarbe"); // zu radiobutton
 
-		panel02.add(label02, BorderLayout.WEST);
+		panel02.add(label02, BorderLayout.NORTH);
 		// panel02.add(feld01, BorderLayout.CENTER);
 		// panel02.add(feld02, BorderLayout.NORTH);
 		panel02.add(button02, BorderLayout.SOUTH);
 		frame02.add(panel02, BorderLayout.CENTER);
 
-		frame02.setVisible(true);
 		button02.addActionListener(this);
 		// RADIO VERSUCH
-
-		frame02 = new JFrame("Java Swing Examples");
-		frame02.setSize(400, 400);
 		frame02.setLayout(new GridLayout(3, 1));
-		frame02.addWindowListener(new WindowAdapter() {
-			public void windowClosing(WindowEvent windowEvent) {
-				System.exit(0);
-			}
-		});
 		JLabel headerLabel;
 		JLabel statusLabel;
 
@@ -197,7 +185,8 @@ public class GUI extends JFrame implements ActionListener {
 		panel02 = new JPanel();
 		panel02.setLayout(new FlowLayout());
 
-		frame02.add(button02, BorderLayout.SOUTH);
+		label02.add(button02, BorderLayout.SOUTH);
+		
 		frame02.add(label02);
 		frame02.add(headerLabel);
 		frame02.add(panel02);
@@ -216,13 +205,34 @@ public class GUI extends JFrame implements ActionListener {
 		RBBLUE.setMnemonic(KeyEvent.VK_B);
 		RBYELLOW.setMnemonic(KeyEvent.VK_Y);
 
-		RBRED.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent e) {
-				statusLabel.setText("Apple RadioButton: "
-						+ (e.getStateChange() == 1 ? "checked" : "unchecked"));
-			}
-		});
-
+		
+		//Muss nich sein
+//		RBRED.addItemListener(new ItemListener() {
+//			public void itemStateChanged(ItemEvent e) {
+//				statusLabel.setText("RED RadioButton: "
+//						+ (e.getStateChange() == 1 ? "checked" : "unchecked"));
+//			}
+//		});
+//
+//		RBGREEN.addItemListener(new ItemListener() {
+//			public void itemStateChanged(ItemEvent e) {
+//				statusLabel.setText("GREEN RadioButton: "
+//						+ (e.getStateChange() == 1 ? "checked" : "unchecked"));
+//			}
+//		});
+//		RBBLUE.addItemListener(new ItemListener() {
+//			public void itemStateChanged(ItemEvent e) {
+//				statusLabel.setText("BLUE RadioButton: "
+//						+ (e.getStateChange() == 1 ? "checked" : "unchecked"));
+//			}
+//		});
+//		RBYELLOW.addItemListener(new ItemListener() {
+//			public void itemStateChanged(ItemEvent e) {
+//				statusLabel.setText("YELLOW RadioButton: "
+//						+ (e.getStateChange() == 1 ? "checked" : "unchecked"));
+//			}
+//		});
+		
 		ButtonGroup group = new ButtonGroup();
 		group.add(RBRED);
 		group.add(RBGREEN);
