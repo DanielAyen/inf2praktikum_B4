@@ -156,44 +156,29 @@ public class GUI extends JFrame implements ActionListener {
 	public void nameFarbeArtAbfrage() {
 
 		JFrame frame02 = new JFrame("Spieler erstellen");
-		JLabel label02 = new JLabel(
-				"Gebe deinen Spielernamen und deine Farbe ein. ");
+		JLabel label02 = new JLabel("Gebe deinen Spielernamen und deine Farbe ein. ");
 		JPanel panel02 = new JPanel(new BorderLayout());
-		frame02.setSize(600, 600);
+		frame02.setSize(400, 250);
 
 		JButton button02 = new JButton("Bestätigen");
 		JTextField feld01 = new JTextField("Spielername");
-		JTextField feld02 = new JTextField("Spielerfarbe"); // zu radiobutton
-
+		frame02.setResizable(false);
 		panel02.add(label02, BorderLayout.NORTH);
-		// panel02.add(feld01, BorderLayout.CENTER);
-		// panel02.add(feld02, BorderLayout.NORTH);
+	label02.setLayout(new BorderLayout());
 		panel02.add(button02, BorderLayout.SOUTH);
 		frame02.add(panel02, BorderLayout.CENTER);
 
 		button02.addActionListener(this);
 		// RADIO VERSUCH
-		frame02.setLayout(new GridLayout(3, 1));
-		JLabel headerLabel;
-		JLabel statusLabel;
-
-		headerLabel = new JLabel("", JLabel.CENTER);
-		statusLabel = new JLabel("", JLabel.CENTER);
-
-		statusLabel.setSize(350, 100);
-
+		frame02.setLayout(new GridLayout(3, 1));	
 		panel02 = new JPanel();
 		panel02.setLayout(new FlowLayout());
 
-		label02.add(button02, BorderLayout.SOUTH);
+	
+		panel02.add(feld01, BorderLayout.SOUTH);
 		
-		frame02.add(label02);
-		frame02.add(headerLabel);
-		frame02.add(panel02);
-		frame02.add(statusLabel);
-		frame02.setVisible(true);
-
-		panel02.add(statusLabel, BorderLayout.CENTER);
+		frame02.add(label02, BorderLayout.NORTH);
+		frame02.add(panel02, BorderLayout.SOUTH);
 
 		final JRadioButton RBRED = new JRadioButton("RED", true);
 		final JRadioButton RBGREEN = new JRadioButton("GREEN");
@@ -204,34 +189,6 @@ public class GUI extends JFrame implements ActionListener {
 		RBGREEN.setMnemonic(KeyEvent.VK_G);
 		RBBLUE.setMnemonic(KeyEvent.VK_B);
 		RBYELLOW.setMnemonic(KeyEvent.VK_Y);
-
-		
-		//Muss nich sein
-//		RBRED.addItemListener(new ItemListener() {
-//			public void itemStateChanged(ItemEvent e) {
-//				statusLabel.setText("RED RadioButton: "
-//						+ (e.getStateChange() == 1 ? "checked" : "unchecked"));
-//			}
-//		});
-//
-//		RBGREEN.addItemListener(new ItemListener() {
-//			public void itemStateChanged(ItemEvent e) {
-//				statusLabel.setText("GREEN RadioButton: "
-//						+ (e.getStateChange() == 1 ? "checked" : "unchecked"));
-//			}
-//		});
-//		RBBLUE.addItemListener(new ItemListener() {
-//			public void itemStateChanged(ItemEvent e) {
-//				statusLabel.setText("BLUE RadioButton: "
-//						+ (e.getStateChange() == 1 ? "checked" : "unchecked"));
-//			}
-//		});
-//		RBYELLOW.addItemListener(new ItemListener() {
-//			public void itemStateChanged(ItemEvent e) {
-//				statusLabel.setText("YELLOW RadioButton: "
-//						+ (e.getStateChange() == 1 ? "checked" : "unchecked"));
-//			}
-//		});
 		
 		ButtonGroup group = new ButtonGroup();
 		group.add(RBRED);
@@ -243,7 +200,7 @@ public class GUI extends JFrame implements ActionListener {
 		panel02.add(RBGREEN);
 		panel02.add(RBBLUE);
 		panel02.add(RBYELLOW);
-
+		panel02.add(button02,BorderLayout.SOUTH);
 		frame02.setVisible(true);
 
 		// )()()()()()()()()()()()()()()()()()()()
