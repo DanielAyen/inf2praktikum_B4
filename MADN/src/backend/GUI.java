@@ -127,6 +127,9 @@ public class GUI extends JFrame {
 		frame.add(panel, BorderLayout.NORTH);
 		frame.add(button, BorderLayout.SOUTH);
 		frame.setVisible(true);
+		
+		//++++++++++++++++++++++++++++++++++++Neues Fenter mit String name String farbe und String ki eingabe++++++++++++++++++
+		
 	}
 
 	public void nameFarbeArtAbfrage() {
@@ -158,5 +161,42 @@ public class GUI extends JFrame {
 	// "Mit wie viel Spielern soll das Spiel gespielt werden?",
 	// "Spieler erstellen")
 	// farbe auswählen, name eingeben, mensch/ki, spieler anzahl
+	
+	
+//Zum auslesen des spinners!+++++++++++++++++++++++++++++++++
+	
+//	int value = ((Number)spinner.getValue()).intValue();
+//	
+//	switch(value){
+//	
+//	case 1: 
+//	
+//	case 2:
+//		
+//	case 3:
+//		
+//	case 4:
+//		
+//	default:
+//			
+//			od.
+//	
+//	}
+//	
+//	for(int i=0; i<value;i++){
+//		SpielerHinzufuegen(name,farbe,ki); //name,farbe,ki ueber Input durch naechstes Fenster
+//		
+//	}
+	
+	//Textfeld eingabe lesen
+	
+//	public void jButton1_ActionEvents()
+//	{
+//		String a = ivjJTextField1.getText();
+//		String b = ivjJTextField2.getText();
+//		String c = ivjJTextField3.getText();
+//
+//	}
+	
 
 }
