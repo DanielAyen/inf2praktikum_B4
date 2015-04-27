@@ -36,7 +36,10 @@ public class GUI extends JFrame implements ActionListener {
 	public GUI(String titel) {
 		super(titel); // Titel des Spiel-Frames
 	spielLadenAbfrage();
-
+	this.setSize(1500,850);
+	this.setResizable(false);
+	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	this.setVisible(true);
 		// jf = new JFrame();
 		// JPanel jp = new JPanel();
 		// jp.add(jl);
