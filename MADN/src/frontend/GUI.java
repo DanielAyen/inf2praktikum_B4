@@ -1,4 +1,4 @@
-package backend;
+package frontend;
 
 import java.awt.BorderLayout;
 import java.awt.Component;

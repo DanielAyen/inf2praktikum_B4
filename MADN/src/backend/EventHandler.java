@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
+import frontend.GUI;
+
 public class EventHandler implements ActionListener {
 
 	private JButton button01;
