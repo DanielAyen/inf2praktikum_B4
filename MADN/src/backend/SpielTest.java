@@ -34,8 +34,7 @@ public class SpielTest {
 		
 //___________________________________________________________________________________
 
-		GUI g = new GUI("MADN Spiel");
-		g.setVisible(true);
+		GUI g = new GUI();
 		
 //	System.out.println(s.getSpieler());	
 	}

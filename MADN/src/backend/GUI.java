@@ -28,18 +28,17 @@ import java.awt.event.*;
 
 public class GUI extends JFrame implements ActionListener {
 	// private Spiel spiel;
-	private JFrame jf;
+	private JFrame jf=new JFrame("SPIEL");
 
 	// private JLabel jl = new JLabel("");
 	// private JSpinner spinner;
 
-	public GUI(String titel) {
-		super(titel); // Titel des Spiel-Frames
+	public GUI() {
+		super(); 
 	spielLadenAbfrage();
-	this.setSize(1500,850);
-	this.setResizable(false);
-	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	this.setVisible(true);
+	spielfeldAnzeigen();
+	
+	
 		// jf = new JFrame();
 		// JPanel jp = new JPanel();
 		// jp.add(jl);
@@ -290,5 +289,23 @@ public class GUI extends JFrame implements ActionListener {
 	//
 	// int a= ((Number)spinner.getValue()).intValue();
 	// }
+	
+	
+	public void spielfeldAnzeigen(){
+		
+		JFrame hauptf=new JFrame("Spiel");
+		JPanel hauptp=new JPanel(new BorderLayout());
+		ImageIcon feld=new ImageIcon("C:\\Users\\maddo_000\\Desktop\\spielbrett.jpg");
+		hauptf.setSize(1250,1000);
+		JLabel hauptl=new JLabel(feld);
+		hauptf.add(hauptp);
+		hauptf.add(hauptl,BorderLayout.CENTER);
+		hauptf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
+		
+		
+		hauptf.setVisible(true);
+	}
 	
 }
