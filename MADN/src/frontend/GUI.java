@@ -29,7 +29,7 @@ import java.awt.event.*;
 public class GUI extends JFrame implements ActionListener {
 	// private Spiel spiel;
 	private JFrame jf = new JFrame("SPIEL");
-	private int spAnzahl; //spielerAnzahl die im Spinner gewählt wird
+	private int spAnzahl; // spielerAnzahl die im Spinner gewählt wird
 
 	// private JLabel jl = new JLabel("");
 	// private JSpinner spinner;
@@ -145,14 +145,14 @@ public class GUI extends JFrame implements ActionListener {
 
 		button01.addActionListener(new ActionListener() {
 
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent ae) {
 				spAnzahl = ((Number) spinner.getValue()).intValue();
-				for(int i=0;i<spAnzahl;i++){nameFarbeArtAbfrage();} // oeffnet dann den neuen frame
+				for (int i = 0; i < spAnzahl; i++) {
+					nameFarbeArtAbfrage();
+				} // oeffnet dann den neuen frame
 				frame.dispose(); // schliesst den frame beim klick auf OK button
 			}
 		});
-
-		
 
 		frame.setVisible(true);
 	}
@@ -160,18 +160,17 @@ public class GUI extends JFrame implements ActionListener {
 	public void nameFarbeArtAbfrage() {
 
 		JFrame frame02 = new JFrame("Spieler erstellen");
+		frame02.setSize(400, 210);
+		frame02.setResizable(false);
 		JLabel label02 = new JLabel(
 				"Gebe deinen Spielernamen und deine Farbe ein.");
 		JPanel panel02 = new JPanel(new BorderLayout());
-		frame02.setSize(400, 250);
-
 		JButton button02 = new JButton("Bestätigen");
 		JTextField feld01 = new JTextField("Spielername");
-		frame02.setResizable(false);
+
 		panel02.add(label02, BorderLayout.NORTH);
 		label02.setLayout(new BorderLayout());
 		panel02.add(button02, BorderLayout.SOUTH);
-		frame02.add(panel02, BorderLayout.CENTER);
 		button02.addActionListener(this);
 		frame02.setLayout(new GridLayout(3, 1));
 		panel02 = new JPanel();
@@ -201,9 +200,9 @@ public class GUI extends JFrame implements ActionListener {
 		panel02.add(RBBLUE);
 		panel02.add(RBYELLOW);
 		panel02.add(button02, BorderLayout.SOUTH);
+
 		frame02.setVisible(true);
 	}
-	
 
 	/* ___________Methoden____________ */
 	public void spielLaden() {
@@ -216,6 +215,8 @@ public class GUI extends JFrame implements ActionListener {
 		// name, farbe, art ---- JTextField, JRadioButton, JRadioButton
 	}
 
+	// diese Methode wird fuer die alternative von
+	// anzahlSpielerDieSpielenWollenAbfrage() benötigt
 	public void meldungWennKeineSpielerAnzGewaehlt() {
 		JOptionPane
 				.showMessageDialog(
@@ -225,8 +226,6 @@ public class GUI extends JFrame implements ActionListener {
 						JOptionPane.PLAIN_MESSAGE);
 
 	}
-
-
 
 	// Textfeld eingabe lesen
 
@@ -247,8 +246,7 @@ public class GUI extends JFrame implements ActionListener {
 
 		JFrame hauptf = new JFrame("Spiel");
 		JPanel hauptp = new JPanel(new BorderLayout());
-		ImageIcon feld = new ImageIcon(
-				"C:\\Users\\maddo_000\\Desktop\\spielbrett.jpg");
+		ImageIcon feld = new ImageIcon("Bilder//spielbrett.jpg");
 		hauptf.setSize(1250, 1000);
 		JLabel hauptl = new JLabel(feld);
 		hauptf.add(hauptp);
@@ -259,9 +257,9 @@ public class GUI extends JFrame implements ActionListener {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
+	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
