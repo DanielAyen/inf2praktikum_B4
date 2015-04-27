@@ -161,7 +161,7 @@ public class GUI extends JFrame implements ActionListener {
 
 		JFrame frame02 = new JFrame("Spieler erstellen");
 		JLabel label02 = new JLabel(
-				"Gebe deinen Spielernamen und deine Farbe ein.");
+				"Gebe deinen Spielernamen deine Farbe und die Art ein.");
 		JPanel panel02 = new JPanel(new BorderLayout());
 		frame02.setSize(400, 250);
 
@@ -179,7 +179,7 @@ public class GUI extends JFrame implements ActionListener {
 		panel02.add(feld01, BorderLayout.SOUTH);
 		frame02.add(label02, BorderLayout.NORTH);
 		frame02.add(panel02, BorderLayout.SOUTH);
-
+//RadioButtons für Farbe
 		final JRadioButton RBRED = new JRadioButton("RED", true);
 		final JRadioButton RBGREEN = new JRadioButton("GREEN");
 		final JRadioButton RBBLUE = new JRadioButton("BLUE");
@@ -202,6 +202,20 @@ public class GUI extends JFrame implements ActionListener {
 		panel02.add(RBYELLOW);
 		panel02.add(button02, BorderLayout.SOUTH);
 		frame02.setVisible(true);
+//RadioButtons für Art
+		final JRadioButton Mensch = new JRadioButton("Mensch", true);
+		final JRadioButton KIa = new JRadioButton("KI-Aggressiv");
+		final JRadioButton KId = new JRadioButton("KI-Defensiv");
+		
+		ButtonGroup group2 = new ButtonGroup();
+		group.add(Mensch);
+		group.add(KIa);
+		group.add(KId);
+		
+		panel02.add(Mensch);
+		panel02.add(KIa);
+		panel02.add(KId);
+		
 	}
 	
 
@@ -248,14 +262,15 @@ public class GUI extends JFrame implements ActionListener {
 		JFrame hauptf = new JFrame("Spiel");
 		JPanel hauptp = new JPanel(new BorderLayout());
 		ImageIcon feld = new ImageIcon(
-				"C:\\Users\\maddo_000\\Desktop\\spielbrett.jpg");
+				"Bilder//spielbrett.jpg");
 		hauptf.setSize(1250, 1000);
 		JLabel hauptl = new JLabel(feld);
 		hauptf.add(hauptp);
 		hauptf.add(hauptl, BorderLayout.CENTER);
 		hauptf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+//("Bilder//spielbrett.jpg")C:\\Users\\maddo_000\\Desktop\\spielbrett.jpg
 		hauptf.setVisible(true);
+		hauptf.setResizable(false);
 	}
 
 	@Override
