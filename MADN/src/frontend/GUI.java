@@ -146,13 +146,13 @@ public class GUI extends JFrame implements ActionListener {
 		button01.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-
-				nameFarbeArtAbfrage(); // oeffnet dann den neuen frame
+				spAnzahl = ((Number) spinner.getValue()).intValue();
+				for(int i=0;i<spAnzahl;i++){nameFarbeArtAbfrage();} // oeffnet dann den neuen frame
 				frame.dispose(); // schliesst den frame beim klick auf OK button
 			}
 		});
 
-		spAnzahl = ((Number) spinner.getValue()).intValue();
+		
 
 		frame.setVisible(true);
 	}
