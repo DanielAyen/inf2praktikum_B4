@@ -35,16 +35,8 @@ public class GUI extends JFrame implements ActionListener {
 
 	public GUI(String titel) {
 		super(titel); // Titel des Spiel-Frames
-		Spielfeldanzeigen();
 	spielLadenAbfrage();
-//		JPanel hauptp=new JPanel(new BorderLayout());
-//		jf.add(hauptp);
-//		ImageIcon feld=new ImageIcon("C:\\Users\\maddo_000\\Desktop\\spielbrett.jpg");
-//		this.setSize(1000,1000);
-//		JLabel hauptl=new JLabel(feld);
-//		jf.add(hauptl,BorderLayout.CENTER);
-//		
-//		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 		// jf = new JFrame();
 		// JPanel jp = new JPanel();
 		// jp.add(jl);
@@ -295,26 +287,5 @@ public class GUI extends JFrame implements ActionListener {
 	//
 	// int a= ((Number)spinner.getValue()).intValue();
 	// }
-
-public void Spielfeldanzeigen(){
-		
-		JFrame hauptf=new JFrame("Spiel");
-		JPanel hauptp=new JPanel(new BorderLayout());
-		ImageIcon feld=new ImageIcon("https://github.com/DanielAyen/inf2praktikum_B4/blob/master/MADN/Bilder/spielbrett.jpg");
-		hauptf.setSize(1000,1000);
-		JLabel hauptl=new JLabel(feld);
-		hauptf.add(hauptp);
-		hauptf.add(hauptl,BorderLayout.CENTER);
-		JLabel hauptlw = new JLabel();
-		hauptf.add(hauptlw, BorderLayout.WEST);
-		ImageIcon wuerfel=new ImageIcon("C:\\Users\\maddo_000\\Desktop\\wuerfel.jpg");
-		
-		
-		
-		
-		
-		hauptf.setVisible(true);
-	}
-
 	
 }
