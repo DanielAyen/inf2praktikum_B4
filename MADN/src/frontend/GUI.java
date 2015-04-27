@@ -24,15 +24,21 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
+import backend.Spiel;
+
 import java.awt.event.*;
 
 public class GUI extends JFrame implements ActionListener {
 	// private Spiel spiel;
 	private JFrame jf = new JFrame("SPIEL");
 	private int spAnzahl; // spielerAnzahl die im Spinner gewählt wird
-
+	private String spielerName;
+	private Spiel s;
 	// private JLabel jl = new JLabel("");
 	// private JSpinner spinner;
+	//private boolean fehler;
+	private String spielerFarbe;
+	private String spielerArt;
 
 	public GUI() {
 		super();
@@ -160,6 +166,7 @@ public class GUI extends JFrame implements ActionListener {
 	public void nameFarbeArtAbfrage() {
 
 		JFrame frame02 = new JFrame("Spieler erstellen");
+		frame02.setLayout(new GridLayout(2, 0));
 		frame02.setSize(400, 210);
 		frame02.setResizable(false);
 		JLabel label02 = new JLabel(
@@ -172,22 +179,19 @@ public class GUI extends JFrame implements ActionListener {
 		label02.setLayout(new BorderLayout());
 		panel02.add(button02, BorderLayout.SOUTH);
 		button02.addActionListener(this);
-		frame02.setLayout(new GridLayout(3, 1));
+		
 		panel02 = new JPanel();
 		panel02.setLayout(new FlowLayout());
 		panel02.add(feld01, BorderLayout.SOUTH);
 		frame02.add(label02, BorderLayout.NORTH);
 		frame02.add(panel02, BorderLayout.SOUTH);
+		
 //RadioButtons für Farbe
 		final JRadioButton RBRED = new JRadioButton("RED", true);
 		final JRadioButton RBGREEN = new JRadioButton("GREEN");
 		final JRadioButton RBBLUE = new JRadioButton("BLUE");
 		final JRadioButton RBYELLOW = new JRadioButton("YELLOW");
 
-		RBRED.setMnemonic(KeyEvent.VK_R);
-		RBGREEN.setMnemonic(KeyEvent.VK_G);
-		RBBLUE.setMnemonic(KeyEvent.VK_B);
-		RBYELLOW.setMnemonic(KeyEvent.VK_Y);
 
 		ButtonGroup group = new ButtonGroup();
 		group.add(RBRED);
@@ -199,25 +203,71 @@ public class GUI extends JFrame implements ActionListener {
 		panel02.add(RBGREEN);
 		panel02.add(RBBLUE);
 		panel02.add(RBYELLOW);
-		panel02.add(button02, BorderLayout.SOUTH);
+		
 
-		frame02.setVisible(true);
+		
 //RadioButtons für Art
 		final JRadioButton Mensch = new JRadioButton("Mensch", true);
 		final JRadioButton KIa = new JRadioButton("KI-Aggressiv");
 		final JRadioButton KId = new JRadioButton("KI-Defensiv");
 		
 		ButtonGroup group2 = new ButtonGroup();
-		group.add(Mensch);
-		group.add(KIa);
-		group.add(KId);
+		group2.add(Mensch);
+		group2.add(KIa);
+		group2.add(KId);
 		
 		panel02.add(Mensch);
 		panel02.add(KIa);
 		panel02.add(KId);
+		panel02.add(button02, BorderLayout.SOUTH);
 		
+		
+	 spielerName = feld01.getText(); //gibt den eingegebenen Spielernamen aus
+	 
+
+		
+	 
+	 button02.addActionListener(new ActionListener() {
+	 public void actionPerformed(ActionEvent ae) {	
+	//Radio Button Abfrage Farbe
+		 if( RBRED.isSelected() == true){
+			 spielerFarbe = "RED";
+			}
+		 if( RBGREEN.isSelected() == true){
+			 spielerFarbe = "GREEN";
+			}
+		 if( RBBLUE.isSelected() == true){
+			 spielerFarbe = "BLUE";
+			}
+		 if( RBYELLOW.isSelected() == true){
+			 spielerFarbe = "YELLOW";
+			}
+		 
+		 // Radio Button Abfrage Art
+		 if( Mensch.isSelected() == true){
+			 spielerArt= null; //null, da mensch keine ki ist
+			}
+		 if( KIa.isSelected() == true){
+			 spielerArt = "AGGRESSIV";
+			}
+		 if( KId.isSelected() == true){
+			spielerArt= "DFENSIV" ;
+			}
+		 
+		 
+		 
+		 
+		// nameFarbeArtUebergeben(); // beim klick auf den button werden die daten uebergeben
+		if(s.rueckgabeTrue() == false){
+		 frame02.dispose();} // schliesst den frame beim klick auf button
+		}
+	});
+		
+		frame02.setVisible(true);
 	}
 
+	
+	
 	/* ___________Methoden____________ */
 	public void spielLaden() {
 		// J File Chooser
@@ -226,7 +276,6 @@ public class GUI extends JFrame implements ActionListener {
 	public void spielerErstellen() {
 
 		anzahlSpielerDieSpielenWollenAbfrage();
-		// name, farbe, art ---- JTextField, JRadioButton, JRadioButton
 	}
 
 	// diese Methode wird fuer die alternative von
@@ -239,6 +288,13 @@ public class GUI extends JFrame implements ActionListener {
 						"Herzlich Willkommen bei MADN",
 						JOptionPane.PLAIN_MESSAGE);
 
+	}
+	
+	public void nameFarbeArtUebergeben(){
+		
+		 
+		s.SpielerHinzufuegen(spielerName, spielerFarbe, spielerArt);
+		
 	}
 
 	// Textfeld eingabe lesen

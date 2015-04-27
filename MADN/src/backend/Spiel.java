@@ -145,8 +145,9 @@ public class Spiel implements iBediener, Serializable {
 				break;
 
 			default:
+				rueckgabeTrue(true);
 				throw new RuntimeException(
-						"Entweder `AGGRESSIV' oder `DEFENSIV' ");
+						"Entweder `AGGRESSIV' oder `DEFENSIV' ");			
 			}
 		}
 
@@ -166,21 +167,29 @@ public class Spiel implements iBediener, Serializable {
 				f = FarbEnum.YELLOW;
 				break;
 			default:
+				rueckgabeTrue(true);
 				throw new RuntimeException("Farbwahl bitte auf Englisch");
+				
 			}
 			if (spieler.size() >= 4) {
+				rueckgabeTrue(true);
 				throw new RuntimeException("keine Plaetze mehr verfuegbar");
+				
 			}
 			if (name == null) {
+				rueckgabeTrue(true);
 				throw new RuntimeException("ungueltige Eingabe");
+				
 			}
 			for (Spieler s : spieler) {
 				if (s.getFarbe().equals(farbe)) {
+					rueckgabeTrue(true);
 					throw new RuntimeException("Farbe schon vergeben");
 				}
 			}
 			spieler.add(new Spieler(name, f, ai, this));
 		}
+		rueckgabeTrue(false);
 	}
 	@Override
 	public void initSpiel() {
@@ -419,6 +428,12 @@ public class Spiel implements iBediener, Serializable {
 	public int getAnzahlSpieler(){
 		
 		return spieler.size();
+	}
+	
+	
+	
+	public boolean rueckgabeTrue(boolean a){
+		return a;
 	}
 
 //____________________testMethoden________________________________________________________________________//
