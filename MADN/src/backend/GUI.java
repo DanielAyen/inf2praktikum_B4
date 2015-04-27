@@ -13,6 +13,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -34,8 +35,16 @@ public class GUI extends JFrame implements ActionListener {
 
 	public GUI(String titel) {
 		super(titel); // Titel des Spiel-Frames
-		spielLadenAbfrage();
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Spielfeldanzeigen();
+	spielLadenAbfrage();
+//		JPanel hauptp=new JPanel(new BorderLayout());
+//		jf.add(hauptp);
+//		ImageIcon feld=new ImageIcon("C:\\Users\\maddo_000\\Desktop\\spielbrett.jpg");
+//		this.setSize(1000,1000);
+//		JLabel hauptl=new JLabel(feld);
+//		jf.add(hauptl,BorderLayout.CENTER);
+//		
+//		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// jf = new JFrame();
 		// JPanel jp = new JPanel();
 		// jp.add(jl);
@@ -59,7 +68,7 @@ public class GUI extends JFrame implements ActionListener {
 		// getContentPane().add(test);
 		// pack();
 		// this.setVisible(true);
-	}
+			}
 
 	/* __________________Abfragen______________________________ */
 
@@ -144,8 +153,16 @@ public class GUI extends JFrame implements ActionListener {
 		frame.add(panel, BorderLayout.NORTH);
 		frame.add(button01, BorderLayout.SOUTH);
 
-		button01.addActionListener(this);
-		nameFarbeArtAbfrage();
+		button01.addActionListener(new ActionListener() {
+ 
+            public void actionPerformed(ActionEvent e)
+            {
+                
+               nameFarbeArtAbfrage(); // oeffnet dann den neuen frame
+               frame.dispose(); // schliesst den frame beim klick auf OK button
+            }
+        });      
+		
 		int spAnzahl = ((Number) spinner.getValue()).intValue();
 
 		// ++++++++++++++++++++++++++++++++++++Neues Fenter mit String name
@@ -279,4 +296,25 @@ public class GUI extends JFrame implements ActionListener {
 	// int a= ((Number)spinner.getValue()).intValue();
 	// }
 
+public void Spielfeldanzeigen(){
+		
+		JFrame hauptf=new JFrame("Spiel");
+		JPanel hauptp=new JPanel(new BorderLayout());
+		ImageIcon feld=new ImageIcon("https://github.com/DanielAyen/inf2praktikum_B4/blob/master/MADN/Bilder/spielbrett.jpg");
+		hauptf.setSize(1000,1000);
+		JLabel hauptl=new JLabel(feld);
+		hauptf.add(hauptp);
+		hauptf.add(hauptl,BorderLayout.CENTER);
+		JLabel hauptlw = new JLabel();
+		hauptf.add(hauptlw, BorderLayout.WEST);
+		ImageIcon wuerfel=new ImageIcon("C:\\Users\\maddo_000\\Desktop\\wuerfel.jpg");
+		
+		
+		
+		
+		
+		hauptf.setVisible(true);
+	}
+
+	
 }
