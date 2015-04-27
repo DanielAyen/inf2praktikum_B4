@@ -25,6 +25,7 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
 import backend.Spiel;
+import backend.Wuerfel;
 
 import java.awt.event.*;
 
@@ -36,9 +37,10 @@ public class GUI extends JFrame implements ActionListener {
 	private Spiel s;
 	// private JLabel jl = new JLabel("");
 	// private JSpinner spinner;
-	//private boolean fehler;
+	// private boolean fehler;
 	private String spielerFarbe;
 	private String spielerArt;
+	private Wuerfel w;
 
 	public GUI() {
 		super();
@@ -165,109 +167,112 @@ public class GUI extends JFrame implements ActionListener {
 
 	public void nameFarbeArtAbfrage() {
 
-		JFrame frame02 = new JFrame("Spieler erstellen");
-		frame02.setLayout(new GridLayout(2, 0));
-		frame02.setSize(400, 210);
-		frame02.setResizable(false);
-		JLabel label02 = new JLabel(
-				"Gebe deinen Spielernamen deine Farbe und die Art ein.");
-		JPanel panel02 = new JPanel(new BorderLayout());
-		JButton button02 = new JButton("Bestätigen");
-		JTextField feld01 = new JTextField("Spielername");
-
-		panel02.add(label02, BorderLayout.NORTH);
-		label02.setLayout(new BorderLayout());
-		panel02.add(button02, BorderLayout.SOUTH);
-		button02.addActionListener(this);
-		
-		panel02 = new JPanel();
-		panel02.setLayout(new FlowLayout());
-		panel02.add(feld01, BorderLayout.SOUTH);
-		frame02.add(label02, BorderLayout.NORTH);
-		frame02.add(panel02, BorderLayout.SOUTH);
-		
-//RadioButtons für Farbe
-		final JRadioButton RBRED = new JRadioButton("RED", true);
-		final JRadioButton RBGREEN = new JRadioButton("GREEN");
-		final JRadioButton RBBLUE = new JRadioButton("BLUE");
-		final JRadioButton RBYELLOW = new JRadioButton("YELLOW");
-
-
-		ButtonGroup group = new ButtonGroup();
-		group.add(RBRED);
-		group.add(RBGREEN);
-		group.add(RBBLUE);
-		group.add(RBYELLOW);
-
-		panel02.add(RBRED);
-		panel02.add(RBGREEN);
-		panel02.add(RBBLUE);
-		panel02.add(RBYELLOW);
-		
-
-		
-//RadioButtons für Art
-		final JRadioButton Mensch = new JRadioButton("Mensch", true);
-		final JRadioButton KIa = new JRadioButton("KI-Aggressiv");
-		final JRadioButton KId = new JRadioButton("KI-Defensiv");
-		
-		ButtonGroup group2 = new ButtonGroup();
-		group2.add(Mensch);
-		group2.add(KIa);
-		group2.add(KId);
-		
-		panel02.add(Mensch);
-		panel02.add(KIa);
-		panel02.add(KId);
-		panel02.add(button02, BorderLayout.SOUTH);
-		
-		
-	 spielerName = feld01.getText(); //gibt den eingegebenen Spielernamen aus
-	 
-
-		
-	 
-	 button02.addActionListener(new ActionListener() {
-	 public void actionPerformed(ActionEvent ae) {	
-	//Radio Button Abfrage Farbe
-		 if( RBRED.isSelected() == true){
-			 spielerFarbe = "RED";
-			}
-		 if( RBGREEN.isSelected() == true){
-			 spielerFarbe = "GREEN";
-			}
-		 if( RBBLUE.isSelected() == true){
-			 spielerFarbe = "BLUE";
-			}
-		 if( RBYELLOW.isSelected() == true){
-			 spielerFarbe = "YELLOW";
-			}
-		 
-		 // Radio Button Abfrage Art
-		 if( Mensch.isSelected() == true){
-			 spielerArt= null; //null, da mensch keine ki ist
-			}
-		 if( KIa.isSelected() == true){
-			 spielerArt = "AGGRESSIV";
-			}
-		 if( KId.isSelected() == true){
-			spielerArt= "DFENSIV" ;
-			}
-		 
-		 
-		 
-		 
-		// nameFarbeArtUebergeben(); // beim klick auf den button werden die daten uebergeben
-		if(s.rueckgabeTrue() == false){
-		 frame02.dispose();} // schliesst den frame beim klick auf button
-		}
-	});
-		
-		frame02.setVisible(true);
 	}
 
-	
-	
+	// public void nameFarbeArtAbfrage() {
+	//
+	// JFrame frame02 = new JFrame("Spieler erstellen");
+	// frame02.setLayout(new GridLayout(2, 0));
+	// frame02.setSize(400, 210);
+	// frame02.setResizable(false);
+	// JLabel label02 = new JLabel(
+	// "Gebe deinen Spielernamen deine Farbe und die Art ein.");
+	// JPanel panel02 = new JPanel(new BorderLayout());
+	// JButton button02 = new JButton("Bestätigen");
+	// JTextField feld01 = new JTextField("Spielername");
+	//
+	// panel02.add(label02, BorderLayout.NORTH);
+	// label02.setLayout(new BorderLayout());
+	// panel02.add(button02, BorderLayout.SOUTH);
+	// button02.addActionListener(this);
+	//
+	// panel02 = new JPanel();
+	// panel02.setLayout(new FlowLayout());
+	// panel02.add(feld01, BorderLayout.SOUTH);
+	// frame02.add(label02, BorderLayout.NORTH);
+	// frame02.add(panel02, BorderLayout.SOUTH);
+	//
+	// //RadioButtons für Farbe
+	// final JRadioButton RBRED = new JRadioButton("RED", true);
+	// final JRadioButton RBGREEN = new JRadioButton("GREEN");
+	// final JRadioButton RBBLUE = new JRadioButton("BLUE");
+	// final JRadioButton RBYELLOW = new JRadioButton("YELLOW");
+	//
+	//
+	// ButtonGroup group = new ButtonGroup();
+	// group.add(RBRED);
+	// group.add(RBGREEN);
+	// group.add(RBBLUE);
+	// group.add(RBYELLOW);
+	//
+	// panel02.add(RBRED);
+	// panel02.add(RBGREEN);
+	// panel02.add(RBBLUE);
+	// panel02.add(RBYELLOW);
+	//
+	//
+	//
+	// //RadioButtons für Art
+	// final JRadioButton Mensch = new JRadioButton("Mensch", true);
+	// final JRadioButton KIa = new JRadioButton("KI-Aggressiv");
+	// final JRadioButton KId = new JRadioButton("KI-Defensiv");
+	//
+	// ButtonGroup group2 = new ButtonGroup();
+	// group2.add(Mensch);
+	// group2.add(KIa);
+	// group2.add(KId);
+	//
+	// panel02.add(Mensch);
+	// panel02.add(KIa);
+	// panel02.add(KId);
+	// panel02.add(button02, BorderLayout.SOUTH);
+	//
+	//
+	// spielerName = feld01.getText(); //gibt den eingegebenen Spielernamen aus
+	//
+	//
+	//
+	//
+	// button02.addActionListener(new ActionListener() {
+	// public void actionPerformed(ActionEvent ae) {
+	// //Radio Button Abfrage Farbe
+	// if( RBRED.isSelected() == true){
+	// spielerFarbe = "RED";
+	// }
+	// if( RBGREEN.isSelected() == true){
+	// spielerFarbe = "GREEN";
+	// }
+	// if( RBBLUE.isSelected() == true){
+	// spielerFarbe = "BLUE";
+	// }
+	// if( RBYELLOW.isSelected() == true){
+	// spielerFarbe = "YELLOW";
+	// }
+	//
+	// // Radio Button Abfrage Art
+	// if( Mensch.isSelected() == true){
+	// spielerArt= null; //null, da mensch keine ki ist
+	// }
+	// if( KIa.isSelected() == true){
+	// spielerArt = "AGGRESSIV";
+	// }
+	// if( KId.isSelected() == true){
+	// spielerArt= "DFENSIV" ;
+	// }
+	//
+	// nameFarbeArtUebergeben(); // beim klick auf den button werden die daten
+	// uebergeben
+	// if(s.rueckgabeTrue() == false)
+	// {
+	// frame02.dispose();
+	// } // schliesst den frame beim klick auf button
+	// }
+	// }
+	// );
+	//
+	// frame02.setVisible(true);
+	// }
+
 	/* ___________Methoden____________ */
 	public void spielLaden() {
 		// J File Chooser
@@ -289,12 +294,10 @@ public class GUI extends JFrame implements ActionListener {
 						JOptionPane.PLAIN_MESSAGE);
 
 	}
-	
-	public void nameFarbeArtUebergeben(){
-		
-		 
+
+	public void nameFarbeArtUebergeben() {
 		s.SpielerHinzufuegen(spielerName, spielerFarbe, spielerArt);
-		
+
 	}
 
 	// Textfeld eingabe lesen
@@ -316,12 +319,43 @@ public class GUI extends JFrame implements ActionListener {
 
 		JFrame hauptf = new JFrame("Spiel");
 		JPanel hauptp = new JPanel(new BorderLayout());
-		ImageIcon feld = new ImageIcon(
-				"Bilder//spielbrett.jpg");
+		ImageIcon feld = new ImageIcon("Bilder//spielbrett.jpg");
+
+		ImageIcon eins = new ImageIcon("Bilder//eins.jpg");
+		ImageIcon zwei = new ImageIcon("Bilder//zwei.jpg");
+		ImageIcon drei = new ImageIcon("Bilder//drei.jpg");
+		ImageIcon vier = new ImageIcon("Bilder//vier.jpg");
+		ImageIcon fuenf = new ImageIcon("Bilder//fuenf.jpg");
+		ImageIcon sechs = new ImageIcon("Bilder//sechs.jpg");
+
 		hauptf.setSize(1250, 1000);
 		JLabel hauptl = new JLabel(feld);
+
+		/*******************************************************/
+
+		JLabel wuerfelL = new JLabel(eins); // so gibt er immer bild 1 aus
+
+		// JLabel wuerfelL = new JLabel(zwei);
+		// JLabel wuerfelL = new JLabel(drei);
+		// JLabel wuerfelL = new JLabel(vier);
+		// JLabel wuerfelL = new JLabel(fuenf);
+		// JLabel wuerfelL = new JLabel(sechs);
+
+		hauptf.add(wuerfelL);
+		hauptf.add(wuerfelL, BorderLayout.WEST);
+
+		// if(w.wuerfeln()==1){
+		// ImageIcon eins = new ImageIcon ("Bilder//eins.jpg");
+		// }
+		// if(w.wuerfeln()==2){
+		// ImageIcon zwei = new ImageIcon ("Bilder//zwei.jpg");
+		// }
+
+		/*****************************/
+
 		hauptf.add(hauptp);
 		hauptf.add(hauptl, BorderLayout.CENTER);
+		
 		hauptf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		hauptf.setVisible(true);
 		hauptf.setResizable(false);
