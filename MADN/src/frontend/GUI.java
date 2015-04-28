@@ -322,7 +322,7 @@ public class GUI extends JFrame implements ActionListener {
 		JFrame hauptf = new JFrame("Spiel");
 		JPanel hauptp = new JPanel(new BorderLayout());
 		ImageIcon feld = new ImageIcon("Bilder//spielbrett.jpg");
-
+		hauptf.setLocation(200, 50);
 		ImageIcon eins = new ImageIcon("Bilder//eins.jpg");
 		ImageIcon zwei = new ImageIcon("Bilder//zwei.jpg");
 		ImageIcon drei = new ImageIcon("Bilder//drei.jpg");
