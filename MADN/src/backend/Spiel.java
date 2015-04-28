@@ -1,5 +1,6 @@
 package backend;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -26,6 +27,7 @@ public class Spiel implements iBediener, Serializable {
 
 	private iDatenzugriff d = new DatenzugriffCSV();
 	private iDatenzugriff s = new DatenzugriffSerialisiert();
+	private static boolean a;
 
 	/*
 	 * Konstruktor der Spielklasse Spielbrett, Regelwerk und Spieler werden
@@ -145,7 +147,7 @@ public class Spiel implements iBediener, Serializable {
 				break;
 
 			default:
-				rueckgabeTrue(true);
+				setA(true);
 				throw new RuntimeException(
 						"Entweder `AGGRESSIV' oder `DEFENSIV' ");			
 			}
@@ -167,30 +169,34 @@ public class Spiel implements iBediener, Serializable {
 				f = FarbEnum.YELLOW;
 				break;
 			default:
-				rueckgabeTrue(true);
+				setA(true);
 				throw new RuntimeException("Farbwahl bitte auf Englisch");
 				
 			}
 			if (spieler.size() >= 4) {
-				rueckgabeTrue(true);
+				setA(true);
 				throw new RuntimeException("keine Plaetze mehr verfuegbar");
 				
 			}
 			if (name == null) {
-				rueckgabeTrue(true);
+				setA(true);
 				throw new RuntimeException("ungueltige Eingabe");
 				
 			}
 			for (Spieler s : spieler) {
 				if (s.getFarbe().equals(farbe)) {
-					rueckgabeTrue(true);
+					setA(true);
 					throw new RuntimeException("Farbe schon vergeben");
 				}
 			}
-			spieler.add(new Spieler(name, f, ai, this));
+			spieler.add(new Spieler(name, f, ai, this));}
+		
+		setA(false);
+		System.out.println(spieler.get(0));System.out.println(spieler.get(1));
 		}
-		rueckgabeTrue(false);
-	}
+		
+	
+
 	@Override
 	public void initSpiel() {
 		for (Spieler s : spieler) {
@@ -431,10 +437,16 @@ public class Spiel implements iBediener, Serializable {
 	}
 	
 	
+	private void setA(boolean b) {
+		b=a;
+		
+	}
 	
-	public boolean rueckgabeTrue(boolean a){
+	public static boolean getA(){
 		return a;
 	}
+	
+	
 
 //____________________testMethoden________________________________________________________________________//
 //@Override

@@ -262,7 +262,9 @@ public class GUI extends JFrame implements ActionListener {
 	//
 	// nameFarbeArtUebergeben(); // beim klick auf den button werden die daten
 	// uebergeben
-	// if(s.rueckgabeTrue() == false)
+	//	
+	//	
+	// if(s.getA() == false)
 	// {
 	// frame02.dispose();
 	// } // schliesst den frame beim klick auf button
