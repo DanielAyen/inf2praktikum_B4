@@ -9,12 +9,23 @@ import frontend.GUI;
 
 public class EventHandler implements ActionListener {
 
-	private JButton button01;
-	private GUI gui;
+	private GUI gui; //kenntnisbeziehung herstellen!!!
+	
+	public EventHandler(GUI gui){
+		this.setGUI(gui);
+	}
+	
+
+	private void setGUI(GUI gui) {
+		this.gui = gui;
+		
+		
+	}
+
 
 	public void actionPerformed(ActionEvent ae) {
 
-		if (ae.getSource() == this.button01) {
+		if (ae.getSource() == null) {
 
 			gui.nameFarbeArtAbfrage();
 
