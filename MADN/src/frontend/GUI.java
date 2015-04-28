@@ -32,6 +32,11 @@ import backend.Wuerfel;
 
 import java.awt.event.*;
 
+/** Die Klasse GUI
+ * 
+ *
+ */
+
 public class GUI extends JFrame {
 	// private Spiel spiel;
 	private JFrame jf = new JFrame("SPIEL");
@@ -45,6 +50,10 @@ public class GUI extends JFrame {
 	private String spielerFarbe;
 	private String spielerArt;
 	private Wuerfel w;
+	
+	/**
+	 * Konstruktor GUI
+	 */
 
 	public GUI() {
 		super();
@@ -78,6 +87,9 @@ public class GUI extends JFrame {
 	}
 
 	/* __________________Abfragen______________________________ */
+	/**
+	 * JOptionPane um abzufragen, ob altes Spiel geladen werden soll
+	 */
 
 	public void spielLadenAbfrage() {
 		int x = JOptionPane.showConfirmDialog(null,
@@ -92,6 +104,9 @@ public class GUI extends JFrame {
 
 		;
 	}
+	/**
+	 *JOptionPAne um Abzufragen, ob neues Spiel erstellt werden soll
+	 */
 
 	public void neuesSpielErstellenAbfrage() {
 		int y = JOptionPane.showConfirmDialog(null,
@@ -105,6 +120,10 @@ public class GUI extends JFrame {
 
 		}
 	}
+	
+	/**
+	 *JOptionPAne um Anzahl aller Spieler abzufragen
+	 */
 
 	public void anzahlSpielerDieSpielenWollenAbfrage() {
 
@@ -159,12 +178,20 @@ public class GUI extends JFrame {
 		frame.setVisible(true);
 
 	}
-
-	public int getSpAnz() {
+	/**
+	 * 
+	 * @return spAnzahl Anzahl aller Spieler
+	 */
+	public int getSpAnz(){
 		return spAnzahl;
 	}
 
+
 	public void nameFarbeArtAbfrage() {
+
+	/**
+	 * JOptionPAne um Name, Farbe und Art des Spielers abzufragen
+	 */
 
 		JFrame frame02 = new JFrame("Spieler erstellen");
 		frame02.setLayout(new GridLayout(2, 0));
@@ -262,10 +289,16 @@ public class GUI extends JFrame {
 	}
 
 	/* ___________Methoden____________ */
+	 /**
+	  * oeffnet FileChooser, um altes Spiel aus Datei zu laden
+	  */
 	public void spielLaden() {
 		// J File Chooser
 	}
 
+	/**
+	 * erstellt neuen Spieler
+	 */
 	public void spielerErstellen() {
 
 		anzahlSpielerDieSpielenWollenAbfrage();
@@ -273,6 +306,10 @@ public class GUI extends JFrame {
 
 	// diese Methode wird fuer die alternative von
 	// anzahlSpielerDieSpielenWollenAbfrage() benötigt
+	
+	/**
+	 * Fehlermeldung wenn keine Spieleranzahl gewaehlt
+	 */
 	public void meldungWennKeineSpielerAnzGewaehlt() {
 		JOptionPane
 				.showMessageDialog(
@@ -282,6 +319,9 @@ public class GUI extends JFrame {
 						JOptionPane.PLAIN_MESSAGE);
 
 	}
+	/**
+	 * speichert Name, Farbe und Art des Spielers
+	 */
 
 	public void nameFarbeArtUebergeben() {
 		s.SpielerHinzufuegen(spielerName, spielerFarbe, spielerArt);
@@ -302,7 +342,9 @@ public class GUI extends JFrame {
 	//
 	// int a= ((Number)spinner.getValue()).intValue();
 	// }
-
+/**
+ * oeffnet den Spiel-Frame
+ */
 	public void spielfeldAnzeigen() {
 
 		JFrame hauptf = new JFrame("Spiel");

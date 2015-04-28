@@ -27,17 +27,11 @@ public class SpielTest {
 	 */
 	public static void main(String[] args) {
 
-//		iBediener s = new Spiel ();
-//		s.SpielerHinzufuegen("Ki", "red", "aggressiv");
-//		s.SpielerHinzufuegen("Reiner", "Green",null);
-
-		
+	
 		
 //___________________________________________________________________________________
 
 		GUI g = new GUI();
-		
-//	System.out.println(s.getSpieler());	
 	}
 
 }
