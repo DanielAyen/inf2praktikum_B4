@@ -26,14 +26,16 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
+import backend.EventHandler;
 import backend.Spiel;
 import backend.Wuerfel;
 
 import java.awt.event.*;
 
-public class GUI extends JFrame implements ActionListener {
+public class GUI extends JFrame {
 	// private Spiel spiel;
 	private JFrame jf = new JFrame("SPIEL");
+	private EventHandler eh;
 	private int spAnzahl; // spielerAnzahl die im Spinner gewählt wird
 	private String spielerName;
 	private Spiel s;
@@ -46,6 +48,7 @@ public class GUI extends JFrame implements ActionListener {
 
 	public GUI() {
 		super();
+		eh = new EventHandler(this);
 		spielLadenAbfrage();
 		spielfeldAnzeigen();
 
@@ -147,27 +150,33 @@ public class GUI extends JFrame implements ActionListener {
 		SpinnerNumberModel anzahlSpielerAuswaehlen = new SpinnerNumberModel(2,
 				1, 4, 1); // value, min, max, step
 		JSpinner spinner = new JSpinner(anzahlSpielerAuswaehlen);
-
 		panel.add(label, BorderLayout.WEST);
 		panel.add(spinner, BorderLayout.EAST);
 		frame.add(panel, BorderLayout.NORTH);
 		frame.add(button01, BorderLayout.SOUTH);
+		button01.addActionListener(eh);
 
-		button01.addActionListener(new ActionListener() {
 
-			public void actionPerformed(ActionEvent ae) {
 				spAnzahl = ((Number) spinner.getValue()).intValue();
-				for (int i = 0; i < spAnzahl; i++) {
-					nameFarbeArtAbfrage();
-					
-					 nameFarbeArtAbfrage(); 
-					
-				} // oeffnet dann den neuen frame
-				frame.dispose(); // schliesst den frame beim klick auf OK button
-			}
-		});
-
+//				for (int i = 0; i < spAnzahl; i++) {
+//					nameFarbeArtAbfrage();
+//					
+//					 nameFarbeArtAbfrage(); 
+//					
+//				} // oeffnet dann den neuen frame
+//				frame.dispose(); // schliesst den frame beim klick auf OK button
+//			}
+//		});
+				
+			if(eh.getBool()==true){
+				frame.dispose(); }// schliesst den frame beim klick auf OK button
+//		frame.dispose(); // schliesst den frame beim klick auf OK button
 		frame.setVisible(true);
+//		frame.dispose(); // schliesst den frame beim klick auf OK button
+	}
+	
+	public int getSpAnz(){
+		return spAnzahl;
 	}
 
 	
@@ -187,7 +196,7 @@ public class GUI extends JFrame implements ActionListener {
 	 panel02.add(label02, BorderLayout.NORTH);
 	 label02.setLayout(new BorderLayout());
 	 panel02.add(button02, BorderLayout.SOUTH);
-	 button02.addActionListener(this);
+	 button02.addActionListener(eh);
 	
 	 panel02 = new JPanel();
 	 panel02.setLayout(new FlowLayout());
@@ -372,12 +381,6 @@ public class GUI extends JFrame implements ActionListener {
 		hauptf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		hauptf.setVisible(true);
 		hauptf.setResizable(false);
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

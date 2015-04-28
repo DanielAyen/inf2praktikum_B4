@@ -9,28 +9,38 @@ import frontend.GUI;
 
 public class EventHandler implements ActionListener {
 
-	private GUI gui; //kenntnisbeziehung herstellen!!!
+	boolean wert=false;
 	
-	public EventHandler(GUI gui){
+	private GUI gui; // kenntnisbeziehung herstellen!!!
+
+	public EventHandler(GUI gui) {
 		this.setGUI(gui);
 	}
-	
 
 	private void setGUI(GUI gui) {
 		this.gui = gui;
-		
-		
-	}
 
+	}
 
 	public void actionPerformed(ActionEvent ae) {
 
 		if (ae.getSource() == null) {
 
 			gui.nameFarbeArtAbfrage();
+			setBool(true);
 
 		}
 
+		for (int i = 0; i < gui.getSpAnz(); i++) {
+			gui.nameFarbeArtAbfrage();
+		} // oeffnet dann den neuen frame
+	}
+
+	private void setBool(boolean b) {
+		wert=b;
+	}
+	public boolean getBool(){
+		return wert;
 	}
 
 }
