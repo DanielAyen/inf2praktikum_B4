@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Menu;
 import java.awt.MenuBar;
@@ -58,6 +59,8 @@ public class GUI extends JFrame {
 	/**
 	 * Konstruktor GUI
 	 */
+	private JTextArea ta=new JTextArea(6,20);
+	private JScrollPane scroller;
 
 	public GUI() {
 		super();
@@ -366,17 +369,8 @@ public class GUI extends JFrame {
 		hauptf.setSize(1250, 1000);
 		JLabel hauptl = new JLabel(feld);
 
-		JLabel wuerfelL = new JLabel(); 
+		JLabel wuerfelL = new JLabel();
 
-		JPanel logger = new JPanel();
-		logger.setLayout(new BorderLayout());
-		JTextArea textArea = new JTextArea(10, 10);
-		textArea.setEditable(false);
-		textArea.setMaximumSize(getSize());
-		// textArea.setOpaque(false); //unsichtbar 
-		logger.add(new JScrollPane(textArea), BorderLayout.CENTER);
-
-		hauptf.add(textArea, BorderLayout.SOUTH);
 		hauptf.add(wuerfelL);
 		hauptf.add(wuerfelL, BorderLayout.WEST);
 
@@ -407,6 +401,20 @@ public class GUI extends JFrame {
 		hauptf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		hauptf.setVisible(true);
 		hauptf.setResizable(false);
+		
+		  // LOGGER
+		
+	    JPanel logger=new JPanel();
+	    logger.setLayout(new BorderLayout());
+			ta.setFont(new Font("Arial", Font.PLAIN, 11));
+			ta.setOpaque(true);
+			ta.setEditable(false);
+			scroller=new JScrollPane(ta);
+			logger.add(new JLabel("Log-Fenster:"),BorderLayout.NORTH);
+			logger.add(scroller,BorderLayout.CENTER);
+			logger.setBounds(0,517,680,150);
+			jf.getContentPane().add(logger);
+			hauptf.add(logger,BorderLayout.SOUTH);
 	}
 
 	/**
