@@ -17,6 +17,7 @@ public interface iBediener {
 	public void initSpiel();
 	
 	public void zugDurchfuehren(int ID);
+	public int wurf();
 
 
 

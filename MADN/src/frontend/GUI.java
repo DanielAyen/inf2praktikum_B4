@@ -45,13 +45,14 @@ public class GUI extends JFrame {
 	private EventHandler eh;
 	private int spAnzahl; // spielerAnzahl die im Spinner gewählt wird
 	private String spielerName;
-	private Spiel s;
+//	private Spiel s;
 	// private JLabel jl = new JLabel("");
 	// private JSpinner spinner;
 	// private boolean fehler;
 	private String spielerFarbe;
 	private String spielerArt;
-	private Wuerfel w;
+//	private Wuerfel w;
+	private iBediener bediener = new Spiel();
 	
 	/**
 	 * Konstruktor GUI
@@ -285,9 +286,9 @@ public class GUI extends JFrame {
 				nameFarbeArtUebergeben(); // beim klick auf den button werden
 											// die daten uebergeben
 
-				if (s.getA() == false) {
-					frame02.dispose();
-				} // schliesst den frame beim klick auf button
+//				if (bediener.getA() == false) {
+//					frame02.dispose();
+//				} // schliesst den frame beim klick auf button
 			}
 		});
 
@@ -330,7 +331,7 @@ public class GUI extends JFrame {
 	 */
 
 	public void nameFarbeArtUebergeben() {
-		s.SpielerHinzufuegen(spielerName, spielerFarbe, spielerArt);
+		bediener.SpielerHinzufuegen(spielerName, spielerFarbe, spielerArt);
 
 	}
 
@@ -358,19 +359,12 @@ public class GUI extends JFrame {
 		ImageIcon feld = new ImageIcon("Bilder//spielbrett.jpg");
 		hauptf.setLocation(200, 50);
 		hauptf.setMenuBar(this.getMenuOben()); // erstellt Menue oben
-		ImageIcon eins = new ImageIcon("Bilder//eins.jpg");
-		ImageIcon zwei = new ImageIcon("Bilder//zwei.jpg");
-		ImageIcon drei = new ImageIcon("Bilder//drei.jpg");
-		ImageIcon vier = new ImageIcon("Bilder//vier.jpg");
-		ImageIcon fuenf = new ImageIcon("Bilder//fuenf.jpg");
-		ImageIcon sechs = new ImageIcon("Bilder//sechs.jpg");
+
 
 		hauptf.setSize(1250, 1000);
 		JLabel hauptl = new JLabel(feld);
 
-
-
-		JLabel wuerfelL = new JLabel(eins); // so gibt er immer bild 1 aus
+		JLabel wuerfelL = new JLabel(); 
 
 		JPanel logger = new JPanel();
 		logger.setLayout(new BorderLayout());
@@ -380,21 +374,28 @@ public class GUI extends JFrame {
 		// textArea.setOpaque(false); //unsichtbar 
 		logger.add(new JScrollPane(textArea), BorderLayout.CENTER);
 
-		// JLabel wuerfelL = new JLabel(zwei);
-		// JLabel wuerfelL = new JLabel(drei);
-		// JLabel wuerfelL = new JLabel(vier);
-		// JLabel wuerfelL = new JLabel(fuenf);
-		// JLabel wuerfelL = new JLabel(sechs);
 		hauptf.add(textArea, BorderLayout.SOUTH);
 		hauptf.add(wuerfelL);
 		hauptf.add(wuerfelL, BorderLayout.WEST);
 
-//		 if(s.wuerfeln()==1){
-//		 ImageIcon eins = new ImageIcon ("Bilder//eins.jpg");
-//		 }
-//		 if(w.wuerfeln()==2){
-//		 ImageIcon zwei = new ImageIcon ("Bilder//zwei.jpg");
-//		 }
+		if (bediener.wurf() == 1) {
+			ImageIcon eins = new ImageIcon("Bilder//eins.jpg");
+		}
+		if (bediener.wurf() == 2) {
+			ImageIcon zwei = new ImageIcon("Bilder//eins.jpg");
+		}
+		if (bediener.wurf() == 3) {
+			ImageIcon drei = new ImageIcon("Bilder//eins.jpg");
+		}
+		if (bediener.wurf() == 4) {
+			ImageIcon vier = new ImageIcon("Bilder//eins.jpg");
+		}
+		if (bediener.wurf() == 5) {
+			ImageIcon fünf = new ImageIcon("Bilder//eins.jpg");
+		}
+		if (bediener.wurf() == 6) {
+			ImageIcon sechs = new ImageIcon("Bilder//eins.jpg");
+		}
 
 
 

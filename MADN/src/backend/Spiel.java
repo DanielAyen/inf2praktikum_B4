@@ -28,6 +28,7 @@ public class Spiel implements iBediener, Serializable {
 	private iDatenzugriff d = new DatenzugriffCSV();
 	private iDatenzugriff s = new DatenzugriffSerialisiert();
 	private static boolean a;
+	private Wuerfel w = new Wuerfel ();
 
 	/*
 	 * Konstruktor der Spielklasse Spielbrett, Regelwerk und Spieler werden
@@ -445,7 +446,9 @@ public class Spiel implements iBediener, Serializable {
 	public static boolean getA(){
 		return a;
 	}
-	
+	private int wurf (){
+		return w.wuerfeln();
+	}
 	
 
 //____________________testMethoden________________________________________________________________________//
