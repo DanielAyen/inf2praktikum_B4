@@ -5,6 +5,9 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.Menu;
+import java.awt.MenuBar;
+import java.awt.MenuItem;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -38,7 +41,6 @@ import java.awt.event.*;
  */
 
 public class GUI extends JFrame {
-	// private Spiel spiel;
 	private JFrame jf = new JFrame("SPIEL");
 	private EventHandler eh;
 	private int spAnzahl; // spielerAnzahl die im Spinner gewählt wird
@@ -58,9 +60,13 @@ public class GUI extends JFrame {
 	public GUI() {
 		super();
 		eh = new EventHandler(this);
-		spielLadenAbfrage();
+		//spielLadenAbfrage();
 		spielfeldAnzeigen();
-
+		jf.addWindowListener(new WindowAdapter(){ // fuer die Menue Knoepfe
+			public void windowClosing (final WindowEvent e){
+				System.exit(0);
+			}
+		});
 		// jf = new JFrame();
 		// JPanel jp = new JPanel();
 		// jp.add(jl);
@@ -87,39 +93,39 @@ public class GUI extends JFrame {
 	}
 
 	/* __________________Abfragen______________________________ */
-	/**
-	 * JOptionPane um abzufragen, ob altes Spiel geladen werden soll
-	 */
-
-	public void spielLadenAbfrage() {
-		int x = JOptionPane.showConfirmDialog(null,
-				"Möchtest du ein Spiel laden?", "Herzlich Willkommen bei MADN",
-				JOptionPane.YES_NO_OPTION);
-		if (x == JOptionPane.YES_OPTION) {
-			spielLaden();
-		}
-		if (x == JOptionPane.NO_OPTION) {
-			neuesSpielErstellenAbfrage();
-		}
-
-		;
-	}
-	/**
-	 *JOptionPAne um Abzufragen, ob neues Spiel erstellt werden soll
-	 */
-
-	public void neuesSpielErstellenAbfrage() {
-		int y = JOptionPane.showConfirmDialog(null,
-				"Möchtest du ein neues Spiel erstellen?",
-				"Herzlich Willkommen bei MADN", JOptionPane.YES_NO_OPTION);
-		if (y == JOptionPane.YES_OPTION) {
-			spielerErstellen();
-		}
-		if (y == JOptionPane.NO_OPTION) {
-			spielLadenAbfrage();
-
-		}
-	}
+//	/**
+//	 * JOptionPane um abzufragen, ob altes Spiel geladen werden soll
+//	 */
+//
+//	public void spielLadenAbfrage() {
+//		int x = JOptionPane.showConfirmDialog(null,
+//				"Möchtest du ein Spiel laden?", "Herzlich Willkommen bei MADN",
+//				JOptionPane.YES_NO_OPTION);
+//		if (x == JOptionPane.YES_OPTION) {
+//			spielLaden();
+//		}
+//		if (x == JOptionPane.NO_OPTION) {
+//			neuesSpielErstellenAbfrage();
+//		}
+//
+//		;
+//	}
+//	/**
+//	 *JOptionPAne um Abzufragen, ob neues Spiel erstellt werden soll
+//	 */
+//
+//	public void neuesSpielErstellenAbfrage() {
+//		int y = JOptionPane.showConfirmDialog(null,
+//				"Möchtest du ein neues Spiel erstellen?",
+//				"Herzlich Willkommen bei MADN", JOptionPane.YES_NO_OPTION);
+//		if (y == JOptionPane.YES_OPTION) {
+//			spielerErstellen();
+//		}
+//		if (y == JOptionPane.NO_OPTION) {
+//			spielLadenAbfrage();
+//
+//		}
+//	}
 	
 	/**
 	 *JOptionPAne um Anzahl aller Spieler abzufragen
@@ -347,10 +353,11 @@ public class GUI extends JFrame {
  */
 	public void spielfeldAnzeigen() {
 
-		JFrame hauptf = new JFrame("Spiel");
+		JFrame hauptf = new JFrame("Spiel 'Mensch aergere dich nicht!'");
 		JPanel hauptp = new JPanel(new BorderLayout());
 		ImageIcon feld = new ImageIcon("Bilder//spielbrett.jpg");
 		hauptf.setLocation(200, 50);
+		hauptf.setMenuBar(this.getMenuOben()); // erstellt Menue oben
 		ImageIcon eins = new ImageIcon("Bilder//eins.jpg");
 		ImageIcon zwei = new ImageIcon("Bilder//zwei.jpg");
 		ImageIcon drei = new ImageIcon("Bilder//drei.jpg");
@@ -361,7 +368,7 @@ public class GUI extends JFrame {
 		hauptf.setSize(1250, 1000);
 		JLabel hauptl = new JLabel(feld);
 
-		/*******************************************************/
+
 
 		JLabel wuerfelL = new JLabel(eins); // so gibt er immer bild 1 aus
 
@@ -370,7 +377,7 @@ public class GUI extends JFrame {
 		JTextArea textArea = new JTextArea(10, 10);
 		textArea.setEditable(false);
 		textArea.setMaximumSize(getSize());
-		// unsichtbar textArea.setOpaque(false);
+		// textArea.setOpaque(false); //unsichtbar 
 		logger.add(new JScrollPane(textArea), BorderLayout.CENTER);
 
 		// JLabel wuerfelL = new JLabel(zwei);
@@ -382,14 +389,14 @@ public class GUI extends JFrame {
 		hauptf.add(wuerfelL);
 		hauptf.add(wuerfelL, BorderLayout.WEST);
 
-		// if(w.wuerfeln()==1){
-		// ImageIcon eins = new ImageIcon ("Bilder//eins.jpg");
-		// }
-		// if(w.wuerfeln()==2){
-		// ImageIcon zwei = new ImageIcon ("Bilder//zwei.jpg");
-		// }
+//		 if(s.wuerfeln()==1){
+//		 ImageIcon eins = new ImageIcon ("Bilder//eins.jpg");
+//		 }
+//		 if(w.wuerfeln()==2){
+//		 ImageIcon zwei = new ImageIcon ("Bilder//zwei.jpg");
+//		 }
 
-		/*****************************/
+
 
 		hauptf.add(hauptp);
 		hauptf.add(hauptl, BorderLayout.CENTER);
@@ -399,4 +406,24 @@ public class GUI extends JFrame {
 		hauptf.setResizable(false);
 	}
 
+	/**
+	 * 
+	 * @return menueLeiste, gibt die Menueleiste oben aus
+	 */
+	protected MenuBar getMenuOben() { 
+		MenuBar menueLeiste = new MenuBar();
+		Menu spiel = new Menu("Spiel"); // erster Knopf
+		MenuItem laden = new MenuItem("Spiel laden"); // Unterknopf 1
+		spiel.add(laden);
+		MenuItem neu = new MenuItem("neues Spiel erstellen"); // Unterknopf 2
+		spiel.add(neu);
+		MenuItem speichern = new MenuItem("als PDF speichern");
+		spiel.add(speichern);
+		menueLeiste.add(spiel);
+
+		Menu hilfe = new Menu("Hilfe"); // zweiter Knopf
+		menueLeiste.add(hilfe);
+
+		return menueLeiste;
+	}
 }
