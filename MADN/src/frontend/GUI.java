@@ -60,7 +60,7 @@ public class GUI extends JFrame {
 	/**
 	 * Konstruktor GUI
 	 */
-	private JTextArea ta = new JTextArea(6, 20);
+	private JTextArea ta = new JTextArea(10, 20);//fuer die Loggerfeld groesse
 	private JScrollPane scroller;
 
 	public GUI() {
@@ -172,6 +172,8 @@ public class GUI extends JFrame {
 		frame.setResizable(false);
 		JPanel panel = new JPanel(new BorderLayout());
 		JButton button01 = new JButton("OK");
+		
+		log("Spieler erstellen: Spielerzahl waehlen");
 		// button01.setLayout(new FlowLayout());
 
 		// button01.setPreferredSize(new Dimension(5,10));
@@ -186,9 +188,14 @@ public class GUI extends JFrame {
 		frame.add(panel, BorderLayout.NORTH);
 		frame.add(button01, BorderLayout.SOUTH);
 		button01.addActionListener(eh);
-		spAnzahl = ((Number) spinner.getValue()).intValue();
+		
+		
+		spAnzahl = ((Number) spinner.getValue()).intValue();//muss des nicht in den handler?
+		
+		
 		frame.setVisible(true);
-
+		log("gewaehlter Spielerzahl:"+spAnzahl);
+		
 	}
 
 	/**
