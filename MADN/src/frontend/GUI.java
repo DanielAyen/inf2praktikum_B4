@@ -37,7 +37,8 @@ import backend.Wuerfel;
 
 import java.awt.event.*;
 
-/** Die Klasse GUI
+/**
+ * Die Klasse GUI
  * 
  *
  */
@@ -47,28 +48,28 @@ public class GUI extends JFrame {
 	private EventHandler eh;
 	private int spAnzahl; // spielerAnzahl die im Spinner gewählt wird
 	private String spielerName;
-//	private Spiel s;
+	// private Spiel s;
 	// private JLabel jl = new JLabel("");
 	// private JSpinner spinner;
 	// private boolean fehler;
 	private String spielerFarbe;
 	private String spielerArt;
-//	private Wuerfel w;
+	// private Wuerfel w;
 	private iBediener bediener = new Spiel();
-	
+
 	/**
 	 * Konstruktor GUI
 	 */
-	private JTextArea ta=new JTextArea(6,20);
+	private JTextArea ta = new JTextArea(6, 20);
 	private JScrollPane scroller;
 
 	public GUI() {
 		super();
 		eh = new EventHandler(this);
-		//spielLadenAbfrage();
+		// spielLadenAbfrage();
 		spielfeldAnzeigen();
-		jf.addWindowListener(new WindowAdapter(){ // fuer die Menue Knoepfe
-			public void windowClosing (final WindowEvent e){
+		jf.addWindowListener(new WindowAdapter() { // fuer die Menue Knoepfe
+			public void windowClosing(final WindowEvent e) {
 				System.exit(0);
 			}
 		});
@@ -98,42 +99,42 @@ public class GUI extends JFrame {
 	}
 
 	/* __________________Abfragen______________________________ */
-//	/**
-//	 * JOptionPane um abzufragen, ob altes Spiel geladen werden soll
-//	 */
-//
-//	public void spielLadenAbfrage() {
-//		int x = JOptionPane.showConfirmDialog(null,
-//				"Möchtest du ein Spiel laden?", "Herzlich Willkommen bei MADN",
-//				JOptionPane.YES_NO_OPTION);
-//		if (x == JOptionPane.YES_OPTION) {
-//			spielLaden();
-//		}
-//		if (x == JOptionPane.NO_OPTION) {
-//			neuesSpielErstellenAbfrage();
-//		}
-//
-//		;
-//	}
-//	/**
-//	 *JOptionPAne um Abzufragen, ob neues Spiel erstellt werden soll
-//	 */
-//
-//	public void neuesSpielErstellenAbfrage() {
-//		int y = JOptionPane.showConfirmDialog(null,
-//				"Möchtest du ein neues Spiel erstellen?",
-//				"Herzlich Willkommen bei MADN", JOptionPane.YES_NO_OPTION);
-//		if (y == JOptionPane.YES_OPTION) {
-//			spielerErstellen();
-//		}
-//		if (y == JOptionPane.NO_OPTION) {
-//			spielLadenAbfrage();
-//
-//		}
-//	}
-	
+	// /**
+	// * JOptionPane um abzufragen, ob altes Spiel geladen werden soll
+	// */
+	//
+	// public void spielLadenAbfrage() {
+	// int x = JOptionPane.showConfirmDialog(null,
+	// "Möchtest du ein Spiel laden?", "Herzlich Willkommen bei MADN",
+	// JOptionPane.YES_NO_OPTION);
+	// if (x == JOptionPane.YES_OPTION) {
+	// spielLaden();
+	// }
+	// if (x == JOptionPane.NO_OPTION) {
+	// neuesSpielErstellenAbfrage();
+	// }
+	//
+	// ;
+	// }
+	// /**
+	// *JOptionPAne um Abzufragen, ob neues Spiel erstellt werden soll
+	// */
+	//
+	// public void neuesSpielErstellenAbfrage() {
+	// int y = JOptionPane.showConfirmDialog(null,
+	// "Möchtest du ein neues Spiel erstellen?",
+	// "Herzlich Willkommen bei MADN", JOptionPane.YES_NO_OPTION);
+	// if (y == JOptionPane.YES_OPTION) {
+	// spielerErstellen();
+	// }
+	// if (y == JOptionPane.NO_OPTION) {
+	// spielLadenAbfrage();
+	//
+	// }
+	// }
+
 	/**
-	 *JOptionPAne um Anzahl aller Spieler abzufragen
+	 * JOptionPAne um Anzahl aller Spieler abzufragen
 	 */
 
 	public void anzahlSpielerDieSpielenWollenAbfrage() {
@@ -189,20 +190,20 @@ public class GUI extends JFrame {
 		frame.setVisible(true);
 
 	}
+
 	/**
 	 * 
 	 * @return spAnzahl Anzahl aller Spieler
 	 */
-	public int getSpAnz(){
+	public int getSpAnz() {
 		return spAnzahl;
 	}
 
-
 	public void nameFarbeArtAbfrage() {
 
-	/**
-	 * JOptionPAne um Name, Farbe und Art des Spielers abzufragen
-	 */
+		/**
+		 * JOptionPAne um Name, Farbe und Art des Spielers abzufragen
+		 */
 
 		JFrame frame02 = new JFrame("Spieler erstellen");
 		frame02.setLayout(new GridLayout(2, 0));
@@ -290,9 +291,9 @@ public class GUI extends JFrame {
 				nameFarbeArtUebergeben(); // beim klick auf den button werden
 											// die daten uebergeben
 
-//				if (bediener.getA() == false) {
-//					frame02.dispose();
-//				} // schliesst den frame beim klick auf button
+				// if (bediener.getA() == false) {
+				// frame02.dispose();
+				// } // schliesst den frame beim klick auf button
 			}
 		});
 
@@ -300,12 +301,12 @@ public class GUI extends JFrame {
 	}
 
 	/* ___________Methoden____________ */
-	 /**
-	  * oeffnet FileChooser, um altes Spiel aus Datei zu laden
-	  */
+	/**
+	 * oeffnet FileChooser, um altes Spiel aus Datei zu laden
+	 */
 	public void spielLaden() {
-		 JFileChooser fc = new JFileChooser();
-         fc.showOpenDialog(null);
+		JFileChooser fc = new JFileChooser();
+		fc.showOpenDialog(null);
 	}
 
 	/**
@@ -318,7 +319,7 @@ public class GUI extends JFrame {
 
 	// diese Methode wird fuer die alternative von
 	// anzahlSpielerDieSpielenWollenAbfrage() benötigt
-	
+
 	/**
 	 * Fehlermeldung wenn keine Spieleranzahl gewaehlt
 	 */
@@ -331,6 +332,7 @@ public class GUI extends JFrame {
 						JOptionPane.PLAIN_MESSAGE);
 
 	}
+
 	/**
 	 * speichert Name, Farbe und Art des Spielers
 	 */
@@ -354,9 +356,9 @@ public class GUI extends JFrame {
 	//
 	// int a= ((Number)spinner.getValue()).intValue();
 	// }
-/**
- * oeffnet den Spiel-Frame
- */
+	/**
+	 * oeffnet den Spiel-Frame
+	 */
 	public void spielfeldAnzeigen() {
 
 		JFrame hauptf = new JFrame("Spiel 'Mensch aergere dich nicht!'");
@@ -364,7 +366,6 @@ public class GUI extends JFrame {
 		ImageIcon feld = new ImageIcon("Bilder//spielbrett.jpg");
 		hauptf.setLocation(200, 50);
 		hauptf.setMenuBar(this.getMenuOben()); // erstellt Menue oben
-
 
 		hauptf.setSize(1250, 1000);
 		JLabel hauptl = new JLabel(feld);
@@ -399,41 +400,47 @@ public class GUI extends JFrame {
 			ImageIcon sechs = new ImageIcon("Bilder//eins.jpg");
 		}
 
-
-
 		hauptf.add(hauptp);
 		hauptf.add(hauptl, BorderLayout.CENTER);
 
 		hauptf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		hauptf.setVisible(true);
 		hauptf.setResizable(false);
-		
-		  // LOGGER
-		
-	    JPanel logger=new JPanel();
-	    logger.setLayout(new BorderLayout());
-			ta.setFont(new Font("Arial", Font.PLAIN, 14));
-			ta.setOpaque(true);
-			ta.setEditable(false);
-			scroller=new JScrollPane(ta);
-			logger.add(new JLabel("Log-Fenster:"),BorderLayout.NORTH);
-			logger.add(scroller,BorderLayout.CENTER);		
-			jf.getContentPane().add(logger);
-			hauptf.add(logger,BorderLayout.SOUTH);
+
+		// LOGGER
+
+		JPanel logger = new JPanel();
+		logger.setLayout(new BorderLayout());
+		ta.setFont(new Font("Arial", Font.PLAIN, 14));
+		ta.setOpaque(true);
+		ta.setEditable(false);
+		scroller = new JScrollPane(ta);
+		logger.add(new JLabel("Log-Fenster:"), BorderLayout.NORTH);
+		logger.add(scroller, BorderLayout.CENTER);
+		jf.getContentPane().add(logger);
+		hauptf.add(logger, BorderLayout.SOUTH);
 	}
 
-	
-	public void log(String text){
-		ta.setText(text+"\n"+ta.getText());
+	/**
+	 * 
+	 * @param text
+	 *            wird im Logger gezeigt
+	 */
+	public void log(String text) {
+		ta.setText(text + "\n" + ta.getText());// Wenn etwas im Logger gezweigt
+												// werden soll einfach
+												// log("inhalt"); aufrufen!
 	}
-	public void logClear(){
+
+	/**
+	 * Zum leeren des Loggers
+	 */
+	public void logClear() {
 		ta.setText("");
 	}
-	
-	
-		//LOGGER ENDE
-	
-	
+
+	// LOGGER ENDE
+
 	/**
 	 * 
 	 * @return menueLeiste, gibt die Menueleiste oben aus
@@ -443,18 +450,20 @@ public class GUI extends JFrame {
 		Menu spiel = new Menu("Spiel"); // erster Knopf
 		MenuItem laden = new MenuItem("Spiel laden"); // Unterknopf 1
 		spiel.add(laden);
-		 laden.addActionListener(new java.awt.event.ActionListener() {
-	            public void actionPerformed(java.awt.event.ActionEvent e) {
-	            	spielLaden();;
-	            }
-	        });
-		MenuItem neu = new MenuItem("neues Spiel erstellen"); // Unterknopf 2		
+		laden.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				spielLaden();
+				;
+			}
+		});
+		MenuItem neu = new MenuItem("neues Spiel erstellen"); // Unterknopf 2
 		spiel.add(neu);
-		 neu.addActionListener(new java.awt.event.ActionListener() {
-	            public void actionPerformed(java.awt.event.ActionEvent e) {
-	            	anzahlSpielerDieSpielenWollenAbfrage();;
-	            }
-	        });
+		neu.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				anzahlSpielerDieSpielenWollenAbfrage();
+				;
+			}
+		});
 		MenuItem speichern = new MenuItem("als PDF speichern");
 		spiel.add(speichern);
 		menueLeiste.add(spiel);
