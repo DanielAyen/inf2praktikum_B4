@@ -18,6 +18,7 @@ import java.awt.event.WindowEvent;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -300,7 +301,8 @@ public class GUI extends JFrame {
 	  * oeffnet FileChooser, um altes Spiel aus Datei zu laden
 	  */
 	public void spielLaden() {
-		// J File Chooser
+		 JFileChooser fc = new JFileChooser();
+         fc.showOpenDialog(null);
 	}
 
 	/**
@@ -411,13 +413,23 @@ public class GUI extends JFrame {
 	 * 
 	 * @return menueLeiste, gibt die Menueleiste oben aus
 	 */
-	protected MenuBar getMenuOben() { 
+	protected MenuBar getMenuOben() {
 		MenuBar menueLeiste = new MenuBar();
 		Menu spiel = new Menu("Spiel"); // erster Knopf
 		MenuItem laden = new MenuItem("Spiel laden"); // Unterknopf 1
 		spiel.add(laden);
-		MenuItem neu = new MenuItem("neues Spiel erstellen"); // Unterknopf 2
+		 laden.addActionListener(new java.awt.event.ActionListener() {
+	            public void actionPerformed(java.awt.event.ActionEvent e) {
+	            	spielLaden();;
+	            }
+	        });
+		MenuItem neu = new MenuItem("neues Spiel erstellen"); // Unterknopf 2		
 		spiel.add(neu);
+		 neu.addActionListener(new java.awt.event.ActionListener() {
+	            public void actionPerformed(java.awt.event.ActionEvent e) {
+	            	anzahlSpielerDieSpielenWollenAbfrage();;
+	            }
+	        });
 		MenuItem speichern = new MenuItem("als PDF speichern");
 		spiel.add(speichern);
 		menueLeiste.add(spiel);

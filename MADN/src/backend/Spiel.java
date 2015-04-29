@@ -446,7 +446,7 @@ public class Spiel implements iBediener, Serializable {
 	public static boolean getA(){
 		return a;
 	}
-	private int wurf (){
+	public int wurf(){
 		return w.wuerfeln();
 	}
 	
