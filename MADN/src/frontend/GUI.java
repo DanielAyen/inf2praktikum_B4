@@ -375,21 +375,27 @@ public class GUI extends JFrame {
 		hauptf.add(wuerfelL, BorderLayout.WEST);
 
 		if (bediener.wurf() == 1) {
+			log("Eins wurde gewuerfelt");
 			ImageIcon eins = new ImageIcon("Bilder//eins.jpg");
 		}
 		if (bediener.wurf() == 2) {
+			log("Zwei wurde gewuerfelt");
 			ImageIcon zwei = new ImageIcon("Bilder//eins.jpg");
 		}
 		if (bediener.wurf() == 3) {
+			log("Drei wurde gewuerfelt");
 			ImageIcon drei = new ImageIcon("Bilder//eins.jpg");
 		}
 		if (bediener.wurf() == 4) {
+			log("Vier wurde gewuerfelt");
 			ImageIcon vier = new ImageIcon("Bilder//eins.jpg");
 		}
 		if (bediener.wurf() == 5) {
+			log("Fuenf wurde gewuerfelt");
 			ImageIcon fünf = new ImageIcon("Bilder//eins.jpg");
 		}
 		if (bediener.wurf() == 6) {
+			log("Sechs wurde gewuerfelt");
 			ImageIcon sechs = new ImageIcon("Bilder//eins.jpg");
 		}
 
@@ -406,17 +412,28 @@ public class GUI extends JFrame {
 		
 	    JPanel logger=new JPanel();
 	    logger.setLayout(new BorderLayout());
-			ta.setFont(new Font("Arial", Font.PLAIN, 11));
+			ta.setFont(new Font("Arial", Font.PLAIN, 14));
 			ta.setOpaque(true);
 			ta.setEditable(false);
 			scroller=new JScrollPane(ta);
 			logger.add(new JLabel("Log-Fenster:"),BorderLayout.NORTH);
-			logger.add(scroller,BorderLayout.CENTER);
-			logger.setBounds(0,517,680,150);
+			logger.add(scroller,BorderLayout.CENTER);		
 			jf.getContentPane().add(logger);
 			hauptf.add(logger,BorderLayout.SOUTH);
 	}
 
+	
+	public void log(String text){
+		ta.setText(text+"\n"+ta.getText());
+	}
+	public void logClear(){
+		ta.setText("");
+	}
+	
+	
+		//LOGGER ENDE
+	
+	
 	/**
 	 * 
 	 * @return menueLeiste, gibt die Menueleiste oben aus

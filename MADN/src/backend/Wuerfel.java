@@ -28,7 +28,7 @@ public class Wuerfel implements Serializable {
 		ergebnis = new Random().nextInt(6);
 		ergebnis = ergebnis + 1;
 		String[] zahlen = { "Eins", "Zwei", "Drei", "Vier", "Fuenf", "Sechs" };
-		System.out.println(zahlen[ergebnis - 1] + " gewuerfelt");
+		//System.out.println(zahlen[ergebnis - 1] + " gewuerfelt");
 
 		return ergebnis;
 	}
