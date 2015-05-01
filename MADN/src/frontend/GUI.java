@@ -60,8 +60,9 @@ public class GUI extends JFrame {
 	/**
 	 * Konstruktor GUI
 	 */
-	private JTextArea ta = new JTextArea(10, 20);//fuer die Loggerfeld groesse
+	private JTextArea ta = new JTextArea(10, 20);// fuer die Loggerfeld groesse
 	private JScrollPane scroller;
+	private boolean hatGewuerfelt;
 
 	public GUI() {
 		super();
@@ -172,7 +173,7 @@ public class GUI extends JFrame {
 		frame.setResizable(false);
 		JPanel panel = new JPanel(new BorderLayout());
 		JButton button01 = new JButton("OK");
-		
+
 		log("Spieler erstellen: Spielerzahl waehlen");
 		// button01.setLayout(new FlowLayout());
 
@@ -188,14 +189,13 @@ public class GUI extends JFrame {
 		frame.add(panel, BorderLayout.NORTH);
 		frame.add(button01, BorderLayout.SOUTH);
 		button01.addActionListener(eh);
-		
-		
-		spAnzahl = ((Number) spinner.getValue()).intValue();//muss des nicht in den handler?
-		
-		
+
+		spAnzahl = ((Number) spinner.getValue()).intValue();// muss des nicht in
+															// den handler?
+
 		frame.setVisible(true);
-		log("gewaehlter Spielerzahl:"+spAnzahl);
-		
+		log("gewaehlter Spielerzahl:" + spAnzahl);
+
 	}
 
 	/**
@@ -426,6 +426,36 @@ public class GUI extends JFrame {
 		logger.add(scroller, BorderLayout.CENTER);
 		jf.getContentPane().add(logger);
 		hauptf.add(logger, BorderLayout.SOUTH);
+		//
+
+		// Bedieung
+		JPanel panelB = new JPanel();
+		panelB.setLayout(new BorderLayout());
+
+		JButton buttonVor = new JButton("Figur vor");
+		JButton buttonWurf = new JButton("Wuerfeln");
+
+		buttonVor.addActionListener(eh);
+		buttonWurf.addActionListener(eh);
+
+		panelB.add(buttonVor, BorderLayout.CENTER);
+		panelB.add(buttonWurf, BorderLayout.CENTER);
+		hauptf.add(panelB, BorderLayout.EAST);
+		hauptf.add(buttonVor, BorderLayout.EAST);
+
+		if (hatGewuerfelt == false) { // Wenn nicht gewürfelt wurde darf man Vor
+										// nicht waehlen koennen, leider zeigts
+										// meine Buttons nicht an :(
+										// diese Abfrage muss er eig ständig
+										// machen
+
+			buttonVor.setEnabled(false);
+			buttonWurf.setEnabled(true);
+		} else {
+			buttonVor.setEnabled(true);
+			buttonWurf.setEnabled(false);
+		}
+		//
 	}
 
 	/**
@@ -445,8 +475,6 @@ public class GUI extends JFrame {
 	public void logClear() {
 		ta.setText("");
 	}
-
-	// LOGGER ENDE
 
 	/**
 	 * 
