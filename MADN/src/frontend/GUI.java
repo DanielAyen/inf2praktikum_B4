@@ -35,7 +35,6 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
-import backend.EventHandler;
 import backend.Spiel;
 import backend.Wuerfel;
 
@@ -49,6 +48,16 @@ import java.awt.geom.Ellipse2D;
  */
 
 public class GUI extends JFrame {
+	JTextField feld01;
+	JSpinner spinner;
+	JRadioButton RBRED;
+	JRadioButton RBGREEN;
+	JRadioButton RBBLUE;
+	JRadioButton RBYELLOW;
+	JRadioButton Mensch;
+	JRadioButton KIa;
+	JRadioButton KId;
+	JFrame frame;
 	private JFrame jf = new JFrame("SPIEL");
 	private EventHandler eh;
 	private int spAnzahl; // spielerAnzahl die im Spinner gewählt wird
@@ -183,7 +192,7 @@ public class GUI extends JFrame {
 		JPanel panel = new JPanel(new BorderLayout());
 		JButton button01 = new JButton("OK");
 
-		log("Spieler erstellen: Spielerzahl waehlen");
+//		log("Spieler erstellen: Spielerzahl waehlen");
 		// button01.setLayout(new FlowLayout());
 
 		// button01.setPreferredSize(new Dimension(5,10));
@@ -198,23 +207,9 @@ public class GUI extends JFrame {
 		frame.add(panel, BorderLayout.NORTH);
 		frame.add(button01, BorderLayout.SOUTH);
 		button01.addActionListener(eh);
-
-		spAnzahl = ((Number) spinner.getValue()).intValue();// muss des nicht in
-															// den handler?
-
 		frame.setVisible(true);
-		log("gewaehlter Spielerzahl:" + spAnzahl);
-
 	}
-
-	/**
-	 * 
-	 * @return spAnzahl Anzahl aller Spieler
-	 */
-	public int getSpAnz() {
-		return spAnzahl;
-	}
-
+	
 	public void nameFarbeArtAbfrage() {
 
 		/**
@@ -243,11 +238,11 @@ public class GUI extends JFrame {
 		frame02.add(panel02, BorderLayout.SOUTH);
 
 		// RadioButtons für Farbe
-		final JRadioButton RBRED = new JRadioButton("RED", true);
-		final JRadioButton RBGREEN = new JRadioButton("GREEN");
-		final JRadioButton RBBLUE = new JRadioButton("BLUE");
-		final JRadioButton RBYELLOW = new JRadioButton("YELLOW");
-
+		RBRED = new JRadioButton("RED", true);
+		RBGREEN = new JRadioButton("GREEN");
+		RBBLUE = new JRadioButton("BLUE");
+		RBYELLOW = new JRadioButton("YELLOW");
+		
 		ButtonGroup group = new ButtonGroup();
 		group.add(RBRED);
 		group.add(RBGREEN);
@@ -260,9 +255,9 @@ public class GUI extends JFrame {
 		panel02.add(RBYELLOW);
 
 		// RadioButtons für Art
-		final JRadioButton Mensch = new JRadioButton("Mensch", true);
-		final JRadioButton KIa = new JRadioButton("KI-Aggressiv");
-		final JRadioButton KId = new JRadioButton("KI-Defensiv");
+		Mensch = new JRadioButton("Mensch", true);
+		KIa = new JRadioButton("KI-Aggressiv");
+		KId = new JRadioButton("KI-Defensiv");
 
 		ButtonGroup group2 = new ButtonGroup();
 		group2.add(Mensch);
@@ -277,32 +272,8 @@ public class GUI extends JFrame {
 		spielerName = feld01.getText(); // gibt den eingegebenen Spielernamen
 										// aus
 
-		button02.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent ae) {
-				// Radio Button Abfrage Farbe
-				if (RBRED.isSelected() == true) {
-					spielerFarbe = "RED";
-				}
-				if (RBGREEN.isSelected() == true) {
-					spielerFarbe = "GREEN";
-				}
-				if (RBBLUE.isSelected() == true) {
-					spielerFarbe = "BLUE";
-				}
-				if (RBYELLOW.isSelected() == true) {
-					spielerFarbe = "YELLOW";
-				}
-
-				// Radio Button Abfrage Art
-				if (Mensch.isSelected() == true) {
-					spielerArt = null; // null, da mensch keine ki ist
-				}
-				if (KIa.isSelected() == true) {
-					spielerArt = "AGGRESSIV";
-				}
-				if (KId.isSelected() == true) {
-					spielerArt = "DFENSIV";
-				}
+		button02.addActionListener(eh);
+			
 
 				nameFarbeArtUebergeben(); // beim klick auf den button werden
 											// die daten uebergeben
@@ -310,8 +281,7 @@ public class GUI extends JFrame {
 				// if (bediener.getA() == false) {
 				// frame02.dispose();
 				// } // schliesst den frame beim klick auf button
-			}
-		});
+			
 
 		frame02.setVisible(true);
 	}
@@ -505,20 +475,10 @@ public class GUI extends JFrame {
 		Menu spiel = new Menu("Spiel"); // erster Knopf
 		MenuItem laden = new MenuItem("Spiel laden"); // Unterknopf 1
 		spiel.add(laden);
-		laden.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent e) {
-				spielLaden();
-				;
-			}
-		});
+		laden.addActionListener(eh);
 		MenuItem neu = new MenuItem("neues Spiel erstellen"); // Unterknopf 2
 		spiel.add(neu);
-		neu.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent e) {
-				anzahlSpielerDieSpielenWollenAbfrage();
-				;
-			}
-		});
+		neu.addActionListener(eh);
 		MenuItem speichern = new MenuItem("als PDF speichern");
 		spiel.add(speichern);
 		menueLeiste.add(spiel);
@@ -992,6 +952,37 @@ public class GUI extends JFrame {
 
 	public void setButtonText(int nummer, String text) {
 		buttonArray[nummer - 1].setText(text);
+	}
+	/**
+	 * 
+	 * @return spAnzahl Anzahl aller Spieler
+	 */
+	public int getSpAnz() {
+		return spAnzahl;
+	}
+	public void setSpAnzahl(int spAnzahl) {
+		this.spAnzahl = spAnzahl;
+	}
+	public void setSpielerArt(String SpielerArt) {
+		spielerArt = SpielerArt;
+	}
+
+	public void setSpielerFarbe(String SpielerFarbe) {
+		this.spielerFarbe = SpielerFarbe;
+	}
+	public String getSpielerName() {
+		return spielerName;
+	}
+
+	public String getSpielerFarbe() {
+		return spielerFarbe;
+	}
+
+	public String getSpielerArt() {
+		return spielerArt;
+	}
+	public void setSpielerName(String spielerName) {
+		this.spielerName = spielerName;
 	}
 
 	// //////////////////////////////////////////////////////////////////////////////////
