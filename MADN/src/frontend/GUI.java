@@ -491,6 +491,7 @@ public class GUI extends JFrame {
 		for (int i = 0; i < 72; i++) {
 			buttonArray[i] = new JButton("Erste Fuellung");
 			buttonArray[i].setMargin(new Insets(0, 0, 0, 0));
+			buttonArray[i].addActionListener(eh);
 			// buttonArray[i].setVisible(false);
 		}
 		setButtonText(1, "SFR1");
@@ -934,10 +935,20 @@ public class GUI extends JFrame {
 				size.width, size.height);
 		buttonArray[71].setSize(35, 35);
 		
-		ImageIcon kreis = new ImageIcon("C://Users//maddo_000//Desktop//kreis.gif");
+		ImageIcon kreisY = new ImageIcon("Bilder//KreisY.gif");
 	
-		buttonArray[71].setText(null);
-		 buttonArray[71].setIcon( kreis );
+
+		 buttonArray[68].setText(null);
+		 buttonArray[68].setIcon( kreisY );
+		 
+		 buttonArray[69].setText(null);
+		 buttonArray[69].setIcon( kreisY );
+
+		 buttonArray[70].setText(null);
+		 buttonArray[70].setIcon( kreisY );
+		 
+		 buttonArray[71].setText(null);
+		 buttonArray[71].setIcon( kreisY );
 		
 	}
 	public void setButtonText(int nummer, String text) {
