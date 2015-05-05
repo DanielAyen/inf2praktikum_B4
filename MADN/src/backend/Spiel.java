@@ -197,7 +197,7 @@ public class Spiel implements iBediener, Serializable, iMeldung, iAnzeige {
 			spieler.add(new Spieler(name, f, ai, this));}
 		
 		setA(false);
-		System.out.println(spieler.get(0));System.out.println(spieler.get(1));
+//		System.out.println(spieler.get(0));System.out.println(spieler.get(1));
 		}
 		
 	

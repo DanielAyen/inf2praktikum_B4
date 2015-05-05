@@ -70,18 +70,16 @@ public class GUI extends JFrame {
 	private String spielerArt;
 	// private Wuerfel w;
 	private iBediener bediener = new Spiel();
-
 	JFrame hauptf = new JFrame("Spiel 'Mensch aergere dich nicht!'");
 	JPanel hauptp = new JPanel(new BorderLayout());
 	JButton[] buttonArray = new JButton[72];
-
-	/**
-	 * Konstruktor GUI
-	 */
 	private JTextArea ta = new JTextArea(10, 20);// fuer die Loggerfeld groesse
 	private JScrollPane scroller;
 	private boolean hatGewuerfelt;
-
+	
+	/**
+	 * Konstruktor GUI
+	 */
 	public GUI() {
 		super();
 		eh = new EventHandler(this);
@@ -184,7 +182,7 @@ public class GUI extends JFrame {
 		// }
 		// nameFarbeArtAbfrage();
 
-		JFrame frame = new JFrame("Spieler erstellen");
+		frame = new JFrame("Spieler erstellen");
 		JLabel label = new JLabel(
 				"Mit wie vielen Spielern soll das Spiel gespielt werden? ");
 		frame.setSize(370, 100);
@@ -201,7 +199,7 @@ public class GUI extends JFrame {
 
 		SpinnerNumberModel anzahlSpielerAuswaehlen = new SpinnerNumberModel(2,
 				1, 4, 1); // value, min, max, step
-		JSpinner spinner = new JSpinner(anzahlSpielerAuswaehlen);
+		spinner = new JSpinner(anzahlSpielerAuswaehlen);
 		panel.add(label, BorderLayout.WEST);
 		panel.add(spinner, BorderLayout.EAST);
 		frame.add(panel, BorderLayout.NORTH);
@@ -224,7 +222,7 @@ public class GUI extends JFrame {
 				"Gebe deinen Spielernamen deine Farbe und die Art ein.");
 		JPanel panel02 = new JPanel(new BorderLayout());
 		JButton button02 = new JButton("Bestätigen");
-		JTextField feld01 = new JTextField("Spielername");
+		feld01 = new JTextField("Spielername");
 
 		panel02.add(label02, BorderLayout.NORTH);
 		label02.setLayout(new BorderLayout());
@@ -269,12 +267,9 @@ public class GUI extends JFrame {
 		panel02.add(KId);
 		panel02.add(button02, BorderLayout.SOUTH);
 
-		spielerName = feld01.getText(); // gibt den eingegebenen Spielernamen
+//		spielerName = feld01.getText(); // gibt den eingegebenen Spielernamen
 										// aus
-
-		button02.addActionListener(eh);
 			
-
 				nameFarbeArtUebergeben(); // beim klick auf den button werden
 											// die daten uebergeben
 
@@ -953,16 +948,6 @@ public class GUI extends JFrame {
 	public void setButtonText(int nummer, String text) {
 		buttonArray[nummer - 1].setText(text);
 	}
-	/**
-	 * 
-	 * @return spAnzahl Anzahl aller Spieler
-	 */
-	public int getSpAnz() {
-		return spAnzahl;
-	}
-	public void setSpAnzahl(int spAnzahl) {
-		this.spAnzahl = spAnzahl;
-	}
 	public void setSpielerArt(String SpielerArt) {
 		spielerArt = SpielerArt;
 	}
@@ -983,6 +968,16 @@ public class GUI extends JFrame {
 	}
 	public void setSpielerName(String spielerName) {
 		this.spielerName = spielerName;
+	}
+	/**
+	 * 
+	 * @return spAnzahl Anzahl aller Spieler
+	 */
+	public int getSpAnz() {
+		return spAnzahl;
+	}
+	public void setSpAnzahl(int spAnzahl) {
+		this.spAnzahl = spAnzahl;
 	}
 
 	// //////////////////////////////////////////////////////////////////////////////////

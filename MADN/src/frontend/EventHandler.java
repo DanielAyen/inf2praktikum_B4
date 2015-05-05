@@ -3,24 +3,24 @@ package frontend;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
+import javax.swing.JFileChooser;
 
-import frontend.GUI;
-
+import backend.Spiel;
 /**
  * Die Klasse EventHandler
  *
  */
 public class EventHandler implements ActionListener {
-
 	private GUI gui; // kenntnisbeziehung herstellen!!!
+	private iBediener bediener = new Spiel();
+
 	
 	/**
 	 * 
 	 * @param gui
 	 */
 	public EventHandler(GUI gui) {
-		this.setGUI(gui);
+		this.setGUI(gui);;
 	}
 /**
  * 
@@ -70,7 +70,7 @@ public class EventHandler implements ActionListener {
 				if (gui.KId.isSelected() == true) {
 					gui.setSpielerArt("DEFENSIV");
 				}
-				gui.spielerErstellen();
+				bediener.SpielerHinzufuegen(gui.getSpielerName(), gui.getSpielerFarbe(), gui.getSpielerArt());
 				break;
 			case "Spiel laden":
 				gui.spielLaden();
@@ -82,3 +82,5 @@ public class EventHandler implements ActionListener {
 			}
 	}
 }
+
+
