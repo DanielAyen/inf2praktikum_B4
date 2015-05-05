@@ -72,7 +72,7 @@ public class EventHandler implements ActionListener {
 				}
 				gui.nameFarbeArtUebergeben();
 				gui.frame02.dispose();
-				gui.log("SpielerName: "+ gui.getSpielerName() + "SpielerFarbe:" + gui.getSpielerFarbe() + "SpielerArt:" + gui.getSpielerArt());
+				gui.log("SpielerName: "+ gui.getSpielerName() + "\n"+ "SpielerFarbe:" + gui.getSpielerFarbe() + "\n"+ "SpielerArt:" + gui.getSpielerArt());
 				break;
 			case "Spiel laden":
 				gui.spielLaden();
