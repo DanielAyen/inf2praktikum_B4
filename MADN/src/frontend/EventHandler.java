@@ -12,7 +12,7 @@ import backend.Spiel;
  */
 public class EventHandler implements ActionListener {
 	private GUI gui; // kenntnisbeziehung herstellen!!!
-	private iBediener bediener = new Spiel();
+//	private iBediener bediener = new Spiel();
 
 	
 	/**
@@ -70,7 +70,9 @@ public class EventHandler implements ActionListener {
 				if (gui.KId.isSelected() == true) {
 					gui.setSpielerArt("DEFENSIV");
 				}
-				bediener.SpielerHinzufuegen(gui.getSpielerName(), gui.getSpielerFarbe(), gui.getSpielerArt());
+				gui.nameFarbeArtUebergeben();
+				gui.frame02.dispose();
+				gui.log("SpielerName: "+ gui.getSpielerName() + "SpielerFarbe:" + gui.getSpielerFarbe() + "SpielerArt:" + gui.getSpielerArt());
 				break;
 			case "Spiel laden":
 				gui.spielLaden();
@@ -80,6 +82,8 @@ public class EventHandler implements ActionListener {
 //			case "als PDF speichern" : ...... break;
 //			case "Figur vor": ........break;
 //			case "Werfeln" : ..... break;
+//			case "Erste Fuellung" : ...... break;
+			
 				
 			}
 	}

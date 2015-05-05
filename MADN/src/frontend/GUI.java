@@ -58,6 +58,7 @@ public class GUI extends JFrame {
 	JRadioButton KIa;
 	JRadioButton KId;
 	JFrame frame;
+	JFrame frame02;
 	private JFrame jf = new JFrame("SPIEL");
 	private EventHandler eh;
 	private int spAnzahl; // spielerAnzahl die im Spinner gewählt wird
@@ -214,7 +215,7 @@ public class GUI extends JFrame {
 		 * JOptionPAne um Name, Farbe und Art des Spielers abzufragen
 		 */
 
-		JFrame frame02 = new JFrame("Spieler erstellen");
+		frame02 = new JFrame("Spieler erstellen");
 		frame02.setLayout(new GridLayout(2, 0));
 		frame02.setSize(400, 210);
 		frame02.setResizable(false);
@@ -270,7 +271,7 @@ public class GUI extends JFrame {
 //		spielerName = feld01.getText(); // gibt den eingegebenen Spielernamen
 										// aus
 			
-				nameFarbeArtUebergeben(); // beim klick auf den button werden
+//				nameFarbeArtUebergeben(); // beim klick auf den button werden
 											// die daten uebergeben
 
 				// if (bediener.getA() == false) {
