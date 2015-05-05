@@ -940,11 +940,6 @@ public class GUI extends JFrame {
 		 buttonArray[71].setIcon( kreis );
 		
 	}
-	
-	
-		
-		
-
 	public void setButtonText(int nummer, String text) {
 		buttonArray[nummer - 1].setText(text);
 	}

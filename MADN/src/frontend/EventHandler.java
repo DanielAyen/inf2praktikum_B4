@@ -77,7 +77,9 @@ public class EventHandler implements ActionListener {
 				break;
 			case "neues Spiel erstellen":
 				gui.anzahlSpielerDieSpielenWollenAbfrage(); break;
-//			case "als PDF speichern" : 
+//			case "als PDF speichern" : ...... break;
+//			case "Figur vor": ........break;
+//			case "Werfeln" : ..... break;
 				
 			}
 	}
