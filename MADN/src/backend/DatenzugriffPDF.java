@@ -1,8 +1,19 @@
 package backend;
 
+import java.io.BufferedReader;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Properties;
+import java.io.InputStreamReader;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+
+import frontend.iAnzeige;
 import frontend.iDatenzugriff;
 
 /**
@@ -11,23 +22,44 @@ import frontend.iDatenzugriff;
  *
  */
 public class DatenzugriffPDF implements iDatenzugriff {
+	private iAnzeige logger;
 
-//	/**
-//	 * oeffnet die PDF
-//	 */
-//	@Override
-//	public void oeffnen(Properties p) throws IOException {
-//		// TODO Auto-generated method stub
-//
-//	}
+	// private Document doc;
+	// private String dateiname;
+
+	// public void setDateiname(String dateiname) {
+	// this.dateiname = dateiname;
+	// }
 
 	/**
 	 * speichert / schreibt die PDF
+	 * 
+	 * @return
+	 * @throws IOException
 	 */
 	@Override
 	public void speichern(String dateiname, String dateiende, Object o)
 			throws IOException {
-		// TODO Auto-generated method stub
+
+		// try {
+		// if (o instanceof Object[][]) {
+		// Object[][] array = (Object[][]) o;
+		// PdfPTable tabelle = new PdfPTable(array[0].length);
+		// PdfPCell zelle;
+		//
+		// for (int i = 0; i < array.length; i++) {
+		// for (int j = 0; j < array[i].length; j++) {
+		// zelle = new PdfPCell(new Phrase(array[i][j].toString()));
+		// tabelle.addCell(zelle);
+		// }
+		// }
+		// doc.add(tabelle);
+		// } else {
+		// doc.add(new Paragraph(o.toString()));
+		// }
+		// } catch (DocumentException fehler) {
+		// throw new IOException("PDF konnte nicht erstellt werden", fehler);
+		// }
 
 	}
 
@@ -36,29 +68,7 @@ public class DatenzugriffPDF implements iDatenzugriff {
 	 */
 	@Override
 	public Object laden(String dateiname) {
-		// TODO Auto-generated method stub
-		return null;
+		return dateiname;
 	}
-
-	// @Override
-	// public void schreiben(Object object) throws IOException {
-	// // TODO Auto-generated method stub
-	//
-	// }
-	//
-	// @Override
-	// public Object lesen() throws IOException {
-	// // TODO Auto-generated method stub
-	// return null;
-	// }
-
-	/**
-	 * schliesst die PDF
-	 */
-//	@Override
-//	public void schliessen(Object object) throws IOException {
-//		// TODO Auto-generated method stub
-//
-//	}
 
 }

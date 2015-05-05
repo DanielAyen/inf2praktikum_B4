@@ -35,11 +35,19 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+
 import backend.Spiel;
 import backend.Wuerfel;
 
 import java.awt.event.*;
 import java.awt.geom.Ellipse2D;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 /**
  * Die Klasse GUI
@@ -77,7 +85,7 @@ public class GUI extends JFrame {
 	private JTextArea ta = new JTextArea(10, 20);// fuer die Loggerfeld groesse
 	private JScrollPane scroller;
 	private boolean hatGewuerfelt;
-	
+
 	/**
 	 * Konstruktor GUI
 	 */
@@ -191,7 +199,7 @@ public class GUI extends JFrame {
 		JPanel panel = new JPanel(new BorderLayout());
 		JButton button01 = new JButton("OK");
 
-//		log("Spieler erstellen: Spielerzahl waehlen");
+		// log("Spieler erstellen: Spielerzahl waehlen");
 		// button01.setLayout(new FlowLayout());
 
 		// button01.setPreferredSize(new Dimension(5,10));
@@ -208,7 +216,7 @@ public class GUI extends JFrame {
 		button01.addActionListener(eh);
 		frame.setVisible(true);
 	}
-	
+
 	public void nameFarbeArtAbfrage() {
 
 		/**
@@ -241,7 +249,7 @@ public class GUI extends JFrame {
 		RBGREEN = new JRadioButton("GREEN");
 		RBBLUE = new JRadioButton("BLUE");
 		RBYELLOW = new JRadioButton("YELLOW");
-		
+
 		ButtonGroup group = new ButtonGroup();
 		group.add(RBRED);
 		group.add(RBGREEN);
@@ -268,16 +276,15 @@ public class GUI extends JFrame {
 		panel02.add(KId);
 		panel02.add(button02, BorderLayout.SOUTH);
 
-//		spielerName = feld01.getText(); // gibt den eingegebenen Spielernamen
-										// aus
-			
-//				nameFarbeArtUebergeben(); // beim klick auf den button werden
-											// die daten uebergeben
+		// spielerName = feld01.getText(); // gibt den eingegebenen Spielernamen
+		// aus
 
-				// if (bediener.getA() == false) {
-				// frame02.dispose();
-				// } // schliesst den frame beim klick auf button
-			
+		// nameFarbeArtUebergeben(); // beim klick auf den button werden
+		// die daten uebergeben
+
+		// if (bediener.getA() == false) {
+		// frame02.dispose();
+		// } // schliesst den frame beim klick auf button
 
 		frame02.setVisible(true);
 	}
@@ -477,12 +484,36 @@ public class GUI extends JFrame {
 		neu.addActionListener(eh);
 		MenuItem speichern = new MenuItem("als PDF speichern");
 		spiel.add(speichern);
+		speichern.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				try {
+					PDFerstellen();
+				} catch (IOException | DocumentException e1) {
+					e1.printStackTrace();
+				}
+
+			}
+		});
+
 		menueLeiste.add(spiel);
 
 		Menu hilfe = new Menu("Hilfe"); // zweiter Knopf
 		menueLeiste.add(hilfe);
 
 		return menueLeiste;
+	}
+
+	public void PDFerstellen() throws FileNotFoundException, DocumentException {
+
+		Document doc = new Document();
+		PdfWriter.getInstance(doc, new FileOutputStream("MADN Spiel PDF.pdf"));
+		doc.open();
+
+		Paragraph p = new Paragraph("hier muss das spielfeld sein...");
+		doc.add(p);
+
+		log("PDF wurde erstellt. Projekt bitte refreshen.");
+		doc.close();
 	}
 
 	// /////////////////////////////////////Alle Feld
@@ -509,12 +540,11 @@ public class GUI extends JFrame {
 		setButtonText(14, "SFG2");
 		setButtonText(15, "SFG3");
 		setButtonText(16, "SFG4");
-		
+
 		setButtonText(9, "SFY1");
 		setButtonText(10, "SFY2");
 		setButtonText(11, "SFY3");
 		setButtonText(12, "SFY4");
-		
 
 		for (int x = 17; x <= 56; x++) {
 			int y = x - 16;
@@ -865,96 +895,93 @@ public class GUI extends JFrame {
 		buttonArray[59].setBounds(492 + insets.left, 363 + insets.top,
 				size.width, size.height);
 		buttonArray[59].setSize(35, 35);
-		
-		//EB
-		
+
+		// EB
+
 		size = buttonArray[60].getPreferredSize();
 		buttonArray[60].setBounds(545 + insets.left, 151 + insets.top,
 				size.width, size.height);
 		buttonArray[60].setSize(35, 35);
-		
+
 		size = buttonArray[61].getPreferredSize();
 		buttonArray[61].setBounds(545 + insets.left, 204 + insets.top,
 				size.width, size.height);
 		buttonArray[61].setSize(35, 35);
-		
+
 		size = buttonArray[62].getPreferredSize();
 		buttonArray[62].setBounds(545 + insets.left, 257 + insets.top,
 				size.width, size.height);
 		buttonArray[62].setSize(35, 35);
-		
+
 		size = buttonArray[63].getPreferredSize();
 		buttonArray[63].setBounds(545 + insets.left, 310 + insets.top,
 				size.width, size.height);
 		buttonArray[63].setSize(35, 35);
-		
-		
-		//EG
-		
-		
+
+		// EG
+
 		size = buttonArray[64].getPreferredSize();
 		buttonArray[64].setBounds(755 + insets.left, 363 + insets.top,
 				size.width, size.height);
 		buttonArray[64].setSize(35, 35);
-		
+
 		size = buttonArray[65].getPreferredSize();
 		buttonArray[65].setBounds(702 + insets.left, 363 + insets.top,
 				size.width, size.height);
 		buttonArray[65].setSize(35, 35);
-		
+
 		size = buttonArray[66].getPreferredSize();
 		buttonArray[66].setBounds(649 + insets.left, 363 + insets.top,
 				size.width, size.height);
 		buttonArray[66].setSize(35, 35);
-		
+
 		size = buttonArray[67].getPreferredSize();
 		buttonArray[67].setBounds(596 + insets.left, 363 + insets.top,
 				size.width, size.height);
 		buttonArray[67].setSize(35, 35);
-		
-		
-		//EY
-		
+
+		// EY
 
 		size = buttonArray[68].getPreferredSize();
 		buttonArray[68].setBounds(545 + insets.left, 575 + insets.top,
 				size.width, size.height);
 		buttonArray[68].setSize(35, 35);
-		
+
 		size = buttonArray[69].getPreferredSize();
 		buttonArray[69].setBounds(545 + insets.left, 522 + insets.top,
 				size.width, size.height);
 		buttonArray[69].setSize(35, 35);
-		
+
 		size = buttonArray[70].getPreferredSize();
 		buttonArray[70].setBounds(545 + insets.left, 469 + insets.top,
 				size.width, size.height);
 		buttonArray[70].setSize(35, 35);
-		
+
 		size = buttonArray[71].getPreferredSize();
 		buttonArray[71].setBounds(545 + insets.left, 416 + insets.top,
 				size.width, size.height);
 		buttonArray[71].setSize(35, 35);
-		
+
 		ImageIcon kreisY = new ImageIcon("Bilder//KreisY.gif");
-	
 
-		 buttonArray[68].setText(null);
-		 buttonArray[68].setIcon( kreisY );
-		 
-		 buttonArray[69].setText(null);
-		 buttonArray[69].setIcon( kreisY );
+		buttonArray[68].setText(null);
+		buttonArray[68].setIcon(kreisY);
 
-		 buttonArray[70].setText(null);
-		 buttonArray[70].setIcon( kreisY );
-		 
-		 buttonArray[71].setText(null);
-		 buttonArray[71].setIcon( kreisY );
-		
+		buttonArray[69].setText(null);
+		buttonArray[69].setIcon(kreisY);
+
+		buttonArray[70].setText(null);
+		buttonArray[70].setIcon(kreisY);
+
+		buttonArray[71].setText(null);
+		buttonArray[71].setIcon(kreisY);
+
 	}
+
 	public void setButtonText(int nummer, String text) {
 		buttonArray[nummer - 1].setText(text);
 	}
+
 	public void setSpielerArt(String SpielerArt) {
 		spielerArt = SpielerArt;
 	}
@@ -962,6 +989,7 @@ public class GUI extends JFrame {
 	public void setSpielerFarbe(String SpielerFarbe) {
 		this.spielerFarbe = SpielerFarbe;
 	}
+
 	public String getSpielerName() {
 		return spielerName;
 	}
@@ -973,9 +1001,11 @@ public class GUI extends JFrame {
 	public String getSpielerArt() {
 		return spielerArt;
 	}
+
 	public void setSpielerName(String spielerName) {
 		this.spielerName = spielerName;
 	}
+
 	/**
 	 * 
 	 * @return spAnzahl Anzahl aller Spieler
@@ -983,6 +1013,7 @@ public class GUI extends JFrame {
 	public int getSpAnz() {
 		return spAnzahl;
 	}
+
 	public void setSpAnzahl(int spAnzahl) {
 		this.spAnzahl = spAnzahl;
 	}

@@ -12,10 +12,6 @@ public interface iDatenzugriff {
 	
 	Object laden(String dateiname);
 	
-	//void oeffnen(Properties p) throws IOException;
-	//void schreiben(Object object) throws IOException; --> speichern
-	//Object lesen() throws IOException; --> laden
-	//void schliessen(Object object) throws IOException;
 
 
 }
