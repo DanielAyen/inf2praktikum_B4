@@ -7,8 +7,10 @@ import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import frontend.iAnzeige;
 import frontend.iBediener;
 import frontend.iDatenzugriff;
+import frontend.iMeldung;
 
 /**
  * Spiel Klasse dient zum "starten" des Spiels
@@ -16,7 +18,7 @@ import frontend.iDatenzugriff;
  * @author Judith, Michi, Doerte, Tobi,
  *
  */
-public class Spiel implements iBediener, Serializable {
+public class Spiel implements iBediener, Serializable, iMeldung, iAnzeige {
 
 	private static final long serialVersionUID = 1L;
 	private Spielbrett brett;
@@ -30,6 +32,8 @@ public class Spiel implements iBediener, Serializable {
 	private static boolean a;
 	private Wuerfel w = new Wuerfel ();
 
+	
+	private String text1;
 	/*
 	 * Konstruktor der Spielklasse Spielbrett, Regelwerk und Spieler werden
 	 * initialisiert
@@ -448,6 +452,18 @@ public class Spiel implements iBediener, Serializable {
 	}
 	public int wurf(){
 		return w.wuerfeln();
+	}
+	
+	//Fuer Meldung u Anzeige
+	
+	@Override 
+	public String setLogger(String text){
+		text1=text;
+		return text1;
+	}
+	@Override
+	public String getLogger(){
+		return text1;
 	}
 	
 
