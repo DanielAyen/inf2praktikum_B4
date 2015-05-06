@@ -8,6 +8,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.Insets;
 import java.awt.Menu;
 import java.awt.MenuBar;
@@ -36,10 +37,6 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfWriter;
 
 import backend.Spiel;
 import backend.Wuerfel;
@@ -353,7 +350,9 @@ public class GUI extends JFrame {
 	 */
 	public void spielfeldAnzeigen() {
 
-		ImageIcon feld = new ImageIcon("Bilder//spielbrett.jpg");
+		// ImageIcon feld = new ImageIcon("Bilder//spielbrett.jpg");
+		ImageIcon feld = new ImageIcon("Bilder//feldU.gif");
+
 		hauptf.setLocation(200, 50);
 		hauptf.setMenuBar(this.getMenuOben()); // erstellt Menue oben
 
@@ -453,6 +452,7 @@ public class GUI extends JFrame {
 
 		// Spielfiguren anzeigen figuren abfragen und setzten
 	}
+
 
 	/**
 	 * 
