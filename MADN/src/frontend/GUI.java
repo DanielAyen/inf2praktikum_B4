@@ -55,7 +55,7 @@ import java.io.IOException;
  *
  */
 
-public class GUI extends JFrame {
+public class GUI extends JFrame implements iMeldung{
 	JTextField feld01;
 	JSpinner spinner;
 	JRadioButton RBRED;
@@ -90,6 +90,7 @@ public class GUI extends JFrame {
 	private final int y = 35;
 	private final int a = 53;
 	private final int b =  3;
+	private final int c =  3;
 
 	/**
 	 * Konstruktor GUI
@@ -364,7 +365,7 @@ public class GUI extends JFrame {
 		hauptf.setLocation(GetScreenWorkingWidth()/16, GetScreenWorkingHeight()/14);
 		hauptf.setMenuBar(this.getMenuOben()); // erstellt Menue oben
 
-		hauptf.setSize(GetScreenWorkingWidth()-100, GetScreenWorkingHeight()-50);
+		hauptf.setSize(GetScreenWorkingWidth()-450, GetScreenWorkingHeight()-50);   
 		//hauptf.setExtendedState(Frame.MAXIMIZED_BOTH);
 		// hauptf.setSize(1250, 1000);
 		JLabel hauptl = new JLabel(feld);
@@ -468,8 +469,9 @@ public class GUI extends JFrame {
 	 * @param text
 	 *            wird im Logger gezeigt
 	 */
+	@Override
 	public void log(String text) {
-		ta.setText(text + "\n" + ta.getText());// Wenn etwas im Logger gezweigt
+		ta.setText(ta.getText()+ "\n" +text);// Wenn etwas im Logger gezweigt
 												// werden soll einfach
 												// log("inhalt"); aufrufen!
 	}
@@ -572,281 +574,276 @@ public class GUI extends JFrame {
 			pane.add(buttonArray[i]);
 		}
 		// SR
-		Insets insets = pane.getInsets();
-		Dimension size = buttonArray[0].getPreferredSize();
-
-		
-		// SR
 		
 		
-		buttonArray[0].setBounds(GetScreenWorkingWidth() / 2 - 5 * a,
-				GetScreenWorkingHeight() / b - 5 * a, x, y);
-		buttonArray[0].setIcon(Rot);
+				buttonArray[0].setBounds(GetScreenWorkingWidth() / c - 5 * a,
+						GetScreenWorkingHeight() / b - 5 * a, x, y);
+				buttonArray[0].setIcon(Rot);
 
-		buttonArray[1].setBounds(GetScreenWorkingWidth() / 2 - 5 * a,
-				GetScreenWorkingHeight() / b - 4 * a, x, y);
-		buttonArray[1].setIcon(Rot);
-
-		buttonArray[2].setBounds(GetScreenWorkingWidth() / 2 - 4 * a,
-				GetScreenWorkingHeight() / b - 5 * a, x, y);
-		buttonArray[2].setIcon(Rot);
-
-		buttonArray[3].setBounds(GetScreenWorkingWidth() / 2 - 4 * a,
-				GetScreenWorkingHeight() / b - 4 * a, x, y);
-		buttonArray[3].setIcon(Rot);
-		
-
-		// SB
-
-		buttonArray[4].setBounds(GetScreenWorkingWidth() / 2 + 4 * a,
-				GetScreenWorkingHeight() / b - 5 * a, x, y);
-		buttonArray[4].setIcon(Blau);
-
-		buttonArray[5].setBounds(GetScreenWorkingWidth() / 2 + 5 * a,
-				GetScreenWorkingHeight() / b - 5 * a, x, y);
-		buttonArray[5].setIcon(Blau);
-
-		buttonArray[6].setBounds(GetScreenWorkingWidth() / 2 + 4 * a,
-				GetScreenWorkingHeight() / b - 4 * a, x, y);
-		buttonArray[6].setIcon(Blau);
-
-		buttonArray[7].setBounds(GetScreenWorkingWidth() / 2 + 5 * a,
-				GetScreenWorkingHeight() / b - 4 * a, x, y);
-		buttonArray[7].setIcon(Blau);
-
-		// SY
-		buttonArray[8].setBounds(GetScreenWorkingWidth() / 2 - 5 * a,
-				GetScreenWorkingHeight() / b + 4 * a, x, y);
-		buttonArray[8].setIcon(Gelb);
-
-		buttonArray[9].setBounds(GetScreenWorkingWidth() / 2 - 4 * a,
-				GetScreenWorkingHeight() / b + 4 * a, x, y);
-		buttonArray[9].setIcon(Gelb);
-
-		buttonArray[10].setBounds(GetScreenWorkingWidth() / 2 - 4 * a,
-				GetScreenWorkingHeight() / b + 5 * a, x, y);
-		buttonArray[10].setIcon(Gelb);
-
-		buttonArray[11].setBounds(GetScreenWorkingWidth() / 2 - 5 * a,
-				GetScreenWorkingHeight() / b + 5 * a, x, y);
-		buttonArray[11].setIcon(Gelb);
-
-		// SG
-
-		buttonArray[12].setBounds(GetScreenWorkingWidth() / 2 + 4 * a,
-				GetScreenWorkingHeight() / b + 4 * a, x, y);
-		buttonArray[12].setIcon(Gruen);
-
-		buttonArray[13].setBounds(GetScreenWorkingWidth() / 2 + 5 * a,
-				GetScreenWorkingHeight() / b + 4 * a, x, y);
-		buttonArray[13].setIcon(Gruen);
-
-		buttonArray[14].setBounds(GetScreenWorkingWidth() / 2 + 4 * a,
-				GetScreenWorkingHeight() / b + 5 * a, x, y);
-		buttonArray[14].setIcon(Gruen);
-
-		buttonArray[15].setBounds(GetScreenWorkingWidth() / 2 + 5 * a,
-				GetScreenWorkingHeight() / b + 5 * a, x, y);
-		buttonArray[15].setIcon(Gruen);
-
-		for (int x = 16; x <= 56; x++) {
-			buttonArray[x].setIcon(feldn);
-
-		}
-
-		// F
-				buttonArray[16].setBounds(GetScreenWorkingWidth() / 2 - 5 * a,
-						GetScreenWorkingHeight() / b - a, x, y);
-
-				buttonArray[17].setBounds(GetScreenWorkingWidth() / 2 - 4 * a,
-						GetScreenWorkingHeight() / b - a, x, y);
-
-				buttonArray[18].setBounds(GetScreenWorkingWidth() / 2 - 3 * a,
-						GetScreenWorkingHeight() / b - a, x, y);
-
-				buttonArray[19].setBounds(GetScreenWorkingWidth() / 2 - 2 * a,
-						GetScreenWorkingHeight() / b - a, x, y);
-
-				buttonArray[20].setBounds(GetScreenWorkingWidth() / 2 - 1 * a,
-						GetScreenWorkingHeight() / b - a, x, y);
-
-				buttonArray[21].setBounds(GetScreenWorkingWidth() / 2 - a,
-						GetScreenWorkingHeight() / b - 2 * a, x, y);
-
-				buttonArray[22].setBounds(GetScreenWorkingWidth() / 2 - a,
-						GetScreenWorkingHeight() / b - 3 * a, x, y);
-
-				buttonArray[23].setBounds(GetScreenWorkingWidth() / 2 - a,
+				buttonArray[1].setBounds(GetScreenWorkingWidth() / c - 5 * a,
 						GetScreenWorkingHeight() / b - 4 * a, x, y);
+				buttonArray[1].setIcon(Rot);
 
-				buttonArray[24].setBounds(GetScreenWorkingWidth() / 2 - a,
+				buttonArray[2].setBounds(GetScreenWorkingWidth() / c - 4 * a,
 						GetScreenWorkingHeight() / b - 5 * a, x, y);
+				buttonArray[2].setIcon(Rot);
 
-				buttonArray[25].setBounds(GetScreenWorkingWidth() / 2 + 0 * a,
-						GetScreenWorkingHeight() / b - 5 * a, x, y);
-
-				buttonArray[26].setBounds(GetScreenWorkingWidth() / 2 + 1 * a,		
-						GetScreenWorkingHeight() / b - 5 * a, x, y);
+				buttonArray[3].setBounds(GetScreenWorkingWidth() / c - 4 * a,
+						GetScreenWorkingHeight() / b - 4 * a, x, y);
+				buttonArray[3].setIcon(Rot);
 				
 
-				buttonArray[27].setBounds(GetScreenWorkingWidth() / 2 + 1 * a,		
+				// SB
+
+				buttonArray[4].setBounds(GetScreenWorkingWidth() / c + 4 * a,
+						GetScreenWorkingHeight() / b - 5 * a, x, y);
+				buttonArray[4].setIcon(Blau);
+
+				buttonArray[5].setBounds(GetScreenWorkingWidth() / c + 5 * a,
+						GetScreenWorkingHeight() / b - 5 * a, x, y);
+				buttonArray[5].setIcon(Blau);
+
+				buttonArray[6].setBounds(GetScreenWorkingWidth() / c + 4 * a,
 						GetScreenWorkingHeight() / b - 4 * a, x, y);
+				buttonArray[6].setIcon(Blau);
 
-				buttonArray[28].setBounds(GetScreenWorkingWidth() / 2 + 1 * a,		
-						GetScreenWorkingHeight() / b - 3 * a, x, y);
-
-				buttonArray[29].setBounds(GetScreenWorkingWidth() / 2 + 1 * a,		
-						GetScreenWorkingHeight() / b - 2 * a, x, y);
-
-				buttonArray[30].setBounds(GetScreenWorkingWidth() / 2 + 1 * a,		
-						GetScreenWorkingHeight() / b - 1 * a, x, y);
-
-				buttonArray[31].setBounds(GetScreenWorkingWidth() / 2 + 2 * a,		
-						GetScreenWorkingHeight() / b - 1 * a, x, y);
-
-				buttonArray[32].setBounds(GetScreenWorkingWidth() / 2 + 3 * a,		
-						GetScreenWorkingHeight() / b - 1 * a, x, y);
-
-				buttonArray[33].setBounds(GetScreenWorkingWidth() / 2 + 4 * a,		
-						GetScreenWorkingHeight() / b - 1 * a, x, y);
-
-				buttonArray[34].setBounds(GetScreenWorkingWidth() / 2 + 5 * a,		
-						GetScreenWorkingHeight() / b - 1 * a, x, y);
-
-				buttonArray[35].setBounds(GetScreenWorkingWidth() / 2 + 5 * a,		
-						GetScreenWorkingHeight() / b + 0 * a, x, y);
-
-				buttonArray[36].setBounds(GetScreenWorkingWidth() / 2 + 5 * a,		
-						GetScreenWorkingHeight() / b + 1 * a, x, y);
-
-				buttonArray[37].setBounds(GetScreenWorkingWidth() / 2 + 4 * a,		
-						GetScreenWorkingHeight() / b + 1 * a, x, y);
-
-				buttonArray[38].setBounds(GetScreenWorkingWidth() / 2 + 3 * a,		
-						GetScreenWorkingHeight() / b + 1 * a, x, y);
-
-				buttonArray[39].setBounds(GetScreenWorkingWidth() / 2 + 2 * a,		
-						GetScreenWorkingHeight() / b + 1 * a, x, y);
-
-				buttonArray[40].setBounds(GetScreenWorkingWidth() / 2 + 1 * a,		
-						GetScreenWorkingHeight() / b + 1 * a, x, y);
-
-				buttonArray[41].setBounds(GetScreenWorkingWidth() / 2 + 1 * a,		
-						GetScreenWorkingHeight() / b + 2 * a, x, y);
-
-				buttonArray[42].setBounds(GetScreenWorkingWidth() / 2 + 1 * a,		
-						GetScreenWorkingHeight() / b + 3 * a, x, y);
-
-				buttonArray[43].setBounds(GetScreenWorkingWidth() / 2 + 1 * a,		
-						GetScreenWorkingHeight() / b + 4 * a, x, y);
-
-				buttonArray[44].setBounds(GetScreenWorkingWidth() / 2 + 1 * a,		
-						GetScreenWorkingHeight() / b + 5 * a, x, y);
-
-				buttonArray[45].setBounds(GetScreenWorkingWidth() / 2 + 0 * a,		
-						GetScreenWorkingHeight() / b + 5 * a, x, y);
-
-				buttonArray[46].setBounds(GetScreenWorkingWidth() / 2 - 1 * a,		
-						GetScreenWorkingHeight() / b + 5 * a, x, y);
-
-				buttonArray[47].setBounds(GetScreenWorkingWidth() / 2 - 1 * a,		
-						GetScreenWorkingHeight() / b + 4 * a, x, y);
-
-				buttonArray[48].setBounds(GetScreenWorkingWidth() / 2 - 1 * a,		
-						GetScreenWorkingHeight() / b + 3 * a, x, y);
-
-				buttonArray[49].setBounds(GetScreenWorkingWidth() / 2 - 1 * a,		
-						GetScreenWorkingHeight() / b + 2 * a, x, y);
-
-				buttonArray[50].setBounds(GetScreenWorkingWidth() / 2 - 1 * a,		
-						GetScreenWorkingHeight() / b + 1 * a, x, y);
-
-				buttonArray[51].setBounds(GetScreenWorkingWidth() / 2 - 2 * a,		
-						GetScreenWorkingHeight() / b + 1 * a, x, y);
-
-				buttonArray[52].setBounds(GetScreenWorkingWidth() / 2 - 3 * a,		
-						GetScreenWorkingHeight() / b + 1 * a, x, y);
-
-				buttonArray[a].setBounds(GetScreenWorkingWidth() / 2 -  4 * a,		
-						GetScreenWorkingHeight() / b + 1 * a, x, y);
-
-				buttonArray[54].setBounds(GetScreenWorkingWidth() / 2 - 5 * a,		
-						GetScreenWorkingHeight() / b + 1 * a, x, y);
-
-				buttonArray[55].setBounds(GetScreenWorkingWidth() / 2 - 5 * a,		
-						GetScreenWorkingHeight() / b + 0 * a, x, y);
-
-				// ER
-
-				buttonArray[56].setBounds(GetScreenWorkingWidth() / 2 - 4 * a,
-						GetScreenWorkingHeight() / b, x, y);
-				buttonArray[56].setIcon(Rot);
-
-				buttonArray[57].setBounds(GetScreenWorkingWidth() / 2 - 3 * a,
-						GetScreenWorkingHeight() / b, x, y);
-				buttonArray[57].setIcon(Rot);
-
-				buttonArray[58].setBounds(GetScreenWorkingWidth() / 2 - 2 * a,
-						GetScreenWorkingHeight() / b, x, y);
-				buttonArray[58].setIcon(Rot);
-
-				buttonArray[59].setBounds(GetScreenWorkingWidth() / 2 - 1 * a,
-						GetScreenWorkingHeight() / b, x, y);
-				buttonArray[59].setIcon(Rot);
-
-				// EB
-
-				buttonArray[60].setBounds(GetScreenWorkingWidth() / 2,
+				buttonArray[7].setBounds(GetScreenWorkingWidth() / c + 5 * a,
 						GetScreenWorkingHeight() / b - 4 * a, x, y);
-				buttonArray[60].setIcon(Blau);
+				buttonArray[7].setIcon(Blau);
 
-				buttonArray[61].setBounds(GetScreenWorkingWidth() / 2,
-						GetScreenWorkingHeight() / b - 3 * a, x, y);
-				buttonArray[61].setIcon(Blau);
-
-				buttonArray[62].setBounds(GetScreenWorkingWidth() / 2,
-						GetScreenWorkingHeight() / b - 2 * a, x, y);
-				buttonArray[62].setIcon(Blau);
-
-				buttonArray[63].setBounds(GetScreenWorkingWidth() / 2,
-						GetScreenWorkingHeight() / b - 1 * a, x, y);
-				buttonArray[63].setIcon(Blau);
-
-				// EG
-
-				buttonArray[64].setBounds(GetScreenWorkingWidth() / 2 + 4 * a,
-						GetScreenWorkingHeight() / b, x, y);
-				buttonArray[64].setIcon(Gruen);
-
-				buttonArray[65].setBounds(GetScreenWorkingWidth() / 2 + 3 * a,
-						GetScreenWorkingHeight() / b, x, y);
-				buttonArray[65].setIcon(Gruen);
-
-				buttonArray[66].setBounds(GetScreenWorkingWidth() / 2 + 2 * a,
-						GetScreenWorkingHeight() / b, x, y);
-				buttonArray[66].setIcon(Gruen);
-
-				buttonArray[67].setBounds(GetScreenWorkingWidth() / 2 + 1 * a,
-						GetScreenWorkingHeight() / b, x, y);
-				buttonArray[67].setIcon(Gruen);
-
-				// EY
-
-				buttonArray[68].setBounds(GetScreenWorkingWidth() / 2,
+				// SY
+				buttonArray[8].setBounds(GetScreenWorkingWidth() / c - 5 * a,
 						GetScreenWorkingHeight() / b + 4 * a, x, y);
-				buttonArray[71].setIcon(Gelb);
+				buttonArray[8].setIcon(Gelb);
 
-				buttonArray[69].setBounds(GetScreenWorkingWidth() / 2,
-						GetScreenWorkingHeight() / b + 3 * a, x, y);
-				buttonArray[71].setIcon(Gelb);
+				buttonArray[9].setBounds(GetScreenWorkingWidth() / c - 4 * a,
+						GetScreenWorkingHeight() / b + 4 * a, x, y);
+				buttonArray[9].setIcon(Gelb);
 
-				buttonArray[70].setBounds(GetScreenWorkingWidth() / 2,
-						GetScreenWorkingHeight() / b + 2 * a, x, y);
-				buttonArray[71].setIcon(Gelb);
+				buttonArray[10].setBounds(GetScreenWorkingWidth() / c - 4 * a,
+						GetScreenWorkingHeight() / b + 5 * a, x, y);
+				buttonArray[10].setIcon(Gelb);
 
-				buttonArray[71].setBounds(GetScreenWorkingWidth() / 2,
-						GetScreenWorkingHeight() / b + 1 * a, x, y);
-				buttonArray[71].setIcon(Gelb);
+				buttonArray[11].setBounds(GetScreenWorkingWidth() / c - 5 * a,
+						GetScreenWorkingHeight() / b + 5 * a, x, y);
+				buttonArray[11].setIcon(Gelb);
+
+				// SG
+
+				buttonArray[12].setBounds(GetScreenWorkingWidth() / c + 4 * a,
+						GetScreenWorkingHeight() / b + 4 * a, x, y);
+				buttonArray[12].setIcon(Gruen);
+
+				buttonArray[13].setBounds(GetScreenWorkingWidth() / c + 5 * a,
+						GetScreenWorkingHeight() / b + 4 * a, x, y);
+				buttonArray[13].setIcon(Gruen);
+
+				buttonArray[14].setBounds(GetScreenWorkingWidth() / c + 4 * a,
+						GetScreenWorkingHeight() / b + 5 * a, x, y);
+				buttonArray[14].setIcon(Gruen);
+
+				buttonArray[15].setBounds(GetScreenWorkingWidth() / c + 5 * a,
+						GetScreenWorkingHeight() / b + 5 * a, x, y);
+				buttonArray[15].setIcon(Gruen);
+
+				for (int x = 16; x <= 56; x++) {
+					buttonArray[x].setIcon(feldn);
+
+				}
+
+				// F
+						buttonArray[16].setBounds(GetScreenWorkingWidth() / c - 5 * a,
+								GetScreenWorkingHeight() / b - a, x, y);
+
+						buttonArray[17].setBounds(GetScreenWorkingWidth() / c - 4 * a,
+								GetScreenWorkingHeight() / b - a, x, y);
+
+						buttonArray[18].setBounds(GetScreenWorkingWidth() / c - 3 * a,
+								GetScreenWorkingHeight() / b - a, x, y);
+
+						buttonArray[19].setBounds(GetScreenWorkingWidth() / c - 2 * a,
+								GetScreenWorkingHeight() / b - a, x, y);
+
+						buttonArray[20].setBounds(GetScreenWorkingWidth() / c - 1 * a,
+								GetScreenWorkingHeight() / b - a, x, y);
+
+						buttonArray[21].setBounds(GetScreenWorkingWidth() / c - a,
+								GetScreenWorkingHeight() / b - 2 * a, x, y);
+
+						buttonArray[22].setBounds(GetScreenWorkingWidth() / c - a,
+								GetScreenWorkingHeight() / b - 3 * a, x, y);
+
+						buttonArray[23].setBounds(GetScreenWorkingWidth() / c - a,
+								GetScreenWorkingHeight() / b - 4 * a, x, y);
+
+						buttonArray[24].setBounds(GetScreenWorkingWidth() / c - a,
+								GetScreenWorkingHeight() / b - 5 * a, x, y);
+
+						buttonArray[25].setBounds(GetScreenWorkingWidth() / c + 0 * a,
+								GetScreenWorkingHeight() / b - 5 * a, x, y);
+
+						buttonArray[26].setBounds(GetScreenWorkingWidth() / c + 1 * a,		
+								GetScreenWorkingHeight() / b - 5 * a, x, y);
+						
+
+						buttonArray[27].setBounds(GetScreenWorkingWidth() / c + 1 * a,		
+								GetScreenWorkingHeight() / b - 4 * a, x, y);
+
+						buttonArray[28].setBounds(GetScreenWorkingWidth() / c + 1 * a,		
+								GetScreenWorkingHeight() / b - 3 * a, x, y);
+
+						buttonArray[29].setBounds(GetScreenWorkingWidth() / c + 1 * a,		
+								GetScreenWorkingHeight() / b - 2 * a, x, y);
+
+						buttonArray[30].setBounds(GetScreenWorkingWidth() / c + 1 * a,		
+								GetScreenWorkingHeight() / b - 1 * a, x, y);
+
+						buttonArray[31].setBounds(GetScreenWorkingWidth() / c + 2 * a,		
+								GetScreenWorkingHeight() / b - 1 * a, x, y);
+
+						buttonArray[32].setBounds(GetScreenWorkingWidth() / c + 3 * a,		
+								GetScreenWorkingHeight() / b - 1 * a, x, y);
+
+						buttonArray[33].setBounds(GetScreenWorkingWidth() / c + 4 * a,		
+								GetScreenWorkingHeight() / b - 1 * a, x, y);
+
+						buttonArray[34].setBounds(GetScreenWorkingWidth() / c + 5 * a,		
+								GetScreenWorkingHeight() / b - 1 * a, x, y);
+
+						buttonArray[35].setBounds(GetScreenWorkingWidth() / c + 5 * a,		
+								GetScreenWorkingHeight() / b + 0 * a, x, y);
+
+						buttonArray[36].setBounds(GetScreenWorkingWidth() / c + 5 * a,		
+								GetScreenWorkingHeight() / b + 1 * a, x, y);
+
+						buttonArray[37].setBounds(GetScreenWorkingWidth() / c + 4 * a,		
+								GetScreenWorkingHeight() / b + 1 * a, x, y);
+
+						buttonArray[38].setBounds(GetScreenWorkingWidth() / c + 3 * a,		
+								GetScreenWorkingHeight() / b + 1 * a, x, y);
+
+						buttonArray[39].setBounds(GetScreenWorkingWidth() / c + 2 * a,		
+								GetScreenWorkingHeight() / b + 1 * a, x, y);
+
+						buttonArray[40].setBounds(GetScreenWorkingWidth() / c + 1 * a,		
+								GetScreenWorkingHeight() / b + 1 * a, x, y);
+
+						buttonArray[41].setBounds(GetScreenWorkingWidth() / c + 1 * a,		
+								GetScreenWorkingHeight() / b + 2 * a, x, y);
+
+						buttonArray[42].setBounds(GetScreenWorkingWidth() / c + 1 * a,		
+								GetScreenWorkingHeight() / b + 3 * a, x, y);
+
+						buttonArray[43].setBounds(GetScreenWorkingWidth() / c + 1 * a,		
+								GetScreenWorkingHeight() / b + 4 * a, x, y);
+
+						buttonArray[44].setBounds(GetScreenWorkingWidth() / c + 1 * a,		
+								GetScreenWorkingHeight() / b + 5 * a, x, y);
+
+						buttonArray[45].setBounds(GetScreenWorkingWidth() / c + 0 * a,		
+								GetScreenWorkingHeight() / b + 5 * a, x, y);
+
+						buttonArray[46].setBounds(GetScreenWorkingWidth() / c - 1 * a,		
+								GetScreenWorkingHeight() / b + 5 * a, x, y);
+
+						buttonArray[47].setBounds(GetScreenWorkingWidth() / c - 1 * a,		
+								GetScreenWorkingHeight() / b + 4 * a, x, y);
+
+						buttonArray[48].setBounds(GetScreenWorkingWidth() / c - 1 * a,		
+								GetScreenWorkingHeight() / b + 3 * a, x, y);
+
+						buttonArray[49].setBounds(GetScreenWorkingWidth() / c - 1 * a,		
+								GetScreenWorkingHeight() / b + 2 * a, x, y);
+
+						buttonArray[50].setBounds(GetScreenWorkingWidth() / c - 1 * a,		
+								GetScreenWorkingHeight() / b + 1 * a, x, y);
+
+						buttonArray[51].setBounds(GetScreenWorkingWidth() / c - 2 * a,		
+								GetScreenWorkingHeight() / b + 1 * a, x, y);
+
+						buttonArray[52].setBounds(GetScreenWorkingWidth() / c - 3 * a,		
+								GetScreenWorkingHeight() / b + 1 * a, x, y);
+
+						buttonArray[53].setBounds(GetScreenWorkingWidth() / c -  4 * a,		
+								GetScreenWorkingHeight() / b + 1 * a, x, y);
+
+						buttonArray[54].setBounds(GetScreenWorkingWidth() / c - 5 * a,		
+								GetScreenWorkingHeight() / b + 1 * a, x, y);
+
+						buttonArray[55].setBounds(GetScreenWorkingWidth() / c - 5 * a,		
+								GetScreenWorkingHeight() / b + 0 * a, x, y);
+
+						// ER
+
+						buttonArray[56].setBounds(GetScreenWorkingWidth() / c - 4 * a,
+								GetScreenWorkingHeight() / b, x, y);
+						buttonArray[56].setIcon(Rot);
+
+						buttonArray[57].setBounds(GetScreenWorkingWidth() / c - 3 * a,
+								GetScreenWorkingHeight() / b, x, y);
+						buttonArray[57].setIcon(Rot);
+
+						buttonArray[58].setBounds(GetScreenWorkingWidth() / c - 2 * a,
+								GetScreenWorkingHeight() / b, x, y);
+						buttonArray[58].setIcon(Rot);
+
+						buttonArray[59].setBounds(GetScreenWorkingWidth() / c - 1 * a,
+								GetScreenWorkingHeight() / b, x, y);
+						buttonArray[59].setIcon(Rot);
+
+						// EB
+
+						buttonArray[60].setBounds(GetScreenWorkingWidth() / c,
+								GetScreenWorkingHeight() / b - 4 * a, x, y);
+						buttonArray[60].setIcon(Blau);
+
+						buttonArray[61].setBounds(GetScreenWorkingWidth() / c,
+								GetScreenWorkingHeight() / b - 3 * a, x, y);
+						buttonArray[61].setIcon(Blau);
+
+						buttonArray[62].setBounds(GetScreenWorkingWidth() / c,
+								GetScreenWorkingHeight() / b - 2 * a, x, y);
+						buttonArray[62].setIcon(Blau);
+
+						buttonArray[63].setBounds(GetScreenWorkingWidth() / c,
+								GetScreenWorkingHeight() / b - 1 * a, x, y);
+						buttonArray[63].setIcon(Blau);
+
+						// EG
+
+						buttonArray[64].setBounds(GetScreenWorkingWidth() / c + 4 * a,
+								GetScreenWorkingHeight() / b, x, y);
+						buttonArray[64].setIcon(Gruen);
+
+						buttonArray[65].setBounds(GetScreenWorkingWidth() / c + 3 * a,
+								GetScreenWorkingHeight() / b, x, y);
+						buttonArray[65].setIcon(Gruen);
+
+						buttonArray[66].setBounds(GetScreenWorkingWidth() / c + 2 * a,
+								GetScreenWorkingHeight() / b, x, y);
+						buttonArray[66].setIcon(Gruen);
+
+						buttonArray[67].setBounds(GetScreenWorkingWidth() / c + 1 * a,
+								GetScreenWorkingHeight() / b, x, y);
+						buttonArray[67].setIcon(Gruen);
+
+						// EY
+
+						buttonArray[68].setBounds(GetScreenWorkingWidth() / c,
+								GetScreenWorkingHeight() / b + 4 * a, x, y);
+						buttonArray[71].setIcon(Gelb);
+
+						buttonArray[69].setBounds(GetScreenWorkingWidth() / c,
+								GetScreenWorkingHeight() / b + 3 * a, x, y);
+						buttonArray[71].setIcon(Gelb);
+
+						buttonArray[70].setBounds(GetScreenWorkingWidth() / c,
+								GetScreenWorkingHeight() / b + 2 * a, x, y);
+						buttonArray[71].setIcon(Gelb);
+
+						buttonArray[71].setBounds(GetScreenWorkingWidth() / c,
+								GetScreenWorkingHeight() / b + 1 * a, x, y);
+						buttonArray[71].setIcon(Gelb);
 				
 
 		ImageIcon kreisY = new ImageIcon("Bilder//FigurGelb.png");

@@ -471,6 +471,11 @@ public class Spiel implements iBediener, Serializable, iMeldung, iAnzeige {
 	public String getLogger(){
 		return text1;
 	}
+
+	@Override
+	public void log(String text) {
+		
+	}
 	
 
 //____________________testMethoden________________________________________________________________________//
