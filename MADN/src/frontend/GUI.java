@@ -20,6 +20,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import javax.imageio.ImageIO;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -45,6 +46,8 @@ import backend.Wuerfel;
 
 import java.awt.event.*;
 import java.awt.geom.Ellipse2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -486,11 +489,13 @@ public class GUI extends JFrame {
 		spiel.add(speichern);
 		speichern.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
-				try {
-					PDFerstellen();
-				} catch (IOException | DocumentException e1) {
-					e1.printStackTrace();
-				}
+				 try {
+				 screenshotErstellen();
+				 bediener.Speichern("MADN Spiel", "PDF");
+				 // PDFerstellen();
+				 } catch (IOException e1) {
+				 e1.printStackTrace();
+				 }
 
 			}
 		});
@@ -498,22 +503,41 @@ public class GUI extends JFrame {
 		menueLeiste.add(spiel);
 
 		Menu hilfe = new Menu("Hilfe"); // zweiter Knopf
+		MenuItem screenshot = new MenuItem("Screenshot");
+		hilfe.add(screenshot);
+		screenshot.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				screenshotErstellen();
+			}
+		});
+
 		menueLeiste.add(hilfe);
 
 		return menueLeiste;
 	}
 
-	public void PDFerstellen() throws FileNotFoundException, DocumentException {
+	public static BufferedImage getScreenShot(Component component) {
 
-		Document doc = new Document();
-		PdfWriter.getInstance(doc, new FileOutputStream("MADN Spiel PDF.pdf"));
-		doc.open();
+		BufferedImage image = new BufferedImage(component.getWidth(),
+				component.getHeight(), BufferedImage.TYPE_INT_RGB);
+		//  ruft die Komponente der zeichnen Methoden auf
+		// Graphics Object vom Image
+		component.paint(image.getGraphics()); 
+		return image;
+	}
 
-		Paragraph p = new Paragraph("hier muss das spielfeld sein...");
-		doc.add(p);
+	public void screenshotErstellen() {
 
-		log("PDF wurde erstellt. Projekt bitte refreshen.");
-		doc.close();
+		BufferedImage img = getScreenShot(hauptf.getContentPane());
+
+		try {
+			// macht das Bild zu PNG
+			ImageIO.write(img, "png", new File("screenshotSpiel.png"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		log("Screenshot wurde erstellt.");
 	}
 
 	// /////////////////////////////////////Alle Feld

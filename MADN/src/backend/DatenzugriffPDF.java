@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
@@ -41,25 +42,23 @@ public class DatenzugriffPDF implements iDatenzugriff {
 	public void speichern(String dateiname, String dateiende, Object o)
 			throws IOException {
 
-		// try {
-		// if (o instanceof Object[][]) {
-		// Object[][] array = (Object[][]) o;
-		// PdfPTable tabelle = new PdfPTable(array[0].length);
-		// PdfPCell zelle;
-		//
-		// for (int i = 0; i < array.length; i++) {
-		// for (int j = 0; j < array[i].length; j++) {
-		// zelle = new PdfPCell(new Phrase(array[i][j].toString()));
-		// tabelle.addCell(zelle);
-		// }
-		// }
-		// doc.add(tabelle);
-		// } else {
-		// doc.add(new Paragraph(o.toString()));
-		// }
-		// } catch (DocumentException fehler) {
-		// throw new IOException("PDF konnte nicht erstellt werden", fehler);
-		// }
+		Document doc = new Document();
+		try{
+		PdfWriter.getInstance(doc, new FileOutputStream("MADN Spiel PDF.pdf"));
+		doc.open();
+
+		Paragraph p = new Paragraph ("Mensch ärgere dich nicht - Spielstand \n"); //Ueberschrift in der PDF
+		doc.add(p);
+		Image image1 = Image.getInstance("screenshotSpiel.png"); //liest den Screenshot ein
+		image1.scaleAbsolute(700f, 550f); // setzt Bild auf bestimmte Groesse
+		
+        doc.add(image1);
+
+		//log("PDF wurde erstellt. Projekt bitte refreshen.");
+		doc.close();}
+		catch(Exception e){
+		      e.printStackTrace();}
+		
 
 	}
 
