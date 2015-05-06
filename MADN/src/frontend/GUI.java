@@ -6,6 +6,7 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Frame;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.Image;
@@ -36,7 +37,6 @@ import javax.swing.JSpinner;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
-
 
 import backend.Spiel;
 import backend.Wuerfel;
@@ -82,9 +82,13 @@ public class GUI extends JFrame {
 	JFrame hauptf = new JFrame("Spiel 'Mensch aergere dich nicht!'");
 	JPanel hauptp = new JPanel(new BorderLayout());
 	JButton[] buttonArray = new JButton[72];
-	private JTextArea ta = new JTextArea(10, 20);// fuer die Loggerfeld groesse
+	private JTextArea ta = new JTextArea(8, 20);// fuer die Loggerfeld groesse
 	private JScrollPane scroller;
 	private boolean hatGewuerfelt;
+	JButton mitte = new JButton("M");
+	private final int x = 35;
+	private final int y = 35;
+	private final int a = 53;
 
 	/**
 	 * Konstruktor GUI
@@ -356,7 +360,8 @@ public class GUI extends JFrame {
 		hauptf.setLocation(200, 50);
 		hauptf.setMenuBar(this.getMenuOben()); // erstellt Menue oben
 
-		hauptf.setSize(1250, 1000);
+		hauptf.setExtendedState(Frame.MAXIMIZED_BOTH);
+		// hauptf.setSize(1250, 1000);
 		JLabel hauptl = new JLabel(feld);
 
 		ImageIcon test = new ImageIcon("Bilder//eins.jpg");
@@ -453,7 +458,6 @@ public class GUI extends JFrame {
 		// Spielfiguren anzeigen figuren abfragen und setzten
 	}
 
-
 	/**
 	 * 
 	 * @param text
@@ -489,13 +493,13 @@ public class GUI extends JFrame {
 		spiel.add(speichern);
 		speichern.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
-				 try {
-				 screenshotErstellen();
-				 bediener.Speichern("MADN Spiel", "PDF");
-				 // PDFerstellen();
-				 } catch (IOException e1) {
-				 e1.printStackTrace();
-				 }
+				try {
+					screenshotErstellen();
+					bediener.Speichern("MADN Spiel", "PDF");
+					// PDFerstellen();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
 
 			}
 		});
@@ -520,9 +524,9 @@ public class GUI extends JFrame {
 
 		BufferedImage image = new BufferedImage(component.getWidth(),
 				component.getHeight(), BufferedImage.TYPE_INT_RGB);
-		//  ruft die Komponente der zeichnen Methoden auf
+		// ruft die Komponente der zeichnen Methoden auf
 		// Graphics Object vom Image
-		component.paint(image.getGraphics()); 
+		component.paint(image.getGraphics());
 		return image;
 	}
 
@@ -540,68 +544,18 @@ public class GUI extends JFrame {
 		log("Screenshot wurde erstellt.");
 	}
 
-	// /////////////////////////////////////Alle Feld
-	// Buttons////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// ////////////////////////////////Alle FeldButtons
+
 	public void feldButtons() {
 
 		for (int i = 0; i < 72; i++) {
-			buttonArray[i] = new JButton("Erste Fuellung");
+			buttonArray[i] = new JButton("");
 			buttonArray[i].setMargin(new Insets(0, 0, 0, 0));
 			buttonArray[i].addActionListener(eh);
-			// buttonArray[i].setVisible(false);
+			
 		}
-		setButtonText(1, "SFR1");
-		setButtonText(2, "SFR2");
-		setButtonText(3, "SFR3");
-		setButtonText(4, "SFR4");
-
-		setButtonText(5, "SFB1");
-		setButtonText(6, "SFB2");
-		setButtonText(7, "SFB3");
-		setButtonText(8, "SFB4");
-
-		setButtonText(13, "SFG1");
-		setButtonText(14, "SFG2");
-		setButtonText(15, "SFG3");
-		setButtonText(16, "SFG4");
-
-		setButtonText(9, "SFY1");
-		setButtonText(10, "SFY2");
-		setButtonText(11, "SFY3");
-		setButtonText(12, "SFY4");
-
-		for (int x = 17; x <= 56; x++) {
-			int y = x - 16;
-			setButtonText(x, "F" + y);
-
-		}
-
-		setButtonText(57, "EFR1");
-		setButtonText(58, "EFR2");
-		setButtonText(59, "EFR3");
-		setButtonText(60, "EFR4");
-
-		setButtonText(61, "EFB1");
-		setButtonText(62, "EFB2");
-		setButtonText(63, "EFB3");
-		setButtonText(64, "EFB4");
-
-		setButtonText(65, "EFG1");
-		setButtonText(66, "EFG2");
-		setButtonText(67, "EFG3");
-		setButtonText(68, "EFG4");
-
-		setButtonText(69, "EFY1");
-		setButtonText(70, "EFY2");
-		setButtonText(71, "EFY3");
-		setButtonText(72, "EFY4");
+	
 	}
-
-	// //////////////////////////////////////
-
-	// //////////////////////////////////////////////////////////////////////////////////////mögl
-	// für absoloute
-	// buttons////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public void addComponentsToPane(Container pane) {
 		pane.setLayout(null);
@@ -619,105 +573,78 @@ public class GUI extends JFrame {
 		Insets insets = pane.getInsets();
 		Dimension size = buttonArray[0].getPreferredSize();
 
-		size = buttonArray[0].getPreferredSize();
-		buttonArray[0].setBounds(280 + insets.left, 99 + insets.top,
-				size.width, size.height);
-		buttonArray[0].setSize(35, 35);
+		
+		// SR
+		
+		
+		buttonArray[0].setBounds(GetScreenWorkingWidth() / 2 - 5 * a,
+				GetScreenWorkingHeight() / 2 - 5 * a, x, y);
 		buttonArray[0].setIcon(Rot);
 
-		size = buttonArray[1].getPreferredSize();
-		buttonArray[1].setBounds(333 + insets.left, 99 + insets.top,
-				size.width, size.height);
-		buttonArray[1].setSize(35, 35);
+		buttonArray[1].setBounds(GetScreenWorkingWidth() / 2 - 5 * a,
+				GetScreenWorkingHeight() / 2 - 4 * a, x, y);
 		buttonArray[1].setIcon(Rot);
 
-		size = buttonArray[2].getPreferredSize();
-		buttonArray[2].setBounds(280 + insets.left, 153 + insets.top,
-				size.width + 50, size.height + 20);
-		buttonArray[2].setSize(35, 35);
+		buttonArray[2].setBounds(GetScreenWorkingWidth() / 2 - 4 * a,
+				GetScreenWorkingHeight() / 2 - 5 * a, x, y);
 		buttonArray[2].setIcon(Rot);
 
-		size = buttonArray[3].getPreferredSize();
-		buttonArray[3].setBounds(333 + insets.left, 153 + insets.top,
-				size.width + 50, size.height + 20);
-		buttonArray[3].setSize(35, 35);
+		buttonArray[3].setBounds(GetScreenWorkingWidth() / 2 - 4 * a,
+				GetScreenWorkingHeight() / 2 - 4 * a, x, y);
 		buttonArray[3].setIcon(Rot);
+		
 
 		// SB
 
-		size = buttonArray[4].getPreferredSize();
-		buttonArray[4].setBounds(756 + insets.left, 99 + insets.top,
-				size.width, size.height);
-		buttonArray[4].setSize(35, 35);
+		buttonArray[4].setBounds(GetScreenWorkingWidth() / 2 + 4 * a,
+				GetScreenWorkingHeight() / 2 - 5 * a, x, y);
 		buttonArray[4].setIcon(Blau);
 
-		size = buttonArray[5].getPreferredSize();
-		buttonArray[5].setBounds(809 + insets.left, 99 + insets.top,
-				size.width, size.height);
-		buttonArray[5].setSize(35, 35);
+		buttonArray[5].setBounds(GetScreenWorkingWidth() / 2 + 5 * a,
+				GetScreenWorkingHeight() / 2 - 5 * a, x, y);
 		buttonArray[5].setIcon(Blau);
 
-		size = buttonArray[6].getPreferredSize();
-		buttonArray[6].setBounds(756 + insets.left, 153 + insets.top,
-				size.width + 50, size.height + 20);
-		buttonArray[6].setSize(35, 35);
+		buttonArray[6].setBounds(GetScreenWorkingWidth() / 2 + 4 * a,
+				GetScreenWorkingHeight() / 2 - 4 * a, x, y);
 		buttonArray[6].setIcon(Blau);
 
-		size = buttonArray[7].getPreferredSize();
-		buttonArray[7].setBounds(809 + insets.left, 153 + insets.top,
-				size.width + 50, size.height + 20);
-		buttonArray[7].setSize(35, 35);
+		buttonArray[7].setBounds(GetScreenWorkingWidth() / 2 + 5 * a,
+				GetScreenWorkingHeight() / 2 - 4 * a, x, y);
 		buttonArray[7].setIcon(Blau);
 
 		// SY
-		size = buttonArray[8].getPreferredSize();
-		buttonArray[8].setBounds(280 + insets.left, 575 + insets.top,
-				size.width, size.height);
-		buttonArray[8].setSize(35, 35);
+		buttonArray[8].setBounds(GetScreenWorkingWidth() / 2 - 5 * a,
+				GetScreenWorkingHeight() / 2 + 4 * a, x, y);
 		buttonArray[8].setIcon(Gelb);
 
-		size = buttonArray[9].getPreferredSize();
-		buttonArray[9].setBounds(333 + insets.left, 575 + insets.top,
-				size.width, size.height);
-		buttonArray[9].setSize(35, 35);
+		buttonArray[9].setBounds(GetScreenWorkingWidth() / 2 - 4 * a,
+				GetScreenWorkingHeight() / 2 + 4 * a, x, y);
 		buttonArray[9].setIcon(Gelb);
 
-		size = buttonArray[10].getPreferredSize();
-		buttonArray[10].setBounds(280 + insets.left, 629 + insets.top,
-				size.width + 50, size.height + 20);
-		buttonArray[10].setSize(35, 35);
+		buttonArray[10].setBounds(GetScreenWorkingWidth() / 2 - 4 * a,
+				GetScreenWorkingHeight() / 2 + 5 * a, x, y);
 		buttonArray[10].setIcon(Gelb);
 
-		size = buttonArray[11].getPreferredSize();
-		buttonArray[11].setBounds(333 + insets.left, 629 + insets.top,
-				size.width + 50, size.height + 20);
-		buttonArray[11].setSize(35, 35);
+		buttonArray[11].setBounds(GetScreenWorkingWidth() / 2 - 5 * a,
+				GetScreenWorkingHeight() / 2 + 5 * a, x, y);
 		buttonArray[11].setIcon(Gelb);
 
 		// SG
 
-		size = buttonArray[12].getPreferredSize();
-		buttonArray[12].setBounds(756 + insets.left, 575 + insets.top,
-				size.width, size.height);
-		buttonArray[12].setSize(35, 35);
+		buttonArray[12].setBounds(GetScreenWorkingWidth() / 2 + 4 * a,
+				GetScreenWorkingHeight() / 2 + 4 * a, x, y);
 		buttonArray[12].setIcon(Gruen);
 
-		size = buttonArray[13].getPreferredSize();
-		buttonArray[13].setBounds(809 + insets.left, 575 + insets.top,
-				size.width, size.height);
-		buttonArray[13].setSize(35, 35);
+		buttonArray[13].setBounds(GetScreenWorkingWidth() / 2 + 5 * a,
+				GetScreenWorkingHeight() / 2 + 4 * a, x, y);
 		buttonArray[13].setIcon(Gruen);
 
-		size = buttonArray[14].getPreferredSize();
-		buttonArray[14].setBounds(756 + insets.left, 629 + insets.top,
-				size.width + 50, size.height + 20);
-		buttonArray[14].setSize(35, 35);
+		buttonArray[14].setBounds(GetScreenWorkingWidth() / 2 + 4 * a,
+				GetScreenWorkingHeight() / 2 + 5 * a, x, y);
 		buttonArray[14].setIcon(Gruen);
 
-		size = buttonArray[15].getPreferredSize();
-		buttonArray[15].setBounds(809 + insets.left, 629 + insets.top,
-				size.width + 50, size.height + 20);
-		buttonArray[15].setSize(35, 35);
+		buttonArray[15].setBounds(GetScreenWorkingWidth() / 2 + 5 * a,
+				GetScreenWorkingHeight() / 2 + 5 * a, x, y);
 		buttonArray[15].setIcon(Gruen);
 
 		for (int x = 16; x <= 56; x++) {
@@ -726,324 +653,227 @@ public class GUI extends JFrame {
 		}
 
 		// F
-		size = buttonArray[16].getPreferredSize();
-		buttonArray[16].setBounds(280 + insets.left, 310 + insets.top,
-				size.width, size.height);
-		buttonArray[16].setSize(35, 35);
+				buttonArray[16].setBounds(GetScreenWorkingWidth() / 2 - 5 * a,
+						GetScreenWorkingHeight() / 2 - a, x, y);
 
-		size = buttonArray[17].getPreferredSize();
-		buttonArray[17].setBounds(333 + insets.left, 310 + insets.top,
-				size.width, size.height);
-		buttonArray[17].setSize(35, 35);
+				buttonArray[17].setBounds(GetScreenWorkingWidth() / 2 - 4 * a,
+						GetScreenWorkingHeight() / 2 - a, x, y);
 
-		size = buttonArray[18].getPreferredSize();
-		buttonArray[18].setBounds(386 + insets.left, 310 + insets.top,
-				size.width, size.height);
-		buttonArray[18].setSize(35, 35);
+				buttonArray[18].setBounds(GetScreenWorkingWidth() / 2 - 3 * a,
+						GetScreenWorkingHeight() / 2 - a, x, y);
 
-		size = buttonArray[19].getPreferredSize();
-		buttonArray[19].setBounds(439 + insets.left, 310 + insets.top,
-				size.width, size.height);
-		buttonArray[19].setSize(35, 35);
+				buttonArray[19].setBounds(GetScreenWorkingWidth() / 2 - 2 * a,
+						GetScreenWorkingHeight() / 2 - a, x, y);
 
-		size = buttonArray[20].getPreferredSize();
-		buttonArray[20].setBounds(492 + insets.left, 310 + insets.top,
-				size.width, size.height);
-		buttonArray[20].setSize(35, 35);
+				buttonArray[20].setBounds(GetScreenWorkingWidth() / 2 - 1 * a,
+						GetScreenWorkingHeight() / 2 - a, x, y);
 
-		size = buttonArray[21].getPreferredSize();
-		buttonArray[21].setBounds(492 + insets.left, 257 + insets.top,
-				size.width, size.height);
-		buttonArray[21].setSize(35, 35);
+				buttonArray[21].setBounds(GetScreenWorkingWidth() / 2 - a,
+						GetScreenWorkingHeight() / 2 - 2 * a, x, y);
 
-		size = buttonArray[22].getPreferredSize();
-		buttonArray[22].setBounds(492 + insets.left, 204 + insets.top,
-				size.width, size.height);
-		buttonArray[22].setSize(35, 35);
+				buttonArray[22].setBounds(GetScreenWorkingWidth() / 2 - a,
+						GetScreenWorkingHeight() / 2 - 3 * a, x, y);
 
-		size = buttonArray[23].getPreferredSize();
-		buttonArray[23].setBounds(492 + insets.left, 151 + insets.top,
-				size.width, size.height);
-		buttonArray[23].setSize(35, 35);
+				buttonArray[23].setBounds(GetScreenWorkingWidth() / 2 - a,
+						GetScreenWorkingHeight() / 2 - 4 * a, x, y);
 
-		size = buttonArray[24].getPreferredSize();
-		buttonArray[24].setBounds(492 + insets.left, 98 + insets.top,
-				size.width, size.height);
-		buttonArray[24].setSize(35, 35);
+				buttonArray[24].setBounds(GetScreenWorkingWidth() / 2 - a,
+						GetScreenWorkingHeight() / 2 - 5 * a, x, y);
 
-		size = buttonArray[25].getPreferredSize();
-		buttonArray[25].setBounds(545 + insets.left, 98 + insets.top,
-				size.width, size.height);
-		buttonArray[25].setSize(35, 35);
+				buttonArray[25].setBounds(GetScreenWorkingWidth() / 2 + 0 * a,
+						GetScreenWorkingHeight() / 2 - 5 * a, x, y);
 
-		size = buttonArray[26].getPreferredSize();
-		buttonArray[26].setBounds(598 + insets.left, 98 + insets.top,
-				size.width, size.height);
-		buttonArray[26].setSize(35, 35);
+				buttonArray[26].setBounds(GetScreenWorkingWidth() / 2 + 1 * a,		
+						GetScreenWorkingHeight() / 2 - 5 * a, x, y);
+				
 
-		size = buttonArray[27].getPreferredSize();
-		buttonArray[27].setBounds(598 + insets.left, 151 + insets.top,
-				size.width, size.height);
-		buttonArray[27].setSize(35, 35);
+				buttonArray[27].setBounds(GetScreenWorkingWidth() / 2 + 1 * a,		
+						GetScreenWorkingHeight() / 2 - 4 * a, x, y);
 
-		size = buttonArray[28].getPreferredSize();
-		buttonArray[28].setBounds(598 + insets.left, 204 + insets.top,
-				size.width, size.height);
-		buttonArray[28].setSize(35, 35);
+				buttonArray[28].setBounds(GetScreenWorkingWidth() / 2 + 1 * a,		
+						GetScreenWorkingHeight() / 2 - 3 * a, x, y);
 
-		size = buttonArray[29].getPreferredSize();
-		buttonArray[29].setBounds(598 + insets.left, 257 + insets.top,
-				size.width, size.height);
-		buttonArray[29].setSize(35, 35);
+				buttonArray[29].setBounds(GetScreenWorkingWidth() / 2 + 1 * a,		
+						GetScreenWorkingHeight() / 2 - 2 * a, x, y);
 
-		size = buttonArray[30].getPreferredSize();
-		buttonArray[30].setBounds(598 + insets.left, 310 + insets.top,
-				size.width, size.height);
-		buttonArray[30].setSize(35, 35);
+				buttonArray[30].setBounds(GetScreenWorkingWidth() / 2 + 1 * a,		
+						GetScreenWorkingHeight() / 2 - 1 * a, x, y);
 
-		size = buttonArray[31].getPreferredSize();
-		buttonArray[31].setBounds(651 + insets.left, 310 + insets.top,
-				size.width, size.height);
-		buttonArray[31].setSize(35, 35);
+				buttonArray[31].setBounds(GetScreenWorkingWidth() / 2 + 2 * a,		
+						GetScreenWorkingHeight() / 2 - 1 * a, x, y);
 
-		size = buttonArray[32].getPreferredSize();
-		buttonArray[32].setBounds(704 + insets.left, 310 + insets.top,
-				size.width, size.height);
-		buttonArray[32].setSize(35, 35);
+				buttonArray[32].setBounds(GetScreenWorkingWidth() / 2 + 3 * a,		
+						GetScreenWorkingHeight() / 2 - 1 * a, x, y);
 
-		size = buttonArray[33].getPreferredSize();
-		buttonArray[33].setBounds(757 + insets.left, 310 + insets.top,
-				size.width, size.height);
-		buttonArray[33].setSize(35, 35);
+				buttonArray[33].setBounds(GetScreenWorkingWidth() / 2 + 4 * a,		
+						GetScreenWorkingHeight() / 2 - 1 * a, x, y);
 
-		size = buttonArray[34].getPreferredSize();
-		buttonArray[34].setBounds(810 + insets.left, 310 + insets.top,
-				size.width, size.height);
-		buttonArray[34].setSize(35, 35);
+				buttonArray[34].setBounds(GetScreenWorkingWidth() / 2 + 5 * a,		
+						GetScreenWorkingHeight() / 2 - 1 * a, x, y);
 
-		size = buttonArray[35].getPreferredSize();
-		buttonArray[35].setBounds(810 + insets.left, 363 + insets.top,
-				size.width, size.height);
-		buttonArray[35].setSize(35, 35);
+				buttonArray[35].setBounds(GetScreenWorkingWidth() / 2 + 5 * a,		
+						GetScreenWorkingHeight() / 2 + 0 * a, x, y);
 
-		size = buttonArray[36].getPreferredSize();
-		buttonArray[36].setBounds(810 + insets.left, 416 + insets.top,
-				size.width, size.height);
-		buttonArray[36].setSize(35, 35);
+				buttonArray[36].setBounds(GetScreenWorkingWidth() / 2 + 5 * a,		
+						GetScreenWorkingHeight() / 2 + 1 * a, x, y);
 
-		size = buttonArray[37].getPreferredSize();
-		buttonArray[37].setBounds(757 + insets.left, 416 + insets.top,
-				size.width, size.height);
-		buttonArray[37].setSize(35, 35);
+				buttonArray[37].setBounds(GetScreenWorkingWidth() / 2 + 4 * a,		
+						GetScreenWorkingHeight() / 2 + 1 * a, x, y);
 
-		size = buttonArray[38].getPreferredSize();
-		buttonArray[38].setBounds(704 + insets.left, 416 + insets.top,
-				size.width, size.height);
-		buttonArray[38].setSize(35, 35);
+				buttonArray[38].setBounds(GetScreenWorkingWidth() / 2 + 3 * a,		
+						GetScreenWorkingHeight() / 2 + 1 * a, x, y);
 
-		size = buttonArray[39].getPreferredSize();
-		buttonArray[39].setBounds(651 + insets.left, 416 + insets.top,
-				size.width, size.height);
-		buttonArray[39].setSize(35, 35);
+				buttonArray[39].setBounds(GetScreenWorkingWidth() / 2 + 2 * a,		
+						GetScreenWorkingHeight() / 2 + 1 * a, x, y);
 
-		size = buttonArray[40].getPreferredSize();
-		buttonArray[40].setBounds(598 + insets.left, 416 + insets.top,
-				size.width, size.height);
-		buttonArray[40].setSize(35, 35);
+				buttonArray[40].setBounds(GetScreenWorkingWidth() / 2 + 1 * a,		
+						GetScreenWorkingHeight() / 2 + 1 * a, x, y);
 
-		size = buttonArray[41].getPreferredSize();
-		buttonArray[41].setBounds(598 + insets.left, 469 + insets.top,
-				size.width, size.height);
-		buttonArray[41].setSize(35, 35);
+				buttonArray[41].setBounds(GetScreenWorkingWidth() / 2 + 1 * a,		
+						GetScreenWorkingHeight() / 2 + 2 * a, x, y);
 
-		size = buttonArray[42].getPreferredSize();
-		buttonArray[42].setBounds(598 + insets.left, 522 + insets.top,
-				size.width, size.height);
-		buttonArray[42].setSize(35, 35);
+				buttonArray[42].setBounds(GetScreenWorkingWidth() / 2 + 1 * a,		
+						GetScreenWorkingHeight() / 2 + 3 * a, x, y);
 
-		size = buttonArray[43].getPreferredSize();
-		buttonArray[43].setBounds(598 + insets.left, 575 + insets.top,
-				size.width, size.height);
-		buttonArray[43].setSize(35, 35);
+				buttonArray[43].setBounds(GetScreenWorkingWidth() / 2 + 1 * a,		
+						GetScreenWorkingHeight() / 2 + 4 * a, x, y);
 
-		size = buttonArray[44].getPreferredSize();
-		buttonArray[44].setBounds(598 + insets.left, 628 + insets.top,
-				size.width, size.height);
-		buttonArray[44].setSize(35, 35);
+				buttonArray[44].setBounds(GetScreenWorkingWidth() / 2 + 1 * a,		
+						GetScreenWorkingHeight() / 2 + 5 * a, x, y);
 
-		size = buttonArray[45].getPreferredSize();
-		buttonArray[45].setBounds(545 + insets.left, 628 + insets.top,
-				size.width, size.height);
-		buttonArray[45].setSize(35, 35);
+				buttonArray[45].setBounds(GetScreenWorkingWidth() / 2 + 0 * a,		
+						GetScreenWorkingHeight() / 2 + 5 * a, x, y);
 
-		size = buttonArray[46].getPreferredSize();
-		buttonArray[46].setBounds(492 + insets.left, 628 + insets.top,
-				size.width, size.height);
-		buttonArray[46].setSize(35, 35);
+				buttonArray[46].setBounds(GetScreenWorkingWidth() / 2 - 1 * a,		
+						GetScreenWorkingHeight() / 2 + 5 * a, x, y);
 
-		size = buttonArray[47].getPreferredSize();
-		buttonArray[47].setBounds(492 + insets.left, 575 + insets.top,
-				size.width, size.height);
-		buttonArray[47].setSize(35, 35);
+				buttonArray[47].setBounds(GetScreenWorkingWidth() / 2 - 1 * a,		
+						GetScreenWorkingHeight() / 2 + 4 * a, x, y);
 
-		size = buttonArray[48].getPreferredSize();
-		buttonArray[48].setBounds(492 + insets.left, 522 + insets.top,
-				size.width, size.height);
-		buttonArray[48].setSize(35, 35);
+				buttonArray[48].setBounds(GetScreenWorkingWidth() / 2 - 1 * a,		
+						GetScreenWorkingHeight() / 2 + 3 * a, x, y);
 
-		size = buttonArray[49].getPreferredSize();
-		buttonArray[49].setBounds(492 + insets.left, 469 + insets.top,
-				size.width, size.height);
-		buttonArray[49].setSize(35, 35);
+				buttonArray[49].setBounds(GetScreenWorkingWidth() / 2 - 1 * a,		
+						GetScreenWorkingHeight() / 2 + 2 * a, x, y);
 
-		size = buttonArray[50].getPreferredSize();
-		buttonArray[50].setBounds(492 + insets.left, 416 + insets.top,
-				size.width, size.height);
-		buttonArray[50].setSize(35, 35);
+				buttonArray[50].setBounds(GetScreenWorkingWidth() / 2 - 1 * a,		
+						GetScreenWorkingHeight() / 2 + 1 * a, x, y);
 
-		size = buttonArray[51].getPreferredSize();
-		buttonArray[51].setBounds(439 + insets.left, 416 + insets.top,
-				size.width, size.height);
-		buttonArray[51].setSize(35, 35);
+				buttonArray[51].setBounds(GetScreenWorkingWidth() / 2 - 2 * a,		
+						GetScreenWorkingHeight() / 2 + 1 * a, x, y);
 
-		size = buttonArray[52].getPreferredSize();
-		buttonArray[52].setBounds(386 + insets.left, 416 + insets.top,
-				size.width, size.height);
-		buttonArray[52].setSize(35, 35);
+				buttonArray[52].setBounds(GetScreenWorkingWidth() / 2 - 3 * a,		
+						GetScreenWorkingHeight() / 2 + 1 * a, x, y);
 
-		size = buttonArray[53].getPreferredSize();
-		buttonArray[53].setBounds(333 + insets.left, 416 + insets.top,
-				size.width, size.height);
-		buttonArray[53].setSize(35, 35);
+				buttonArray[a].setBounds(GetScreenWorkingWidth() / 2 -  4 * a,		
+						GetScreenWorkingHeight() / 2 + 1 * a, x, y);
 
-		size = buttonArray[54].getPreferredSize();
-		buttonArray[54].setBounds(280 + insets.left, 416 + insets.top,
-				size.width, size.height);
-		buttonArray[54].setSize(35, 35);
+				buttonArray[54].setBounds(GetScreenWorkingWidth() / 2 - 5 * a,		
+						GetScreenWorkingHeight() / 2 + 1 * a, x, y);
 
-		size = buttonArray[55].getPreferredSize();
-		buttonArray[55].setBounds(280 + insets.left, 363 + insets.top,
-				size.width, size.height);
-		buttonArray[55].setSize(35, 35);
+				buttonArray[55].setBounds(GetScreenWorkingWidth() / 2 - 5 * a,		
+						GetScreenWorkingHeight() / 2 + 0 * a, x, y);
 
-		// ER
+				// ER
 
-		size = buttonArray[56].getPreferredSize();
-		buttonArray[56].setBounds(333 + insets.left, 363 + insets.top,
-				size.width, size.height);
-		buttonArray[56].setSize(35, 35);
-		buttonArray[56].setIcon(Rot);
+				buttonArray[56].setBounds(GetScreenWorkingWidth() / 2 - 4 * a,
+						GetScreenWorkingHeight() / 2, x, y);
+				buttonArray[56].setIcon(Rot);
 
-		size = buttonArray[57].getPreferredSize();
-		buttonArray[57].setBounds(386 + insets.left, 363 + insets.top,
-				size.width, size.height);
-		buttonArray[57].setSize(35, 35);
-		buttonArray[57].setIcon(Rot);
+				buttonArray[57].setBounds(GetScreenWorkingWidth() / 2 - 3 * a,
+						GetScreenWorkingHeight() / 2, x, y);
+				buttonArray[57].setIcon(Rot);
 
-		size = buttonArray[58].getPreferredSize();
-		buttonArray[58].setBounds(439 + insets.left, 363 + insets.top,
-				size.width, size.height);
-		buttonArray[58].setSize(35, 35);
-		buttonArray[58].setIcon(Rot);
+				buttonArray[58].setBounds(GetScreenWorkingWidth() / 2 - 2 * a,
+						GetScreenWorkingHeight() / 2, x, y);
+				buttonArray[58].setIcon(Rot);
 
-		size = buttonArray[59].getPreferredSize();
-		buttonArray[59].setBounds(492 + insets.left, 363 + insets.top,
-				size.width, size.height);
-		buttonArray[59].setSize(35, 35);
-		buttonArray[59].setIcon(Rot);
+				buttonArray[59].setBounds(GetScreenWorkingWidth() / 2 - 1 * a,
+						GetScreenWorkingHeight() / 2, x, y);
+				buttonArray[59].setIcon(Rot);
 
-		// EB
+				// EB
 
-		size = buttonArray[60].getPreferredSize();
-		buttonArray[60].setBounds(545 + insets.left, 151 + insets.top,
-				size.width, size.height);
-		buttonArray[60].setSize(35, 35);
-		buttonArray[60].setIcon(Blau);
+				buttonArray[60].setBounds(GetScreenWorkingWidth() / 2,
+						GetScreenWorkingHeight() / 2 - 4 * a, x, y);
+				buttonArray[60].setIcon(Blau);
 
-		size = buttonArray[61].getPreferredSize();
-		buttonArray[61].setBounds(545 + insets.left, 204 + insets.top,
-				size.width, size.height);
-		buttonArray[61].setSize(35, 35);
-		buttonArray[61].setIcon(Blau);
+				buttonArray[61].setBounds(GetScreenWorkingWidth() / 2,
+						GetScreenWorkingHeight() / 2 - 3 * a, x, y);
+				buttonArray[61].setIcon(Blau);
 
-		size = buttonArray[62].getPreferredSize();
-		buttonArray[62].setBounds(545 + insets.left, 257 + insets.top,
-				size.width, size.height);
-		buttonArray[62].setSize(35, 35);
-		buttonArray[62].setIcon(Blau);
+				buttonArray[62].setBounds(GetScreenWorkingWidth() / 2,
+						GetScreenWorkingHeight() / 2 - 2 * a, x, y);
+				buttonArray[62].setIcon(Blau);
 
-		size = buttonArray[63].getPreferredSize();
-		buttonArray[63].setBounds(545 + insets.left, 310 + insets.top,
-				size.width, size.height);
-		buttonArray[63].setSize(35, 35);
-		buttonArray[63].setIcon(Blau);
+				buttonArray[63].setBounds(GetScreenWorkingWidth() / 2,
+						GetScreenWorkingHeight() / 2 - 1 * a, x, y);
+				buttonArray[63].setIcon(Blau);
 
-		// EG
+				// EG
 
-		size = buttonArray[64].getPreferredSize();
-		buttonArray[64].setBounds(755 + insets.left, 363 + insets.top,
-				size.width, size.height);
-		buttonArray[64].setSize(35, 35);
-		buttonArray[64].setIcon(Gruen);
+				buttonArray[64].setBounds(GetScreenWorkingWidth() / 2 + 4 * a,
+						GetScreenWorkingHeight() / 2, x, y);
+				buttonArray[64].setIcon(Gruen);
 
-		size = buttonArray[65].getPreferredSize();
-		buttonArray[65].setBounds(702 + insets.left, 363 + insets.top,
-				size.width, size.height);
-		buttonArray[65].setSize(35, 35);
-		buttonArray[65].setIcon(Gruen);
+				buttonArray[65].setBounds(GetScreenWorkingWidth() / 2 + 3 * a,
+						GetScreenWorkingHeight() / 2, x, y);
+				buttonArray[65].setIcon(Gruen);
 
-		size = buttonArray[66].getPreferredSize();
-		buttonArray[66].setBounds(649 + insets.left, 363 + insets.top,
-				size.width, size.height);
-		buttonArray[66].setSize(35, 35);
-		buttonArray[66].setIcon(Gruen);
+				buttonArray[66].setBounds(GetScreenWorkingWidth() / 2 + 2 * a,
+						GetScreenWorkingHeight() / 2, x, y);
+				buttonArray[66].setIcon(Gruen);
 
-		size = buttonArray[67].getPreferredSize();
-		buttonArray[67].setBounds(596 + insets.left, 363 + insets.top,
-				size.width, size.height);
-		buttonArray[67].setSize(35, 35);
-		buttonArray[67].setIcon(Gruen);
+				buttonArray[67].setBounds(GetScreenWorkingWidth() / 2 + 1 * a,
+						GetScreenWorkingHeight() / 2, x, y);
+				buttonArray[67].setIcon(Gruen);
 
-		// EY
+				// EY
 
-		size = buttonArray[68].getPreferredSize();
-		buttonArray[68].setBounds(545 + insets.left, 575 + insets.top,
-				size.width, size.height);
-		buttonArray[68].setSize(35, 35);
-		buttonArray[68].setIcon(Gelb);
+				buttonArray[68].setBounds(GetScreenWorkingWidth() / 2,
+						GetScreenWorkingHeight() / 2 + 4 * a, x, y);
+				buttonArray[71].setIcon(Gelb);
 
-		size = buttonArray[69].getPreferredSize();
-		buttonArray[69].setBounds(545 + insets.left, 522 + insets.top,
-				size.width, size.height);
-		buttonArray[69].setSize(35, 35);
-		buttonArray[69].setIcon(Gelb);
+				buttonArray[69].setBounds(GetScreenWorkingWidth() / 2,
+						GetScreenWorkingHeight() / 2 + 3 * a, x, y);
+				buttonArray[71].setIcon(Gelb);
 
-		size = buttonArray[70].getPreferredSize();
-		buttonArray[70].setBounds(545 + insets.left, 469 + insets.top,
-				size.width, size.height);
-		buttonArray[70].setSize(35, 35);
-		buttonArray[70].setIcon(Gelb);
+				buttonArray[70].setBounds(GetScreenWorkingWidth() / 2,
+						GetScreenWorkingHeight() / 2 + 2 * a, x, y);
+				buttonArray[71].setIcon(Gelb);
 
-		size = buttonArray[71].getPreferredSize();
-		buttonArray[71].setBounds(545 + insets.left, 416 + insets.top,
-				size.width, size.height);
-		buttonArray[71].setSize(35, 35);
-		buttonArray[71].setIcon(Gelb);
+				buttonArray[71].setBounds(GetScreenWorkingWidth() / 2,
+						GetScreenWorkingHeight() / 2 + 1 * a, x, y);
+				buttonArray[71].setIcon(Gelb);
+				
 
 		ImageIcon kreisY = new ImageIcon("Bilder//FigurGelb.png");
 
-		buttonArray[68].setText(null);
+		buttonArray[16].setIcon(Rot);
+		buttonArray[26].setIcon(Blau);
+		buttonArray[36].setIcon(Gruen);
+		buttonArray[46].setIcon(Gelb);
+		
+		
 		buttonArray[68].setIcon(kreisY);
 
-		buttonArray[69].setText(null);
 		buttonArray[69].setIcon(kreisY);
 
-		buttonArray[70].setText(null);
 		buttonArray[70].setIcon(kreisY);
 
-		buttonArray[71].setText(null);
 		buttonArray[71].setIcon(kreisY);
 
+	}
+	
+	public static int GetScreenWorkingWidth() {
+		return java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment()
+				.getMaximumWindowBounds().width;
+
+	}
+
+	public static int GetScreenWorkingHeight() {
+		return java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment()
+				.getMaximumWindowBounds().height;
 	}
 
 	public void setButtonText(int nummer, String text) {
