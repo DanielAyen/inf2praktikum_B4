@@ -606,31 +606,42 @@ public class GUI extends JFrame {
 	public void addComponentsToPane(Container pane) {
 		pane.setLayout(null);
 
+		ImageIcon feldn = new ImageIcon("Bilder//Feldw.png");
+		ImageIcon Rot = new ImageIcon("Bilder//KreisR.gif");
+		ImageIcon Blau = new ImageIcon("Bilder//KreisB.gif");
+		ImageIcon Gelb = new ImageIcon("Bilder//KreisY.gif");
+		ImageIcon Gruen = new ImageIcon("Bilder//KreisG.gif");
+
 		for (int i = 0; i < 72; i++) {
 			pane.add(buttonArray[i]);
 		}
 		// SR
 		Insets insets = pane.getInsets();
 		Dimension size = buttonArray[0].getPreferredSize();
+
 		size = buttonArray[0].getPreferredSize();
 		buttonArray[0].setBounds(280 + insets.left, 99 + insets.top,
 				size.width, size.height);
 		buttonArray[0].setSize(35, 35);
+		buttonArray[0].setIcon(Rot);
 
 		size = buttonArray[1].getPreferredSize();
 		buttonArray[1].setBounds(333 + insets.left, 99 + insets.top,
 				size.width, size.height);
 		buttonArray[1].setSize(35, 35);
+		buttonArray[1].setIcon(Rot);
 
 		size = buttonArray[2].getPreferredSize();
 		buttonArray[2].setBounds(280 + insets.left, 153 + insets.top,
 				size.width + 50, size.height + 20);
 		buttonArray[2].setSize(35, 35);
+		buttonArray[2].setIcon(Rot);
 
 		size = buttonArray[3].getPreferredSize();
 		buttonArray[3].setBounds(333 + insets.left, 153 + insets.top,
 				size.width + 50, size.height + 20);
 		buttonArray[3].setSize(35, 35);
+		buttonArray[3].setIcon(Rot);
 
 		// SB
 
@@ -638,42 +649,50 @@ public class GUI extends JFrame {
 		buttonArray[4].setBounds(756 + insets.left, 99 + insets.top,
 				size.width, size.height);
 		buttonArray[4].setSize(35, 35);
+		buttonArray[4].setIcon(Blau);
 
 		size = buttonArray[5].getPreferredSize();
 		buttonArray[5].setBounds(809 + insets.left, 99 + insets.top,
 				size.width, size.height);
 		buttonArray[5].setSize(35, 35);
+		buttonArray[5].setIcon(Blau);
 
 		size = buttonArray[6].getPreferredSize();
 		buttonArray[6].setBounds(756 + insets.left, 153 + insets.top,
 				size.width + 50, size.height + 20);
 		buttonArray[6].setSize(35, 35);
+		buttonArray[6].setIcon(Blau);
 
 		size = buttonArray[7].getPreferredSize();
 		buttonArray[7].setBounds(809 + insets.left, 153 + insets.top,
 				size.width + 50, size.height + 20);
 		buttonArray[7].setSize(35, 35);
+		buttonArray[7].setIcon(Blau);
 
 		// SY
 		size = buttonArray[8].getPreferredSize();
 		buttonArray[8].setBounds(280 + insets.left, 575 + insets.top,
 				size.width, size.height);
 		buttonArray[8].setSize(35, 35);
+		buttonArray[8].setIcon(Gelb);
 
 		size = buttonArray[9].getPreferredSize();
 		buttonArray[9].setBounds(333 + insets.left, 575 + insets.top,
 				size.width, size.height);
 		buttonArray[9].setSize(35, 35);
+		buttonArray[9].setIcon(Gelb);
 
 		size = buttonArray[10].getPreferredSize();
 		buttonArray[10].setBounds(280 + insets.left, 629 + insets.top,
 				size.width + 50, size.height + 20);
 		buttonArray[10].setSize(35, 35);
+		buttonArray[10].setIcon(Gelb);
 
 		size = buttonArray[11].getPreferredSize();
 		buttonArray[11].setBounds(333 + insets.left, 629 + insets.top,
 				size.width + 50, size.height + 20);
 		buttonArray[11].setSize(35, 35);
+		buttonArray[11].setIcon(Gelb);
 
 		// SG
 
@@ -681,21 +700,30 @@ public class GUI extends JFrame {
 		buttonArray[12].setBounds(756 + insets.left, 575 + insets.top,
 				size.width, size.height);
 		buttonArray[12].setSize(35, 35);
+		buttonArray[12].setIcon(Gruen);
 
 		size = buttonArray[13].getPreferredSize();
 		buttonArray[13].setBounds(809 + insets.left, 575 + insets.top,
 				size.width, size.height);
 		buttonArray[13].setSize(35, 35);
+		buttonArray[13].setIcon(Gruen);
 
 		size = buttonArray[14].getPreferredSize();
 		buttonArray[14].setBounds(756 + insets.left, 629 + insets.top,
 				size.width + 50, size.height + 20);
 		buttonArray[14].setSize(35, 35);
+		buttonArray[14].setIcon(Gruen);
 
 		size = buttonArray[15].getPreferredSize();
 		buttonArray[15].setBounds(809 + insets.left, 629 + insets.top,
 				size.width + 50, size.height + 20);
 		buttonArray[15].setSize(35, 35);
+		buttonArray[15].setIcon(Gruen);
+
+		for (int x = 16; x <= 56; x++) {
+			buttonArray[x].setIcon(feldn);
+
+		}
 
 		// F
 		size = buttonArray[16].getPreferredSize();
@@ -904,21 +932,25 @@ public class GUI extends JFrame {
 		buttonArray[56].setBounds(333 + insets.left, 363 + insets.top,
 				size.width, size.height);
 		buttonArray[56].setSize(35, 35);
+		buttonArray[56].setIcon(Rot);
 
 		size = buttonArray[57].getPreferredSize();
 		buttonArray[57].setBounds(386 + insets.left, 363 + insets.top,
 				size.width, size.height);
 		buttonArray[57].setSize(35, 35);
+		buttonArray[57].setIcon(Rot);
 
 		size = buttonArray[58].getPreferredSize();
 		buttonArray[58].setBounds(439 + insets.left, 363 + insets.top,
 				size.width, size.height);
 		buttonArray[58].setSize(35, 35);
+		buttonArray[58].setIcon(Rot);
 
 		size = buttonArray[59].getPreferredSize();
 		buttonArray[59].setBounds(492 + insets.left, 363 + insets.top,
 				size.width, size.height);
 		buttonArray[59].setSize(35, 35);
+		buttonArray[59].setIcon(Rot);
 
 		// EB
 
@@ -926,21 +958,25 @@ public class GUI extends JFrame {
 		buttonArray[60].setBounds(545 + insets.left, 151 + insets.top,
 				size.width, size.height);
 		buttonArray[60].setSize(35, 35);
+		buttonArray[60].setIcon(Blau);
 
 		size = buttonArray[61].getPreferredSize();
 		buttonArray[61].setBounds(545 + insets.left, 204 + insets.top,
 				size.width, size.height);
 		buttonArray[61].setSize(35, 35);
+		buttonArray[61].setIcon(Blau);
 
 		size = buttonArray[62].getPreferredSize();
 		buttonArray[62].setBounds(545 + insets.left, 257 + insets.top,
 				size.width, size.height);
 		buttonArray[62].setSize(35, 35);
+		buttonArray[62].setIcon(Blau);
 
 		size = buttonArray[63].getPreferredSize();
 		buttonArray[63].setBounds(545 + insets.left, 310 + insets.top,
 				size.width, size.height);
 		buttonArray[63].setSize(35, 35);
+		buttonArray[63].setIcon(Blau);
 
 		// EG
 
@@ -948,21 +984,25 @@ public class GUI extends JFrame {
 		buttonArray[64].setBounds(755 + insets.left, 363 + insets.top,
 				size.width, size.height);
 		buttonArray[64].setSize(35, 35);
+		buttonArray[64].setIcon(Gruen);
 
 		size = buttonArray[65].getPreferredSize();
 		buttonArray[65].setBounds(702 + insets.left, 363 + insets.top,
 				size.width, size.height);
 		buttonArray[65].setSize(35, 35);
+		buttonArray[65].setIcon(Gruen);
 
 		size = buttonArray[66].getPreferredSize();
 		buttonArray[66].setBounds(649 + insets.left, 363 + insets.top,
 				size.width, size.height);
 		buttonArray[66].setSize(35, 35);
+		buttonArray[66].setIcon(Gruen);
 
 		size = buttonArray[67].getPreferredSize();
 		buttonArray[67].setBounds(596 + insets.left, 363 + insets.top,
 				size.width, size.height);
 		buttonArray[67].setSize(35, 35);
+		buttonArray[67].setIcon(Gruen);
 
 		// EY
 
@@ -970,23 +1010,27 @@ public class GUI extends JFrame {
 		buttonArray[68].setBounds(545 + insets.left, 575 + insets.top,
 				size.width, size.height);
 		buttonArray[68].setSize(35, 35);
+		buttonArray[68].setIcon(Gelb);
 
 		size = buttonArray[69].getPreferredSize();
 		buttonArray[69].setBounds(545 + insets.left, 522 + insets.top,
 				size.width, size.height);
 		buttonArray[69].setSize(35, 35);
+		buttonArray[69].setIcon(Gelb);
 
 		size = buttonArray[70].getPreferredSize();
 		buttonArray[70].setBounds(545 + insets.left, 469 + insets.top,
 				size.width, size.height);
 		buttonArray[70].setSize(35, 35);
+		buttonArray[70].setIcon(Gelb);
 
 		size = buttonArray[71].getPreferredSize();
 		buttonArray[71].setBounds(545 + insets.left, 416 + insets.top,
 				size.width, size.height);
 		buttonArray[71].setSize(35, 35);
+		buttonArray[71].setIcon(Gelb);
 
-		ImageIcon kreisY = new ImageIcon("Bilder//KreisY.gif");
+		ImageIcon kreisY = new ImageIcon("Bilder//FigurGelb.png");
 
 		buttonArray[68].setText(null);
 		buttonArray[68].setIcon(kreisY);
