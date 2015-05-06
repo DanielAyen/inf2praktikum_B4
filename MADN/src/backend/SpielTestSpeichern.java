@@ -6,7 +6,6 @@ import frontend.iBediener;
 
 public class SpielTestSpeichern {
 
-	private DatenzugriffSerialisiert speichern;
 	
 	public static void main(String[] args) throws IOException {
 		
@@ -21,8 +20,7 @@ public class SpielTestSpeichern {
 	
 		s.zugDurchfuehren(1);
 		s.zugDurchfuehren(1);
-		s.Speichern("CSVFinal", "csv");
-		
+//		s.speichern("CSVFinal", "csv")
 		
 		
 

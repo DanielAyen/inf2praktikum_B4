@@ -7,6 +7,8 @@ import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import com.itextpdf.text.Document;
+
 import frontend.iAnzeige;
 import frontend.iBediener;
 import frontend.iDatenzugriff;
@@ -28,7 +30,8 @@ public class Spiel implements iBediener, Serializable, iMeldung, iAnzeige {
 	private String dateiname;
 
 	private iDatenzugriff d = new DatenzugriffCSV();
-	private iDatenzugriff s = new DatenzugriffSerialisiert();
+	private iDatenzugriff ser = new DatenzugriffSerialisiert();
+	private iDatenzugriff p = new DatenzugriffPDF();
 	private static boolean a;
 	private Wuerfel w = new Wuerfel ();
 
@@ -334,7 +337,7 @@ public class Spiel implements iBediener, Serializable, iMeldung, iAnzeige {
 		} else {
 			if (dateiende.equals("ser")) {
 
-				return s.laden(dateiende);
+				return ser.laden(dateiende);
 
 			}
 		}
@@ -345,7 +348,9 @@ public class Spiel implements iBediener, Serializable, iMeldung, iAnzeige {
 	@Override
 	public void Speichern(String dateiname, String dateiende)
 			throws IOException {
-		if (dateiende.equals("csv")) {
+		dateiende = dateiende.toLowerCase(); //groﬂ klein schreibung
+		switch (dateiende){
+		case "csv":
 			String s = "";
 			for (Spieler spieler:this.getSpieler()) {
 				s +=  spieler+"\n";
@@ -419,15 +424,16 @@ public class Spiel implements iBediener, Serializable, iMeldung, iAnzeige {
 				}
 
 			}
-			
-			d.speichern(dateiname, dateiende, s); 
 
-		} else {
-			if (dateiende.equals("ser")) {
-				s.speichern(dateiname, dateiende, this);
-			}
+			d.speichern(dateiname, dateiende, s);
+			break;
+		case "ser":
+			ser.speichern(dateiname,dateiende,this);
+			break;
+		case "pdf": 
+			p.speichern(dateiname, dateiende, null);
+			break;
 		}
-
 	}
 
 	public String getDateiname() {

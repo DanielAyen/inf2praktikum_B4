@@ -302,6 +302,9 @@ public class GUI extends JFrame {
 		JFileChooser fc = new JFileChooser();
 		fc.showOpenDialog(null);
 	}
+	public void spielSpeichern() throws IOException{
+		bediener.Speichern("MADN Spiel", "PDF");
+	}
 
 	/**
 	 * erstellt neuen Spieler
@@ -493,18 +496,15 @@ public class GUI extends JFrame {
 		neu.addActionListener(eh);
 		MenuItem speichern = new MenuItem("als PDF speichern");
 		spiel.add(speichern);
-		speichern.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent e) {
-				try {
-					screenshotErstellen();
-					bediener.Speichern("MADN Spiel", "PDF");
-					// PDFerstellen();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
+		speichern.addActionListener(eh);
+//				try {
+//					screenshotErstellen();
+//					bediener.Speichern("MADN Spiel", "PDF");
+//					// PDFerstellen();
+//				} catch (IOException e1) {
+//					e1.printStackTrace();
+//				}
 
-			}
-		});
 
 		menueLeiste.add(spiel);
 

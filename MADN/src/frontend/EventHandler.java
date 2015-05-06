@@ -2,6 +2,7 @@ package frontend;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JFileChooser;
 
@@ -20,7 +21,7 @@ public class EventHandler implements ActionListener {
 	 * @param gui
 	 */
 	public EventHandler(GUI gui) {
-		this.setGUI(gui);;
+		this.setGUI(gui);
 	}
 /**
  * 
@@ -79,7 +80,14 @@ public class EventHandler implements ActionListener {
 				break;
 			case "neues Spiel erstellen":
 				gui.anzahlSpielerDieSpielenWollenAbfrage(); break;
-//			case "als PDF speichern" : ...... break;
+			case "als PDF speichern" : 
+				try {
+					gui.screenshotErstellen();
+					gui.spielSpeichern();
+					
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}break;
 //			case "Figur vor": ........break;
 //			case "Werfeln" : ..... break;
 //			case "Erste Fuellung" : ...... break;
