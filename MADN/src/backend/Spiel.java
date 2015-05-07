@@ -19,7 +19,7 @@ import frontend.iMeldung;
  * @author Judith, Michi, Doerte, Tobi,
  *
  */
-public class Spiel implements iBediener, Serializable, iMeldung {
+public class Spiel implements iBediener, Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Spielbrett brett;
@@ -461,11 +461,7 @@ public class Spiel implements iBediener, Serializable, iMeldung {
 	
 	//Fuer Meldung u Anzeige
 	
-	@Override
-	public void log(String text) {
-		
-		
-	}
+	
 	
 
 //____________________testMethoden________________________________________________________________________//
