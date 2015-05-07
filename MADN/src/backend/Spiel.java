@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 import com.itextpdf.text.Document;
 
-import frontend.iAnzeige;
 import frontend.iBediener;
 import frontend.iDatenzugriff;
 import frontend.iMeldung;
@@ -20,7 +19,7 @@ import frontend.iMeldung;
  * @author Judith, Michi, Doerte, Tobi,
  *
  */
-public class Spiel implements iBediener, Serializable, iMeldung, iAnzeige {
+public class Spiel implements iBediener, Serializable, iMeldung {
 
 	private static final long serialVersionUID = 1L;
 	private Spielbrett brett;
@@ -462,18 +461,9 @@ public class Spiel implements iBediener, Serializable, iMeldung, iAnzeige {
 	
 	//Fuer Meldung u Anzeige
 	
-	@Override 
-	public String setLogger(String text){
-		text1=text;
-		return text1;
-	}
-	@Override
-	public String getLogger(){
-		return text1;
-	}
-
 	@Override
 	public void log(String text) {
+		
 		
 	}
 	
