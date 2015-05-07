@@ -56,6 +56,22 @@ import java.io.IOException;
  */
 
 public class GUI extends JFrame implements iMeldung{
+	ImageIcon eins;
+	JLabel wuerfelt1;
+	ImageIcon zwei;
+	JLabel wuerfelt2;
+	ImageIcon drei;
+	JLabel wuerfelt3;
+	ImageIcon vier;
+	JLabel wuerfelt4;
+	ImageIcon fuenf;
+	JLabel wuerfelt5;
+	ImageIcon sechs;
+	JLabel wuerfelt6;
+	JLabel wuerfelL;
+	ImageIcon test;
+	JLabel wuerfelt;
+	ImageIcon wuerfeln;
 	JTextField feld01;
 	JSpinner spinner;
 	JRadioButton RBRED;
@@ -67,6 +83,8 @@ public class GUI extends JFrame implements iMeldung{
 	JRadioButton KId;
 	JFrame frame;
 	JFrame frame02;
+	JButton buttonWurf;
+	JButton buttonVor;
 	private JFrame jf = new JFrame("SPIEL");
 	private EventHandler eh;
 	private int spAnzahl; // spielerAnzahl die im Spinner gewählt wird
@@ -78,7 +96,7 @@ public class GUI extends JFrame implements iMeldung{
 	private String spielerFarbe;
 	private String spielerArt;
 	// private Wuerfel w;
-	private iBediener bediener = new Spiel();
+	iBediener bediener = new Spiel();
 	JFrame hauptf = new JFrame("Spiel 'Mensch aergere dich nicht!'");
 	JPanel hauptp = new JPanel(new BorderLayout());
 	JButton[] buttonArray = new JButton[72];
@@ -91,7 +109,6 @@ public class GUI extends JFrame implements iMeldung{
 	private final int a = 53;
 	private final int b =  3;
 	private final int c =  3;
-
 	/**
 	 * Konstruktor GUI
 	 */
@@ -359,6 +376,7 @@ public class GUI extends JFrame implements iMeldung{
 	 */
 	public void spielfeldAnzeigen() {
 
+
 		// ImageIcon feld = new ImageIcon("Bilder//spielbrett.jpg");
 		ImageIcon feld = new ImageIcon("Bilder//feldU.gif");
 
@@ -370,35 +388,22 @@ public class GUI extends JFrame implements iMeldung{
 		// hauptf.setSize(1250, 1000);
 		JLabel hauptl = new JLabel(feld);
 
-		ImageIcon test = new ImageIcon("Bilder//eins.jpg");
-		// /////////////////////////////////////////wuerfel anzeigen lassen
-		JLabel wuerfelL = new JLabel(test);
-		// //////////////////////////////////////////////
-
-		if (bediener.wurf() == 1) {
-			log("Eins wurde gewuerfelt");
-			ImageIcon eins = new ImageIcon("Bilder//eins.jpg");
-		}
-		if (bediener.wurf() == 2) {
-			log("Zwei wurde gewuerfelt");
-			ImageIcon zwei = new ImageIcon("Bilder//eins.jpg");
-		}
-		if (bediener.wurf() == 3) {
-			log("Drei wurde gewuerfelt");
-			ImageIcon drei = new ImageIcon("Bilder//eins.jpg");
-		}
-		if (bediener.wurf() == 4) {
-			log("Vier wurde gewuerfelt");
-			ImageIcon vier = new ImageIcon("Bilder//eins.jpg");
-		}
-		if (bediener.wurf() == 5) {
-			log("Fuenf wurde gewuerfelt");
-			ImageIcon fünf = new ImageIcon("Bilder//eins.jpg");
-		}
-		if (bediener.wurf() == 6) {
-			log("Sechs wurde gewuerfelt");
-			ImageIcon sechs = new ImageIcon("Bilder//eins.jpg");
-		}
+		test = new ImageIcon("Bilder//eins.jpg");
+		wuerfelL = new JLabel(test);
+		//////////wuerfel anzeigen lassen
+		
+		eins = new ImageIcon ("Bilder//eins.jpg");
+		wuerfelt1= new JLabel(eins);
+		zwei = new ImageIcon ("Bilder//zwei.jpg");
+		wuerfelt2= new JLabel(zwei);
+		drei = new ImageIcon ("Bilder//drei.jpg");
+		wuerfelt3= new JLabel(drei);
+		vier = new ImageIcon ("Bilder//vier.jpg");
+		wuerfelt4= new JLabel(vier);
+		fuenf = new ImageIcon ("Bilder//fuenf.jpg");
+		wuerfelt5= new JLabel(fuenf);
+		sechs = new ImageIcon ("Bilder//sechs.jpg");
+		wuerfelt6= new JLabel(sechs);
 
 		hauptf.add(hauptp);
 		hauptf.add(hauptl, BorderLayout.CENTER);
@@ -406,6 +411,9 @@ public class GUI extends JFrame implements iMeldung{
 		hauptf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		hauptf.setVisible(true);
 		hauptf.setResizable(false);
+		
+		
+		
 
 		// LOGGER
 
@@ -914,6 +922,11 @@ public class GUI extends JFrame implements iMeldung{
 	public void setSpAnzahl(int spAnzahl) {
 		this.spAnzahl = spAnzahl;
 	}
+	
+	public void Wuerfeln(){
+		bediener.wurf();
+	}
+
 
 	// //////////////////////////////////////////////////////////////////////////////////
 
