@@ -517,25 +517,16 @@ public class GUI extends JFrame implements iMeldung{
 		speichern.addActionListener(eh);
 		menueLeiste.add(spiel);
 		
-		Menu mail = new Menu ("Mail"); //zweiter Knopf
-		MenuItem senden =new MenuItem("Mail senden");
+		Menu mail = new Menu("Mail");
+		MenuItem senden = new MenuItem("Mail senden");
 		mail.add(senden);
-		senden.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent e) {
-				//mail senden + davor anmelden 
-			}
-		});
+		senden.addActionListener(eh);
 		menueLeiste.add(mail);
 
 		Menu hilfe = new Menu("Hilfe"); // dritter Knopf
 		MenuItem screenshot = new MenuItem("Screenshot");
 		hilfe.add(screenshot);
-		screenshot.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent e) {
-				screenshotErstellen();
-			}
-		});
-
+		screenshot.addActionListener(eh);
 		menueLeiste.add(hilfe);
 
 		return menueLeiste;

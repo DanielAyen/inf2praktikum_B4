@@ -7,15 +7,15 @@ import java.io.IOException;
 import javax.swing.JFileChooser;
 
 import backend.Spiel;
+
 /**
  * Die Klasse EventHandler
  *
  */
 public class EventHandler implements ActionListener {
 	private GUI gui; // kenntnisbeziehung herstellen!!!
-//	private iBediener bediener = new Spiel();
+	// private iBediener bediener = new Spiel();
 
-	
 	/**
 	 * 
 	 * @param gui
@@ -23,25 +23,27 @@ public class EventHandler implements ActionListener {
 	public EventHandler(GUI gui) {
 		this.setGUI(gui);
 	}
-/**
- * 
- * @param gui
- */
+
+	/**
+	 * 
+	 * @param gui
+	 */
 	private void setGUI(GUI gui) {
 		this.gui = gui;
 
 	}
-/**
+
+	/**
  * 
  */
 	public void actionPerformed(ActionEvent ae) {
-		switch (ae.getActionCommand()){
+		switch (ae.getActionCommand()) {
 		case "OK":
 			gui.log("Spieler erstellen: Spielerzahl waehlen");
 			gui.setSpAnzahl(((Number) gui.spinner.getValue()).intValue());
 			for (int i = 0; i < gui.getSpAnz(); i++) {
-				gui.nameFarbeArtAbfrage();	
-				}
+				gui.nameFarbeArtAbfrage();
+			}
 			gui.log("gewaehlter Spielerzahl:" + gui.getSpAnz());
 			gui.frame.dispose();
 			break;
@@ -73,15 +75,17 @@ public class EventHandler implements ActionListener {
 			}
 			gui.nameFarbeArtUebergeben();
 			gui.frame02.dispose();
-			gui.log("SpielerName: "+ gui.getSpielerName() + "\n"+ "SpielerFarbe:" + gui.getSpielerFarbe() + "\n"+ "SpielerArt:" + gui.getSpielerArt());
+			gui.log("SpielerName: " + gui.getSpielerName() + "\n"
+					+ "SpielerFarbe:" + gui.getSpielerFarbe() + "\n"
+					+ "SpielerArt:" + gui.getSpielerArt());
 			break;
 		case "neues Spiel erstellen":
 			gui.anzahlSpielerDieSpielenWollenAbfrage();
 			break;
-		case "Wuerfeln" : 
-			
+		case "Wuerfeln":
+
 			gui.Wuerfeln();
-			switch (gui.bediener.wurf()){
+			switch (gui.bediener.wurf()) {
 			case 1:
 				gui.log("Eins wurde gewuerfelt");
 				gui.wuerfelL.setIcon(gui.eins);
@@ -107,24 +111,25 @@ public class EventHandler implements ActionListener {
 				gui.wuerfelL.setIcon(gui.sechs);
 				break;
 			}
-		break;
+			break;
 		case "Screenshot":
 			gui.screenshotErstellen();
 			break;
-		case "als PDF speichern" : 
+		case "als PDF speichern":
 			try {
 				gui.screenshotErstellen();
 				gui.spielSpeichern();
-				
+
 			} catch (IOException e1) {
 				e1.printStackTrace();
-			}break;
+			}
+			break;
 		case "Spiel laden":
 			gui.spielLaden();
 			break;
+		case "Mail senden":
+
+			break;
 		}
-}
 	}
-
-
-
+}
