@@ -109,6 +109,7 @@ public class GUI extends JFrame implements iMeldung{
 	private final int a = 53;
 	private final int b =  3;
 	private final int c =  3;
+	private boolean first=false;
 	/**
 	 * Konstruktor GUI
 	 */
@@ -479,10 +480,17 @@ public class GUI extends JFrame implements iMeldung{
 	 */
 	@Override
 	public void log(String text) {
+	
+		if(first==false){
+			ta.setText(ta.getText() +text);
+			first =true;
+		}
+		else{
 		ta.setText(ta.getText()+ "\n" +text);// Wenn etwas im Logger gezweigt
 												// werden soll einfach
-												// log("inhalt"); aufrufen!
+		}									// log("inhalt"); aufrufen!
 	}
+
 
 	/**
 	 * Zum leeren des Loggers

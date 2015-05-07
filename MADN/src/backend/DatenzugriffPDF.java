@@ -54,7 +54,7 @@ public class DatenzugriffPDF implements iDatenzugriff {
 		
         doc.add(image1);
 
-		//logger.log("PDF wurde erstellt. Projekt bitte refreshen.");
+		logger.log("PDF wurde erstellt. Projekt bitte refreshen.");
 		doc.close();}
 		catch(Exception e){
 		      e.printStackTrace();}
