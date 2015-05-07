@@ -25,12 +25,6 @@ import frontend.iMeldung;
 public class DatenzugriffPDF implements iDatenzugriff {
 	private iMeldung logger;
 
-	// private Document doc;
-	// private String dateiname;
-
-	// public void setDateiname(String dateiname) {
-	// this.dateiname = dateiname;
-	// }
 
 	/**
 	 * speichert / schreibt die PDF
@@ -49,10 +43,10 @@ public class DatenzugriffPDF implements iDatenzugriff {
 
 		Paragraph p = new Paragraph ("Mensch ärgere dich nicht - Spielstand \n"); //Ueberschrift in der PDF
 		doc.add(p);
-		Image image1 = Image.getInstance("screenshotSpiel.png"); //liest den Screenshot ein
-		image1.scaleAbsolute(700f, 550f); // setzt Bild auf bestimmte Groesse
+		Image screenshot = Image.getInstance("screenshotSpiel.png"); //liest den Screenshot ein
+		screenshot.scaleAbsolute(660f, 520f); // setzt Bild auf bestimmte Groesse
 		
-        doc.add(image1);
+        doc.add(screenshot);
 
 		logger.log("PDF wurde erstellt. Projekt bitte refreshen.");
 		doc.close();}
