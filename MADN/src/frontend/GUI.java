@@ -515,18 +515,19 @@ public class GUI extends JFrame implements iMeldung{
 		MenuItem speichern = new MenuItem("als PDF speichern");
 		spiel.add(speichern);
 		speichern.addActionListener(eh);
-//				try {
-//					screenshotErstellen();
-//					bediener.Speichern("MADN Spiel", "PDF");
-//					// PDFerstellen();
-//				} catch (IOException e1) {
-//					e1.printStackTrace();
-//				}
-
-
 		menueLeiste.add(spiel);
+		
+		Menu mail = new Menu ("Mail"); //zweiter Knopf
+		MenuItem senden =new MenuItem("Mail senden");
+		mail.add(senden);
+		senden.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				//mail senden + davor anmelden 
+			}
+		});
+		menueLeiste.add(mail);
 
-		Menu hilfe = new Menu("Hilfe"); // zweiter Knopf
+		Menu hilfe = new Menu("Hilfe"); // dritter Knopf
 		MenuItem screenshot = new MenuItem("Screenshot");
 		hilfe.add(screenshot);
 		screenshot.addActionListener(new java.awt.event.ActionListener() {
