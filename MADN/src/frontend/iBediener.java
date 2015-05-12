@@ -35,7 +35,7 @@ public interface iBediener {
 	
 //___________________________________________________________________________________________--
 	public Object getSpieler();
-	
+	//void mailSenden();
 	
 	
 }

@@ -19,6 +19,7 @@ import javax.mail.internet.MimeMultipart;
 
 public class Mail extends Thread{
 
+
 	private Properties p;
 
 	private class MailAuthenticator extends Authenticator {
@@ -45,36 +46,38 @@ public class Mail extends Thread{
 		 */
 
 		p.put("mail.smtp.host", "maildap.reutlingen-university.de");
-		p.put("mail.smtp.user", "");
-		p.put("mail.smtp.password", "");
+		p.put("mail.smtp.user", ""); //
+		p.put("mail.smtp.password", ""); //
 		p.put("mail.smtp.socketFactory.port", "465");
 		p.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 		p.put("mail.smtp.auth", "true");
 		p.put("mail.smtp.port", "465");
-		p.put("von", "");
-		p.put("an", an);
-		p.put("betreff", betreff);
-		p.put("text", text);
+		p.put("von", "Mensch aergere dich nicht - Spiel");
+		p.put("an", an); //
+		p.put("betreff", "Mensch aergere dich nicht - Spielstand");
+		p.put("text",
+				"Lieber Spieler! Im Anhang findest du deinen Spielstand als PDF oder in serialisierter Form. Viel Spaﬂ weiterhin beim Spielen."); // freundlicher
+																																					// test
 
-		if (anhangPfad1 == null) {
-			p.put("anhangPfad1", "");
+		if (anhangPfad1 == null) { // pdf & ser
+			p.put("anhangPfad1", "MADN Spiel PDF.pdf");
 		} else {
 			p.put("anhangPfad1", anhangPfad1);
 		}
 		if (anhangName1 == null) {
-			p.put("anhangName1", "");
+			p.put("anhangName1", "MADN Spiel PDF");
 		} else {
 			p.put("anhangName1", anhangName1);
 		}
 		if (anhangPfad2 == null) {
 			p.put("anhangPfad2", "");
 		} else {
-			p.put("anhangPfad2", anhangPfad2);
+			p.put("anhangPfad2", "SpielSerialisiert.ser");
 		}
 		if (anhangName1 == null) {
 			p.put("anhangNam2", "");
 		} else {
-			p.put("anhangNam2", anhangName2);
+			p.put("anhangNam2", "MADN Spiel Serialisiert");
 		}
 
 		this.start();
@@ -83,7 +86,7 @@ public class Mail extends Thread{
 	@Override
 	public void run() {
 		try {
-			//!// System.out.println("Start Mailing an " + p.getProperty("an"));
+			System.out.println("Start Mailing an " + p.getProperty("an"));
 			MailAuthenticator auth = new MailAuthenticator();
 			Session session = Session.getDefaultInstance(p, auth);
 			Message msg = new MimeMessage(session);
@@ -112,11 +115,12 @@ public class Mail extends Thread{
 			msg.setContent(body);
 			msg.setSentDate(new Date());
 			Transport.send(msg);
-			//!// System.out.println("Mailing an " + p.getProperty("an")+ " erfolgreich beendet.");
+			System.out.println("Mailing an " + p.getProperty("an")
+					+ " erfolgreich beendet.");
 		} catch (Exception e) {
-			//!// System.out.println("Mailing an " + p.getProperty("an")+ " FEHLGESCHLAGEN:");
+			System.out.println("Mailing an " + p.getProperty("an")
+					+ " FEHLGESCHLAGEN:");
 			e.printStackTrace();
 		}
 	}
-
 }

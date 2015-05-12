@@ -459,6 +459,12 @@ public class Spiel implements iBediener, Serializable {
 		return w.wuerfeln();
 	}
 	
+	
+//	@Override
+//	public void mailSenden() {
+//		mail.run();
+//	}
+	
 	//Fuer Meldung u Anzeige
 	
 	

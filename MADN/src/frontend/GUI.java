@@ -31,6 +31,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
@@ -83,6 +84,7 @@ public class GUI extends JFrame implements iMeldung{
 	JRadioButton KId;
 	JFrame frame;
 	JFrame frame02;
+	JFrame mailFrame;
 	JButton buttonWurf;
 	JButton buttonVor;
 	private JFrame jf = new JFrame("SPIEL");
@@ -926,7 +928,45 @@ public class GUI extends JFrame implements iMeldung{
 	public void Wuerfeln(){
 		bediener.wurf();
 	}
+	
+	
+	public void mailAbfrage() {
+		mailFrame = new JFrame();
+		mailFrame.setSize(500, 150);
+		mailFrame.setTitle("Mail");
 
+		JPanel panel = new JPanel();
+		panel.setLayout(new GridLayout(4, 2));
+
+		JLabel mailAdresse = new JLabel("E-Mail:");
+		JLabel pwLabel = new JLabel("Passwort:");
+		JLabel empfaenger = new JLabel("Empfaenger E-Mail:");
+
+		JTextField mail = new JTextField(
+				"nur Adressen von reutlingen-university.de");
+		JPasswordField pwField = new JPasswordField("");
+		pwField.setEchoChar('*'); // macht * bei Passworteingabe
+		JTextField empfaengerFeld = new JTextField("");
+
+		JButton senden = new JButton("senden");
+		senden.addActionListener(eh);
+
+		panel.add(mailAdresse);
+		panel.add(mail);
+		panel.add(pwLabel);
+		panel.add(pwField);
+		panel.add(empfaenger);
+		panel.add(empfaengerFeld);
+		panel.add(senden);
+
+		mailFrame.add(panel);
+		mailFrame.setResizable(false);
+		mailFrame.setVisible(true);
+	}
+
+//	public void mailSenden(){
+//		bediener.mailSenden();
+//	}
 
 	// //////////////////////////////////////////////////////////////////////////////////
 

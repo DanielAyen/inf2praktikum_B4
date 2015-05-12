@@ -128,8 +128,14 @@ public class EventHandler implements ActionListener {
 			gui.spielLaden();
 			break;
 		case "Mail senden":
-
+			gui.mailAbfrage();
 			break;
+		case "senden":
+			//gui.mailSenden();
+			gui.log("mailing...");
+			gui.mailFrame.dispose();
+			break;
+
 		}
 	}
 }
