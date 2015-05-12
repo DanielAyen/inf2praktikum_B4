@@ -49,6 +49,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Die Klasse GUI
@@ -57,36 +58,42 @@ import java.io.IOException;
  */
 
 public class GUI extends JFrame implements iMeldung{
-	ImageIcon eins;
-	JLabel wuerfelt1;
-	ImageIcon zwei;
-	JLabel wuerfelt2;
-	ImageIcon drei;
-	JLabel wuerfelt3;
-	ImageIcon vier;
-	JLabel wuerfelt4;
-	ImageIcon fuenf;
-	JLabel wuerfelt5;
-	ImageIcon sechs;
-	JLabel wuerfelt6;
-	JLabel wuerfelL;
-	ImageIcon test;
-	JLabel wuerfelt;
-	ImageIcon wuerfeln;
-	JTextField feld01;
-	JSpinner spinner;
-	JRadioButton RBRED;
-	JRadioButton RBGREEN;
-	JRadioButton RBBLUE;
-	JRadioButton RBYELLOW;
-	JRadioButton Mensch;
-	JRadioButton KIa;
-	JRadioButton KId;
-	JFrame frame;
-	JFrame frame02;
-	JFrame mailFrame;
-	JButton buttonWurf;
-	JButton buttonVor;
+	
+	private ImageIcon RotF;
+	private ImageIcon BlauF;
+	private ImageIcon GelbF;;
+	private ImageIcon GruenF;
+	private ButtonGroup group;
+	private ImageIcon eins;
+	private JLabel wuerfelt1;
+	private ImageIcon zwei;
+	private JLabel wuerfelt2;
+	private ImageIcon drei;
+	private JLabel wuerfelt3;
+	private ImageIcon vier;
+	private JLabel wuerfelt4;
+	private ImageIcon fuenf;
+	private JLabel wuerfelt5;
+	private ImageIcon sechs;
+	private JLabel wuerfelt6;
+	private JLabel wuerfelL;
+	private ImageIcon test;
+	private JLabel wuerfelt;
+	private ImageIcon wuerfeln;
+	private JTextField feld01;
+	private JSpinner spinner;
+	private JRadioButton RBRED;
+	private JRadioButton RBGREEN;
+	private JRadioButton RBBLUE;
+	private JRadioButton RBYELLOW;
+	private JRadioButton Mensch;
+	private JRadioButton KIa;
+	private JRadioButton KId;
+	private JFrame frame;
+	private JFrame frame02;
+	private JFrame mailFrame;
+	private JButton buttonWurf;
+	private JButton buttonVor;
 	private JFrame jf = new JFrame("SPIEL");
 	private EventHandler eh;
 	private int spAnzahl; // spielerAnzahl die im Spinner gewählt wird
@@ -98,20 +105,21 @@ public class GUI extends JFrame implements iMeldung{
 	private String spielerFarbe;
 	private String spielerArt;
 	// private Wuerfel w;
-	iBediener bediener = new Spiel();
-	JFrame hauptf = new JFrame("Spiel 'Mensch aergere dich nicht!'");
-	JPanel hauptp = new JPanel(new BorderLayout());
-	JButton[] buttonArray = new JButton[72];
+	private iBediener bediener = new Spiel();
+	private JFrame hauptf = new JFrame("Spiel 'Mensch aergere dich nicht!'");
+	private JPanel hauptp = new JPanel(new BorderLayout());
+	private JButton[] buttonArray = new JButton[72];
 	private JTextArea ta = new JTextArea(8, 20);// fuer die Loggerfeld groesse
 	private JScrollPane scroller;
 	private boolean hatGewuerfelt;
-	JButton mitte = new JButton("M");
+	private JButton mitte = new JButton("M");
 	private final int x = 35;
 	private final int y = 35;
 	private final int a = 53;
 	private final int b =  3;
 	private final int c =  3;
 	private boolean first=false;
+	private ArrayList<String> farbe;
 	/**
 	 * Konstruktor GUI
 	 */
@@ -119,6 +127,7 @@ public class GUI extends JFrame implements iMeldung{
 		super();
 		eh = new EventHandler(this);
 		// spielLadenAbfrage();
+		farbe = new ArrayList<String>();
 		spielfeldAnzeigen();
 		jf.addWindowListener(new WindowAdapter() { // fuer die Menue Knoepfe
 			public void windowClosing(final WindowEvent e) {
@@ -435,8 +444,8 @@ public class GUI extends JFrame implements iMeldung{
 		// Bedieung
 		JPanel panelB = new JPanel();
 		panelB.setLayout(new BorderLayout());
-		JButton buttonVor = new JButton("Figur vor");
-		JButton buttonWurf = new JButton("Wuerfeln");
+		buttonVor = new JButton("Figur vor");
+		buttonWurf = new JButton("Wuerfeln");
 
 		buttonVor.addActionListener(eh);
 		buttonWurf.addActionListener(eh);
@@ -579,6 +588,12 @@ public class GUI extends JFrame implements iMeldung{
 		ImageIcon Blau = new ImageIcon("Bilder//KreisB.gif");
 		ImageIcon Gelb = new ImageIcon("Bilder//KreisY.gif");
 		ImageIcon Gruen = new ImageIcon("Bilder//KreisG.gif");
+		
+		RotF = new ImageIcon("Bilder//FigurRot.png");
+		BlauF= new ImageIcon("Bilder//FigurBlau.png");
+		GelbF = new ImageIcon("Bilder//FigurGelb.png");
+		GruenF = new ImageIcon("Bilder//FigurGruen.png");
+
 
 		for (int i = 0; i < 72; i++) {
 			pane.add(buttonArray[i]);
@@ -888,6 +903,79 @@ public class GUI extends JFrame implements iMeldung{
 	public void setButtonText(int nummer, String text) {
 		buttonArray[nummer - 1].setText(text);
 	}
+	
+	public void setButtonIconRot (){
+
+		buttonArray[0].setBounds(GetScreenWorkingWidth() / c - 5 * a,
+				GetScreenWorkingHeight() / b - 5 * a, x, y);
+		buttonArray[0].setIcon(RotF);
+
+		buttonArray[1].setBounds(GetScreenWorkingWidth() / c - 5 * a,
+				GetScreenWorkingHeight() / b - 4 * a, x, y);
+		buttonArray[1].setIcon(RotF);
+
+		buttonArray[2].setBounds(GetScreenWorkingWidth() / c - 4 * a,
+				GetScreenWorkingHeight() / b - 5 * a, x, y);
+		buttonArray[2].setIcon(RotF);
+
+		buttonArray[3].setBounds(GetScreenWorkingWidth() / c - 4 * a,
+				GetScreenWorkingHeight() / b - 4 * a, x, y);
+		buttonArray[3].setIcon(RotF);
+	}
+	public void setButtonIconBlau (){
+
+		buttonArray[4].setBounds(GetScreenWorkingWidth() / c + 4 * a,
+				GetScreenWorkingHeight() / b - 5 * a, x, y);
+		buttonArray[4].setIcon(BlauF);
+
+		buttonArray[5].setBounds(GetScreenWorkingWidth() / c + 5 * a,
+				GetScreenWorkingHeight() / b - 5 * a, x, y);
+		buttonArray[5].setIcon(BlauF);
+
+		buttonArray[6].setBounds(GetScreenWorkingWidth() / c + 4 * a,
+				GetScreenWorkingHeight() / b - 4 * a, x, y);
+		buttonArray[6].setIcon(BlauF);
+
+		buttonArray[7].setBounds(GetScreenWorkingWidth() / c + 5 * a,
+				GetScreenWorkingHeight() / b - 4 * a, x, y);
+		buttonArray[7].setIcon(BlauF);
+	}
+	public void setButtonIconGruen (){
+
+		buttonArray[12].setBounds(GetScreenWorkingWidth() / c + 4 * a,
+				GetScreenWorkingHeight() / b + 4 * a, x, y);
+		buttonArray[12].setIcon(GruenF);
+
+		buttonArray[13].setBounds(GetScreenWorkingWidth() / c + 5 * a,
+				GetScreenWorkingHeight() / b + 4 * a, x, y);
+		buttonArray[13].setIcon(GruenF);
+
+		buttonArray[14].setBounds(GetScreenWorkingWidth() / c + 4 * a,
+				GetScreenWorkingHeight() / b + 5 * a, x, y);
+		buttonArray[14].setIcon(GruenF);
+
+		buttonArray[15].setBounds(GetScreenWorkingWidth() / c + 5 * a,
+				GetScreenWorkingHeight() / b + 5 * a, x, y);
+		buttonArray[15].setIcon(GruenF);
+	}
+	public void setButtonIconGelb (){
+
+		buttonArray[8].setBounds(GetScreenWorkingWidth() / c - 5 * a,
+				GetScreenWorkingHeight() / b + 4 * a, x, y);
+		buttonArray[8].setIcon(GelbF);
+
+		buttonArray[9].setBounds(GetScreenWorkingWidth() / c - 4 * a,
+				GetScreenWorkingHeight() / b + 4 * a, x, y);
+		buttonArray[9].setIcon(GelbF);
+
+		buttonArray[10].setBounds(GetScreenWorkingWidth() / c - 4 * a,
+				GetScreenWorkingHeight() / b + 5 * a, x, y);
+		buttonArray[10].setIcon(GelbF);
+
+		buttonArray[11].setBounds(GetScreenWorkingWidth() / c - 5 * a,
+				GetScreenWorkingHeight() / b + 5 * a, x, y);
+		buttonArray[11].setIcon(GelbF);
+	}
 
 	public void setSpielerArt(String SpielerArt) {
 		spielerArt = SpielerArt;
@@ -967,6 +1055,394 @@ public class GUI extends JFrame implements iMeldung{
 //	public void mailSenden(){
 //		bediener.mailSenden();
 //	}
+	
+	
+	//______________________________________getter und setter__________________________________//
+		public ImageIcon getRotF() {
+			return RotF;
+		}
+
+		public void setRotF(ImageIcon rotF) {
+			RotF = rotF;
+		}
+
+		public ImageIcon getBlauF() {
+			return BlauF;
+		}
+
+		public void setBlauF(ImageIcon blauF) {
+			BlauF = blauF;
+		}
+
+		public ImageIcon getGelbF() {
+			return GelbF;
+		}
+
+		public void setGelbF(ImageIcon gelbF) {
+			GelbF = gelbF;
+		}
+
+		public ImageIcon getGruenF() {
+			return GruenF;
+		}
+
+		public void setGruenF(ImageIcon gruenF) {
+			GruenF = gruenF;
+		}
+
+		public ButtonGroup getGroup() {
+			return group;
+		}
+
+		public void setGroup(ButtonGroup group) {
+			this.group = group;
+		}
+
+		public ImageIcon getEins() {
+			return eins;
+		}
+
+		public void setEins(ImageIcon eins) {
+			this.eins = eins;
+		}
+
+		public JLabel getWuerfelt1() {
+			return wuerfelt1;
+		}
+
+		public void setWuerfelt1(JLabel wuerfelt1) {
+			this.wuerfelt1 = wuerfelt1;
+		}
+
+		public ImageIcon getZwei() {
+			return zwei;
+		}
+
+		public void setZwei(ImageIcon zwei) {
+			this.zwei = zwei;
+		}
+
+		public JLabel getWuerfelt2() {
+			return wuerfelt2;
+		}
+
+		public void setWuerfelt2(JLabel wuerfelt2) {
+			this.wuerfelt2 = wuerfelt2;
+		}
+
+		public ImageIcon getDrei() {
+			return drei;
+		}
+
+		public void setDrei(ImageIcon drei) {
+			this.drei = drei;
+		}
+
+		public JLabel getWuerfelt3() {
+			return wuerfelt3;
+		}
+
+		public void setWuerfelt3(JLabel wuerfelt3) {
+			this.wuerfelt3 = wuerfelt3;
+		}
+
+		public ImageIcon getVier() {
+			return vier;
+		}
+
+		public void setVier(ImageIcon vier) {
+			this.vier = vier;
+		}
+
+		public JLabel getWuerfelt4() {
+			return wuerfelt4;
+		}
+
+		public void setWuerfelt4(JLabel wuerfelt4) {
+			this.wuerfelt4 = wuerfelt4;
+		}
+
+		public ImageIcon getFuenf() {
+			return fuenf;
+		}
+
+		public void setFuenf(ImageIcon fuenf) {
+			this.fuenf = fuenf;
+		}
+
+		public JLabel getWuerfelt5() {
+			return wuerfelt5;
+		}
+
+		public void setWuerfelt5(JLabel wuerfelt5) {
+			this.wuerfelt5 = wuerfelt5;
+		}
+
+		public ImageIcon getSechs() {
+			return sechs;
+		}
+
+		public void setSechs(ImageIcon sechs) {
+			this.sechs = sechs;
+		}
+
+		public JLabel getWuerfelt6() {
+			return wuerfelt6;
+		}
+
+		public void setWuerfelt6(JLabel wuerfelt6) {
+			this.wuerfelt6 = wuerfelt6;
+		}
+
+		public JLabel getWuerfelL() {
+			return wuerfelL;
+		}
+
+		public void setWuerfelL(JLabel wuerfelL) {
+			this.wuerfelL = wuerfelL;
+		}
+
+		public ImageIcon getTest() {
+			return test;
+		}
+
+		public void setTest(ImageIcon test) {
+			this.test = test;
+		}
+
+		public JLabel getWuerfelt() {
+			return wuerfelt;
+		}
+
+		public void setWuerfelt(JLabel wuerfelt) {
+			this.wuerfelt = wuerfelt;
+		}
+
+		public ImageIcon getWuerfeln() {
+			return wuerfeln;
+		}
+
+		public void setWuerfeln(ImageIcon wuerfeln) {
+			this.wuerfeln = wuerfeln;
+		}
+
+		public JTextField getFeld01() {
+			return feld01;
+		}
+
+		public void setFeld01(JTextField feld01) {
+			this.feld01 = feld01;
+		}
+
+		public JSpinner getSpinner() {
+			return spinner;
+		}
+
+		public void setSpinner(JSpinner spinner) {
+			this.spinner = spinner;
+		}
+
+		public JRadioButton getRBRED() {
+			return RBRED;
+		}
+
+		public void setRBRED(JRadioButton rBRED) {
+			RBRED = rBRED;
+		}
+
+		public JRadioButton getRBGREEN() {
+			return RBGREEN;
+		}
+
+		public void setRBGREEN(JRadioButton rBGREEN) {
+			RBGREEN = rBGREEN;
+		}
+
+		public JRadioButton getRBBLUE() {
+			return RBBLUE;
+		}
+
+		public void setRBBLUE(JRadioButton rBBLUE) {
+			RBBLUE = rBBLUE;
+		}
+
+		public JRadioButton getRBYELLOW() {
+			return RBYELLOW;
+		}
+
+		public void setRBYELLOW(JRadioButton rBYELLOW) {
+			RBYELLOW = rBYELLOW;
+		}
+
+		public JRadioButton getMensch() {
+			return Mensch;
+		}
+
+		public void setMensch(JRadioButton mensch) {
+			Mensch = mensch;
+		}
+
+		public JRadioButton getKIa() {
+			return KIa;
+		}
+
+		public void setKIa(JRadioButton kIa) {
+			KIa = kIa;
+		}
+
+		public JRadioButton getKId() {
+			return KId;
+		}
+
+		public void setKId(JRadioButton kId) {
+			KId = kId;
+		}
+
+		public JFrame getFrame() {
+			return frame;
+		}
+
+		public void setFrame(JFrame frame) {
+			this.frame = frame;
+		}
+
+		public JFrame getFrame02() {
+			return frame02;
+		}
+
+		public void setFrame02(JFrame frame02) {
+			this.frame02 = frame02;
+		}
+
+		public JButton getButtonWurf() {
+			return buttonWurf;
+		}
+
+		public void setButtonWurf(JButton buttonWurf) {
+			this.buttonWurf = buttonWurf;
+		}
+
+		public JButton getButtonVor() {
+			return buttonVor;
+		}
+
+		public void setButtonVor(JButton buttonVor) {
+			this.buttonVor = buttonVor;
+		}
+
+		public EventHandler getEh() {
+			return eh;
+		}
+
+		public void setEh(EventHandler eh) {
+			this.eh = eh;
+		}
+
+		public iBediener getBediener() {
+			return bediener;
+		}
+
+		public void setBediener(iBediener bediener) {
+			this.bediener = bediener;
+		}
+
+		public JFrame getHauptf() {
+			return hauptf;
+		}
+
+		public void setHauptf(JFrame hauptf) {
+			this.hauptf = hauptf;
+		}
+
+		public JPanel getHauptp() {
+			return hauptp;
+		}
+
+		public void setHauptp(JPanel hauptp) {
+			this.hauptp = hauptp;
+		}
+
+		public JButton[] getButtonArray() {
+			return buttonArray;
+		}
+
+		public void setButtonArray(JButton[] buttonArray) {
+			this.buttonArray = buttonArray;
+		}
+
+		public JTextArea getTa() {
+			return ta;
+		}
+
+		public void setTa(JTextArea ta) {
+			this.ta = ta;
+		}
+
+		public JScrollPane getScroller() {
+			return scroller;
+		}
+
+		public void setScroller(JScrollPane scroller) {
+			this.scroller = scroller;
+		}
+
+		public boolean isHatGewuerfelt() {
+			return hatGewuerfelt;
+		}
+
+		public void setHatGewuerfelt(boolean hatGewuerfelt) {
+			this.hatGewuerfelt = hatGewuerfelt;
+		}
+
+		public JButton getMitte() {
+			return mitte;
+		}
+
+		public void setMitte(JButton mitte) {
+			this.mitte = mitte;
+		}
+
+		public ArrayList<String> getFarbe() {
+			return farbe;
+		}
+
+		public void setFarbe(ArrayList<String> farbe) {
+			this.farbe = farbe;
+		}
+
+		public int getSpAnzahl() {
+			return spAnzahl;
+		}
+
+		public int getX() {
+			return x;
+		}
+
+		public int getY() {
+			return y;
+		}
+
+		public int getA() {
+			return a;
+		}
+
+		public int getB() {
+			return b;
+		}
+
+		public int getC() {
+			return c;
+		}
+
+		public JFrame getMailFrame() {
+			return mailFrame;
+		}
+
+		public void setMailFrame(JFrame mailFrame) {
+			this.mailFrame = mailFrame;
+		}
+		
+
 
 	// //////////////////////////////////////////////////////////////////////////////////
 

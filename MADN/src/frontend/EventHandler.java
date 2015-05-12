@@ -15,6 +15,7 @@ import backend.Spiel;
 public class EventHandler implements ActionListener {
 	private GUI gui; // kenntnisbeziehung herstellen!!!
 	// private iBediener bediener = new Spiel();
+	private int i = 0;
 
 	/**
 	 * 
@@ -40,77 +41,147 @@ public class EventHandler implements ActionListener {
 		switch (ae.getActionCommand()) {
 		case "OK":
 			gui.log("Spieler erstellen: Spielerzahl waehlen");
-			gui.setSpAnzahl(((Number) gui.spinner.getValue()).intValue());
-			for (int i = 0; i < gui.getSpAnz(); i++) {
-				gui.nameFarbeArtAbfrage();
-			}
+			gui.setSpAnzahl(((Number) gui.getSpinner().getValue()).intValue());
 			gui.log("gewaehlter Spielerzahl:" + gui.getSpAnz());
-			gui.frame.dispose();
+			gui.nameFarbeArtAbfrage();
+			gui.getFrame().dispose();
+			i= gui.getSpAnz()-1;
 			break;
 		case "Bestätigen":
-			gui.setSpielerName(gui.feld01.getText());
+			gui.setSpielerName(gui.getFeld01().getText());
 			// Radio Button Abfrage Farbe
-			if (gui.RBRED.isSelected() == true) {
+			if(gui.getRBRED().isSelected()==true ||gui.getRBGREEN().isSelected()==true||gui.getRBBLUE().isSelected()==true||gui.getRBYELLOW().isSelected() == true){
+
+			if (gui.getRBRED().isSelected() == true) {
 				gui.setSpielerFarbe("RED");
+				gui.getFarbe().add("RED");
+				gui.setButtonIconRot();
 			}
-			if (gui.RBGREEN.isSelected() == true) {
+			if (gui.getRBGREEN().isSelected() == true) {
 				gui.setSpielerFarbe("GREEN");
+				gui.getFarbe().add("GREEN");
+				gui.setButtonIconGruen();
 			}
-			if (gui.RBBLUE.isSelected() == true) {
+			if (gui.getRBBLUE().isSelected() == true) {
 				gui.setSpielerFarbe("BLUE");
+				gui.getFarbe().add("BLUE");
+				gui.setButtonIconBlau();
 			}
-			if (gui.RBYELLOW.isSelected() == true) {
+			if (gui.getRBYELLOW().isSelected() == true) {
 				gui.setSpielerFarbe("YELLOW");
+				gui.getFarbe().add("YELLOW");
+				gui.setButtonIconGelb();
 			}
 
 			// Radio Button Abfrage Art
-			if (gui.Mensch.isSelected() == true) {
+			if (gui.getMensch().isSelected() == true) {
 				gui.setSpielerArt(null);
 			}
-			if (gui.KIa.isSelected() == true) {
-				gui.setSpielerArt("AGGRESSIV");
+			if (gui.getKIa().isSelected() == true) {
+				gui.setSpielerArt("AGGRESIV");
 			}
-			if (gui.KId.isSelected() == true) {
+			if (gui.getKId().isSelected() == true) {
 				gui.setSpielerArt("DEFENSIV");
 			}
-			gui.nameFarbeArtUebergeben();
-			gui.frame02.dispose();
-			gui.log("SpielerName: " + gui.getSpielerName() + "\n"
-					+ "SpielerFarbe:" + gui.getSpielerFarbe() + "\n"
-					+ "SpielerArt:" + gui.getSpielerArt());
+			gui.getFrame02().dispose();
+			if(i!=0){
+				gui.nameFarbeArtAbfrage();
+				i--;
+//				gui.getFrame02().dispose();
+				if(gui.getFarbe().contains("RED")){
+					gui.getRBRED().setEnabled(false);
+					if(gui.getFarbe().contains("BLUE")){
+						gui.getRBBLUE().setEnabled(false);
+					}
+					if(gui.getFarbe().contains("YELLOW")){
+						gui.getRBYELLOW().setEnabled(false);
+					}
+					if(gui.getFarbe().contains("GREEN")){
+						gui.getRBGREEN().setEnabled(false);
+					}
+				}
+				if(gui.getFarbe().contains("BLUE")){
+					gui.getRBBLUE().setEnabled(false);
+					if(gui.getFarbe().contains("RED")){
+						gui.getRBRED().setEnabled(false);
+					}
+					if(gui.getFarbe().contains("YELLOW")){
+						gui.getRBYELLOW().setEnabled(false);
+					}
+					if(gui.getFarbe().contains("GREEN")){
+						gui.getRBGREEN().setEnabled(false);
+					}	
+				}	
+				if(gui.getFarbe().contains("GREEN")){
+					gui.getRBGREEN().setEnabled(false);
+					if(gui.getFarbe().contains("RED")){
+						gui.getRBRED().setEnabled(false);
+					}
+					if(gui.getFarbe().contains("YELLOW")){
+						gui.getRBYELLOW().setEnabled(false);
+					}
+					if(gui.getFarbe().contains("BLUE")){
+						gui.getRBBLUE().setEnabled(false);
+					}	
+				}
+				if(gui.getFarbe().contains("YELLOW")){
+					gui.getRBYELLOW().setEnabled(false);
+					if(gui.getFarbe().contains("RED")){
+						gui.getRBRED().setEnabled(false);
+					}
+					if(gui.getFarbe().contains("GREEN")){
+						gui.getRBGREEN().setEnabled(false);
+					}
+					if(gui.getFarbe().contains("BLUE")){
+						gui.getRBBLUE().setEnabled(false);
+					}	
+				}
+			}
+//			gui.getBediener().initSpiel();
+			gui.log("SpielerName: "+ gui.getSpielerName() + "\n"+ "SpielerFarbe:" + gui.getSpielerFarbe() + "\n"+ "SpielerArt:" + gui.getSpielerArt());
+//			gui.getBediener().SpielerHinzufuegen(gui.getSpielerName(), gui.getSpielerFarbe(), gui.getSpielerArt());
+			}else gui. log("Bitte Farbe Wählen");
 			break;
 		case "neues Spiel erstellen":
 			gui.anzahlSpielerDieSpielenWollenAbfrage();
 			break;
-		case "Wuerfeln":
-
+case "Wuerfeln" : 
+			
 			gui.Wuerfeln();
-			switch (gui.bediener.wurf()) {
+			switch (gui.getBediener().wurf()){
 			case 1:
 				gui.log("Eins wurde gewuerfelt");
-				gui.wuerfelL.setIcon(gui.eins);
+				gui.getWuerfelL().setIcon(gui.getEins());
 				break;
 			case 2:
 				gui.log("Zwei wurde gewuerfelt");
-				gui.wuerfelL.setIcon(gui.zwei);
+				gui.getWuerfelL().setIcon(gui.getZwei());
 				break;
 			case 3:
 				gui.log("Drei wurde gewuerfelt");
-				gui.wuerfelL.setIcon(gui.drei);
+				gui.getWuerfelL().setIcon(gui.getDrei());
 				break;
 			case 4:
 				gui.log("Vier wurde gewuerfelt");
-				gui.wuerfelL.setIcon(gui.vier);
+				gui.getWuerfelL().setIcon(gui.getVier());
 				break;
 			case 5:
 				gui.log("Fuenf wurde gewuerfelt");
-				gui.wuerfelL.setIcon(gui.fuenf);
+				gui.getWuerfelL().setIcon(gui.getFuenf());
 				break;
 			case 6:
 				gui.log("Sechs wurde gewuerfelt");
-				gui.wuerfelL.setIcon(gui.sechs);
+				gui.getWuerfelL().setIcon(gui.getSechs());
 				break;
 			}
+			gui.getButtonVor().setEnabled(true);
+			gui.getButtonWurf().setEnabled(false);
+		break;
+		case "Figur vor" : 
+			//ID von Figur übergeben. 
+			//rechnen wie weit figur kommt
+			gui.getButtonWurf().setEnabled(true);
+			gui.getButtonVor().setEnabled(false);
 			break;
 		case "Screenshot":
 			gui.screenshotErstellen();
@@ -133,7 +204,7 @@ public class EventHandler implements ActionListener {
 		case "senden":
 			//gui.mailSenden();
 			gui.log("mailing...");
-			gui.mailFrame.dispose();
+			gui.getMailFrame().dispose();
 			break;
 
 		}
