@@ -1,6 +1,11 @@
 package frontend;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import backend.Regelwerk;
+import backend.Spielbrett;
+import backend.Spieler;
 
 public interface iBediener {
 	
@@ -18,6 +23,16 @@ public interface iBediener {
 	
 	public void zugDurchfuehren(int ID);
 	public int wurf();
+	public void addSpieler(Spieler s);
+	public void setAmZug(Spieler amZug);
+	public void setNaechster(Spieler amZug);
+	public Regelwerk getRegelwerk();
+	public Spielbrett getBrett();
+	public ArrayList<Spieler> getSpieler();
+	public Spieler getAmZug();
+	public String getDateiname();
+	public int getAnzahlSpieler();
+	
 
 
 
@@ -34,7 +49,6 @@ public interface iBediener {
 
 	
 //___________________________________________________________________________________________--
-	public Object getSpieler();
 	//void mailSenden();
 	
 	

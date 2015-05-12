@@ -20,12 +20,16 @@ import frontend.iBediener;
 public class SpielTest {
 
 
-
 	/**
 	 * Main Methode 
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		
+		iBediener s = new Spiel();
+		s.SpielerHinzufuegen("Judith", "RED", null);
+		s.SpielerHinzufuegen("Chrizzly", "BLUE", "DEFFENSIV");
+		s.initSpiel();
 
 	
 		

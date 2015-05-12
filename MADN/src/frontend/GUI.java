@@ -842,20 +842,19 @@ public class GUI extends JFrame implements iMeldung{
 
 						buttonArray[68].setBounds(GetScreenWorkingWidth() / c,
 								GetScreenWorkingHeight() / b + 4 * a, x, y);
-						buttonArray[71].setIcon(Gelb);
+						buttonArray[68].setIcon(Gelb);
 
 						buttonArray[69].setBounds(GetScreenWorkingWidth() / c,
 								GetScreenWorkingHeight() / b + 3 * a, x, y);
-						buttonArray[71].setIcon(Gelb);
+						buttonArray[69].setIcon(Gelb);
 
 						buttonArray[70].setBounds(GetScreenWorkingWidth() / c,
 								GetScreenWorkingHeight() / b + 2 * a, x, y);
-						buttonArray[71].setIcon(Gelb);
+						buttonArray[70].setIcon(Gelb);
 
 						buttonArray[71].setBounds(GetScreenWorkingWidth() / c,
 								GetScreenWorkingHeight() / b + 1 * a, x, y);
-						buttonArray[71].setIcon(Gelb);
-				
+						buttonArray[71].setIcon(Gelb);				
 
 		buttonArray[16].setIcon(Rot);
 		buttonArray[26].setIcon(Blau);

@@ -37,7 +37,7 @@ public class Regelwerk implements Serializable {
 	 * @param spielfigur
 	 */
 
-	public void aktionsWahl(Spieler spieler, Spielfigur spielfigur, int ergebnis) {
+	public void aktionsWahl(Spieler spieler, Spielfigur spielfigur){ //int ergebnis) {
 		if (spielfigur.getSpielfeld().getID().contains("S")) { // && ergebnis==6){
 			rauskommen(spieler, spielfigur);
 		} else

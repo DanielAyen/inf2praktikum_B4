@@ -137,9 +137,9 @@ public class EventHandler implements ActionListener {
 					}	
 				}
 			}
-//			gui.getBediener().initSpiel();
+			gui.getBediener().SpielerHinzufuegen(gui.getSpielerName(), gui.getSpielerFarbe(), gui.getSpielerArt());
 			gui.log("SpielerName: "+ gui.getSpielerName() + "\n"+ "SpielerFarbe:" + gui.getSpielerFarbe() + "\n"+ "SpielerArt:" + gui.getSpielerArt());
-//			gui.getBediener().SpielerHinzufuegen(gui.getSpielerName(), gui.getSpielerFarbe(), gui.getSpielerArt());
+			
 			}else gui. log("Bitte Farbe Wählen");
 			break;
 		case "neues Spiel erstellen":
@@ -178,8 +178,8 @@ case "Wuerfeln" :
 			gui.getButtonWurf().setEnabled(false);
 		break;
 		case "Figur vor" : 
-			//ID von Figur übergeben. 
-			//rechnen wie weit figur kommt
+			gui.getBediener().getAmZug();
+			gui.getBediener().getRegelwerk().aktionsWahl(gui.getBediener().getAmZug(), gui.getBediener().getAmZug().getSpielfigur(i));
 			gui.getButtonWurf().setEnabled(true);
 			gui.getButtonVor().setEnabled(false);
 			break;

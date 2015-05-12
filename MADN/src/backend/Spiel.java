@@ -59,8 +59,8 @@ public class Spiel implements iBediener, Serializable {
 	 */
 	public void zugDurchfuehren(int ID) {
 
-		regelwerk.aktionsWahl(getAmZug(), getAmZug().getSpielfigur(ID),
-				getAmZug().getWuerfel().getErgebnis());
+		regelwerk.aktionsWahl(getAmZug(), getAmZug().getSpielfigur(ID));
+//				getAmZug().getWuerfel().getErgebnis());
 		//!// System.out.println(brett.toString());
 	}	
 //______________________setter__________________________________________________________________________//
@@ -243,7 +243,7 @@ public class Spiel implements iBediener, Serializable {
 			}
 		}
 
-		//!// System.out.println(brett.toString());
+//		!// System.out.println(brett.toString());
 		setAmZug(spieler.get(0));
 	}
 
