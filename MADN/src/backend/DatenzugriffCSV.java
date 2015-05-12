@@ -47,11 +47,11 @@ public class DatenzugriffCSV implements iDatenzugriff, Serializable {
 			pw.close();
 
 		} catch (NullPointerException e) {
-			throw new IOException("UNerwartetes Dateiende");
+			//!// throw new IOException("UNerwartetes Dateiende");
 		} catch (NumberFormatException e) {
-			throw new IOException("Falsches Elementformat ");
+			//!// throw new IOException("Falsches Elementformat ");
 		} catch (IndexOutOfBoundsException e) {
-			throw new IOException("zu wenig Datenelemente");
+			//!// throw new IOException("zu wenig Datenelemente");
 		}
 	}
 	

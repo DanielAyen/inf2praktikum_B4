@@ -155,8 +155,7 @@ public class Spiel implements iBediener, Serializable {
 
 			default:
 				setA(true);
-				throw new RuntimeException(
-						"Entweder `AGGRESSIV' oder `DEFENSIV' ");			
+				//!// throw new RuntimeException("Entweder `AGGRESSIV' oder `DEFENSIV' ");			
 			}
 		}
 
@@ -177,23 +176,23 @@ public class Spiel implements iBediener, Serializable {
 				break;
 			default:
 				setA(true);
-				throw new RuntimeException("Farbwahl bitte auf Englisch");
+				//!// throw new RuntimeException("Farbwahl bitte auf Englisch");
 				
 			}
 			if (spieler.size() >= 4) {
 				setA(true);
-				throw new RuntimeException("keine Plaetze mehr verfuegbar");
+				//!// throw new RuntimeException("keine Plaetze mehr verfuegbar");
 				
 			}
 			if (name == null) {
 				setA(true);
-				throw new RuntimeException("ungueltige Eingabe");
+				//!// throw new RuntimeException("ungueltige Eingabe");
 				
 			}
 			for (Spieler s : spieler) {
 				if (s.getFarbe().equals(farbe)) {
 					setA(true);
-					throw new RuntimeException("Farbe schon vergeben");
+					//!// throw new RuntimeException("Farbe schon vergeben");
 				}
 			}
 			spieler.add(new Spieler(name, f, ai, this));}
@@ -309,8 +308,7 @@ public class Spiel implements iBediener, Serializable {
 							spieler = search;
 					}
 					if (spieler == null){
-						throw new RuntimeException(
-								"Behinderter Fehler beim Laden von Spielfiguren");
+						//!// throw new RuntimeException("Behinderter Fehler beim Laden von Spielfiguren");
 					}
 					if (a[2].contains("1")) {
 						id = 1;
