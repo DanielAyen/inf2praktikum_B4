@@ -3,25 +3,13 @@ package frontend;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Container;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.Frame;
-import java.awt.Graphics2D;
 import java.awt.GridLayout;
-import java.awt.Image;
 import java.awt.Insets;
 import java.awt.Menu;
 import java.awt.MenuBar;
 import java.awt.MenuItem;
-import java.awt.Panel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-
 import javax.imageio.ImageIO;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -40,14 +28,8 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
 import backend.Spiel;
-import backend.Wuerfel;
-
-import java.awt.event.*;
-import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -59,6 +41,10 @@ import java.util.ArrayList;
 
 public class GUI extends JFrame implements iMeldung{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7153140876841963797L;
 	private ImageIcon RotF;
 	private ImageIcon BlauF;
 	private ImageIcon GelbF;;
