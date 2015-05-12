@@ -47,7 +47,7 @@ public abstract class KI implements Serializable {
 					}
 				}
 				if(spieler.getFarbe().equals(FarbEnum.BLUE) && spiel.getBrett().getSpielbrett()[10].getFelder()[0].getSpielfigur() != null){
-					System.out.println("hier");
+					//!// System.out.println("hier");
 					if(spieler.getFarbe().equals(spiel.getBrett().getSpielbrett()[10].getFelder()[0].getSpielfigur().getFarbe())){
 						KIvor();
 						return null;

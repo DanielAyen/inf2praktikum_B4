@@ -30,15 +30,15 @@ public class DatenzugriffSerialisiert implements iDatenzugriff, Serializable {
 			oos = new ObjectOutputStream(new FileOutputStream( dateiname+".ser"));
 			oos.writeObject(o);
 		} catch (FileNotFoundException e) {
-			System.err.println("konnte 'out.ser' nicht erzeugen");
+			//!// System.err.println("konnte 'out.ser' nicht erzeugen");
 		} catch (IOException e) {
-			System.err.println("Fehler bei der Ein-/Ausgabe" + e);
+			//!// System.err.println("Fehler bei der Ein-/Ausgabe" + e);
 
 		} finally {
 			try {
 				oos.close();
 			} catch (Exception e) {
-				System.err.println("Fehler beim Schliessen der Datei");
+				//!// System.err.println("Fehler beim Schliessen der Datei");
 			}
 		}
 	}
@@ -54,7 +54,7 @@ public class DatenzugriffSerialisiert implements iDatenzugriff, Serializable {
 		
 			try {
 				s = ois.readObject();
-				System.out.println("Spiel geladen");
+				//!// System.out.println("Spiel geladen");
 				return s;
 				
 			} catch (ClassNotFoundException e) {
@@ -62,15 +62,15 @@ public class DatenzugriffSerialisiert implements iDatenzugriff, Serializable {
 			}
 		}
 		catch (FileNotFoundException e) {
-			System.err.println("konnte 'out.ser' nicht finden");
+			//!// System.err.println("konnte 'out.ser' nicht finden");
 		} catch (IOException e) {
-			System.err.println("Fehler bei der Ein-/Ausgabe" + e);
+			//!// System.err.println("Fehler bei der Ein-/Ausgabe" + e);
 
 		} finally {
 			try {
 				ois.close();
 			} catch (Exception e) {
-				System.err.println("Fehler beim Schliessen der Datei");
+				//!// System.err.println("Fehler beim Schliessen der Datei");
 			}
 		}
 		return null;

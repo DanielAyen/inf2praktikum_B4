@@ -40,7 +40,7 @@ public class DatenzugriffCSV implements iDatenzugriff, Serializable {
 			try{
 				s = (String)o;
 			}catch(Exception e){
-				System.err.println("Kein String übergeben");
+				//!// System.err.println("Kein String übergeben");
 			}
 			pw.write(s);
 			pw.flush();

@@ -61,7 +61,7 @@ public class Spiel implements iBediener, Serializable {
 
 		regelwerk.aktionsWahl(getAmZug(), getAmZug().getSpielfigur(ID),
 				getAmZug().getWuerfel().getErgebnis());
-		System.out.println(brett.toString());
+		//!// System.out.println(brett.toString());
 	}	
 //______________________setter__________________________________________________________________________//
 	/**
@@ -71,7 +71,7 @@ public class Spiel implements iBediener, Serializable {
 	 */
 	public void setAmZug(Spieler amZug) {
 		this.amZug = amZug;
-		System.out.println(getAmZug().toString() + " ist am Zug");
+		//!// System.out.println(getAmZug().toString() + " ist am Zug");
 		 getAmZug().getWuerfel().wuerfeln();
 		// getAmZug().getWuerfel().wurf6();
 		// Zum Testen wird nur 2 gewuerfelt:
@@ -80,7 +80,7 @@ public class Spiel implements iBediener, Serializable {
 		if (amZug.getKi() != null) {
 			amZug.getKi().kiZug();
 		} else {
-			System.out.println(amZug.getKienum());
+			//!// System.out.println(amZug.getKienum());
 		}
 		// System.out.println(brett.toString());
 	}
@@ -244,7 +244,7 @@ public class Spiel implements iBediener, Serializable {
 			}
 		}
 
-		System.out.println(brett.toString());
+		//!// System.out.println(brett.toString());
 		setAmZug(spieler.get(0));
 	}
 
@@ -275,7 +275,7 @@ public class Spiel implements iBediener, Serializable {
 			//hier Spieler am Zug einbauen!!
 //			i++;
 			if(a[0].contains("AmZug")){
-				System.err.println(a[3]);
+				//!// System.err.println(a[3]);
 				for (Spieler searched : this.getSpieler()) {
 			
 					if((searched.getFarbe()==FarbEnum.RED && a[3].equals("RED"))){
@@ -291,7 +291,7 @@ public class Spiel implements iBediener, Serializable {
 						setAmZug(searched);			
 					}
 						}				
-			System.err.println(getAmZug());
+			//!// System.err.println(getAmZug());
 			}
 			a = x[i].split("_");
 			//hier SPieler am zug einbauen!!
@@ -300,7 +300,7 @@ public class Spiel implements iBediener, Serializable {
 				if (!a[0].contains("S")) {
 					Spieler spieler = null;
 					int id = -1;
-					System.out.println(this.getSpieler().size());
+					//!// System.out.println(this.getSpieler().size());
 					for (Spieler search : this.getSpieler()) {
 						if (   (search.getFarbe()==FarbEnum.RED && a[4].equals("RED"))
 							|| (search.getFarbe()==FarbEnum.BLUE && a[4].equals("BLUE"))

@@ -83,7 +83,7 @@ public class Mail extends Thread{
 	@Override
 	public void run() {
 		try {
-			System.out.println("Start Mailing an " + p.getProperty("an"));
+			//!// System.out.println("Start Mailing an " + p.getProperty("an"));
 			MailAuthenticator auth = new MailAuthenticator();
 			Session session = Session.getDefaultInstance(p, auth);
 			Message msg = new MimeMessage(session);
@@ -112,11 +112,9 @@ public class Mail extends Thread{
 			msg.setContent(body);
 			msg.setSentDate(new Date());
 			Transport.send(msg);
-			System.out.println("Mailing an " + p.getProperty("an")
-					+ " erfolgreich beendet.");
+			//!// System.out.println("Mailing an " + p.getProperty("an")+ " erfolgreich beendet.");
 		} catch (Exception e) {
-			System.out.println("Mailing an " + p.getProperty("an")
-					+ " FEHLGESCHLAGEN:");
+			//!// System.out.println("Mailing an " + p.getProperty("an")+ " FEHLGESCHLAGEN:");
 			e.printStackTrace();
 		}
 	}
