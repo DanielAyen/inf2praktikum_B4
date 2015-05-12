@@ -94,7 +94,7 @@ public class GUI extends JFrame implements iMeldung{
 	private JFrame mailFrame;
 	private JButton buttonWurf;
 	private JButton buttonVor;
-	private JFrame jf = new JFrame("SPIEL");
+//	private JFrame jf = new JFrame("SPIEL");
 	private EventHandler eh;
 	private int spAnzahl; // spielerAnzahl die im Spinner gewählt wird
 	private String spielerName;
@@ -129,11 +129,11 @@ public class GUI extends JFrame implements iMeldung{
 		// spielLadenAbfrage();
 		farbe = new ArrayList<String>();
 		spielfeldAnzeigen();
-		jf.addWindowListener(new WindowAdapter() { // fuer die Menue Knoepfe
-			public void windowClosing(final WindowEvent e) {
-				System.exit(0);
-			}
-		});
+//		jf.addWindowListener(new WindowAdapter() { // fuer die Menue Knoepfe
+//			public void windowClosing(final WindowEvent e) {
+//				System.exit(0);
+//			}
+//		});
 		// jf = new JFrame();
 		// JPanel jp = new JPanel();
 		// jp.add(jl);
@@ -280,7 +280,7 @@ public class GUI extends JFrame implements iMeldung{
 		frame02.add(panel02, BorderLayout.SOUTH);
 
 		// RadioButtons für Farbe
-		RBRED = new JRadioButton("RED", true);
+		RBRED = new JRadioButton("RED");
 		RBGREEN = new JRadioButton("GREEN");
 		RBBLUE = new JRadioButton("BLUE");
 		RBYELLOW = new JRadioButton("YELLOW");
@@ -437,7 +437,7 @@ public class GUI extends JFrame implements iMeldung{
 		scroller = new JScrollPane(ta);
 		logger.add(new JLabel("Log-Fenster:"), BorderLayout.NORTH);
 		logger.add(scroller, BorderLayout.CENTER);
-		jf.getContentPane().add(logger);
+//		jf.getContentPane().add(logger);
 		hauptf.add(logger, BorderLayout.SOUTH);
 		//
 
@@ -871,21 +871,11 @@ public class GUI extends JFrame implements iMeldung{
 						buttonArray[71].setIcon(Gelb);
 				
 
-		ImageIcon kreisY = new ImageIcon("Bilder//FigurGelb.png");
-
 		buttonArray[16].setIcon(Rot);
 		buttonArray[26].setIcon(Blau);
 		buttonArray[36].setIcon(Gruen);
 		buttonArray[46].setIcon(Gelb);
-		
-		
-		buttonArray[68].setIcon(kreisY);
 
-		buttonArray[69].setIcon(kreisY);
-
-		buttonArray[70].setIcon(kreisY);
-
-		buttonArray[71].setIcon(kreisY);
 
 	}
 	
