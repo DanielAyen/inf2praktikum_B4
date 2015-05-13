@@ -10,6 +10,7 @@ import java.awt.Insets;
 import java.awt.Menu;
 import java.awt.MenuBar;
 import java.awt.MenuItem;
+
 import javax.imageio.ImageIO;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -28,6 +29,7 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
 import backend.Spiel;
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -106,6 +108,7 @@ public class GUI extends JFrame implements iMeldung{
 	private final int c =  3;
 	private boolean first=false;
 	private ArrayList<String> farbe;
+	JTextField empfaengerFeld;
 	/**
 	 * Konstruktor GUI
 	 */
@@ -1009,7 +1012,7 @@ public class GUI extends JFrame implements iMeldung{
 				"nur Adressen von reutlingen-university.de");
 		JPasswordField pwField = new JPasswordField("");
 		pwField.setEchoChar('*'); // macht * bei Passworteingabe
-		JTextField empfaengerFeld = new JTextField("");
+		 empfaengerFeld = new JTextField("");
 
 		JButton senden = new JButton("senden");
 		senden.addActionListener(eh);
@@ -1033,6 +1036,10 @@ public class GUI extends JFrame implements iMeldung{
 	
 	
 	//______________________________________getter und setter__________________________________//
+	 public String getEmpfaenger(){
+			return empfaengerFeld.getText();
+		 }
+	
 		public ImageIcon getRotF() {
 			return RotF;
 		}
