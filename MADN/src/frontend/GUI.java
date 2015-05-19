@@ -47,6 +47,7 @@ public class GUI extends JFrame implements iMeldung {
 	 * 
 	 */
 	private static final long serialVersionUID = -7153140876841963797L;
+	private JButton kiZug;
 	private ImageIcon RotF;
 	private ImageIcon BlauF;
 	private ImageIcon GelbF;;
@@ -444,10 +445,15 @@ public class GUI extends JFrame implements iMeldung {
 		JPanel panelB = new JPanel();
 		panelB.setLayout(new BorderLayout());
 		buttonWurf = new JButton("Wuerfeln");
+		kiZug = new JButton("KI ziehen");
+
 
 		buttonWurf.addActionListener(eh);
+		kiZug.addActionListener(eh);
+		
 
 		panelB.add(buttonWurf, BorderLayout.EAST);
+		panelB.add(kiZug, BorderLayout.CENTER);
 		hauptf.add(panelB, BorderLayout.EAST);
 
 		// //////////////////////////////Damit kann man die absoloute buttons
@@ -1581,6 +1587,13 @@ public class GUI extends JFrame implements iMeldung {
 
 	public void setFeldn(ImageIcon feldn) {
 		this.feldn = feldn;
+	}
+	public JButton getKiZug() {
+		return kiZug;
+	}
+
+	public void setKiZug(JButton kiZug) {
+		this.kiZug = kiZug;
 	}
 
 	// //////////////////////////////////////////////////////////////////////////////////

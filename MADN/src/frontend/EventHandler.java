@@ -334,6 +334,40 @@ public class EventHandler implements ActionListener {
 				gui.log("Fehler beim speichern");
 			}
 			break;
+		case "KI ziehen":
+			if (gui.getBediener().getAmZug().getKi() != null) {
+				gui.Wuerfeln();
+				switch (gui.getBediener().wurf()) {
+				case 1:
+					gui.log("Eins wurde gewuerfelt");
+					gui.getWuerfelL().setIcon(gui.getEins());
+					break;
+				case 2:
+					gui.log("Zwei wurde gewuerfelt");
+					gui.getWuerfelL().setIcon(gui.getZwei());
+					break;
+				case 3:
+					gui.log("Drei wurde gewuerfelt");
+					gui.getWuerfelL().setIcon(gui.getDrei());
+					break;
+				case 4:
+					gui.log("Vier wurde gewuerfelt");
+					gui.getWuerfelL().setIcon(gui.getVier());
+					break;
+				case 5:
+					gui.log("Fuenf wurde gewuerfelt");
+					gui.getWuerfelL().setIcon(gui.getFuenf());
+					break;
+				case 6:
+					gui.log("Sechs wurde gewuerfelt");
+					gui.getWuerfelL().setIcon(gui.getSechs());
+					break;
+				}
+				gui.getBediener().setNaechster(gui.getBediener().getAmZug());
+				gui.getKiZug().setEnabled(false);
+				gui.getButtonWurf().setEnabled(true);
+			}
+			break;
 
 		default:
 			JButton b = (JButton) ae.getSource();
