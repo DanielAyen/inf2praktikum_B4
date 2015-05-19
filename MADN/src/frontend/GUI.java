@@ -104,9 +104,9 @@ public class GUI extends JFrame implements iMeldung {
 	private JTextArea ta = new JTextArea(8, 20);// fuer die Loggerfeld groesse
 	private JScrollPane scroller;
 	private JButton mitte = new JButton("M");
-	private final int x = 35;
-	private final int y = 35;
-	private final int a = 53;
+	private final int x = 30;//35
+	private final int y = 30;//35
+	private final int a = 35;//53
 	private final int b = 3;
 	private final int c = 3;
 	private boolean first = false;
