@@ -208,7 +208,7 @@ public class EventHandler implements ActionListener {
 				gui.log("Spiel wurde gespeichert (PDF)");
 
 			} catch (IOException e1) {
-				e1.printStackTrace();
+				gui.log("Fehler beim speichern");//e1.printStackTrace();
 			}
 			break;
 		case "Spiel laden":
@@ -274,14 +274,16 @@ public class EventHandler implements ActionListener {
 				try {
 					anhangPDF.attachFile("MADN Spiel PDF.pdf");
 				} catch (IOException e) {
-					e.printStackTrace();
+					gui.log("Fehler beim PDF anhaengen");
+					//e.printStackTrace();
 				}
 
 				MimeBodyPart anhangSer = new MimeBodyPart();
 				try {
 					anhangSer.attachFile("SpielSerialisiert.ser");
 				} catch (IOException e) {
-					e.printStackTrace();
+					gui.log("Fehler beim SER anhaengen");
+					//e.printStackTrace();
 				}
 
 				mp.addBodyPart(text);
@@ -295,7 +297,8 @@ public class EventHandler implements ActionListener {
 
 
 			} catch (MessagingException e) {
-				throw new RuntimeException(e);
+				gui.log("Fehler beim senden");
+				//throw new RuntimeException(e);
 			}
 
 			gui.log("E-Mail wurde gesendet.");
@@ -309,7 +312,7 @@ public class EventHandler implements ActionListener {
 				gui.log("Spiel wurde gespeichert (CSV) ");
 
 			} catch (IOException e1) {
-				e1.printStackTrace();
+				gui.log("Fehler beim speichern");//e1.printStackTrace();
 			}
 			break;
 
@@ -320,7 +323,8 @@ public class EventHandler implements ActionListener {
 				gui.log("Spiel wurde gespeichert (SER) ");
 
 			} catch (IOException e1) {
-				e1.printStackTrace();
+				//e1.printStackTrace();
+				gui.log("Fehler beim speichern");
 			}
 			break;
 
