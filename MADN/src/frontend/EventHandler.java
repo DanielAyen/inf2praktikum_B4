@@ -275,7 +275,7 @@ public class EventHandler implements ActionListener {
 
 				Multipart mp = new MimeMultipart();
 				MimeBodyPart text = new MimeBodyPart();
-				text.setText("Lieber Spieler! \nIm Anhang findest du deinen Spielstand als PDF oder in serialisierter Form. \nViel Spaﬂ weiterhin beim Spielen.");
+				text.setText("Lieber Spieler! \nIm Anhang findest du deinen Spielstand als PDF oder in serialisierter Form. \nViel Spass weiterhin beim Spielen.");
 
 				MimeBodyPart anhangPDF = new MimeBodyPart();
 				try {

@@ -1139,23 +1139,23 @@ public class GUI extends JFrame implements iMeldung {
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(4, 2));
 
-		JLabel mailAdresse = new JLabel("E-Mail:");
-		JLabel pwLabel = new JLabel("Passwort:");
+//		JLabel mailAdresse = new JLabel("E-Mail:");
+//		JLabel pwLabel = new JLabel("Passwort:");
 		JLabel empfaenger = new JLabel("Empfaenger E-Mail:");
 
-		JTextField mail = new JTextField(
-				"nur Adressen von reutlingen-university.de");
-		JPasswordField pwField = new JPasswordField("");
-		pwField.setEchoChar('*'); // macht * bei Passworteingabe
+//		JTextField mail = new JTextField(
+//				"nur Adressen von reutlingen-university.de");
+//		JPasswordField pwField = new JPasswordField("");
+//		pwField.setEchoChar('*'); // macht * bei Passworteingabe
 		empfaengerFeld = new JTextField("");
 
 		JButton senden = new JButton("senden");
 		senden.addActionListener(eh);
 
-		panel.add(mailAdresse);
-		panel.add(mail);
-		panel.add(pwLabel);
-		panel.add(pwField);
+//		panel.add(mailAdresse);
+//		panel.add(mail);
+//		panel.add(pwLabel);
+//		panel.add(pwField);
 		panel.add(empfaenger);
 		panel.add(empfaengerFeld);
 		panel.add(senden);
