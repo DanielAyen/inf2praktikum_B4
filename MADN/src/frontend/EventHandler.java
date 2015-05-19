@@ -205,6 +205,7 @@ public class EventHandler implements ActionListener {
 			try {
 				gui.screenshotErstellen();
 				gui.spielSpeichern();
+				gui.log("Spiel wurde gespeichert (PDF)");
 
 			} catch (IOException e1) {
 				e1.printStackTrace();
@@ -291,7 +292,7 @@ public class EventHandler implements ActionListener {
 
 				Transport.send(message);
 
-				System.out.println("Done");
+
 
 			} catch (MessagingException e) {
 				throw new RuntimeException(e);
@@ -310,6 +311,7 @@ public class EventHandler implements ActionListener {
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
+			break;
 
 		case "Serialisiert speichern":
 
@@ -320,6 +322,7 @@ public class EventHandler implements ActionListener {
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
+			break;
 
 		default:
 			JButton b = (JButton) ae.getSource();
