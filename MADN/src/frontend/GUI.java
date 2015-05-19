@@ -320,6 +320,12 @@ public class GUI extends JFrame implements iMeldung{
 	public void spielSpeichern() throws IOException{
 		bediener.Speichern("MADN Spiel", "PDF");
 	}
+	public void spielSpeichernCSV() throws IOException{
+		bediener.Speichern("MADN Spiel", "CSV");
+	}
+	public void spielSpeichernSER() throws IOException{
+		bediener.Speichern("MADN Spiel", "SER");
+	}
 
 	/**
 	 * erstellt neuen Spieler
@@ -530,6 +536,14 @@ public class GUI extends JFrame implements iMeldung{
 		MenuItem speichern = new MenuItem("als PDF speichern");
 		spiel.add(speichern);
 		speichern.addActionListener(eh);
+		menueLeiste.add(spiel);
+		MenuItem speichernCSV = new MenuItem("als CSV speichern");
+		spiel.add(speichernCSV);
+		speichernCSV.addActionListener(eh);
+		menueLeiste.add(spiel);
+		MenuItem speichernSER = new MenuItem("Serialisiert speichern");
+		spiel.add(speichernSER);
+		speichernSER.addActionListener(eh);
 		menueLeiste.add(spiel);
 		
 		Menu mail = new Menu("Mail");

@@ -276,15 +276,13 @@ public class EventHandler implements ActionListener {
 					e.printStackTrace();
 				}
 
-				
-				
 				MimeBodyPart anhangSer = new MimeBodyPart();
 				try {
 					anhangSer.attachFile("SpielSerialisiert.ser");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-				
+
 				mp.addBodyPart(text);
 				mp.addBodyPart(anhangPDF);
 				mp.addBodyPart(anhangSer);
@@ -302,25 +300,48 @@ public class EventHandler implements ActionListener {
 			gui.log("E-Mail wurde gesendet.");
 			gui.getMailFrame().dispose();
 			break;
-		default: JButton b = (JButton) ae.getSource();
-		for(int i = 0; i< gui.getButtonArray().length; i++){
-			if ( gui.getButtonArray()[i] == b ){
-				if(gui.compareIcon((ImageIcon) b.getIcon()))	{
-					String ID_old = "";
-					if (i <= 15){
-						ID_old += "S" + (i%4+1);
-					}else if (i > 15 && i < 56){
-						ID_old += i -15;
-					}else 	if (i>= 56){
-						ID_old += "E" + (i%4+1);
-					}
-					gui.playerIcons(gui.getBediener().zugDurchfuehren(ID_old), i);
-					
-						
-					break;	
+
+		case "als CSV speichern":
+
+			try {
+				gui.spielSpeichernCSV();
+				gui.log("Spiel wurde gespeichert (CSV) ");
+
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+
+		case "Serialisiert speichern":
+
+			try {
+				gui.spielSpeichernSER();
+				gui.log("Spiel wurde gespeichert (SER) ");
+
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+
+		default:
+			JButton b = (JButton) ae.getSource();
+			for (int i = 0; i < gui.getButtonArray().length; i++) {
+				if (gui.getButtonArray()[i] == b) {
+					if (gui.compareIcon((ImageIcon) b.getIcon())) {
+						String ID_old = "";
+						if (i <= 15) {
+							ID_old += "S" + (i % 4 + 1);
+						} else if (i > 15 && i < 56) {
+							ID_old += i - 15;
+						} else if (i >= 56) {
+							ID_old += "E" + (i % 4 + 1);
+						}
+						gui.playerIcons(
+								gui.getBediener().zugDurchfuehren(ID_old), i);
+
+						break;
 					}
 				}
 			}
+
 		}
 	}
 }
