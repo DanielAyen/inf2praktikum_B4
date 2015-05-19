@@ -41,8 +41,8 @@ import java.util.ArrayList;
  *
  */
 
-public class GUI extends JFrame implements iMeldung{
-	
+public class GUI extends JFrame implements iMeldung {
+
 	/**
 	 * 
 	 */
@@ -51,6 +51,12 @@ public class GUI extends JFrame implements iMeldung{
 	private ImageIcon BlauF;
 	private ImageIcon GelbF;;
 	private ImageIcon GruenF;
+	private ImageIcon Rot;
+	private ImageIcon Blau;
+	private ImageIcon Gelb;
+	private ImageIcon Gruen;
+	private ImageIcon feldn;
+
 	private ButtonGroup group;
 	private ImageIcon eins;
 	private JLabel wuerfelt1;
@@ -81,7 +87,7 @@ public class GUI extends JFrame implements iMeldung{
 	private JFrame frame02;
 	private JFrame mailFrame;
 	private JButton buttonWurf;
-//	private JFrame jf = new JFrame("SPIEL");
+	// private JFrame jf = new JFrame("SPIEL");
 	private EventHandler eh;
 	private int spAnzahl; // spielerAnzahl die im Spinner gewählt wird
 	private String spielerName;
@@ -100,11 +106,12 @@ public class GUI extends JFrame implements iMeldung{
 	private final int x = 35;
 	private final int y = 35;
 	private final int a = 53;
-	private final int b =  3;
-	private final int c =  3;
-	private boolean first=false;
+	private final int b = 3;
+	private final int c = 3;
+	private boolean first = false;
 	private ArrayList<String> farbe;
 	JTextField empfaengerFeld;
+
 	/**
 	 * Konstruktor GUI
 	 */
@@ -114,11 +121,11 @@ public class GUI extends JFrame implements iMeldung{
 		// spielLadenAbfrage();
 		farbe = new ArrayList<String>();
 		spielfeldAnzeigen();
-//		jf.addWindowListener(new WindowAdapter() { // fuer die Menue Knoepfe
-//			public void windowClosing(final WindowEvent e) {
-//				System.exit(0);
-//			}
-//		});
+		// jf.addWindowListener(new WindowAdapter() { // fuer die Menue Knoepfe
+		// public void windowClosing(final WindowEvent e) {
+		// System.exit(0);
+		// }
+		// });
 		// jf = new JFrame();
 		// JPanel jp = new JPanel();
 		// jp.add(jl);
@@ -317,13 +324,16 @@ public class GUI extends JFrame implements iMeldung{
 		JFileChooser fc = new JFileChooser();
 		fc.showOpenDialog(null);
 	}
-	public void spielSpeichern() throws IOException{
+
+	public void spielSpeichern() throws IOException {
 		bediener.Speichern("MADN Spiel", "PDF");
 	}
-	public void spielSpeichernCSV() throws IOException{
+
+	public void spielSpeichernCSV() throws IOException {
 		bediener.Speichern("MADN Spiel", "CSV");
 	}
-	public void spielSpeichernSER() throws IOException{
+
+	public void spielSpeichernSER() throws IOException {
 		bediener.Speichern("MADN Spiel", "SER");
 	}
 
@@ -379,34 +389,35 @@ public class GUI extends JFrame implements iMeldung{
 	 */
 	public void spielfeldAnzeigen() {
 
-
 		// ImageIcon feld = new ImageIcon("Bilder//spielbrett.jpg");
 		ImageIcon feld = new ImageIcon("Bilder//feldU.gif");
 
-		hauptf.setLocation(GetScreenWorkingWidth()/16, GetScreenWorkingHeight()/14);
+		hauptf.setLocation(GetScreenWorkingWidth() / 16,
+				GetScreenWorkingHeight() / 14);
 		hauptf.setMenuBar(this.getMenuOben()); // erstellt Menue oben
 
-		hauptf.setSize(GetScreenWorkingWidth()-450, GetScreenWorkingHeight()-50);   
-		//hauptf.setExtendedState(Frame.MAXIMIZED_BOTH);
+		hauptf.setSize(GetScreenWorkingWidth() - 450,
+				GetScreenWorkingHeight() - 50);
+		// hauptf.setExtendedState(Frame.MAXIMIZED_BOTH);
 		// hauptf.setSize(1250, 1000);
 		JLabel hauptl = new JLabel(feld);
 
 		test = new ImageIcon("Bilder//eins.jpg");
 		wuerfelL = new JLabel(test);
-		//////////wuerfel anzeigen lassen
-		
-		eins = new ImageIcon ("Bilder//eins.jpg");
-		wuerfelt1= new JLabel(eins);
-		zwei = new ImageIcon ("Bilder//zwei.jpg");
-		wuerfelt2= new JLabel(zwei);
-		drei = new ImageIcon ("Bilder//drei.jpg");
-		wuerfelt3= new JLabel(drei);
-		vier = new ImageIcon ("Bilder//vier.jpg");
-		wuerfelt4= new JLabel(vier);
-		fuenf = new ImageIcon ("Bilder//fuenf.jpg");
-		wuerfelt5= new JLabel(fuenf);
-		sechs = new ImageIcon ("Bilder//sechs.jpg");
-		wuerfelt6= new JLabel(sechs);
+		// ////////wuerfel anzeigen lassen
+
+		eins = new ImageIcon("Bilder//eins.jpg");
+		wuerfelt1 = new JLabel(eins);
+		zwei = new ImageIcon("Bilder//zwei.jpg");
+		wuerfelt2 = new JLabel(zwei);
+		drei = new ImageIcon("Bilder//drei.jpg");
+		wuerfelt3 = new JLabel(drei);
+		vier = new ImageIcon("Bilder//vier.jpg");
+		wuerfelt4 = new JLabel(vier);
+		fuenf = new ImageIcon("Bilder//fuenf.jpg");
+		wuerfelt5 = new JLabel(fuenf);
+		sechs = new ImageIcon("Bilder//sechs.jpg");
+		wuerfelt6 = new JLabel(sechs);
 
 		hauptf.add(hauptp);
 		hauptf.add(hauptl, BorderLayout.CENTER);
@@ -414,9 +425,6 @@ public class GUI extends JFrame implements iMeldung{
 		hauptf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		hauptf.setVisible(true);
 		hauptf.setResizable(false);
-		
-		
-		
 
 		// LOGGER
 
@@ -428,7 +436,7 @@ public class GUI extends JFrame implements iMeldung{
 		scroller = new JScrollPane(ta);
 		logger.add(new JLabel("Log-Fenster:"), BorderLayout.NORTH);
 		logger.add(scroller, BorderLayout.CENTER);
-//		jf.getContentPane().add(logger);
+		// jf.getContentPane().add(logger);
 		hauptf.add(logger, BorderLayout.SOUTH);
 		//
 
@@ -454,43 +462,139 @@ public class GUI extends JFrame implements iMeldung{
 		//
 		// }
 	}
-	
-	public void playerIcons(String [] IDs, int pos_old){
-		if (IDs != null && IDs.length == 2){
-			int pos; 
-			if (IDs[0].length()< 3){
+/**
+ * Fuer  dass aender der bildchen wenn sich das Spiel aendert
+ * 
+ * @param IDs
+ * @param pos_old
+ */
+	public void playerIcons(String[] IDs, int pos_old) {
+		if (IDs != null && IDs.length == 2) {
+			int pos;
+			if (IDs[0].length() < 3) {
 				pos = Integer.parseInt(IDs[0]) + 15;
-			}else {
+			} else {
 				pos = 0;
-				if (IDs[0].contains("E")){
+				if (IDs[0].contains("E")) {
 					pos += 55;
 				}
-				if(IDs[0].contains("B")){
+				if (IDs[0].contains("B")) {
 					pos += 4;
-				}else if (IDs[0].contains("G")){
+				} else if (IDs[0].contains("G")) {
 					pos += 8;
-				}else if(IDs[0].contains ("Y")){
-					pos +=12;
+				} else if (IDs[0].contains("Y")) {
+					pos += 12;
 				}
 				pos += Integer.parseInt(IDs[0].substring(3, 3));
 			}
-			if (IDs[1] != null){
+			if (IDs[1] != null) {
 				int pos2 = 0;
-				if(IDs[1].contains("B")){
+				if (IDs[1].contains("B")) {
 					pos2 += 4;
-				}else if (IDs[1].contains("G")){
+				} else if (IDs[1].contains("G")) {
 					pos2 += 8;
-				}else if(IDs[1].contains ("Y")){
-					pos2 +=12;
+				} else if (IDs[1].contains("Y")) {
+					pos2 += 12;
 				}
 				pos2 += Integer.parseInt(IDs[1].substring(3, 3));
-//				icon = ButtonArray[pos].getIcon() ?? 
-//				ButtonArray[pos] = default Icon (wird eh nochmal überschrieben)
-//				ButtonArray[pos2] = SpielfigurIcon auf Startfeld(geschlagen) -> farbe bei bedarf in IDs[1]
+
+				// einfach nur methode wenn geschlagen werden muss, Icon an der
+				// Stelle vom ButtonArray
+				// auf das man geklickt hat verschieben. Also Icon an der stelle
+				// wo die figur stand
+				// auf das default icon setzen (feldn ?)
+				// das Icon an der Pos2 (da wo die figur hin soll und schon eine
+				// sitzt) auf das entsprechende Startfeld verschieben
+				// icon = ButtonArray[pos].getIcon() ??
+				
+				buttonArray[pos].setIcon(feldn);// default Icon (wird eh nochmal ueberschrieben)
+
+				if (IDs[1].contains("B")) {
+
+					buttonArray[pos2].setIcon(feldn);
+					for (int i = 4; i < 7; i++) {
+
+						if (buttonArray[i].getIcon() == Blau) {
+
+							buttonArray[i].setIcon(BlauF);
+
+						}
+					}
+				}
+
+				if (IDs[1].contains("G")) {
+
+					buttonArray[pos2].setIcon(feldn);
+					for (int i = 8; i < 11; i++) {
+
+						if (buttonArray[i].getIcon() == Gruen) {
+
+							buttonArray[i].setIcon(GruenF);
+
+						}
+					}
+				}
+
+				if (IDs[1].contains("Y")) {
+
+					buttonArray[pos2].setIcon(feldn);
+					for (int i = 12; i < 15; i++) {
+
+						if (buttonArray[i].getIcon() == Gelb) {
+
+							buttonArray[i].setIcon(GelbF);
+
+						}
+					}
+				}
+
+				if (IDs[1].contains("R")) {
+
+					buttonArray[pos2].setIcon(feldn);
+					for (int i = 4; i < 7; i++) {
+
+						if (buttonArray[i].getIcon() == Rot) {
+
+							buttonArray[i].setIcon(RotF);
+
+						}
+					}
+				}
+
+				// buttonArray[pos2].setIcon//SpielfigurIcon auf
+				// Startfeld(geschlagen) -> farbe bei bedarf in IDs[1]
 			}
-//			icon = ButtonArray[pos].getIcon() ?? 
-//			ButtonArray[pos_old] = default Icon 
-//			ButtonArray[pos] = SpielfigurIcon (neue position, farbe bei bedarf in IDs[0]
+			// methode laufen ohne schlagen
+			// die alte position wo die Spielfigur sitzt auf das default icon
+			// setzen (feln?)
+			// das icon auf die neue position verschieben
+			// icon = ButtonArray[pos].getIcon() ??
+
+			buttonArray[pos_old].setIcon(feldn);
+
+			if (IDs[0].contains("R")) {
+
+				buttonArray[pos].setIcon(RotF);
+			}
+
+			if (IDs[0].contains("B")) {
+
+				buttonArray[pos].setIcon(BlauF);
+			}
+
+			if (IDs[0].contains("G")) {
+
+				buttonArray[pos].setIcon(GruenF);
+			}
+
+			if (IDs[0].contains("Y")) {
+
+				buttonArray[pos].setIcon(GelbF);
+			}
+
+			// ButtonArray[pos_old] = default Icon
+			// ButtonArray[pos] = SpielfigurIcon (neue position, farbe bei
+			// bedarf in IDs[0]
 		}
 	}
 
@@ -501,17 +605,16 @@ public class GUI extends JFrame implements iMeldung{
 	 */
 	@Override
 	public void log(String text) {
-	
-		if(first==false){
-			ta.setText(ta.getText() +text);
-			first =true;
-		}
-		else{
-		ta.setText(ta.getText()+ "\n" +text);// Wenn etwas im Logger gezweigt
-												// werden soll einfach
-		}									// log("inhalt"); aufrufen!
-	}
 
+		if (first == false) {
+			ta.setText(ta.getText() + text);
+			first = true;
+		} else {
+			ta.setText(ta.getText() + "\n" + text);// Wenn etwas im Logger
+													// gezweigt
+													// werden soll einfach
+		} // log("inhalt"); aufrufen!
+	}
 
 	/**
 	 * Zum leeren des Loggers
@@ -545,7 +648,7 @@ public class GUI extends JFrame implements iMeldung{
 		spiel.add(speichernSER);
 		speichernSER.addActionListener(eh);
 		menueLeiste.add(spiel);
-		
+
 		Menu mail = new Menu("Mail");
 		MenuItem senden = new MenuItem("Mail senden");
 		mail.add(senden);
@@ -593,309 +696,304 @@ public class GUI extends JFrame implements iMeldung{
 			buttonArray[i] = new JButton("");
 			buttonArray[i].setMargin(new Insets(0, 0, 0, 0));
 			buttonArray[i].addActionListener(eh);
-			
+
 		}
-	
+
 	}
 
 	public void addComponentsToPane(Container pane) {
 		pane.setLayout(null);
 
-		ImageIcon feldn = new ImageIcon("Bilder//Feldw.png");
-		ImageIcon Rot = new ImageIcon("Bilder//KreisR.gif");
-		ImageIcon Blau = new ImageIcon("Bilder//KreisB.gif");
-		ImageIcon Gelb = new ImageIcon("Bilder//KreisY.gif");
-		ImageIcon Gruen = new ImageIcon("Bilder//KreisG.gif");
-		
+		feldn = new ImageIcon("Bilder//Feldw.png");
+		Rot = new ImageIcon("Bilder//KreisR.gif");
+		Blau = new ImageIcon("Bilder//KreisB.gif");
+		Gelb = new ImageIcon("Bilder//KreisY.gif");
+		Gruen = new ImageIcon("Bilder//KreisG.gif");
+
 		RotF = new ImageIcon("Bilder//FigurRot.png");
-		BlauF= new ImageIcon("Bilder//FigurBlau.png");
+		BlauF = new ImageIcon("Bilder//FigurBlau.png");
 		GelbF = new ImageIcon("Bilder//FigurGelb.png");
 		GruenF = new ImageIcon("Bilder//FigurGruen.png");
-
 
 		for (int i = 0; i < 72; i++) {
 			pane.add(buttonArray[i]);
 		}
 		// SR
-		
-		
-				buttonArray[0].setBounds(GetScreenWorkingWidth() / c - 5 * a,
-						GetScreenWorkingHeight() / b - 5 * a, x, y);
-				buttonArray[0].setIcon(Rot);
 
-				buttonArray[1].setBounds(GetScreenWorkingWidth() / c - 5 * a,
-						GetScreenWorkingHeight() / b - 4 * a, x, y);
-				buttonArray[1].setIcon(Rot);
+		buttonArray[0].setBounds(GetScreenWorkingWidth() / c - 5 * a,
+				GetScreenWorkingHeight() / b - 5 * a, x, y);
+		buttonArray[0].setIcon(Rot);
 
-				buttonArray[2].setBounds(GetScreenWorkingWidth() / c - 4 * a,
-						GetScreenWorkingHeight() / b - 5 * a, x, y);
-				buttonArray[2].setIcon(Rot);
+		buttonArray[1].setBounds(GetScreenWorkingWidth() / c - 5 * a,
+				GetScreenWorkingHeight() / b - 4 * a, x, y);
+		buttonArray[1].setIcon(Rot);
 
-				buttonArray[3].setBounds(GetScreenWorkingWidth() / c - 4 * a,
-						GetScreenWorkingHeight() / b - 4 * a, x, y);
-				buttonArray[3].setIcon(Rot);
-				
+		buttonArray[2].setBounds(GetScreenWorkingWidth() / c - 4 * a,
+				GetScreenWorkingHeight() / b - 5 * a, x, y);
+		buttonArray[2].setIcon(Rot);
 
-				// SB
+		buttonArray[3].setBounds(GetScreenWorkingWidth() / c - 4 * a,
+				GetScreenWorkingHeight() / b - 4 * a, x, y);
+		buttonArray[3].setIcon(Rot);
 
-				buttonArray[4].setBounds(GetScreenWorkingWidth() / c + 4 * a,
-						GetScreenWorkingHeight() / b - 5 * a, x, y);
-				buttonArray[4].setIcon(Blau);
+		// SB
 
-				buttonArray[5].setBounds(GetScreenWorkingWidth() / c + 5 * a,
-						GetScreenWorkingHeight() / b - 5 * a, x, y);
-				buttonArray[5].setIcon(Blau);
+		buttonArray[4].setBounds(GetScreenWorkingWidth() / c + 4 * a,
+				GetScreenWorkingHeight() / b - 5 * a, x, y);
+		buttonArray[4].setIcon(Blau);
 
-				buttonArray[6].setBounds(GetScreenWorkingWidth() / c + 4 * a,
-						GetScreenWorkingHeight() / b - 4 * a, x, y);
-				buttonArray[6].setIcon(Blau);
+		buttonArray[5].setBounds(GetScreenWorkingWidth() / c + 5 * a,
+				GetScreenWorkingHeight() / b - 5 * a, x, y);
+		buttonArray[5].setIcon(Blau);
 
-				buttonArray[7].setBounds(GetScreenWorkingWidth() / c + 5 * a,
-						GetScreenWorkingHeight() / b - 4 * a, x, y);
-				buttonArray[7].setIcon(Blau);
+		buttonArray[6].setBounds(GetScreenWorkingWidth() / c + 4 * a,
+				GetScreenWorkingHeight() / b - 4 * a, x, y);
+		buttonArray[6].setIcon(Blau);
 
-				// SY
-				buttonArray[8].setBounds(GetScreenWorkingWidth() / c - 5 * a,
-						GetScreenWorkingHeight() / b + 4 * a, x, y);
-				buttonArray[8].setIcon(Gelb);
+		buttonArray[7].setBounds(GetScreenWorkingWidth() / c + 5 * a,
+				GetScreenWorkingHeight() / b - 4 * a, x, y);
+		buttonArray[7].setIcon(Blau);
 
-				buttonArray[9].setBounds(GetScreenWorkingWidth() / c - 4 * a,
-						GetScreenWorkingHeight() / b + 4 * a, x, y);
-				buttonArray[9].setIcon(Gelb);
+		// SY
+		buttonArray[8].setBounds(GetScreenWorkingWidth() / c - 5 * a,
+				GetScreenWorkingHeight() / b + 4 * a, x, y);
+		buttonArray[8].setIcon(Gelb);
 
-				buttonArray[10].setBounds(GetScreenWorkingWidth() / c - 4 * a,
-						GetScreenWorkingHeight() / b + 5 * a, x, y);
-				buttonArray[10].setIcon(Gelb);
+		buttonArray[9].setBounds(GetScreenWorkingWidth() / c - 4 * a,
+				GetScreenWorkingHeight() / b + 4 * a, x, y);
+		buttonArray[9].setIcon(Gelb);
 
-				buttonArray[11].setBounds(GetScreenWorkingWidth() / c - 5 * a,
-						GetScreenWorkingHeight() / b + 5 * a, x, y);
-				buttonArray[11].setIcon(Gelb);
+		buttonArray[10].setBounds(GetScreenWorkingWidth() / c - 4 * a,
+				GetScreenWorkingHeight() / b + 5 * a, x, y);
+		buttonArray[10].setIcon(Gelb);
 
-				// SG
+		buttonArray[11].setBounds(GetScreenWorkingWidth() / c - 5 * a,
+				GetScreenWorkingHeight() / b + 5 * a, x, y);
+		buttonArray[11].setIcon(Gelb);
 
-				buttonArray[12].setBounds(GetScreenWorkingWidth() / c + 4 * a,
-						GetScreenWorkingHeight() / b + 4 * a, x, y);
-				buttonArray[12].setIcon(Gruen);
+		// SG
 
-				buttonArray[13].setBounds(GetScreenWorkingWidth() / c + 5 * a,
-						GetScreenWorkingHeight() / b + 4 * a, x, y);
-				buttonArray[13].setIcon(Gruen);
+		buttonArray[12].setBounds(GetScreenWorkingWidth() / c + 4 * a,
+				GetScreenWorkingHeight() / b + 4 * a, x, y);
+		buttonArray[12].setIcon(Gruen);
 
-				buttonArray[14].setBounds(GetScreenWorkingWidth() / c + 4 * a,
-						GetScreenWorkingHeight() / b + 5 * a, x, y);
-				buttonArray[14].setIcon(Gruen);
+		buttonArray[13].setBounds(GetScreenWorkingWidth() / c + 5 * a,
+				GetScreenWorkingHeight() / b + 4 * a, x, y);
+		buttonArray[13].setIcon(Gruen);
 
-				buttonArray[15].setBounds(GetScreenWorkingWidth() / c + 5 * a,
-						GetScreenWorkingHeight() / b + 5 * a, x, y);
-				buttonArray[15].setIcon(Gruen);
+		buttonArray[14].setBounds(GetScreenWorkingWidth() / c + 4 * a,
+				GetScreenWorkingHeight() / b + 5 * a, x, y);
+		buttonArray[14].setIcon(Gruen);
 
-				for (int x = 16; x <= 56; x++) {
-					buttonArray[x].setIcon(feldn);
+		buttonArray[15].setBounds(GetScreenWorkingWidth() / c + 5 * a,
+				GetScreenWorkingHeight() / b + 5 * a, x, y);
+		buttonArray[15].setIcon(Gruen);
 
-				}
+		for (int x = 16; x <= 56; x++) {
+			buttonArray[x].setIcon(feldn);
 
-				// F
-						buttonArray[16].setBounds(GetScreenWorkingWidth() / c - 5 * a,
-								GetScreenWorkingHeight() / b - a, x, y);
+		}
 
-						buttonArray[17].setBounds(GetScreenWorkingWidth() / c - 4 * a,
-								GetScreenWorkingHeight() / b - a, x, y);
+		// F
+		buttonArray[16].setBounds(GetScreenWorkingWidth() / c - 5 * a,
+				GetScreenWorkingHeight() / b - a, x, y);
 
-						buttonArray[18].setBounds(GetScreenWorkingWidth() / c - 3 * a,
-								GetScreenWorkingHeight() / b - a, x, y);
+		buttonArray[17].setBounds(GetScreenWorkingWidth() / c - 4 * a,
+				GetScreenWorkingHeight() / b - a, x, y);
 
-						buttonArray[19].setBounds(GetScreenWorkingWidth() / c - 2 * a,
-								GetScreenWorkingHeight() / b - a, x, y);
+		buttonArray[18].setBounds(GetScreenWorkingWidth() / c - 3 * a,
+				GetScreenWorkingHeight() / b - a, x, y);
 
-						buttonArray[20].setBounds(GetScreenWorkingWidth() / c - 1 * a,
-								GetScreenWorkingHeight() / b - a, x, y);
+		buttonArray[19].setBounds(GetScreenWorkingWidth() / c - 2 * a,
+				GetScreenWorkingHeight() / b - a, x, y);
 
-						buttonArray[21].setBounds(GetScreenWorkingWidth() / c - a,
-								GetScreenWorkingHeight() / b - 2 * a, x, y);
+		buttonArray[20].setBounds(GetScreenWorkingWidth() / c - 1 * a,
+				GetScreenWorkingHeight() / b - a, x, y);
 
-						buttonArray[22].setBounds(GetScreenWorkingWidth() / c - a,
-								GetScreenWorkingHeight() / b - 3 * a, x, y);
+		buttonArray[21].setBounds(GetScreenWorkingWidth() / c - a,
+				GetScreenWorkingHeight() / b - 2 * a, x, y);
 
-						buttonArray[23].setBounds(GetScreenWorkingWidth() / c - a,
-								GetScreenWorkingHeight() / b - 4 * a, x, y);
+		buttonArray[22].setBounds(GetScreenWorkingWidth() / c - a,
+				GetScreenWorkingHeight() / b - 3 * a, x, y);
 
-						buttonArray[24].setBounds(GetScreenWorkingWidth() / c - a,
-								GetScreenWorkingHeight() / b - 5 * a, x, y);
+		buttonArray[23].setBounds(GetScreenWorkingWidth() / c - a,
+				GetScreenWorkingHeight() / b - 4 * a, x, y);
 
-						buttonArray[25].setBounds(GetScreenWorkingWidth() / c + 0 * a,
-								GetScreenWorkingHeight() / b - 5 * a, x, y);
+		buttonArray[24].setBounds(GetScreenWorkingWidth() / c - a,
+				GetScreenWorkingHeight() / b - 5 * a, x, y);
 
-						buttonArray[26].setBounds(GetScreenWorkingWidth() / c + 1 * a,		
-								GetScreenWorkingHeight() / b - 5 * a, x, y);
-						
+		buttonArray[25].setBounds(GetScreenWorkingWidth() / c + 0 * a,
+				GetScreenWorkingHeight() / b - 5 * a, x, y);
 
-						buttonArray[27].setBounds(GetScreenWorkingWidth() / c + 1 * a,		
-								GetScreenWorkingHeight() / b - 4 * a, x, y);
+		buttonArray[26].setBounds(GetScreenWorkingWidth() / c + 1 * a,
+				GetScreenWorkingHeight() / b - 5 * a, x, y);
 
-						buttonArray[28].setBounds(GetScreenWorkingWidth() / c + 1 * a,		
-								GetScreenWorkingHeight() / b - 3 * a, x, y);
+		buttonArray[27].setBounds(GetScreenWorkingWidth() / c + 1 * a,
+				GetScreenWorkingHeight() / b - 4 * a, x, y);
 
-						buttonArray[29].setBounds(GetScreenWorkingWidth() / c + 1 * a,		
-								GetScreenWorkingHeight() / b - 2 * a, x, y);
+		buttonArray[28].setBounds(GetScreenWorkingWidth() / c + 1 * a,
+				GetScreenWorkingHeight() / b - 3 * a, x, y);
 
-						buttonArray[30].setBounds(GetScreenWorkingWidth() / c + 1 * a,		
-								GetScreenWorkingHeight() / b - 1 * a, x, y);
+		buttonArray[29].setBounds(GetScreenWorkingWidth() / c + 1 * a,
+				GetScreenWorkingHeight() / b - 2 * a, x, y);
 
-						buttonArray[31].setBounds(GetScreenWorkingWidth() / c + 2 * a,		
-								GetScreenWorkingHeight() / b - 1 * a, x, y);
+		buttonArray[30].setBounds(GetScreenWorkingWidth() / c + 1 * a,
+				GetScreenWorkingHeight() / b - 1 * a, x, y);
 
-						buttonArray[32].setBounds(GetScreenWorkingWidth() / c + 3 * a,		
-								GetScreenWorkingHeight() / b - 1 * a, x, y);
+		buttonArray[31].setBounds(GetScreenWorkingWidth() / c + 2 * a,
+				GetScreenWorkingHeight() / b - 1 * a, x, y);
 
-						buttonArray[33].setBounds(GetScreenWorkingWidth() / c + 4 * a,		
-								GetScreenWorkingHeight() / b - 1 * a, x, y);
+		buttonArray[32].setBounds(GetScreenWorkingWidth() / c + 3 * a,
+				GetScreenWorkingHeight() / b - 1 * a, x, y);
 
-						buttonArray[34].setBounds(GetScreenWorkingWidth() / c + 5 * a,		
-								GetScreenWorkingHeight() / b - 1 * a, x, y);
+		buttonArray[33].setBounds(GetScreenWorkingWidth() / c + 4 * a,
+				GetScreenWorkingHeight() / b - 1 * a, x, y);
 
-						buttonArray[35].setBounds(GetScreenWorkingWidth() / c + 5 * a,		
-								GetScreenWorkingHeight() / b + 0 * a, x, y);
+		buttonArray[34].setBounds(GetScreenWorkingWidth() / c + 5 * a,
+				GetScreenWorkingHeight() / b - 1 * a, x, y);
 
-						buttonArray[36].setBounds(GetScreenWorkingWidth() / c + 5 * a,		
-								GetScreenWorkingHeight() / b + 1 * a, x, y);
+		buttonArray[35].setBounds(GetScreenWorkingWidth() / c + 5 * a,
+				GetScreenWorkingHeight() / b + 0 * a, x, y);
 
-						buttonArray[37].setBounds(GetScreenWorkingWidth() / c + 4 * a,		
-								GetScreenWorkingHeight() / b + 1 * a, x, y);
+		buttonArray[36].setBounds(GetScreenWorkingWidth() / c + 5 * a,
+				GetScreenWorkingHeight() / b + 1 * a, x, y);
 
-						buttonArray[38].setBounds(GetScreenWorkingWidth() / c + 3 * a,		
-								GetScreenWorkingHeight() / b + 1 * a, x, y);
+		buttonArray[37].setBounds(GetScreenWorkingWidth() / c + 4 * a,
+				GetScreenWorkingHeight() / b + 1 * a, x, y);
 
-						buttonArray[39].setBounds(GetScreenWorkingWidth() / c + 2 * a,		
-								GetScreenWorkingHeight() / b + 1 * a, x, y);
+		buttonArray[38].setBounds(GetScreenWorkingWidth() / c + 3 * a,
+				GetScreenWorkingHeight() / b + 1 * a, x, y);
 
-						buttonArray[40].setBounds(GetScreenWorkingWidth() / c + 1 * a,		
-								GetScreenWorkingHeight() / b + 1 * a, x, y);
+		buttonArray[39].setBounds(GetScreenWorkingWidth() / c + 2 * a,
+				GetScreenWorkingHeight() / b + 1 * a, x, y);
 
-						buttonArray[41].setBounds(GetScreenWorkingWidth() / c + 1 * a,		
-								GetScreenWorkingHeight() / b + 2 * a, x, y);
+		buttonArray[40].setBounds(GetScreenWorkingWidth() / c + 1 * a,
+				GetScreenWorkingHeight() / b + 1 * a, x, y);
 
-						buttonArray[42].setBounds(GetScreenWorkingWidth() / c + 1 * a,		
-								GetScreenWorkingHeight() / b + 3 * a, x, y);
+		buttonArray[41].setBounds(GetScreenWorkingWidth() / c + 1 * a,
+				GetScreenWorkingHeight() / b + 2 * a, x, y);
 
-						buttonArray[43].setBounds(GetScreenWorkingWidth() / c + 1 * a,		
-								GetScreenWorkingHeight() / b + 4 * a, x, y);
+		buttonArray[42].setBounds(GetScreenWorkingWidth() / c + 1 * a,
+				GetScreenWorkingHeight() / b + 3 * a, x, y);
 
-						buttonArray[44].setBounds(GetScreenWorkingWidth() / c + 1 * a,		
-								GetScreenWorkingHeight() / b + 5 * a, x, y);
+		buttonArray[43].setBounds(GetScreenWorkingWidth() / c + 1 * a,
+				GetScreenWorkingHeight() / b + 4 * a, x, y);
 
-						buttonArray[45].setBounds(GetScreenWorkingWidth() / c + 0 * a,		
-								GetScreenWorkingHeight() / b + 5 * a, x, y);
+		buttonArray[44].setBounds(GetScreenWorkingWidth() / c + 1 * a,
+				GetScreenWorkingHeight() / b + 5 * a, x, y);
 
-						buttonArray[46].setBounds(GetScreenWorkingWidth() / c - 1 * a,		
-								GetScreenWorkingHeight() / b + 5 * a, x, y);
+		buttonArray[45].setBounds(GetScreenWorkingWidth() / c + 0 * a,
+				GetScreenWorkingHeight() / b + 5 * a, x, y);
 
-						buttonArray[47].setBounds(GetScreenWorkingWidth() / c - 1 * a,		
-								GetScreenWorkingHeight() / b + 4 * a, x, y);
+		buttonArray[46].setBounds(GetScreenWorkingWidth() / c - 1 * a,
+				GetScreenWorkingHeight() / b + 5 * a, x, y);
 
-						buttonArray[48].setBounds(GetScreenWorkingWidth() / c - 1 * a,		
-								GetScreenWorkingHeight() / b + 3 * a, x, y);
+		buttonArray[47].setBounds(GetScreenWorkingWidth() / c - 1 * a,
+				GetScreenWorkingHeight() / b + 4 * a, x, y);
 
-						buttonArray[49].setBounds(GetScreenWorkingWidth() / c - 1 * a,		
-								GetScreenWorkingHeight() / b + 2 * a, x, y);
+		buttonArray[48].setBounds(GetScreenWorkingWidth() / c - 1 * a,
+				GetScreenWorkingHeight() / b + 3 * a, x, y);
 
-						buttonArray[50].setBounds(GetScreenWorkingWidth() / c - 1 * a,		
-								GetScreenWorkingHeight() / b + 1 * a, x, y);
+		buttonArray[49].setBounds(GetScreenWorkingWidth() / c - 1 * a,
+				GetScreenWorkingHeight() / b + 2 * a, x, y);
 
-						buttonArray[51].setBounds(GetScreenWorkingWidth() / c - 2 * a,		
-								GetScreenWorkingHeight() / b + 1 * a, x, y);
+		buttonArray[50].setBounds(GetScreenWorkingWidth() / c - 1 * a,
+				GetScreenWorkingHeight() / b + 1 * a, x, y);
 
-						buttonArray[52].setBounds(GetScreenWorkingWidth() / c - 3 * a,		
-								GetScreenWorkingHeight() / b + 1 * a, x, y);
+		buttonArray[51].setBounds(GetScreenWorkingWidth() / c - 2 * a,
+				GetScreenWorkingHeight() / b + 1 * a, x, y);
 
-						buttonArray[53].setBounds(GetScreenWorkingWidth() / c -  4 * a,		
-								GetScreenWorkingHeight() / b + 1 * a, x, y);
+		buttonArray[52].setBounds(GetScreenWorkingWidth() / c - 3 * a,
+				GetScreenWorkingHeight() / b + 1 * a, x, y);
 
-						buttonArray[54].setBounds(GetScreenWorkingWidth() / c - 5 * a,		
-								GetScreenWorkingHeight() / b + 1 * a, x, y);
+		buttonArray[53].setBounds(GetScreenWorkingWidth() / c - 4 * a,
+				GetScreenWorkingHeight() / b + 1 * a, x, y);
 
-						buttonArray[55].setBounds(GetScreenWorkingWidth() / c - 5 * a,		
-								GetScreenWorkingHeight() / b + 0 * a, x, y);
+		buttonArray[54].setBounds(GetScreenWorkingWidth() / c - 5 * a,
+				GetScreenWorkingHeight() / b + 1 * a, x, y);
 
-						// ER
+		buttonArray[55].setBounds(GetScreenWorkingWidth() / c - 5 * a,
+				GetScreenWorkingHeight() / b + 0 * a, x, y);
 
-						buttonArray[56].setBounds(GetScreenWorkingWidth() / c - 4 * a,
-								GetScreenWorkingHeight() / b, x, y);
-						buttonArray[56].setIcon(Rot);
+		// ER
 
-						buttonArray[57].setBounds(GetScreenWorkingWidth() / c - 3 * a,
-								GetScreenWorkingHeight() / b, x, y);
-						buttonArray[57].setIcon(Rot);
+		buttonArray[56].setBounds(GetScreenWorkingWidth() / c - 4 * a,
+				GetScreenWorkingHeight() / b, x, y);
+		buttonArray[56].setIcon(Rot);
 
-						buttonArray[58].setBounds(GetScreenWorkingWidth() / c - 2 * a,
-								GetScreenWorkingHeight() / b, x, y);
-						buttonArray[58].setIcon(Rot);
+		buttonArray[57].setBounds(GetScreenWorkingWidth() / c - 3 * a,
+				GetScreenWorkingHeight() / b, x, y);
+		buttonArray[57].setIcon(Rot);
 
-						buttonArray[59].setBounds(GetScreenWorkingWidth() / c - 1 * a,
-								GetScreenWorkingHeight() / b, x, y);
-						buttonArray[59].setIcon(Rot);
+		buttonArray[58].setBounds(GetScreenWorkingWidth() / c - 2 * a,
+				GetScreenWorkingHeight() / b, x, y);
+		buttonArray[58].setIcon(Rot);
 
-						// EB
+		buttonArray[59].setBounds(GetScreenWorkingWidth() / c - 1 * a,
+				GetScreenWorkingHeight() / b, x, y);
+		buttonArray[59].setIcon(Rot);
 
-						buttonArray[60].setBounds(GetScreenWorkingWidth() / c,
-								GetScreenWorkingHeight() / b - 4 * a, x, y);
-						buttonArray[60].setIcon(Blau);
+		// EB
 
-						buttonArray[61].setBounds(GetScreenWorkingWidth() / c,
-								GetScreenWorkingHeight() / b - 3 * a, x, y);
-						buttonArray[61].setIcon(Blau);
+		buttonArray[60].setBounds(GetScreenWorkingWidth() / c,
+				GetScreenWorkingHeight() / b - 4 * a, x, y);
+		buttonArray[60].setIcon(Blau);
 
-						buttonArray[62].setBounds(GetScreenWorkingWidth() / c,
-								GetScreenWorkingHeight() / b - 2 * a, x, y);
-						buttonArray[62].setIcon(Blau);
+		buttonArray[61].setBounds(GetScreenWorkingWidth() / c,
+				GetScreenWorkingHeight() / b - 3 * a, x, y);
+		buttonArray[61].setIcon(Blau);
 
-						buttonArray[63].setBounds(GetScreenWorkingWidth() / c,
-								GetScreenWorkingHeight() / b - 1 * a, x, y);
-						buttonArray[63].setIcon(Blau);
+		buttonArray[62].setBounds(GetScreenWorkingWidth() / c,
+				GetScreenWorkingHeight() / b - 2 * a, x, y);
+		buttonArray[62].setIcon(Blau);
 
-						// EG
+		buttonArray[63].setBounds(GetScreenWorkingWidth() / c,
+				GetScreenWorkingHeight() / b - 1 * a, x, y);
+		buttonArray[63].setIcon(Blau);
 
-						buttonArray[64].setBounds(GetScreenWorkingWidth() / c + 4 * a,
-								GetScreenWorkingHeight() / b, x, y);
-						buttonArray[64].setIcon(Gruen);
+		// EG
 
-						buttonArray[65].setBounds(GetScreenWorkingWidth() / c + 3 * a,
-								GetScreenWorkingHeight() / b, x, y);
-						buttonArray[65].setIcon(Gruen);
+		buttonArray[64].setBounds(GetScreenWorkingWidth() / c + 4 * a,
+				GetScreenWorkingHeight() / b, x, y);
+		buttonArray[64].setIcon(Gruen);
 
-						buttonArray[66].setBounds(GetScreenWorkingWidth() / c + 2 * a,
-								GetScreenWorkingHeight() / b, x, y);
-						buttonArray[66].setIcon(Gruen);
+		buttonArray[65].setBounds(GetScreenWorkingWidth() / c + 3 * a,
+				GetScreenWorkingHeight() / b, x, y);
+		buttonArray[65].setIcon(Gruen);
 
-						buttonArray[67].setBounds(GetScreenWorkingWidth() / c + 1 * a,
-								GetScreenWorkingHeight() / b, x, y);
-						buttonArray[67].setIcon(Gruen);
+		buttonArray[66].setBounds(GetScreenWorkingWidth() / c + 2 * a,
+				GetScreenWorkingHeight() / b, x, y);
+		buttonArray[66].setIcon(Gruen);
 
-						// EY
+		buttonArray[67].setBounds(GetScreenWorkingWidth() / c + 1 * a,
+				GetScreenWorkingHeight() / b, x, y);
+		buttonArray[67].setIcon(Gruen);
 
-						buttonArray[68].setBounds(GetScreenWorkingWidth() / c,
-								GetScreenWorkingHeight() / b + 4 * a, x, y);
-						buttonArray[68].setIcon(Gelb);
+		// EY
 
-						buttonArray[69].setBounds(GetScreenWorkingWidth() / c,
-								GetScreenWorkingHeight() / b + 3 * a, x, y);
-						buttonArray[69].setIcon(Gelb);
+		buttonArray[68].setBounds(GetScreenWorkingWidth() / c,
+				GetScreenWorkingHeight() / b + 4 * a, x, y);
+		buttonArray[68].setIcon(Gelb);
 
-						buttonArray[70].setBounds(GetScreenWorkingWidth() / c,
-								GetScreenWorkingHeight() / b + 2 * a, x, y);
-						buttonArray[70].setIcon(Gelb);
+		buttonArray[69].setBounds(GetScreenWorkingWidth() / c,
+				GetScreenWorkingHeight() / b + 3 * a, x, y);
+		buttonArray[69].setIcon(Gelb);
 
-						buttonArray[71].setBounds(GetScreenWorkingWidth() / c,
-								GetScreenWorkingHeight() / b + 1 * a, x, y);
-						buttonArray[71].setIcon(Gelb);				
+		buttonArray[70].setBounds(GetScreenWorkingWidth() / c,
+				GetScreenWorkingHeight() / b + 2 * a, x, y);
+		buttonArray[70].setIcon(Gelb);
+
+		buttonArray[71].setBounds(GetScreenWorkingWidth() / c,
+				GetScreenWorkingHeight() / b + 1 * a, x, y);
+		buttonArray[71].setIcon(Gelb);
 
 		buttonArray[16].setIcon(Rot);
 		buttonArray[26].setIcon(Blau);
 		buttonArray[36].setIcon(Gruen);
 		buttonArray[46].setIcon(Gelb);
 
-
 	}
-	
+
 	public static int GetScreenWorkingWidth() {
 		return java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment()
 				.getMaximumWindowBounds().width;
@@ -910,8 +1008,8 @@ public class GUI extends JFrame implements iMeldung{
 	public void setButtonText(int nummer, String text) {
 		buttonArray[nummer - 1].setText(text);
 	}
-	
-	public void setButtonIconRot (){
+
+	public void setButtonIconRot() {
 
 		buttonArray[0].setBounds(GetScreenWorkingWidth() / c - 5 * a,
 				GetScreenWorkingHeight() / b - 5 * a, x, y);
@@ -929,7 +1027,8 @@ public class GUI extends JFrame implements iMeldung{
 				GetScreenWorkingHeight() / b - 4 * a, x, y);
 		buttonArray[3].setIcon(RotF);
 	}
-	public void setButtonIconBlau (){
+
+	public void setButtonIconBlau() {
 
 		buttonArray[4].setBounds(GetScreenWorkingWidth() / c + 4 * a,
 				GetScreenWorkingHeight() / b - 5 * a, x, y);
@@ -947,7 +1046,8 @@ public class GUI extends JFrame implements iMeldung{
 				GetScreenWorkingHeight() / b - 4 * a, x, y);
 		buttonArray[7].setIcon(BlauF);
 	}
-	public void setButtonIconGruen (){
+
+	public void setButtonIconGruen() {
 
 		buttonArray[12].setBounds(GetScreenWorkingWidth() / c + 4 * a,
 				GetScreenWorkingHeight() / b + 4 * a, x, y);
@@ -965,7 +1065,8 @@ public class GUI extends JFrame implements iMeldung{
 				GetScreenWorkingHeight() / b + 5 * a, x, y);
 		buttonArray[15].setIcon(GruenF);
 	}
-	public void setButtonIconGelb (){
+
+	public void setButtonIconGelb() {
 
 		buttonArray[8].setBounds(GetScreenWorkingWidth() / c - 5 * a,
 				GetScreenWorkingHeight() / b + 4 * a, x, y);
@@ -985,7 +1086,7 @@ public class GUI extends JFrame implements iMeldung{
 	}
 
 	public void setSpielerArt(String SpielerArt) {
-		spielerArt = SpielerArt;
+		this.spielerArt = SpielerArt;
 	}
 
 	public void setSpielerFarbe(String SpielerFarbe) {
@@ -1019,12 +1120,11 @@ public class GUI extends JFrame implements iMeldung{
 	public void setSpAnzahl(int spAnzahl) {
 		this.spAnzahl = spAnzahl;
 	}
-	
-	public void Wuerfeln(){
+
+	public void Wuerfeln() {
 		bediener.wurf();
 	}
-	
-	
+
 	public void mailAbfrage() {
 		mailFrame = new JFrame();
 		mailFrame.setSize(500, 150);
@@ -1041,7 +1141,7 @@ public class GUI extends JFrame implements iMeldung{
 				"nur Adressen von reutlingen-university.de");
 		JPasswordField pwField = new JPasswordField("");
 		pwField.setEchoChar('*'); // macht * bei Passworteingabe
-		 empfaengerFeld = new JTextField("");
+		empfaengerFeld = new JTextField("");
 
 		JButton senden = new JButton("senden");
 		senden.addActionListener(eh);
@@ -1059,389 +1159,429 @@ public class GUI extends JFrame implements iMeldung{
 		mailFrame.setVisible(true);
 	}
 
-//	public void mailSenden(){
-//		bediener.mailSenden();
-//	}
-	
-	public boolean compareIcon(ImageIcon i){
-		
-		return (i.equals(BlauF) || i.equals(RotF) || i.equals(GelbF) || i.equals(GruenF) );
+	// public void mailSenden(){
+	// bediener.mailSenden();
+	// }
+
+	public boolean compareIcon(ImageIcon i) {
+
+		return (i.equals(BlauF) || i.equals(RotF) || i.equals(GelbF) || i
+				.equals(GruenF));
 	}
-	
-	
-	//______________________________________getter und setter__________________________________//
-	 public String getEmpfaenger(){
-			return empfaengerFeld.getText();
-		 }
-	
-		public ImageIcon getRotF() {
-			return RotF;
-		}
-
-		public void setRotF(ImageIcon rotF) {
-			RotF = rotF;
-		}
-
-		public ImageIcon getBlauF() {
-			return BlauF;
-		}
-
-		public void setBlauF(ImageIcon blauF) {
-			BlauF = blauF;
-		}
-
-		public ImageIcon getGelbF() {
-			return GelbF;
-		}
-
-		public void setGelbF(ImageIcon gelbF) {
-			GelbF = gelbF;
-		}
-
-		public ImageIcon getGruenF() {
-			return GruenF;
-		}
-
-		public void setGruenF(ImageIcon gruenF) {
-			GruenF = gruenF;
-		}
-
-		public ButtonGroup getGroup() {
-			return group;
-		}
-
-		public void setGroup(ButtonGroup group) {
-			this.group = group;
-		}
-
-		public ImageIcon getEins() {
-			return eins;
-		}
-
-		public void setEins(ImageIcon eins) {
-			this.eins = eins;
-		}
-
-		public JLabel getWuerfelt1() {
-			return wuerfelt1;
-		}
-
-		public void setWuerfelt1(JLabel wuerfelt1) {
-			this.wuerfelt1 = wuerfelt1;
-		}
-
-		public ImageIcon getZwei() {
-			return zwei;
-		}
-
-		public void setZwei(ImageIcon zwei) {
-			this.zwei = zwei;
-		}
-
-		public JLabel getWuerfelt2() {
-			return wuerfelt2;
-		}
-
-		public void setWuerfelt2(JLabel wuerfelt2) {
-			this.wuerfelt2 = wuerfelt2;
-		}
-
-		public ImageIcon getDrei() {
-			return drei;
-		}
-
-		public void setDrei(ImageIcon drei) {
-			this.drei = drei;
-		}
-
-		public JLabel getWuerfelt3() {
-			return wuerfelt3;
-		}
-
-		public void setWuerfelt3(JLabel wuerfelt3) {
-			this.wuerfelt3 = wuerfelt3;
-		}
-
-		public ImageIcon getVier() {
-			return vier;
-		}
-
-		public void setVier(ImageIcon vier) {
-			this.vier = vier;
-		}
-
-		public JLabel getWuerfelt4() {
-			return wuerfelt4;
-		}
-
-		public void setWuerfelt4(JLabel wuerfelt4) {
-			this.wuerfelt4 = wuerfelt4;
-		}
-
-		public ImageIcon getFuenf() {
-			return fuenf;
-		}
-
-		public void setFuenf(ImageIcon fuenf) {
-			this.fuenf = fuenf;
-		}
-
-		public JLabel getWuerfelt5() {
-			return wuerfelt5;
-		}
-
-		public void setWuerfelt5(JLabel wuerfelt5) {
-			this.wuerfelt5 = wuerfelt5;
-		}
-
-		public ImageIcon getSechs() {
-			return sechs;
-		}
-
-		public void setSechs(ImageIcon sechs) {
-			this.sechs = sechs;
-		}
-
-		public JLabel getWuerfelt6() {
-			return wuerfelt6;
-		}
-
-		public void setWuerfelt6(JLabel wuerfelt6) {
-			this.wuerfelt6 = wuerfelt6;
-		}
-
-		public JLabel getWuerfelL() {
-			return wuerfelL;
-		}
-
-		public void setWuerfelL(JLabel wuerfelL) {
-			this.wuerfelL = wuerfelL;
-		}
-
-		public ImageIcon getTest() {
-			return test;
-		}
-
-		public void setTest(ImageIcon test) {
-			this.test = test;
-		}
-
-		public JLabel getWuerfelt() {
-			return wuerfelt;
-		}
-
-		public void setWuerfelt(JLabel wuerfelt) {
-			this.wuerfelt = wuerfelt;
-		}
-
-		public ImageIcon getWuerfeln() {
-			return wuerfeln;
-		}
-
-		public void setWuerfeln(ImageIcon wuerfeln) {
-			this.wuerfeln = wuerfeln;
-		}
-
-		public JTextField getFeld01() {
-			return feld01;
-		}
-
-		public void setFeld01(JTextField feld01) {
-			this.feld01 = feld01;
-		}
-
-		public JSpinner getSpinner() {
-			return spinner;
-		}
-
-		public void setSpinner(JSpinner spinner) {
-			this.spinner = spinner;
-		}
-
-		public JRadioButton getRBRED() {
-			return RBRED;
-		}
-
-		public void setRBRED(JRadioButton rBRED) {
-			RBRED = rBRED;
-		}
-
-		public JRadioButton getRBGREEN() {
-			return RBGREEN;
-		}
-
-		public void setRBGREEN(JRadioButton rBGREEN) {
-			RBGREEN = rBGREEN;
-		}
-
-		public JRadioButton getRBBLUE() {
-			return RBBLUE;
-		}
-
-		public void setRBBLUE(JRadioButton rBBLUE) {
-			RBBLUE = rBBLUE;
-		}
-
-		public JRadioButton getRBYELLOW() {
-			return RBYELLOW;
-		}
-
-		public void setRBYELLOW(JRadioButton rBYELLOW) {
-			RBYELLOW = rBYELLOW;
-		}
-
-		public JRadioButton getMensch() {
-			return Mensch;
-		}
-
-		public void setMensch(JRadioButton mensch) {
-			Mensch = mensch;
-		}
-
-		public JRadioButton getKIa() {
-			return KIa;
-		}
-
-		public void setKIa(JRadioButton kIa) {
-			KIa = kIa;
-		}
-
-		public JRadioButton getKId() {
-			return KId;
-		}
-
-		public void setKId(JRadioButton kId) {
-			KId = kId;
-		}
-
-		public JFrame getFrame() {
-			return frame;
-		}
-
-		public void setFrame(JFrame frame) {
-			this.frame = frame;
-		}
-
-		public JFrame getFrame02() {
-			return frame02;
-		}
-
-		public void setFrame02(JFrame frame02) {
-			this.frame02 = frame02;
-		}
-
-		public JButton getButtonWurf() {
-			return buttonWurf;
-		}
-
-		public void setButtonWurf(JButton buttonWurf) {
-			this.buttonWurf = buttonWurf;
-		}
-		public EventHandler getEh() {
-			return eh;
-		}
-
-		public void setEh(EventHandler eh) {
-			this.eh = eh;
-		}
-
-		public iBediener getBediener() {
-			return bediener;
-		}
-
-		public void setBediener(iBediener bediener) {
-			this.bediener = bediener;
-		}
-
-		public JFrame getHauptf() {
-			return hauptf;
-		}
-
-		public void setHauptf(JFrame hauptf) {
-			this.hauptf = hauptf;
-		}
-
-		public JPanel getHauptp() {
-			return hauptp;
-		}
-
-		public void setHauptp(JPanel hauptp) {
-			this.hauptp = hauptp;
-		}
-
-		public JButton[] getButtonArray() {
-			return buttonArray;
-		}
-
-		public void setButtonArray(JButton[] buttonArray) {
-			this.buttonArray = buttonArray;
-		}
-
-		public JTextArea getTa() {
-			return ta;
-		}
-
-		public void setTa(JTextArea ta) {
-			this.ta = ta;
-		}
-
-		public JScrollPane getScroller() {
-			return scroller;
-		}
-
-		public void setScroller(JScrollPane scroller) {
-			this.scroller = scroller;
-		}
-
-		public JButton getMitte() {
-			return mitte;
-		}
-
-		public void setMitte(JButton mitte) {
-			this.mitte = mitte;
-		}
-
-		public ArrayList<String> getFarbe() {
-			return farbe;
-		}
-
-		public void setFarbe(ArrayList<String> farbe) {
-			this.farbe = farbe;
-		}
-
-		public int getSpAnzahl() {
-			return spAnzahl;
-		}
-
-		public int getX() {
-			return x;
-		}
-
-		public int getY() {
-			return y;
-		}
-
-		public int getA() {
-			return a;
-		}
-
-		public int getB() {
-			return b;
-		}
-
-		public int getC() {
-			return c;
-		}
-
-		public JFrame getMailFrame() {
-			return mailFrame;
-		}
-
-		public void setMailFrame(JFrame mailFrame) {
-			this.mailFrame = mailFrame;
-		}
-		
 
+	// ______________________________________getter und
+	// setter__________________________________//
+	public String getEmpfaenger() {
+		return empfaengerFeld.getText();
+	}
+
+	public ImageIcon getRotF() {
+		return RotF;
+	}
+
+	public void setRotF(ImageIcon rotF) {
+		RotF = rotF;
+	}
+
+	public ImageIcon getBlauF() {
+		return BlauF;
+	}
+
+	public void setBlauF(ImageIcon blauF) {
+		BlauF = blauF;
+	}
+
+	public ImageIcon getGelbF() {
+		return GelbF;
+	}
+
+	public void setGelbF(ImageIcon gelbF) {
+		GelbF = gelbF;
+	}
+
+	public ImageIcon getGruenF() {
+		return GruenF;
+	}
+
+	public void setGruenF(ImageIcon gruenF) {
+		GruenF = gruenF;
+	}
+
+	public ButtonGroup getGroup() {
+		return group;
+	}
+
+	public void setGroup(ButtonGroup group) {
+		this.group = group;
+	}
+
+	public ImageIcon getEins() {
+		return eins;
+	}
+
+	public void setEins(ImageIcon eins) {
+		this.eins = eins;
+	}
+
+	public JLabel getWuerfelt1() {
+		return wuerfelt1;
+	}
+
+	public void setWuerfelt1(JLabel wuerfelt1) {
+		this.wuerfelt1 = wuerfelt1;
+	}
+
+	public ImageIcon getZwei() {
+		return zwei;
+	}
+
+	public void setZwei(ImageIcon zwei) {
+		this.zwei = zwei;
+	}
+
+	public JLabel getWuerfelt2() {
+		return wuerfelt2;
+	}
+
+	public void setWuerfelt2(JLabel wuerfelt2) {
+		this.wuerfelt2 = wuerfelt2;
+	}
+
+	public ImageIcon getDrei() {
+		return drei;
+	}
+
+	public void setDrei(ImageIcon drei) {
+		this.drei = drei;
+	}
+
+	public JLabel getWuerfelt3() {
+		return wuerfelt3;
+	}
+
+	public void setWuerfelt3(JLabel wuerfelt3) {
+		this.wuerfelt3 = wuerfelt3;
+	}
+
+	public ImageIcon getVier() {
+		return vier;
+	}
+
+	public void setVier(ImageIcon vier) {
+		this.vier = vier;
+	}
+
+	public JLabel getWuerfelt4() {
+		return wuerfelt4;
+	}
+
+	public void setWuerfelt4(JLabel wuerfelt4) {
+		this.wuerfelt4 = wuerfelt4;
+	}
+
+	public ImageIcon getFuenf() {
+		return fuenf;
+	}
+
+	public void setFuenf(ImageIcon fuenf) {
+		this.fuenf = fuenf;
+	}
+
+	public JLabel getWuerfelt5() {
+		return wuerfelt5;
+	}
+
+	public void setWuerfelt5(JLabel wuerfelt5) {
+		this.wuerfelt5 = wuerfelt5;
+	}
+
+	public ImageIcon getSechs() {
+		return sechs;
+	}
+
+	public void setSechs(ImageIcon sechs) {
+		this.sechs = sechs;
+	}
+
+	public JLabel getWuerfelt6() {
+		return wuerfelt6;
+	}
+
+	public void setWuerfelt6(JLabel wuerfelt6) {
+		this.wuerfelt6 = wuerfelt6;
+	}
+
+	public JLabel getWuerfelL() {
+		return wuerfelL;
+	}
+
+	public void setWuerfelL(JLabel wuerfelL) {
+		this.wuerfelL = wuerfelL;
+	}
+
+	public ImageIcon getTest() {
+		return test;
+	}
+
+	public void setTest(ImageIcon test) {
+		this.test = test;
+	}
+
+	public JLabel getWuerfelt() {
+		return wuerfelt;
+	}
+
+	public void setWuerfelt(JLabel wuerfelt) {
+		this.wuerfelt = wuerfelt;
+	}
+
+	public ImageIcon getWuerfeln() {
+		return wuerfeln;
+	}
+
+	public void setWuerfeln(ImageIcon wuerfeln) {
+		this.wuerfeln = wuerfeln;
+	}
+
+	public JTextField getFeld01() {
+		return feld01;
+	}
+
+	public void setFeld01(JTextField feld01) {
+		this.feld01 = feld01;
+	}
+
+	public JSpinner getSpinner() {
+		return spinner;
+	}
+
+	public void setSpinner(JSpinner spinner) {
+		this.spinner = spinner;
+	}
+
+	public JRadioButton getRBRED() {
+		return RBRED;
+	}
+
+	public void setRBRED(JRadioButton rBRED) {
+		RBRED = rBRED;
+	}
+
+	public JRadioButton getRBGREEN() {
+		return RBGREEN;
+	}
+
+	public void setRBGREEN(JRadioButton rBGREEN) {
+		RBGREEN = rBGREEN;
+	}
+
+	public JRadioButton getRBBLUE() {
+		return RBBLUE;
+	}
+
+	public void setRBBLUE(JRadioButton rBBLUE) {
+		RBBLUE = rBBLUE;
+	}
+
+	public JRadioButton getRBYELLOW() {
+		return RBYELLOW;
+	}
+
+	public void setRBYELLOW(JRadioButton rBYELLOW) {
+		RBYELLOW = rBYELLOW;
+	}
+
+	public JRadioButton getMensch() {
+		return Mensch;
+	}
+
+	public void setMensch(JRadioButton mensch) {
+		Mensch = mensch;
+	}
+
+	public JRadioButton getKIa() {
+		return KIa;
+	}
+
+	public void setKIa(JRadioButton kIa) {
+		KIa = kIa;
+	}
+
+	public JRadioButton getKId() {
+		return KId;
+	}
+
+	public void setKId(JRadioButton kId) {
+		KId = kId;
+	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+
+	public JFrame getFrame02() {
+		return frame02;
+	}
+
+	public void setFrame02(JFrame frame02) {
+		this.frame02 = frame02;
+	}
+
+	public JButton getButtonWurf() {
+		return buttonWurf;
+	}
+
+	public void setButtonWurf(JButton buttonWurf) {
+		this.buttonWurf = buttonWurf;
+	}
+
+	public EventHandler getEh() {
+		return eh;
+	}
+
+	public void setEh(EventHandler eh) {
+		this.eh = eh;
+	}
+
+	public iBediener getBediener() {
+		return bediener;
+	}
+
+	public void setBediener(iBediener bediener) {
+		this.bediener = bediener;
+	}
+
+	public JFrame getHauptf() {
+		return hauptf;
+	}
+
+	public void setHauptf(JFrame hauptf) {
+		this.hauptf = hauptf;
+	}
+
+	public JPanel getHauptp() {
+		return hauptp;
+	}
+
+	public void setHauptp(JPanel hauptp) {
+		this.hauptp = hauptp;
+	}
+
+	public JButton[] getButtonArray() {
+		return buttonArray;
+	}
+
+	public void setButtonArray(JButton[] buttonArray) {
+		this.buttonArray = buttonArray;
+	}
+
+	public JTextArea getTa() {
+		return ta;
+	}
+
+	public void setTa(JTextArea ta) {
+		this.ta = ta;
+	}
+
+	public JScrollPane getScroller() {
+		return scroller;
+	}
+
+	public void setScroller(JScrollPane scroller) {
+		this.scroller = scroller;
+	}
+
+	public JButton getMitte() {
+		return mitte;
+	}
+
+	public void setMitte(JButton mitte) {
+		this.mitte = mitte;
+	}
+
+	public ArrayList<String> getFarbe() {
+		return farbe;
+	}
+
+	public void setFarbe(ArrayList<String> farbe) {
+		this.farbe = farbe;
+	}
+
+	public int getSpAnzahl() {
+		return spAnzahl;
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public int getA() {
+		return a;
+	}
+
+	public int getB() {
+		return b;
+	}
+
+	public int getC() {
+		return c;
+	}
+
+	public JFrame getMailFrame() {
+		return mailFrame;
+	}
+
+	public void setMailFrame(JFrame mailFrame) {
+		this.mailFrame = mailFrame;
+	}
+
+	public ImageIcon getRot() {
+		return Rot;
+	}
+
+	public void setRot(ImageIcon rot) {
+		Rot = rot;
+	}
+
+	public ImageIcon getBlau() {
+		return Blau;
+	}
+
+	public void setBlau(ImageIcon blau) {
+		Blau = blau;
+	}
+
+	public ImageIcon getGelb() {
+		return Gelb;
+	}
+
+	public void setGelb(ImageIcon gelb) {
+		Gelb = gelb;
+	}
+
+	public ImageIcon getGruen() {
+		return Gruen;
+	}
+
+	public void setGruen(ImageIcon gruen) {
+		Gruen = gruen;
+	}
+
+	public ImageIcon getFeldn() {
+		return feldn;
+	}
+
+	public void setFeldn(ImageIcon feldn) {
+		this.feldn = feldn;
+	}
 
 	// //////////////////////////////////////////////////////////////////////////////////
 

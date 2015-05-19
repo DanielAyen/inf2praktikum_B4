@@ -97,7 +97,7 @@ public class EventHandler implements ActionListener {
 					gui.setSpielerArt(null);
 				}
 				if (gui.getKIa().isSelected() == true) {
-					gui.setSpielerArt("AGGRESIV");
+					gui.setSpielerArt("AGGRESSIV");
 				}
 				if (gui.getKId().isSelected() == true) {
 					gui.setSpielerArt("DEFENSIV");
@@ -158,12 +158,19 @@ public class EventHandler implements ActionListener {
 				}
 				gui.getBediener().SpielerHinzufuegen(gui.getSpielerName(),
 						gui.getSpielerFarbe(), gui.getSpielerArt());
+				gui.log(gui.getBediener().getSpieler().toString());
 				gui.log("SpielerName: " + gui.getSpielerName() + "\n"
 						+ "SpielerFarbe:" + gui.getSpielerFarbe() + "\n"
 						+ "SpielerArt:" + gui.getSpielerArt());
-
-			} else
+			} else{
 				gui.log("Bitte Farbe Wählen");
+				}
+			gui.getBediener().setAmZug(gui.getBediener().getSpieler().get(0));
+			if (gui.getBediener().getAmZug().getKi()!= null){
+				gui.log("ki würfelt");
+			}else {
+				gui.log(gui.getBediener().getAmZug() + " ist am Zug");
+			}
 			break;
 		case "neues Spiel erstellen":
 			gui.anzahlSpielerDieSpielenWollenAbfrage();
