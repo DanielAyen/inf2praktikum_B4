@@ -81,25 +81,21 @@ public class GUI extends JFrame implements iMeldung{
 	private JFrame frame02;
 	private JFrame mailFrame;
 	private JButton buttonWurf;
-	private JButton buttonVor;
 //	private JFrame jf = new JFrame("SPIEL");
 	private EventHandler eh;
 	private int spAnzahl; // spielerAnzahl die im Spinner gewählt wird
 	private String spielerName;
-	// private Spiel s;
 	// private JLabel jl = new JLabel("");
 	// private JSpinner spinner;
 	// private boolean fehler;
 	private String spielerFarbe;
 	private String spielerArt;
-	// private Wuerfel w;
 	private iBediener bediener = new Spiel();
 	private JFrame hauptf = new JFrame("Spiel 'Mensch aergere dich nicht!'");
 	private JPanel hauptp = new JPanel(new BorderLayout());
 	private JButton[] buttonArray = new JButton[72];
 	private JTextArea ta = new JTextArea(8, 20);// fuer die Loggerfeld groesse
 	private JScrollPane scroller;
-	private boolean hatGewuerfelt;
 	private JButton mitte = new JButton("M");
 	private final int x = 35;
 	private final int y = 35;
@@ -433,13 +429,10 @@ public class GUI extends JFrame implements iMeldung{
 		// Bedieung
 		JPanel panelB = new JPanel();
 		panelB.setLayout(new BorderLayout());
-		buttonVor = new JButton("Figur vor");
 		buttonWurf = new JButton("Wuerfeln");
 
-		buttonVor.addActionListener(eh);
 		buttonWurf.addActionListener(eh);
 
-		panelB.add(buttonVor, BorderLayout.CENTER);
 		panelB.add(buttonWurf, BorderLayout.EAST);
 		hauptf.add(panelB, BorderLayout.EAST);
 
@@ -454,23 +447,45 @@ public class GUI extends JFrame implements iMeldung{
 		// if(spielErstellt || spielGeladen==true){
 		//
 		// }
-
-		if (hatGewuerfelt == false) { // Wenn nicht gewürfelt wurde darf man Vor
-										// nicht waehlen koennen, leider zeigts
-										// meine Buttons nicht an :(
-										// diese Abfrage muss er eig ständig
-										// machen
-
-			buttonVor.setEnabled(false);
-			buttonWurf.setEnabled(true);
-		} else {
-			buttonVor.setEnabled(true);
-			buttonWurf.setEnabled(false);
+	}
+	
+	public void playerIcons(String [] IDs, int pos_old){
+		if (IDs != null && IDs.length == 2){
+			int pos; 
+			if (IDs[0].length()< 3){
+				pos = Integer.parseInt(IDs[0]) + 15;
+			}else {
+				pos = 0;
+				if (IDs[0].contains("E")){
+					pos += 55;
+				}
+				if(IDs[0].contains("B")){
+					pos += 4;
+				}else if (IDs[0].contains("G")){
+					pos += 8;
+				}else if(IDs[0].contains ("Y")){
+					pos +=12;
+				}
+				pos += Integer.parseInt(IDs[0].substring(3, 3));
+			}
+			if (IDs[1] != null){
+				int pos2 = 0;
+				if(IDs[1].contains("B")){
+					pos2 += 4;
+				}else if (IDs[1].contains("G")){
+					pos2 += 8;
+				}else if(IDs[1].contains ("Y")){
+					pos2 +=12;
+				}
+				pos2 += Integer.parseInt(IDs[1].substring(3, 3));
+//				icon = ButtonArray[pos].getIcon() ?? 
+//				ButtonArray[pos] = default Icon (wird eh nochmal überschrieben)
+//				ButtonArray[pos2] = SpielfigurIcon auf Startfeld(geschlagen) -> farbe bei bedarf in IDs[1]
+			}
+//			icon = ButtonArray[pos].getIcon() ?? 
+//			ButtonArray[pos_old] = default Icon 
+//			ButtonArray[pos] = SpielfigurIcon (neue position, farbe bei bedarf in IDs[0]
 		}
-
-		//
-
-		// Spielfiguren anzeigen figuren abfragen und setzten
 	}
 
 	/**
@@ -1034,6 +1049,11 @@ public class GUI extends JFrame implements iMeldung{
 //		bediener.mailSenden();
 //	}
 	
+	public boolean compareIcon(ImageIcon i){
+		
+		return (i.equals(BlauF) || i.equals(RotF) || i.equals(GelbF) || i.equals(GruenF) );
+	}
+	
 	
 	//______________________________________getter und setter__________________________________//
 	 public String getEmpfaenger(){
@@ -1303,15 +1323,6 @@ public class GUI extends JFrame implements iMeldung{
 		public void setButtonWurf(JButton buttonWurf) {
 			this.buttonWurf = buttonWurf;
 		}
-
-		public JButton getButtonVor() {
-			return buttonVor;
-		}
-
-		public void setButtonVor(JButton buttonVor) {
-			this.buttonVor = buttonVor;
-		}
-
 		public EventHandler getEh() {
 			return eh;
 		}
@@ -1366,14 +1377,6 @@ public class GUI extends JFrame implements iMeldung{
 
 		public void setScroller(JScrollPane scroller) {
 			this.scroller = scroller;
-		}
-
-		public boolean isHatGewuerfelt() {
-			return hatGewuerfelt;
-		}
-
-		public void setHatGewuerfelt(boolean hatGewuerfelt) {
-			this.hatGewuerfelt = hatGewuerfelt;
 		}
 
 		public JButton getMitte() {

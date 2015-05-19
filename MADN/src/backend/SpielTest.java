@@ -26,10 +26,10 @@ public class SpielTest {
 	 */
 	public static void main(String[] args) {
 		
-		iBediener s = new Spiel();
-		s.SpielerHinzufuegen("Judith", "RED", null);
-		s.SpielerHinzufuegen("Chrizzly", "BLUE", "DEFFENSIV");
-		s.initSpiel();
+//		iBediener s = new Spiel();
+//		s.SpielerHinzufuegen("Judith", "RED", null);
+//		s.SpielerHinzufuegen("Chrizzly", "BLUE", "DEFFENSIV");
+//		s.initSpiel();
 
 	
 		

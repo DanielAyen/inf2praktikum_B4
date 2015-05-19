@@ -36,7 +36,7 @@ public class Endfeld extends Spielfeld implements Serializable {
 	public Endfeld(FarbEnum farbe) {
 		super();
 		super.setFarbe(farbe);
-		super.setID("E", (counterEnde % 4) + 1);
+		super.setID(farbe.getCapital() + "E", (counterEnde % 4) + 1);
 		counterEnde++;
 	}
 

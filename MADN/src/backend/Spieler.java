@@ -144,6 +144,14 @@ public class Spieler implements Serializable {
 	public String getName() {
 		return name;
 	}
+	public boolean hasSpielfigur(Spielfigur f){
+		for (Spielfigur sf: getSpielfiguren()){
+			if ( sf.equals(f)){
+				return true;
+			}
+		}
+		return false;
+	}
 
 	// ______________________Overrides_______________________________________________________//
 	@Override

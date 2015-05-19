@@ -64,7 +64,16 @@ public class Spielbrett implements Serializable {
 		return spielbrett;
 	}
 	
-	
+	public Spielfeld getSpielFeld (String ID){
+		for (FeldWrapper fw: spielbrett){
+			for (Spielfeld sf: fw.getFelder()){
+				if(sf.getID().equals(ID)){
+					return sf;
+				}
+			}
+		}
+		return null;
+	}
 	
 	@Override 
 	public String toString(){

@@ -28,7 +28,7 @@ public class Startfeld extends Spielfeld implements Serializable {
 	public Startfeld(FarbEnum farbe) {
 		super();
 		super.setFarbe(farbe);
-		super.setID("S", (counterStart % 4) + 1);
+		super.setID(farbe.getCapital() + "S", (counterStart % 4) + 1);
 		counterStart++;
 
 	}

@@ -21,7 +21,7 @@ public interface iBediener {
 	 */
 	public void initSpiel();
 	
-	public void zugDurchfuehren(int ID);
+	public String[] zugDurchfuehren(String ID);
 	public int wurf();
 	public void addSpieler(Spieler s);
 	public void setAmZug(Spieler amZug);

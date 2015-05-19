@@ -18,6 +18,8 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFileChooser;
 
 import backend.Spiel;
@@ -195,17 +197,6 @@ public class EventHandler implements ActionListener {
 				gui.getWuerfelL().setIcon(gui.getSechs());
 				break;
 			}
-			gui.getButtonVor().setEnabled(true);
-			gui.getButtonWurf().setEnabled(false);
-			break;
-		case "Figur vor":
-			gui.getBediener().getAmZug();
-			gui.getBediener()
-					.getRegelwerk()
-					.aktionsWahl(gui.getBediener().getAmZug(),
-							gui.getBediener().getAmZug().getSpielfigur(i));
-			gui.getButtonWurf().setEnabled(true);
-			gui.getButtonVor().setEnabled(false);
 			break;
 		case "Screenshot":
 			gui.screenshotErstellen();
@@ -311,11 +302,25 @@ public class EventHandler implements ActionListener {
 			gui.log("E-Mail wurde gesendet.");
 			gui.getMailFrame().dispose();
 			break;
-
-		case "figurButtongedrueckt":
-		//	gui.figurButtongedrueckt(); // ////////////////
-			break;
-
+		default: JButton b = (JButton) ae.getSource();
+		for(int i = 0; i< gui.getButtonArray().length; i++){
+			if ( gui.getButtonArray()[i] == b ){
+				if(gui.compareIcon((ImageIcon) b.getIcon()))	{
+					String ID_old = "";
+					if (i <= 15){
+						ID_old += "S" + (i%4+1);
+					}else if (i > 15 && i < 56){
+						ID_old += i -15;
+					}else 	if (i>= 56){
+						ID_old += "E" + (i%4+1);
+					}
+					gui.playerIcons(gui.getBediener().zugDurchfuehren(ID_old), i);
+					
+						
+					break;	
+					}
+				}
+			}
 		}
 	}
 }

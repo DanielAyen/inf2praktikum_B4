@@ -57,6 +57,16 @@ public class Spiel implements iBediener, Serializable {
 	 * @param id
 	 *            der Spielfigur
 	 */
+	
+	public String[] zugDurchfuehren(String ID) {
+		Spielfeld f = brett.getSpielFeld(ID);
+		if (getAmZug().hasSpielfigur(f.getSpielfigur())){
+			return regelwerk.aktionsWahl(getAmZug(), f.getSpielfigur());
+			
+//			getAmZug().getWuerfel().getErgebnis();
+		} return null;
+	}
+	
 	public void zugDurchfuehren(int ID) {
 
 		regelwerk.aktionsWahl(getAmZug(), getAmZug().getSpielfigur(ID));
